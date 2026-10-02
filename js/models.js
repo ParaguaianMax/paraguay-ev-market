@@ -1,1 +1,659 @@
-!function(t){const r=["BEV","PHEV","HEV","ICE","OTHERS"],e={BEV:"pill-bev",PHEV:"pill-phev",HEV:"pill-hev",ICE:"pill-ice",OTHERS:"pill-others"};function a(){return/\/pages\//.test(location.pathname)||/\/(share|volumes|trajectories|chargers|models)\.html$/.test(location.pathname)?"../data/Paraguay_models.csv":"data/Paraguay_models.csv"}function o(e){t.PYEV&&t.PYEV.parseCSV;const a=String(e||"").trim().split(/\r?\n/);if(a.length<2)return[];const o=n(a[0]).map((t=>t.trim())),i={motorizacion:"powertrain",unidades:"units",powertrain:"powertrain",units:"units"},s=o.map((t=>i[t.toLowerCase()]||t));return a.slice(1).filter(Boolean).map((t=>{const e=n(t),a={};s.forEach(((t,r)=>{a[t]=e[r]??""})),a.period=String(a.period||"").trim(),a.variant=String(a.variant||"Whole").trim()||"Whole";var o=String(a.segmento||"").trim().toLowerCase();return"leve"!==o&&"recreativo"!==o&&"pesado"!==o&&(o="leve"),a.segmento=o,a.marca=String(a.marca||"").trim(),a.modelo=String(a.modelo||"").trim(),a.powertrain=function(t){const e=String(t||"").trim().toUpperCase();return r.includes(e)||"BEV"===e||"PHEV"===e||"HEV"===e||"ICE"===e?e:"OTHERS"}(a.powertrain),a.units=Number(a.units)||0,a.source=String(a.source||"").trim(),a.notes=String(a.notes||"").trim(),a})).filter((t=>t.period&&t.units>0))}function n(t){const r=[];let e="",a=!1;for(let o=0;o<t.length;o++){const n=t[o];'"'===n?a&&'"'===t[o+1]?(e+='"',o++):a=!a:","!==n||a?e+=n:(r.push(e),e="")}return r.push(e),r}async function i(r){const e=r||a();try{const r=await fetch(e,{cache:"no-cache"});if(404===r.status)return{rows:[],missing:!0,url:e};if(!r.ok)throw new Error((t.PYEV&&t.PYEV.t("source_error"))+" "+e+" ("+r.status+")");const a=await r.text();if(!a||!a.trim()||a.trim().split(/\r?\n/).length<2)return{rows:[],missing:!0,url:e};const n=o(a);return n.sort(((t,r)=>t.period<r.period?-1:t.period>r.period?1:t.marca<r.marca?-1:t.marca>r.marca?1:t.modelo<r.modelo?-1:t.modelo>r.modelo?1:t.powertrain<r.powertrain?-1:t.powertrain>r.powertrain?1:0)),{rows:n,missing:n.length<50,url:e}}catch(t){if(t&&/Failed to fetch|NetworkError|404/i.test(String(t.message||t)))return{rows:[],missing:!0,url:e,error:t};throw t}}function s(t){return(t||[]).reduce(((t,r)=>t+(r.units||0)),0)}function l(t){const e={};return r.forEach((t=>e[t]=0)),(t||[]).forEach((t=>{e[t.powertrain]=(e[t.powertrain]||0)+t.units})),r.map((t=>({powertrain:t,units:e[t]||0}))).filter((t=>t.units>0))}function c(t,r){const e={};(t||[]).forEach((t=>{e[t.marca]||(e[t.marca]={marca:t.marca,total:0,byPt:{}}),e[t.marca].total+=t.units,e[t.marca].byPt[t.powertrain]=(e[t.marca].byPt[t.powertrain]||0)+t.units}));let a=Object.values(e).sort(((t,r)=>r.total-t.total));if(r&&a.length>r){const t=a.slice(0,r),e=a.slice(r),o={marca:"…",total:0,byPt:{},isOther:!0};e.forEach((t=>{o.total+=t.total,Object.keys(t.byPt).forEach((r=>{o.byPt[r]=(o.byPt[r]||0)+t.byPt[r]}))})),o.total&&t.push(o),a=t}return a}function d(t,r){const e={};(t||[]).forEach((t=>{const r=t.marca+"\0"+t.modelo+"\0"+t.powertrain;e[r]||(e[r]={marca:t.marca,modelo:t.modelo,powertrain:t.powertrain,units:0,label:t.marca+" "+t.modelo}),e[r].units+=t.units}));let a=Object.values(e).sort(((t,r)=>r.units-t.units));return r&&(a=a.slice(0,r)),a}function m(t){return'<span class="pill '+(e[t]||"pill-others")+'">'+t+"</span>"}function u(r){return t.PYEV&&t.PYEV.fmtInt?t.PYEV.fmtInt(r):String(Math.round(r))}function p(r){return t.PYEV&&t.PYEV.t?t.PYEV.t(r):r}function f(r){const e=!(!t.PYEV||!t.PYEV.isDark)&&t.PYEV.isDark(),a=e?"#3a3934":"#e4e2dd",o=e?"#ecebe6":"#1a1a18",n=e?"#aeaba2":"#55534c";return Object.assign({paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{family:'Public Sans, "Helvetica Neue", system-ui, sans-serif',color:o,size:12},margin:{t:28,r:24,b:48,l:56},legend:{orientation:"h",y:1.12,x:0,font:{size:11,color:n},bgcolor:"rgba(0,0,0,0)"},xaxis:{gridcolor:a,zeroline:!1,linecolor:a,tickfont:{size:11,color:n}},yaxis:{gridcolor:a,zeroline:!1,linecolor:a,tickfont:{size:11,color:n},title:{text:p("units"),font:{size:11,color:n}}}},r||{})}function h(){return t.PYEV&&t.PYEV.colors&&t.PYEV.colors()||{BEV:"#2f6b45",PHEV:"#1d4f91",HEV:"#8a6a12",OTHERS:"#6b4f9a",ICE:"#6b6860"}}function g(t){return String(t).replace(/&/g,"&").replace(/</g,"<").replace(/>/g,">").replace(/"/g,""")}t.PYEVModels={POWERTRAINS:r,loadParaguayModels:i,parseModelsCSV:o,resolveModelsUrl:a,periodsOf:function(t){return[...new Set((t||[]).map((t=>t.period)).filter(Boolean))].sort()},brandsOf:function(t){return[...new Set((t||[]).map((t=>t.marca)).filter(Boolean))].sort(((t,r)=>t.localeCompare(r,void 0,{sensitivity:"base"})))},modelsOf:function(t,r){return[...new Set((t||[]).filter((t=>!r||t.marca===r)).map((t=>t.modelo)).filter(Boolean))].sort(((t,r)=>t.localeCompare(r,void 0,{sensitivity:"base"})))},powertrainsOf:function(t){const e=new Set((t||[]).map((t=>t.powertrain)));return r.filter((t=>e.has(t)))},filterModels:function(r,e){let a=r||[];if((e=e||{}).period&&(a=a.filter((t=>t.period===e.period))),e.variant&&(a=a.filter((t=>t.variant===e.variant))),e.segmento){const r=t.PYEV&&t.PYEV.normalizeSegment?t.PYEV.normalizeSegment(e.segmento):e.segmento;a=a.filter((t=>t.segmento===r))}if(e.powertrains&&e.powertrains.length){const t=new Set(e.powertrains);a=a.filter((r=>t.has(r.powertrain)))}if(e.marca&&(a=a.filter((t=>t.marca===e.marca))),e.modelo&&(a=a.filter((t=>t.modelo===e.modelo))),e.marcaQuery){const t=String(e.marcaQuery).trim().toLowerCase();t&&(a=a.filter((r=>r.marca.toLowerCase().includes(t))))}return a},sumUnits:s,byPowertrain:l,byBrand:c,byModel:d,pillHtml:m,renderGeneralChart:function(r,e){if(!r||!t.Plotly)return;const a=l(e);if(!a.length)return void(r.innerHTML='<div class="status">'+p("models_empty_filter")+"</div>");const o=h(),n=[{type:"bar",x:a.map((t=>t.powertrain)),y:a.map((t=>t.units)),text:a.map((t=>u(t.units))),textposition:"outside",marker:{color:a.map((t=>o[t.powertrain]||o.OTHERS))},hovertemplate:"%{x}: %{y:,}<extra></extra>",name:p("units")}];Plotly.newPlot(r,n,f({showlegend:!1,margin:{t:36,r:24,b:48,l:56}}),{responsive:!0,displayModeBar:!1})},renderBrandChart:function(e,a){if(!e||!t.Plotly)return;const o=c(a,15);if(!o.length)return void(e.innerHTML='<div class="status">'+p("models_empty_filter")+"</div>");const n=h(),i=o.map((t=>t.marca)),s=r.map((t=>({type:"bar",name:t,x:i,y:o.map((r=>r.byPt[t]||0)),marker:{color:n[t]},hovertemplate:"%{x} · "+t+": %{y:,}<extra></extra>"}))).filter((t=>t.y.some((t=>t>0))));Plotly.newPlot(e,s,f({barmode:"stack",xaxis:Object.assign({},f().xaxis,{tickangle:-35}),margin:{t:36,r:16,b:88,l:56}}),{responsive:!0,displayModeBar:!1})},renderModelChart:function(r,e){if(!r||!t.Plotly)return;const a=d(e,25);if(!a.length)return void(r.innerHTML='<div class="status">'+p("models_empty_filter")+"</div>");const o=h(),n=a.map((t=>t.marca+" "+t.modelo+" · "+t.powertrain)).reverse(),i=a.map((t=>t.units)).reverse(),s=a.map((t=>t.powertrain)).reverse();Plotly.newPlot(r,[{type:"bar",orientation:"h",y:n,x:i,text:i.map(u),textposition:"outside",marker:{color:s.map((t=>o[t]||o.OTHERS))},hovertemplate:"%{y}<br>%{x:,}<extra></extra>"}],f({showlegend:!1,height:Math.max(360,22*a.length+80),margin:{t:24,r:64,b:40,l:180},xaxis:Object.assign({},f().xaxis,{title:{text:p("units")}}),yaxis:Object.assign({},f().yaxis,{title:"",automargin:!0})}),{responsive:!0,displayModeBar:!1})},renderGeneralTable:function(t,r){if(!t)return;const e=l(r),a=s(r);if(!e.length)return void(t.innerHTML="");let o='<div class="data-table-wrap"><table class="data"><thead><tr><th>'+p("models_col_pt")+"</th><th class='num'>"+p("units")+"</th><th class='num'>%</th></tr></thead><tbody>";e.forEach((t=>{const r=a?(100*t.units/a).toFixed(1)+"%":"—";o+="<tr><td>"+m(t.powertrain)+"</td><td class='num'>"+u(t.units)+"</td><td class='num'>"+r+"</td></tr>"})),o+="<tr><td><strong>"+p("total")+"</strong></td><td class='num'><strong>"+u(a)+"</strong></td><td class='num'>100%</td></tr>",o+="</tbody></table></div>",t.innerHTML=o},renderBrandTable:function(t,e){if(!t)return;const a=c(e,50);if(!a.length)return void(t.innerHTML="");const o=[];a.forEach((t=>{r.forEach((r=>{const e=t.byPt[r]||0;e>0&&o.push({marca:t.marca,powertrain:r,units:e,total:t.total})}))})),o.sort(((t,r)=>r.total-t.total||r.units-t.units));let n='<div class="data-table-wrap"><table class="data"><thead><tr><th>'+p("models_col_brand")+"</th><th>"+p("models_col_pt")+"</th><th class='num'>"+p("units")+"</th></tr></thead><tbody>";o.forEach((t=>{n+="<tr><td>"+g(t.marca)+"</td><td>"+m(t.powertrain)+"</td><td class='num'>"+u(t.units)+"</td></tr>"})),n+="</tbody></table></div>",t.innerHTML=n},renderModelTable:function(t,r){if(!t)return;const e=d(r,100);if(!e.length)return void(t.innerHTML="");let a='<div class="data-table-wrap"><table class="data"><thead><tr><th>'+p("models_col_brand")+"</th><th>"+p("models_col_model")+"</th><th>"+p("models_col_pt")+"</th><th class='num'>"+p("units")+"</th></tr></thead><tbody>";e.forEach((t=>{a+="<tr><td>"+g(t.marca)+"</td><td>"+g(t.modelo)+"</td><td>"+m(t.powertrain)+"</td><td class='num'>"+u(t.units)+"</td></tr>"})),a+="</tbody></table></div>",t.innerHTML=a},restyleTheme:function(r){if(r&&r.data&&t.Plotly)try{Plotly.relayout(r,f())}catch(t){}}},t.PYEV?t.PYEV.loadParaguayModels=i:t.PYEV={loadParaguayModels:i}}("undefined"!=typeof window?window:globalThis);
+/**
+ * Brand/model detail for Volume/Marcas page.
+ * Prefers data/models/YYYY-MM.csv (or manifest.json); falls back to Paraguay_models.csv.
+ * Header: period,variant,segmento,marca,modelo,powertrain,units,source,notes
+ */
+(function (global) {
+  const POWERTRAINS = ["BEV", "PHEV", "HEV", "ICE", "OTHERS"];
+  const PILL = {
+    BEV: "pill-bev",
+    PHEV: "pill-phev",
+    HEV: "pill-hev",
+    ICE: "pill-ice",
+    OTHERS: "pill-others",
+  };
+  const MIN_ROWS = 50;
+
+  function inPages() {
+    return (
+      /\/pages\//.test(location.pathname) ||
+      /\/(share|volumes|trajectories|chargers|models)\.html$/.test(location.pathname)
+    );
+  }
+
+  function dataBase() {
+    return inPages() ? "../data" : "data";
+  }
+
+  function resolveModelsUrl() {
+    return dataBase() + "/Paraguay_models.csv";
+  }
+
+  function resolveModelsDir() {
+    return dataBase() + "/models";
+  }
+
+  function resolveParaguayUrl() {
+    return dataBase() + "/Paraguay.csv";
+  }
+
+  function splitCSVLine(line) {
+    const out = [];
+    let cur = "";
+    let inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') {
+        if (inQ && line[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else {
+          inQ = !inQ;
+        }
+      } else if (c === "," && !inQ) {
+        out.push(cur);
+        cur = "";
+      } else {
+        cur += c;
+      }
+    }
+    out.push(cur);
+    return out;
+  }
+
+  function normalizePowertrain(v) {
+    const e = String(v || "").trim().toUpperCase();
+    return POWERTRAINS.includes(e) ? e : "OTHERS";
+  }
+
+  function parseModelsCSV(text) {
+    const lines = String(text || "").trim().split(/\r?\n/);
+    if (lines.length < 2) return [];
+    const rawHeaders = splitCSVLine(lines[0]).map((h) => h.trim());
+    const alias = {
+      motorizacion: "powertrain",
+      unidades: "units",
+      powertrain: "powertrain",
+      units: "units",
+    };
+    const headers = rawHeaders.map((h) => alias[h.toLowerCase()] || h);
+    return lines
+      .slice(1)
+      .filter(Boolean)
+      .map((line) => {
+        const cols = splitCSVLine(line);
+        const row = {};
+        headers.forEach((h, i) => {
+          row[h] = cols[i] ?? "";
+        });
+        row.period = String(row.period || "").trim();
+        row.variant = String(row.variant || "Whole").trim() || "Whole";
+        let seg = String(row.segmento || "").trim().toLowerCase();
+        if (seg !== "leve" && seg !== "recreativo" && seg !== "pesado") seg = "leve";
+        row.segmento = seg;
+        row.marca = String(row.marca || "").trim();
+        row.modelo = String(row.modelo || "").trim();
+        row.powertrain = normalizePowertrain(row.powertrain);
+        row.units = Number(row.units) || 0;
+        row.source = String(row.source || "").trim();
+        row.notes = String(row.notes || "").trim();
+        return row;
+      })
+      .filter((r) => r.period && r.units > 0);
+  }
+
+  function sortModelRows(rows) {
+    rows.sort((a, b) => {
+      if (a.period < b.period) return -1;
+      if (a.period > b.period) return 1;
+      if (a.marca < b.marca) return -1;
+      if (a.marca > b.marca) return 1;
+      if (a.modelo < b.modelo) return -1;
+      if (a.modelo > b.modelo) return 1;
+      if (a.powertrain < b.powertrain) return -1;
+      if (a.powertrain > b.powertrain) return 1;
+      return 0;
+    });
+    return rows;
+  }
+
+  async function fetchText(url) {
+    try {
+      const res = await fetch(url, { cache: "no-cache" });
+      if (res.status === 404) return null;
+      if (!res.ok) return null;
+      const text = await res.text();
+      if (!text || !text.trim()) return null;
+      return text;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /** periods from aggregated Paraguay.csv */
+  async function periodsFromParaguay() {
+    const text = await fetchText(resolveParaguayUrl());
+    if (!text) return [];
+    const lines = text.trim().split(/\r?\n/);
+    if (lines.length < 2) return [];
+    const headers = splitCSVLine(lines[0]).map((h) => h.trim());
+    const pi = headers.indexOf("period");
+    if (pi < 0) return [];
+    const set = new Set();
+    lines.slice(1).forEach((line) => {
+      if (!line) return;
+      const cols = splitCSVLine(line);
+      const p = String(cols[pi] || "").trim();
+      if (/^\d{4}-\d{2}$/.test(p)) set.add(p);
+    });
+    return [...set].sort();
+  }
+
+  /**
+   * Discover monthly files:
+   * 1) data/models/manifest.json — { "files": ["2026-01.csv", ...] } or string[]
+   * 2) data/models/index.json — same shapes
+   * 3) periods from Paraguay.csv → try data/models/YYYY-MM.csv
+   */
+  async function discoverMonthlyFiles() {
+    const dir = resolveModelsDir();
+    const tryManifest = async (name) => {
+      const text = await fetchText(dir + "/" + name);
+      if (!text) return null;
+      try {
+        const j = JSON.parse(text);
+        let files = null;
+        if (Array.isArray(j)) files = j;
+        else if (j && Array.isArray(j.files)) files = j.files;
+        else if (j && Array.isArray(j.months)) {
+          files = j.months.map((m) =>
+            String(m).endsWith(".csv") ? String(m) : String(m) + ".csv"
+          );
+        }
+        if (!files || !files.length) return null;
+        return files.map((f) => {
+          const name = String(f).replace(/^.*\//, "");
+          return name.endsWith(".csv") ? name : name + ".csv";
+        });
+      } catch (e) {
+        return null;
+      }
+    };
+
+    let files = await tryManifest("manifest.json");
+    if (!files) files = await tryManifest("index.json");
+    if (files && files.length) {
+      return files.map((f) => dir + "/" + f);
+    }
+
+    const periods = await periodsFromParaguay();
+    return periods.map((p) => dir + "/" + p + ".csv");
+  }
+
+  async function loadMonthlyModels() {
+    const urls = await discoverMonthlyFiles();
+    if (!urls.length) return { rows: [], sources: [] };
+    const results = await Promise.all(
+      urls.map(async (url) => {
+        const text = await fetchText(url);
+        if (!text) return null;
+        const lines = text.trim().split(/\r?\n/);
+        if (lines.length < 2) return null;
+        const rows = parseModelsCSV(text);
+        if (!rows.length) return null;
+        return { url, rows };
+      })
+    );
+    const ok = results.filter(Boolean);
+    const rows = [];
+    const sources = [];
+    ok.forEach((r) => {
+      rows.push(...r.rows);
+      sources.push(r.url);
+    });
+    return { rows, sources };
+  }
+
+  async function loadAssembledFallback() {
+    const url = resolveModelsUrl();
+    const text = await fetchText(url);
+    if (!text) return { rows: [], missing: true, url };
+    const lines = text.trim().split(/\r?\n/);
+    if (lines.length < 2) return { rows: [], missing: true, url };
+    const rows = parseModelsCSV(text);
+    // Placeholder / header-only / tiny stub → treat as missing
+    if (rows.length < MIN_ROWS) return { rows: [], missing: true, url, stub: true };
+    return { rows, missing: false, url };
+  }
+
+  async function loadParaguayModels(explicitUrl) {
+    // Explicit URL (tests / overrides) → single file only
+    if (explicitUrl) {
+      const text = await fetchText(explicitUrl);
+      if (!text) return { rows: [], missing: true, url: explicitUrl };
+      const rows = sortModelRows(parseModelsCSV(text));
+      return { rows, missing: rows.length < MIN_ROWS, url: explicitUrl };
+    }
+
+    try {
+      const monthly = await loadMonthlyModels();
+      if (monthly.rows.length >= MIN_ROWS || monthly.sources.length > 0) {
+        const rows = sortModelRows(monthly.rows);
+        return {
+          rows,
+          missing: !rows.length,
+          url: monthly.sources.join(",") || resolveModelsDir(),
+          sources: monthly.sources,
+          mode: "monthly",
+        };
+      }
+
+      const fallback = await loadAssembledFallback();
+      const rows = sortModelRows(fallback.rows || []);
+      return {
+        rows,
+        missing: fallback.missing || rows.length < MIN_ROWS,
+        url: fallback.url,
+        mode: "assembled",
+      };
+    } catch (err) {
+      if (err && /Failed to fetch|NetworkError|404/i.test(String(err.message || err))) {
+        return { rows: [], missing: true, url: resolveModelsUrl(), error: err };
+      }
+      throw err;
+    }
+  }
+
+  function sumUnits(rows) {
+    return (rows || []).reduce((a, r) => a + (r.units || 0), 0);
+  }
+
+  function byPowertrain(rows) {
+    const e = {};
+    POWERTRAINS.forEach((p) => (e[p] = 0));
+    (rows || []).forEach((r) => {
+      e[r.powertrain] = (e[r.powertrain] || 0) + r.units;
+    });
+    return POWERTRAINS.map((p) => ({ powertrain: p, units: e[p] || 0 })).filter(
+      (x) => x.units > 0
+    );
+  }
+
+  function byBrand(rows, topN) {
+    const e = {};
+    (rows || []).forEach((r) => {
+      if (!e[r.marca]) e[r.marca] = { marca: r.marca, total: 0, byPt: {} };
+      e[r.marca].total += r.units;
+      e[r.marca].byPt[r.powertrain] = (e[r.marca].byPt[r.powertrain] || 0) + r.units;
+    });
+    let a = Object.values(e).sort((x, y) => y.total - x.total);
+    if (topN && a.length > topN) {
+      const keep = a.slice(0, topN);
+      const rest = a.slice(topN);
+      const other = { marca: "…", total: 0, byPt: {}, isOther: true };
+      rest.forEach((r) => {
+        other.total += r.total;
+        Object.keys(r.byPt).forEach((pt) => {
+          other.byPt[pt] = (other.byPt[pt] || 0) + r.byPt[pt];
+        });
+      });
+      if (other.total) keep.push(other);
+      a = keep;
+    }
+    return a;
+  }
+
+  function byModel(rows, topN) {
+    const e = {};
+    (rows || []).forEach((r) => {
+      const k = r.marca + "\0" + r.modelo + "\0" + r.powertrain;
+      if (!e[k]) {
+        e[k] = {
+          marca: r.marca,
+          modelo: r.modelo,
+          powertrain: r.powertrain,
+          units: 0,
+          label: r.marca + " " + r.modelo,
+        };
+      }
+      e[k].units += r.units;
+    });
+    let a = Object.values(e).sort((x, y) => y.units - x.units);
+    if (topN) a = a.slice(0, topN);
+    return a;
+  }
+
+  function pillHtml(pt) {
+    return '<span class="pill ' + (PILL[pt] || "pill-others") + '">' + pt + "</span>";
+  }
+
+  function fmt(n) {
+    return global.PYEV && global.PYEV.fmtInt
+      ? global.PYEV.fmtInt(n)
+      : String(Math.round(n));
+  }
+
+  function t(k) {
+    return global.PYEV && global.PYEV.t ? global.PYEV.t(k) : k;
+  }
+
+  function chartLayout(extra) {
+    const dark = !!(global.PYEV && global.PYEV.isDark && global.PYEV.isDark());
+    const grid = dark ? "#3a3934" : "#e4e2dd";
+    const ink = dark ? "#ecebe6" : "#1a1a18";
+    const muted = dark ? "#aeaba2" : "#55534c";
+    return Object.assign(
+      {
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        font: {
+          family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif',
+          color: ink,
+          size: 12,
+        },
+        margin: { t: 28, r: 24, b: 48, l: 56 },
+        legend: {
+          orientation: "h",
+          y: 1.12,
+          x: 0,
+          font: { size: 11, color: muted },
+          bgcolor: "rgba(0,0,0,0)",
+        },
+        xaxis: {
+          gridcolor: grid,
+          zeroline: false,
+          linecolor: grid,
+          tickfont: { size: 11, color: muted },
+        },
+        yaxis: {
+          gridcolor: grid,
+          zeroline: false,
+          linecolor: grid,
+          tickfont: { size: 11, color: muted },
+          title: { text: t("units"), font: { size: 11, color: muted } },
+        },
+      },
+      extra || {}
+    );
+  }
+
+  function colors() {
+    return (
+      (global.PYEV && global.PYEV.colors && global.PYEV.colors()) || {
+        BEV: "#2f6b45",
+        PHEV: "#1d4f91",
+        HEV: "#8a6a12",
+        OTHERS: "#6b4f9a",
+        ICE: "#6b6860",
+      }
+    );
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  global.PYEVModels = {
+    POWERTRAINS,
+    loadParaguayModels,
+    parseModelsCSV,
+    resolveModelsUrl,
+    resolveModelsDir,
+    periodsOf: function (rows) {
+      return [...new Set((rows || []).map((r) => r.period).filter(Boolean))].sort();
+    },
+    brandsOf: function (rows) {
+      return [...new Set((rows || []).map((r) => r.marca).filter(Boolean))].sort((a, b) =>
+        a.localeCompare(b, undefined, { sensitivity: "base" })
+      );
+    },
+    modelsOf: function (rows, marca) {
+      return [
+        ...new Set(
+          (rows || [])
+            .filter((r) => !marca || r.marca === marca)
+            .map((r) => r.modelo)
+            .filter(Boolean)
+        ),
+      ].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
+    },
+    powertrainsOf: function (rows) {
+      const s = new Set((rows || []).map((r) => r.powertrain));
+      return POWERTRAINS.filter((p) => s.has(p));
+    },
+    filterModels: function (rows, opts) {
+      let a = rows || [];
+      opts = opts || {};
+      if (opts.period) a = a.filter((r) => r.period === opts.period);
+      if (opts.variant) a = a.filter((r) => r.variant === opts.variant);
+      if (opts.segmento) {
+        const seg =
+          global.PYEV && global.PYEV.normalizeSegment
+            ? global.PYEV.normalizeSegment(opts.segmento)
+            : opts.segmento;
+        a = a.filter((r) => r.segmento === seg);
+      }
+      if (opts.powertrains && opts.powertrains.length) {
+        const set = new Set(opts.powertrains);
+        a = a.filter((r) => set.has(r.powertrain));
+      }
+      if (opts.marca) a = a.filter((r) => r.marca === opts.marca);
+      if (opts.modelo) a = a.filter((r) => r.modelo === opts.modelo);
+      if (opts.marcaQuery) {
+        const q = String(opts.marcaQuery).trim().toLowerCase();
+        if (q) a = a.filter((r) => r.marca.toLowerCase().includes(q));
+      }
+      return a;
+    },
+    sumUnits,
+    byPowertrain,
+    byBrand,
+    byModel,
+    pillHtml,
+    renderGeneralChart: function (el, rows) {
+      if (!el || !global.Plotly) return;
+      const data = byPowertrain(rows);
+      if (!data.length) {
+        el.innerHTML = '<div class="status">' + t("models_empty_filter") + "</div>";
+        return;
+      }
+      const c = colors();
+      Plotly.newPlot(
+        el,
+        [
+          {
+            type: "bar",
+            x: data.map((d) => d.powertrain),
+            y: data.map((d) => d.units),
+            text: data.map((d) => fmt(d.units)),
+            textposition: "outside",
+            marker: { color: data.map((d) => c[d.powertrain] || c.OTHERS) },
+            hovertemplate: "%{x}: %{y:,}<extra></extra>",
+            name: t("units"),
+          },
+        ],
+        chartLayout({ showlegend: false, margin: { t: 36, r: 24, b: 48, l: 56 } }),
+        { responsive: true, displayModeBar: false }
+      );
+    },
+    renderBrandChart: function (el, rows) {
+      if (!el || !global.Plotly) return;
+      const brands = byBrand(rows, 15);
+      if (!brands.length) {
+        el.innerHTML = '<div class="status">' + t("models_empty_filter") + "</div>";
+        return;
+      }
+      const c = colors();
+      const x = brands.map((b) => b.marca);
+      const traces = POWERTRAINS.map((pt) => ({
+        type: "bar",
+        name: pt,
+        x,
+        y: brands.map((b) => b.byPt[pt] || 0),
+        marker: { color: c[pt] },
+        hovertemplate: "%{x} · " + pt + ": %{y:,}<extra></extra>",
+      })).filter((tr) => tr.y.some((v) => v > 0));
+      Plotly.newPlot(
+        el,
+        traces,
+        chartLayout({
+          barmode: "stack",
+          xaxis: Object.assign({}, chartLayout().xaxis, { tickangle: -35 }),
+          margin: { t: 36, r: 16, b: 88, l: 56 },
+        }),
+        { responsive: true, displayModeBar: false }
+      );
+    },
+    renderModelChart: function (el, rows) {
+      if (!el || !global.Plotly) return;
+      const models = byModel(rows, 25);
+      if (!models.length) {
+        el.innerHTML = '<div class="status">' + t("models_empty_filter") + "</div>";
+        return;
+      }
+      const c = colors();
+      const y = models.map((m) => m.marca + " " + m.modelo + " · " + m.powertrain).reverse();
+      const x = models.map((m) => m.units).reverse();
+      const pts = models.map((m) => m.powertrain).reverse();
+      Plotly.newPlot(
+        el,
+        [
+          {
+            type: "bar",
+            orientation: "h",
+            y,
+            x,
+            text: x.map(fmt),
+            textposition: "outside",
+            marker: { color: pts.map((p) => c[p] || c.OTHERS) },
+            hovertemplate: "%{y}<br>%{x:,}<extra></extra>",
+          },
+        ],
+        chartLayout({
+          showlegend: false,
+          height: Math.max(360, 22 * models.length + 80),
+          margin: { t: 24, r: 64, b: 40, l: 180 },
+          xaxis: Object.assign({}, chartLayout().xaxis, { title: { text: t("units") } }),
+          yaxis: Object.assign({}, chartLayout().yaxis, { title: "", automargin: true }),
+        }),
+        { responsive: true, displayModeBar: false }
+      );
+    },
+    renderGeneralTable: function (el, rows) {
+      if (!el) return;
+      const data = byPowertrain(rows);
+      const total = sumUnits(rows);
+      if (!data.length) {
+        el.innerHTML = "";
+        return;
+      }
+      let html =
+        '<div class="data-table-wrap"><table class="data"><thead><tr><th>' +
+        t("models_col_pt") +
+        "</th><th class='num'>" +
+        t("units") +
+        "</th><th class='num'>%</th></tr></thead><tbody>";
+      data.forEach((d) => {
+        const pct = total ? ((100 * d.units) / total).toFixed(1) + "%" : "—";
+        html +=
+          "<tr><td>" +
+          pillHtml(d.powertrain) +
+          "</td><td class='num'>" +
+          fmt(d.units) +
+          "</td><td class='num'>" +
+          pct +
+          "</td></tr>";
+      });
+      html +=
+        "<tr><td><strong>" +
+        t("total") +
+        "</strong></td><td class='num'><strong>" +
+        fmt(total) +
+        "</strong></td><td class='num'>100%</td></tr>";
+      html += "</tbody></table></div>";
+      el.innerHTML = html;
+    },
+    renderBrandTable: function (el, rows) {
+      if (!el) return;
+      const brands = byBrand(rows, 50);
+      if (!brands.length) {
+        el.innerHTML = "";
+        return;
+      }
+      const flat = [];
+      brands.forEach((b) => {
+        POWERTRAINS.forEach((pt) => {
+          const u = b.byPt[pt] || 0;
+          if (u > 0) flat.push({ marca: b.marca, powertrain: pt, units: u, total: b.total });
+        });
+      });
+      flat.sort((a, b) => b.total - a.total || b.units - a.units);
+      let html =
+        '<div class="data-table-wrap"><table class="data"><thead><tr><th>' +
+        t("models_col_brand") +
+        "</th><th>" +
+        t("models_col_pt") +
+        "</th><th class='num'>" +
+        t("units") +
+        "</th></tr></thead><tbody>";
+      flat.forEach((r) => {
+        html +=
+          "<tr><td>" +
+          esc(r.marca) +
+          "</td><td>" +
+          pillHtml(r.powertrain) +
+          "</td><td class='num'>" +
+          fmt(r.units) +
+          "</td></tr>";
+      });
+      html += "</tbody></table></div>";
+      el.innerHTML = html;
+    },
+    renderModelTable: function (el, rows) {
+      if (!el) return;
+      const models = byModel(rows, 100);
+      if (!models.length) {
+        el.innerHTML = "";
+        return;
+      }
+      let html =
+        '<div class="data-table-wrap"><table class="data"><thead><tr><th>' +
+        t("models_col_brand") +
+        "</th><th>" +
+        t("models_col_model") +
+        "</th><th>" +
+        t("models_col_pt") +
+        "</th><th class='num'>" +
+        t("units") +
+        "</th></tr></thead><tbody>";
+      models.forEach((r) => {
+        html +=
+          "<tr><td>" +
+          esc(r.marca) +
+          "</td><td>" +
+          esc(r.modelo) +
+          "</td><td>" +
+          pillHtml(r.powertrain) +
+          "</td><td class='num'>" +
+          fmt(r.units) +
+          "</td></tr>";
+      });
+      html += "</tbody></table></div>";
+      el.innerHTML = html;
+    },
+    restyleTheme: function (el) {
+      if (el && el.data && global.Plotly) {
+        try {
+          Plotly.relayout(el, chartLayout());
+        } catch (e) {}
+      }
+    },
+  };
+
+  if (global.PYEV) global.PYEV.loadParaguayModels = loadParaguayModels;
+  else global.PYEV = { loadParaguayModels };
+})(typeof window !== "undefined" ? window : globalThis);
