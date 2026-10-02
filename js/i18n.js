@@ -29,6 +29,21 @@
       models_all_brands: "Todas las marcas", models_all_models: "Todos los modelos",
       models_rows: "{n} filas", models_foot: "Fuente: Aduana PY · detalle marca/modelo. Incluye vehículos nuevos y usados.",
       card_models: "Marcas y modelos", card_models_desc: "Volúmenes por marca, modelo y motorización (BEV / PHEV / HEV / ICE).",
+
+      vol_rankings_title: "Top marcas y modelos",
+      vol_rankings_lead: "Ranking de hasta 100 marcas y 100 modelos en el período elegido. Las barras apiladas muestran BEV, PHEV, HEV, ICE y OTHERS.",
+      vol_top_brands: "Top 100 marcas",
+      vol_top_brands_lead: "Unidades por marca con desglose de motorización. Buscá para filtrar dentro del ranking.",
+      vol_top_models: "Top 100 modelos",
+      vol_top_models_lead: "Unidades por modelo (marca + nombre). Cada segmento de la barra es un powertrain.",
+      vol_period_month: "Mes",
+      vol_period_year: "Año",
+      vol_period_ytd: "YTD",
+      vol_year_label: "Año",
+      vol_search_brand: "Buscar marca…",
+      vol_search_model: "Buscar modelo…",
+      vol_showing_n: "Mostrando {n}",
+      vol_rank_foot: "Fuente: Aduana PY · detalle marca/modelo. Serie livianos (+ camionetas cuando hay dato). Incluye vehículos nuevos y usados.",
       next_models: "Marcas →", prev_models: "← Marcas"
     },
     pt: {
@@ -56,6 +71,21 @@
       models_all_brands: "Todas as marcas", models_all_models: "Todos os modelos",
       models_rows: "{n} linhas", models_foot: "Fonte: Aduana PY · detalhe marca/modelo. Inclui veículos novos e usados.",
       card_models: "Marcas e modelos", card_models_desc: "Volumes por marca, modelo e motorização (BEV / PHEV / HEV / ICE).",
+
+      vol_rankings_title: "Top marcas e modelos",
+      vol_rankings_lead: "Ranking de até 100 marcas e 100 modelos no período escolhido. As barras empilhadas mostram BEV, PHEV, HEV, ICE e OTHERS.",
+      vol_top_brands: "Top 100 marcas",
+      vol_top_brands_lead: "Unidades por marca com detalhe de motorização. Busque para filtrar dentro do ranking.",
+      vol_top_models: "Top 100 modelos",
+      vol_top_models_lead: "Unidades por modelo (marca + nome). Cada segmento da barra é um powertrain.",
+      vol_period_month: "Mês",
+      vol_period_year: "Ano",
+      vol_period_ytd: "YTD",
+      vol_year_label: "Ano",
+      vol_search_brand: "Buscar marca…",
+      vol_search_model: "Buscar modelo…",
+      vol_showing_n: "Mostrando {n}",
+      vol_rank_foot: "Fonte: Aduana PY · detalhe marca/modelo. Série leves (+ picapes quando há dado). Inclui veículos novos e usados.",
       next_models: "Marcas →", prev_models: "← Marcas"
     },
     en: {
@@ -83,6 +113,21 @@
       models_all_brands: "All brands", models_all_models: "All models",
       models_rows: "{n} rows", models_foot: "Source: Paraguay Customs · brand/model detail. Includes new and used vehicles.",
       card_models: "Brands & models", card_models_desc: "Volumes by brand, model and powertrain (BEV / PHEV / HEV / ICE).",
+
+      vol_rankings_title: "Top brands and models",
+      vol_rankings_lead: "Ranking of up to 100 brands and 100 models for the selected period. Stacked bars show BEV, PHEV, HEV, ICE and OTHERS.",
+      vol_top_brands: "Top 100 brands",
+      vol_top_brands_lead: "Units by brand with powertrain split. Search to filter within the ranking.",
+      vol_top_models: "Top 100 models",
+      vol_top_models_lead: "Units by model (brand + name). Each bar segment is a powertrain.",
+      vol_period_month: "Month",
+      vol_period_year: "Year",
+      vol_period_ytd: "YTD",
+      vol_year_label: "Year",
+      vol_search_brand: "Search brand…",
+      vol_search_model: "Search model…",
+      vol_showing_n: "Showing {n}",
+      vol_rank_foot: "Source: Paraguay Customs · brand/model detail. Light-vehicles series (+ pickups when available). Includes new and used vehicles.",
       next_models: "Brands →", prev_models: "← Brands"
     }
   };

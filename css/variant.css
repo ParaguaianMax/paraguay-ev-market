@@ -154,3 +154,71 @@
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* Volúmenes — period mode + rankings search */
+.vol-rankings { margin-top: 2.25rem; }
+.vol-rankings h3 {
+  margin: 1.75rem 0 0.35rem;
+  font-size: 1.15rem;
+}
+.period-mode {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.15rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.period-mode-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.35rem 0.7rem;
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+}
+.period-mode-btn:hover { color: var(--text); }
+.period-mode-btn.active {
+  background: var(--surface-2);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.period-mode-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.vol-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin: 0.35rem 0 0.65rem;
+}
+.vol-search input[type="search"] {
+  appearance: none;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  min-width: min(100%, 16rem);
+}
+.vol-search input[type="search"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.vol-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.chart-scroll {
+  max-height: min(70vh, 920px);
+  overflow: auto;
+}

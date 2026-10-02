@@ -323,6 +323,251 @@
     return a;
   }
 
+  /** Group by marca+modelo with powertrain breakdown (for stacked Top N). */
+  function byModelStacked(rows, topN) {
+    const e = {};
+    (rows || []).forEach((r) => {
+      const k = r.marca + "\0" + r.modelo;
+      if (!e[k]) {
+        e[k] = {
+          marca: r.marca,
+          modelo: r.modelo,
+          label: r.marca + " " + r.modelo,
+          total: 0,
+          byPt: {},
+        };
+      }
+      e[k].total += r.units;
+      e[k].byPt[r.powertrain] = (e[k].byPt[r.powertrain] || 0) + r.units;
+    });
+    let a = Object.values(e).sort((x, y) => y.total - x.total);
+    if (topN && a.length > topN) a = a.slice(0, topN);
+    return a;
+  }
+
+  /**
+   * Prefer LightVehicles+leve per period; fall back to Whole+leve when LV
+   * detail is not published for that month (currently only 2026-01 has LV).
+   */
+  function marketSeriesRows(rows) {
+    const byPeriod = {};
+    (rows || []).forEach((r) => {
+      if (!r.period || r.segmento !== "leve") return;
+      if (!byPeriod[r.period]) byPeriod[r.period] = { lv: [], whole: [] };
+      if (r.variant === "LightVehicles") byPeriod[r.period].lv.push(r);
+      else if (r.variant === "Whole") byPeriod[r.period].whole.push(r);
+    });
+    const out = [];
+    Object.keys(byPeriod)
+      .sort()
+      .forEach((p) => {
+        const bucket = byPeriod[p];
+        out.push(...(bucket.lv.length ? bucket.lv : bucket.whole));
+      });
+    return out;
+  }
+
+  function periodsOfRows(rows) {
+    return [...new Set((rows || []).map((r) => r.period).filter(Boolean))].sort();
+  }
+
+  /**
+   * scope: { mode: "month"|"year"|"ytd", month?: "YYYY-MM", year?: "YYYY" }
+   * Default month = latest available period.
+   */
+  function filterByPeriodScope(rows, scope) {
+    const periods = periodsOfRows(rows);
+    if (!periods.length) return [];
+    scope = scope || {};
+    const latest = periods[periods.length - 1];
+    const mode = scope.mode || "month";
+    if (mode === "month") {
+      const m = scope.month && periods.includes(scope.month) ? scope.month : latest;
+      return (rows || []).filter((r) => r.period === m);
+    }
+    const year = String(scope.year || latest.slice(0, 4));
+    const yearPeriods = periods.filter((p) => p.startsWith(year + "-"));
+    if (!yearPeriods.length) return [];
+    if (mode === "year") {
+      return (rows || []).filter((r) => r.period.startsWith(year + "-"));
+    }
+    // ytd: Jan through latest available month of that year
+    const end = yearPeriods[yearPeriods.length - 1];
+    return (rows || []).filter(
+      (r) => r.period.startsWith(year + "-") && r.period <= end
+    );
+  }
+
+  function matchQuery(hay, q) {
+    if (!q) return true;
+    return String(hay || "")
+      .toLowerCase()
+      .includes(String(q).toLowerCase());
+  }
+
+  function rankBrands(rows, opts) {
+    opts = opts || {};
+    const topN = opts.topN == null ? 100 : opts.topN;
+    const q = String(opts.query || "").trim().toLowerCase();
+    let brands = byBrand(rows, null);
+    if (q) brands = brands.filter((b) => matchQuery(b.marca, q));
+    if (topN) brands = brands.slice(0, topN);
+    return brands;
+  }
+
+  function rankModels(rows, opts) {
+    opts = opts || {};
+    const topN = opts.topN == null ? 100 : opts.topN;
+    const q = String(opts.query || "").trim().toLowerCase();
+    let models = byModelStacked(rows, null);
+    if (q) {
+      models = models.filter(
+        (m) => matchQuery(m.marca, q) || matchQuery(m.modelo, q) || matchQuery(m.label, q)
+      );
+    }
+    if (topN) models = models.slice(0, topN);
+    return models;
+  }
+
+  function renderStackedHBar(el, items, labelFn) {
+    if (!el || !global.Plotly) return;
+    if (!items || !items.length) {
+      el.innerHTML = '<div class="status">' + t("models_empty_filter") + "</div>";
+      return;
+    }
+    const c = colors();
+    const labels = items.map(labelFn).reverse();
+    const traces = POWERTRAINS.map((pt) => ({
+      type: "bar",
+      orientation: "h",
+      name: pt,
+      y: labels,
+      x: items.map((it) => it.byPt[pt] || 0).reverse(),
+      marker: { color: c[pt] },
+      hovertemplate: "%{y} · " + pt + ": %{x:,}<extra></extra>",
+    })).filter((tr) => tr.x.some((v) => v > 0));
+    const rowH = items.length > 40 ? 16 : items.length > 20 ? 18 : 22;
+    Plotly.newPlot(
+      el,
+      traces,
+      chartLayout({
+        barmode: "stack",
+        height: Math.max(360, rowH * items.length + 100),
+        margin: { t: 36, r: 24, b: 40, l: 160 },
+        legend: {
+          orientation: "h",
+          y: 1.02,
+          x: 0,
+          font: { size: 11 },
+          bgcolor: "rgba(0,0,0,0)",
+        },
+        xaxis: Object.assign({}, chartLayout().xaxis, {
+          title: { text: t("units") },
+        }),
+        yaxis: Object.assign({}, chartLayout().yaxis, {
+          title: "",
+          automargin: true,
+          tickfont: { size: items.length > 40 ? 9 : 11 },
+        }),
+      }),
+      { responsive: true, displayModeBar: false }
+    );
+  }
+
+  function renderTopBrandChart(el, brands) {
+    renderStackedHBar(el, brands, (b) => b.marca);
+  }
+
+  function renderTopModelChart(el, models) {
+    renderStackedHBar(el, models, (m) => m.label);
+  }
+
+  function renderTopBrandTable(el, brands) {
+    if (!el) return;
+    if (!brands || !brands.length) {
+      el.innerHTML = "";
+      return;
+    }
+    let html =
+      '<div class="data-table-wrap"><table class="data"><thead><tr><th>#</th><th>' +
+      t("models_col_brand") +
+      "</th><th>" +
+      t("models_col_pt") +
+      "</th><th class='num'>" +
+      t("units") +
+      "</th><th class='num'>%</th></tr></thead><tbody>";
+    const grand = brands.reduce((a, b) => a + b.total, 0);
+    brands.forEach((b, i) => {
+      const pts = POWERTRAINS.filter((pt) => (b.byPt[pt] || 0) > 0);
+      pts.forEach((pt, j) => {
+        const u = b.byPt[pt] || 0;
+        const pct = grand ? ((100 * u) / grand).toFixed(1) + "%" : "—";
+        html +=
+          "<tr>" +
+          "<td class='num'>" +
+          (j === 0 ? i + 1 : "") +
+          "</td>" +
+          "<td>" +
+          (j === 0 ? esc(b.marca) : "") +
+          "</td>" +
+          "<td>" +
+          pillHtml(pt) +
+          "</td>" +
+          "<td class='num'>" +
+          fmt(u) +
+          "</td>" +
+          "<td class='num'>" +
+          pct +
+          "</td></tr>";
+      });
+    });
+    html += "</tbody></table></div>";
+    el.innerHTML = html;
+  }
+
+  function renderTopModelTable(el, models) {
+    if (!el) return;
+    if (!models || !models.length) {
+      el.innerHTML = "";
+      return;
+    }
+    let html =
+      '<div class="data-table-wrap"><table class="data"><thead><tr><th>#</th><th>' +
+      t("models_col_brand") +
+      "</th><th>" +
+      t("models_col_model") +
+      "</th><th>" +
+      t("models_col_pt") +
+      "</th><th class='num'>" +
+      t("units") +
+      "</th></tr></thead><tbody>";
+    models.forEach((m, i) => {
+      const pts = POWERTRAINS.filter((pt) => (m.byPt[pt] || 0) > 0);
+      pts.forEach((pt, j) => {
+        const u = m.byPt[pt] || 0;
+        html +=
+          "<tr>" +
+          "<td class='num'>" +
+          (j === 0 ? i + 1 : "") +
+          "</td>" +
+          "<td>" +
+          (j === 0 ? esc(m.marca) : "") +
+          "</td>" +
+          "<td>" +
+          (j === 0 ? esc(m.modelo) : "") +
+          "</td>" +
+          "<td>" +
+          pillHtml(pt) +
+          "</td>" +
+          "<td class='num'>" +
+          fmt(u) +
+          "</td></tr>";
+      });
+    });
+    html += "</tbody></table></div>";
+    el.innerHTML = html;
+  }
+
   function pillHtml(pt) {
     return '<span class="pill ' + (PILL[pt] || "pill-others") + '">' + pt + "</span>";
   }
@@ -453,6 +698,15 @@
     byPowertrain,
     byBrand,
     byModel,
+    byModelStacked,
+    marketSeriesRows,
+    filterByPeriodScope,
+    rankBrands,
+    rankModels,
+    renderTopBrandChart,
+    renderTopModelChart,
+    renderTopBrandTable,
+    renderTopModelTable,
     pillHtml,
     renderGeneralChart: function (el, rows) {
       if (!el || !global.Plotly) return;
