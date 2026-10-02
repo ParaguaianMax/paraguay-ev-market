@@ -77,14 +77,14 @@
 
   <main class="wrap">
     <div class="page-eyebrow">
-      <span class="badge" data-i18n="share_badge">% del total</span>
+      <span class="badge" data-i18n="share_badge">Trayectoria · %</span>
       <span class="pill pill-bev">BEV</span>
       <span class="pill pill-phev">PHEV</span>
       <span class="pill pill-hev">HEV</span>
       <span class="pill pill-ice">ICE</span>
     </div>
     <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
-    <p class="lead" data-i18n="share_lead">Participación mensual de cada tipo de motorización dentro del total de vehículos importados. Las barras suman 100 % para facilitar la comparación.</p>
+    <p class="lead" data-i18n="share_lead">Trayectoria mensual de la participación de cada motorización en el total importado (estilo Gallery). Eje izquierdo: electrificados; eje derecho: ICE. La tabla debajo muestra los % exactos.</p>
 
 <div class="legend-row">
       <span class="lg-bev">BEV</span>
@@ -186,8 +186,10 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-variant", draw);
+      window.addEventListener("pyev-segment", draw);
       window.addEventListener("pyev-theme", () => {
-        if (el && el.data) PYEVCharts.restyleTheme(el);
+        if (el && el._pyevRows) PYEVCharts.restyleTheme(el);
       });
     });
   </script>
