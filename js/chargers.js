@@ -168,8 +168,18 @@
       .replace(/"/g, "&quot;");
   }
 
+  function invalidateMap(map) {
+    if (!map) return;
+    try {
+      map.invalidateSize({ animate: false });
+    } catch (e) {}
+  }
+
   function initMap(mapEl, rows) {
-    const map = L.map(mapEl, { scrollWheelZoom: false });
+    const map = L.map(mapEl, {
+      scrollWheelZoom: false,
+      preferCanvas: false,
+    });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
       maxZoom: 18,
@@ -181,7 +191,7 @@
     rows.forEach((r) => {
       const color = statusColor(r.status);
       const icon = L.divIcon({
-        className: "",
+        className: "pyev-marker",
         html: `<div class="marker-dot" style="background:${color}"></div>`,
         iconSize: [12, 12],
         iconAnchor: [6, 6],
@@ -204,7 +214,33 @@
     if (rows.length) map.fitBounds(group.getBounds().pad(0.12));
     else map.setView([-25.3, -57.6], 7);
 
-    return { map, group, markers, updateLanguage: () => updateLanguage({ markers }) };
+    const scheduleInvalidate = () => {
+      invalidateMap(map);
+      requestAnimationFrame(() => invalidateMap(map));
+      setTimeout(() => invalidateMap(map), 120);
+      setTimeout(() => invalidateMap(map), 400);
+    };
+    map.whenReady(scheduleInvalidate);
+    window.addEventListener("resize", () => invalidateMap(map));
+    if (window.ResizeObserver) {
+      try {
+        const ro = new ResizeObserver(() => invalidateMap(map));
+        ro.observe(mapEl);
+        map._pyevRo = ro;
+      } catch (e) {}
+    }
+    const themeBtn = document.getElementById("themeToggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => setTimeout(() => invalidateMap(map), 50));
+    }
+
+    return {
+      map,
+      group,
+      markers,
+      invalidate: () => invalidateMap(map),
+      updateLanguage: () => updateLanguage({ markers }),
+    };
   }
 
   function updateLanguage(mapApi) {
@@ -235,5 +271,6 @@
     countBy,
     updateLanguage,
     localizeValue,
+    invalidateMap,
   };
 })(typeof window !== "undefined" ? window : globalThis);
