@@ -240,9 +240,8 @@
   }
 
   function filterBySegment(rows, segment) {
-    const s = filterBySegment;
-    const s2 = segment || getSegment(rows);
-    return (rows || []).filter((r) => normalizeSegment(r.segmento) === s2);
+    const s = segment || getSegment(rows);
+    return (rows || []).filter((r) => normalizeSegment(r.segmento) === s);
   }
 
   function filterRows(rows, variant, segment) {
