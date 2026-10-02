@@ -50,6 +50,7 @@
   <script src="../js/load-csv.js" defer></script>
   <script src="../js/charts.js" defer></script>
   <script src="../js/models.js" defer></script>
+  <script src="../js/nuevos.js" defer></script>
   <script src="../js/volumes-rankings.js" defer></script>
 </head>
 <body>
@@ -86,6 +87,8 @@
     </div>
     <h1 data-i18n="volumes_title">Volúmenes: total, electrificados e ICE</h1>
     <p class="lead" data-i18n="volumes_lead">Unidades importadas por mes, con una vista ampliada de los vehículos electrificados y otra con el total del mercado.</p>
+    <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_derived_note">Participación y volúmenes recalculados desde el detalle marca/modelo · solo nuevos.</div>
+
 
 <h2 data-i18n="electrified">Electrificados (sin ICE)</h2>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.92rem">
@@ -243,11 +246,15 @@
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
           updateHint();
-          rows = PYEV.filterRows(allRows);
+          const resolved = await PYEV.resolveVehicleRows(allRows);
+          rows = resolved.rows || [];
+          if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
           el.innerHTML = "";
           elElec.innerHTML = "";
           if (!rows.length) {
-            el.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            const msg = PYEV.t(resolved.note || "variant_empty");
+            el.innerHTML = '<div class="status">' + msg + "</div>";
+            elElec.innerHTML = '<div class="status">' + msg + "</div>";
             if (table) table.innerHTML = "";
             return;
           }
@@ -261,6 +268,7 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-nuevos", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
         if (elElec && elElec.data) PYEVCharts.restyleTheme(elElec);

@@ -58,6 +58,8 @@
   <script src="js/i18n-variant.js" defer></script>
 <script src="js/load-csv.js" defer></script>
   <script src="js/charts.js" defer></script>
+  <script src="js/models.js" defer></script>
+  <script src="js/nuevos.js" defer></script>
 </head>
 <body>
   <header class="site">
@@ -93,6 +95,8 @@
     </div>
     <h1 data-i18n="home_title">Mercado híbrido / eléctrico en Paraguay</h1>
     <p class="lead" data-i18n="home_lead">Seguimiento mensual de las importaciones de vehículos en Paraguay: eléctricos de batería (BEV), híbridos enchufables (PHEV) e híbridos (HEV), comparados con el total y los vehículos de combustión (ICE).</p>
+    <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_derived_note">Participación y volúmenes recalculados desde el detalle marca/modelo · solo nuevos.</div>
+
 
 <div id="kpis" class="kpi-grid">
       <div class="status" data-i18n="loading">Cargando…</div>
@@ -173,9 +177,12 @@
           if (!allRows.length) allRows = await PYEV.loadParaguay();
           if (!allRows.length) throw new Error("CSV vacío");
           updateHint();
-          const rows = PYEV.filterRows(allRows);
+          const resolved = await PYEV.resolveVehicleRows(allRows);
+          const rows = resolved.rows || [];
+          if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
           if (!rows.length) {
-            kpis.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            const msg = PYEV.t(resolved.note || "variant_empty");
+            kpis.innerHTML = '<div class="status">' + msg + "</div>";
             mini.innerHTML = "";
             if (foot) foot.textContent = "";
             return;
@@ -190,7 +197,8 @@
               " · " +
               PYEV.fmtInt(latest.TOTAL) +
               " " + PYEV.t("units_hs") +
-              " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows));
+              " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows)) +
+              (resolved.nuevos ? " · " + PYEV.t("nuevos_label") : "");
           }
         } catch (e) {
           kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
@@ -200,6 +208,7 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-nuevos", draw);
       window.addEventListener("pyev-theme", () => {
         if (mini && mini.data) PYEVCharts.restyleTheme(mini);
       });

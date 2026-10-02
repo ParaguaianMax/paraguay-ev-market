@@ -51,6 +51,13 @@
       vol_cond_usado: "Usado",
       vol_lv_empty: "Sin detalle LightVehicles · leve para este período. No se usa la serie Whole.",
       vol_rank_foot: "Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve (livianos + camionetas). Meses sin ese detalle quedan vacíos (sin fallback Whole). Incluye vehículos nuevos y usados.",
+      nuevos_label: "Nuevos",
+      nuevos_hint: "Mostrar solo importaciones de vehículos nuevos (condicion=nuevo).",
+      nuevos_only_note: "Solo vehículos nuevos (condicion=nuevo, derivado del detalle marca/modelo).",
+      nuevos_derived_note: "Participación y volúmenes recalculados desde el detalle marca/modelo · solo nuevos.",
+      nuevos_no_condicion: "El CSV de modelos aún no tiene la columna condicion. El filtro Nuevos no se puede aplicar.",
+      nuevos_models_required: "Para filtrar solo nuevos hace falta el detalle marca/modelo.",
+      nuevos_rank_foot: "Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve · nuevos. Sin fallback Whole.",
       next_models: "Marcas →", prev_models: "← Marcas"
     },
     pt: {
@@ -100,6 +107,13 @@
       vol_cond_usado: "Usado",
       vol_lv_empty: "Sem detalhe LightVehicles · leve para este período. Não se usa a série Whole.",
       vol_rank_foot: "Fonte: Aduana PY · detalhe marca/modelo. Só LightVehicles · leve (leves + picapes). Meses sem esse detalhe ficam vazios (sem fallback Whole). Inclui veículos novos e usados.",
+      nuevos_label: "Novos",
+      nuevos_hint: "Mostrar só importações de veículos novos (condicion=nuevo).",
+      nuevos_only_note: "Só veículos novos (condicion=nuevo, derivado do detalhe marca/modelo).",
+      nuevos_derived_note: "Participação e volumes recalculados a partir do detalhe marca/modelo · só novos.",
+      nuevos_no_condicion: "O CSV de modelos ainda não tem a coluna condicion. O filtro Novos não pode ser aplicado.",
+      nuevos_models_required: "Para filtrar só novos é preciso o detalhe marca/modelo.",
+      nuevos_rank_foot: "Fonte: Aduana PY · detalhe marca/modelo. Só LightVehicles · leve · novos. Sem fallback Whole.",
       next_models: "Marcas →", prev_models: "← Marcas"
     },
     en: {
@@ -149,6 +163,13 @@
       vol_cond_usado: "Used",
       vol_lv_empty: "No LightVehicles · leve detail for this period. Whole series is not used.",
       vol_rank_foot: "Source: Paraguay Customs · brand/model detail. LightVehicles · leve only (light vehicles + pickups). Months without that detail stay empty (no Whole fallback). Includes new and used vehicles.",
+      nuevos_label: "New only",
+      nuevos_hint: "Show only new-vehicle imports (condicion=nuevo).",
+      nuevos_only_note: "New vehicles only (condicion=nuevo, derived from brand/model detail).",
+      nuevos_derived_note: "Share and volumes recomputed from brand/model detail · new only.",
+      nuevos_no_condicion: "Models CSV does not yet have a condicion column. The New-only filter cannot be applied.",
+      nuevos_models_required: "Brand/model detail is required to filter new vehicles only.",
+      nuevos_rank_foot: "Source: Paraguay Customs · brand/model detail. LightVehicles · leve · new only. No Whole fallback.",
       next_models: "Brands →", prev_models: "← Brands"
     }
   };

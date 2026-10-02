@@ -3,6 +3,7 @@
  * Scope: LightVehicles + leve only (no Whole fallback).
  * Powertrain chips: Todos | BEV | Híbridos.
  * Condición chips: Todos | Nuevo | Usado (hidden until CSV has condicion).
+ * Aligns with site-wide Nuevos toggle (localStorage pyev-nuevos).
  */
 (function (global) {
   const TOP_N = 100;
@@ -11,6 +12,7 @@
   const YEAR_KEY = "pyev-vol-period-year";
   const PT_KEY = "pyev-vol-pt-mode";
   const COND_KEY = "pyev-vol-cond-mode";
+  const NUEVOS_KEY = "pyev-nuevos";
 
   /** @type {"all"|"bev"|"hybrids"} */
   const PT_MODES = ["all", "bev", "hybrids"];
@@ -73,6 +75,8 @@
     if (!PT_MODES.includes(ptMode)) ptMode = "all";
     let condMode = lsGet(COND_KEY) || "all";
     if (!COND_MODES.includes(condMode)) condMode = "all";
+    // Site-wide Nuevos toggle wins when ON
+    if (lsGet(NUEVOS_KEY) === "1") condMode = "nuevo";
     let condicionAvailable = false;
 
     function scopedRows() {
@@ -253,6 +257,12 @@
         if (!condicionAvailable) return;
         condMode = btn.dataset.condMode;
         lsSet(COND_KEY, condMode);
+        // Align site-wide Nuevos toggle
+        if (global.PYEV && global.PYEV.setNuevosOnly) {
+          global.PYEV.setNuevosOnly(condMode === "nuevo", { silent: false });
+        } else {
+          lsSet(NUEVOS_KEY, condMode === "nuevo" ? "1" : "0");
+        }
         draw();
       });
     });
@@ -316,6 +326,13 @@
     global.addEventListener("pyev-lang", () => {
       if (!marketRows.length) return;
       fillPeriodSelects();
+      draw();
+    });
+    global.addEventListener("pyev-nuevos", (ev) => {
+      if (!marketRows.length) return;
+      condMode = ev.detail ? "nuevo" : (lsGet(COND_KEY) === "usado" ? "usado" : "all");
+      if (ev.detail) lsSet(COND_KEY, "nuevo");
+      else if (lsGet(COND_KEY) === "nuevo") lsSet(COND_KEY, "all");
       draw();
     });
     global.addEventListener("pyev-theme", () => {

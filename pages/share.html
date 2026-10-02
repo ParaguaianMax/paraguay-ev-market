@@ -49,6 +49,8 @@
   <script src="../js/i18n-variant.js" defer></script>
 <script src="../js/load-csv.js" defer></script>
   <script src="../js/charts.js" defer></script>
+  <script src="../js/models.js" defer></script>
+  <script src="../js/nuevos.js" defer></script>
   <script src="../js/trajectories.js" defer></script>
 </head>
 <body>
@@ -85,6 +87,8 @@
     </div>
     <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
     <p class="lead" data-i18n="share_lead">Trayectoria mensual de la participación de cada motorización en el total importado (estilo Gallery). Eje izquierdo: electrificados; eje derecho: ICE. La tabla debajo muestra los % exactos.</p>
+    <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_derived_note">Participación y volúmenes recalculados desde el detalle marca/modelo · solo nuevos.</div>
+
 
 <div class="legend-row">
       <span class="lg-bev">BEV</span>
@@ -171,10 +175,12 @@
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
           updateHint();
-          rows = PYEV.filterRows(allRows);
+          const resolved = await PYEV.resolveVehicleRows(allRows);
+          rows = resolved.rows || [];
+          if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
           el.innerHTML = "";
           if (!rows.length) {
-            el.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            el.innerHTML = '<div class="status">' + PYEV.t(resolved.note || "variant_empty") + "</div>";
             if (table) table.innerHTML = "";
             return;
           }
@@ -188,6 +194,7 @@
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-variant", draw);
       window.addEventListener("pyev-segment", draw);
+      window.addEventListener("pyev-nuevos", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el._pyevRows) PYEVCharts.restyleTheme(el);
       });
@@ -226,10 +233,13 @@
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
           updateHint();
-          const rows = PYEV.filterRows(allRows);
+          const resolved = await PYEV.resolveVehicleRows(allRows);
+          const rows = resolved.rows || [];
+          if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
           if (!rows.length) {
-            elExtra.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
-            elTtm.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            const msg = PYEV.t(resolved.note || "variant_empty");
+            elExtra.innerHTML = '<div class="status">' + msg + "</div>";
+            elTtm.innerHTML = '<div class="status">' + msg + "</div>";
             if (footExtra) footExtra.textContent = "";
             if (footTtm) footTtm.textContent = "";
             return;
@@ -247,6 +257,7 @@
               PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
               " · " + rows.length + " " + PYEV.t("traj_months_short") +
               " · " + PYEV.variantLabel(last.variant || PYEV.getVariant(allRows)) +
+              (resolved.nuevos ? " · " + PYEV.t("nuevos_label") : "") +
               " · <em>" + PYEV.t("traj_not_forecast") + "</em>";
           }
           if (footTtm) {
@@ -264,6 +275,7 @@
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-variant", draw);
       window.addEventListener("pyev-segment", draw);
+      window.addEventListener("pyev-nuevos", draw);
       window.addEventListener("pyev-theme", () => {
         if (elExtra && elExtra._pyevRows) PYEVTrajectories.restyleTheme(elExtra);
         if (elTtm && elTtm._pyevRows) PYEVTrajectories.restyleTheme(elTtm);

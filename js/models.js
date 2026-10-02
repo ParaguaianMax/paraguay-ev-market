@@ -392,6 +392,56 @@
    * LightVehicles + leve only (cars + light pickups). Never falls back to Whole:
    * months without LV model detail are omitted (caller shows empty note).
    */
+
+  /**
+   * Aggregate model-level rows into Paraguay.csv-shaped monthly market rows
+   * (BEV/PHEV/HEV/ICE/OTHERS/TOTAL + share). Used when Nuevos filter is ON.
+   */
+  function aggregateToMarketRows(rows) {
+    const map = {};
+    (rows || []).forEach((r) => {
+      if (!r.period) return;
+      if (!map[r.period]) {
+        map[r.period] = {
+          period: r.period,
+          time_interval: "monthly",
+          variant: r.variant || "LightVehicles",
+          segmento: r.segmento || "leve",
+          source: "Aduana PY · models (condicion=nuevo)",
+          BEV: 0,
+          PHEV: 0,
+          HEV: 0,
+          ICE: 0,
+          OTHERS: 0,
+          TOTAL: 0,
+          notes: "derivado de Paraguay_models.csv",
+        };
+      }
+      const m = map[r.period];
+      const u = Number(r.units) || 0;
+      const pt = r.powertrain;
+      if (pt === "BEV" || pt === "PHEV" || pt === "HEV" || pt === "ICE") m[pt] += u;
+      else m.OTHERS += u;
+      m.TOTAL += u;
+    });
+    return Object.keys(map)
+      .sort()
+      .map((p) => {
+        const row = map[p];
+        row.electrified = row.BEV + row.PHEV + row.HEV + row.OTHERS;
+        row.electrified_pct = row.TOTAL ? (100 * row.electrified) / row.TOTAL : 0;
+        const pct = (n) => (row.TOTAL ? (100 * n) / row.TOTAL : 0);
+        row.share = {
+          BEV: pct(row.BEV),
+          PHEV: pct(row.PHEV),
+          HEV: pct(row.HEV),
+          OTHERS: pct(row.OTHERS),
+          ICE: pct(row.ICE),
+        };
+        return row;
+      });
+  }
+
   function marketSeriesRows(rows) {
     return (rows || []).filter(
       (r) => r.period && r.variant === "LightVehicles" && r.segmento === "leve"
@@ -734,6 +784,7 @@
     byModel,
     byModelStacked,
     marketSeriesRows,
+    aggregateToMarketRows,
     filterByPeriodScope,
     normalizeCondicion,
     hasCondicion,
