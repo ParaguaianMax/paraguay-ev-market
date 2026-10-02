@@ -1,0 +1,128 @@
+{
+  "version": 2,
+  "updated": "2026-10-02",
+  "canonical_policy": "UPPERCASE after basic cleanup. Prefer official Latin spelling; MERCEDES-BENZ with hyphen. Only high-confidence aliases auto-apply. Do not merge distinct brands (BYD≠BYTON, MITSUBISHI≠MITSUBISHI FUSO).",
+  "aliases": {
+    "MERCEDES BENZ": "MERCEDES-BENZ",
+    "MERCEDES - BENZ": "MERCEDES-BENZ",
+    "MERCEDES- BENZ": "MERCEDES-BENZ",
+    "MERCEDES -BENZ": "MERCEDES-BENZ",
+    "MERCEDEZ BENZ": "MERCEDES-BENZ",
+    "MERECEDES BENZ": "MERCEDES-BENZ",
+    "MERCEDES BENEZ": "MERCEDES-BENZ",
+    "MERCEDES": "MERCEDES-BENZ",
+    "MERCEDESBENZ": "MERCEDES-BENZ",
+    "HUYNDAI": "HYUNDAI",
+    "HYUNDIA": "HYUNDAI",
+    "TOTOTA": "TOYOTA",
+    "TOTOYA": "TOYOTA",
+    "TOYATA": "TOYOTA",
+    "TOYOYA": "TOYOTA",
+    "MITSUBISHII": "MITSUBISHI",
+    "MITSUBUSHI": "MITSUBISHI",
+    "VOLSKWAGEN": "VOLKSWAGEN",
+    "VOLSWAGEN": "VOLKSWAGEN",
+    "VW": "VOLKSWAGEN",
+    "ZUZUKI": "SUZUKI",
+    "CHANGAM": "CHANGAN",
+    "KENTO": "KENTON",
+    "DOGDE": "DODGE",
+    "DODGE CHARGER": "DODGE",
+    "BUILD YOUR DREAMS": "BYD",
+    "BUILD YOUR DREAMS.": "BYD",
+    "LYNK & CO": "LYNK CO",
+    "LYNK&CO": "LYNK CO",
+    "LYNK CO.": "LYNK CO",
+    "LYNK": "LYNK CO",
+    "LANDROVER": "LAND ROVER",
+    "LAND  ROVER": "LAND ROVER",
+    "GREAT WALL": "GREATWALL",
+    "GREAT-WALL": "GREATWALL",
+    "GWM": "GREATWALL",
+    "HAVAL": "GREATWALL",
+    "BMW X1": "BMW",
+    "MINI COOPER": "MINI",
+    "AVATR 11": "AVATR",
+    "DEEPAL SO5": "DEEPAL",
+    "E-Z-GO": "EZGO",
+    "E Z GO": "EZGO",
+    ".": "SIN MARCA",
+    "-": "SIN MARCA",
+    "S/M": "SIN MARCA",
+    "S/N": "SIN MARCA",
+    "CF MOTO": "CFMOTO",
+    "CF-MOTO": "CFMOTO"
+  },
+  "proposed": [
+    {
+      "from": "RANGE ROVER",
+      "to": "LAND ROVER",
+      "reason": "RANGE ROVER is a Land Rover product line; often declared as marca. Confirm before merge.",
+      "units_2026_ene_sep": 7
+    },
+    {
+      "from": "ROVER",
+      "to": "LAND ROVER",
+      "reason": "Ambiguous (classic Rover vs Land Rover). Low volume; review rows before merge.",
+      "units_2026_ene_sep": 7
+    },
+    {
+      "from": "FUSO",
+      "to": "MITSUBISHI FUSO",
+      "reason": "Likely commercial truck brand; keep separate from MITSUBISHI passenger. Merge FUSO↔MITSUBISHI FUSO only.",
+      "units_2026_ene_sep": 12
+    },
+    {
+      "from": "SPORTAGE",
+      "to": "KIA",
+      "reason": "Model name used as marca (Kia Sportage). Prefer fixing modelo parser; brand merge is secondary.",
+      "units_2026_ene_sep": 7
+    },
+    {
+      "from": "VOYAH DREAMER",
+      "to": "VOYAH",
+      "reason": "Model leaked into marca field.",
+      "units_2026_ene_sep": 8
+    },
+    {
+      "from": "MITSUBISHI FUSO",
+      "to": null,
+      "reason": "Do NOT merge into MITSUBISHI — distinct commercial brand/line.",
+      "units_2026_ene_sep": 40
+    }
+  ],
+  "do_not_merge": [
+    [
+      "BYD",
+      "BYTON"
+    ],
+    [
+      "MITSUBISHI",
+      "MITSUBISHI FUSO"
+    ],
+    [
+      "MINI",
+      "BMW"
+    ],
+    [
+      "GENESIS",
+      "HYUNDAI"
+    ],
+    [
+      "INFINITI",
+      "NISSAN"
+    ],
+    [
+      "LEXUS",
+      "TOYOTA"
+    ],
+    [
+      "DS",
+      "CITROEN"
+    ],
+    [
+      "CUPRA",
+      "SEAT"
+    ]
+  ]
+}
