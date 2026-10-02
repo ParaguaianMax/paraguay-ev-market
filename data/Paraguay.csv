@@ -16,6 +16,9 @@ period,time_interval,variant,segmento,source,BEV,PHEV,HEV,ICE,OTHERS,TOTAL,notes
 2026-03,monthly,LightVehicles,pesado,Aduana PY datos abiertos (HS 8703+8704),0,0,0,344,0,344,8704 camiones pesados (no livianos); segmento=pesado; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=0
 2026-04,monthly,Whole,leve,Aduana PY datos abiertos (HS 8703),89,286,765,31127,1,32268,8703 limpio (sin recreativo); segmento=leve; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=1141
 2026-04,monthly,Whole,recreativo,Aduana PY datos abiertos (HS 8703),0,0,0,12,0,12,8703 golf/ATV/UTV/snow; segmento=recreativo; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=0
+2026-04,monthly,LightVehicles,leve,Aduana PY datos abiertos (HS 8703+8704),90,288,765,34404,1,35548,8703 limpio + 8704 pickups livianos; segmento=leve; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=1144; 8704_light=3280
+2026-04,monthly,LightVehicles,recreativo,Aduana PY datos abiertos (HS 8703+8704),0,0,0,12,0,12,8703 recreativo (mismo universo); segmento=recreativo; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=0
+2026-04,monthly,LightVehicles,pesado,Aduana PY datos abiertos (HS 8703+8704),0,0,0,543,0,543,8704 camiones pesados (no livianos); segmento=pesado; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=0
 2026-05,monthly,Whole,leve,Aduana PY datos abiertos (HS 8703),152,180,886,36615,1,37834,8703 limpio (sin recreativo); segmento=leve; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=1219
 2026-05,monthly,Whole,recreativo,Aduana PY datos abiertos (HS 8703),0,0,0,35,0,35,8703 golf/ATV/UTV/snow; segmento=recreativo; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=0
 2026-06,monthly,Whole,leve,Aduana PY datos abiertos (HS 8703),134,97,902,39725,15,40873,8703 limpio (sin recreativo); segmento=leve; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL-electrified; electrified=1148
