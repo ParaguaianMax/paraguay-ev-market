@@ -12,7 +12,10 @@
     var root = document.documentElement;
     var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
     function pref() {
-      try { var v = localStorage.getItem(KEY); return v === "light" || v === "dark" ? v : "auto"; } catch (e) { return "auto"; }
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
     }
     function apply() {
       var p = pref();
@@ -23,8 +26,14 @@
       var btn = document.getElementById("themeToggle");
       if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
     }
-    window.__setThemePref = function (p) { try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {} apply(); };
-    window.__cycleTheme = function () { var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light"; window.__setThemePref(cur === "dark" ? "light" : "dark"); };
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
     if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
     apply();
   })();
@@ -32,6 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="../css/style.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
   <script src="../js/i18n.js" defer></script>
@@ -83,7 +93,7 @@
         <option value="all" data-i18n="all_bands">Todas</option>
       </select>
     </div>
-    <div id="chargers-map" role="img" aria-label="Mapa de cargadores DC" data-i18n-attr="aria-label:map_aria"></div>
+    <div class="map-wrap"><div id="chargers-map" role="img" aria-label="Mapa de cargadores DC" data-i18n-attr="aria-label:map_aria"></div></div>
     <p class="chart-foot" id="map-foot"></p>
 
     <h2 data-i18n="breakdown">Desglose</h2>
@@ -114,33 +124,68 @@
       const foot = document.getElementById("map-foot");
       const fAccess = document.getElementById("f-access");
       const fBand = document.getElementById("f-band");
+
       let all = [];
       let mapApi = null;
+
       function refresh() {
         const filtered = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
+        // rebuild map layers
         if (mapApi) {
           mapApi.group.clearLayers();
-          filtered.forEach((r) => { const m = mapApi.markers.find((x) => x._pyev.id === r.id); if (m) mapApi.group.addLayer(m); });
-          if (filtered.length) mapApi.map.fitBounds(mapApi.group.getBounds().pad(0.12));
+          filtered.forEach((r) => {
+            const m = mapApi.markers.find((x) => x._pyev.id === r.id);
+            if (m) mapApi.group.addLayer(m);
+          });
+          if (mapApi.invalidate) mapApi.invalidate();
+          if (filtered.length) {
+            mapApi.map.fitBounds(mapApi.group.getBounds().pad(0.12));
+          } else {
+            mapApi.map.setView([-25.3, -57.6], 7);
+          }
+          requestAnimationFrame(() => { if (mapApi.invalidate) mapApi.invalidate(); });
+          setTimeout(() => { if (mapApi.invalidate) mapApi.invalidate(); }, 120);
         }
         PYEVChargers.renderTable(table, filtered);
         const plugs = filtered.reduce((s, r) => s + r.n_dc_plugs, 0);
-        foot.innerHTML = "<b>Mostrando</b> " + filtered.length + " " + PYEV.t("locations") + " / " + plugs + " " + PYEV.t("plugs") + " · " + PYEV.t("power_estimated");
+        foot.innerHTML =
+          "<b>" + PYEV.t("showing") + "</b> " +
+          filtered.length +
+          " " + PYEV.t("locations") + " / " +
+          plugs +
+          " " + PYEV.t("plugs") + " · " + PYEV.t("power_estimated");
       }
+
       try {
         all = await PYEVChargers.loadChargers();
         PYEVChargers.renderKPIs(kpis, all);
         PYEVChargers.renderBreakdown(breakdown, all);
+        // populate band filter
         const bands = PYEVChargers.countBy(all, "power_band");
-        bands.forEach(([b]) => { const opt = document.createElement("option"); opt.value = b; opt.textContent = PYEVChargers.localizeValue ? PYEVChargers.localizeValue(b) : b; fBand.appendChild(opt); });
-        mapApi = PYEVChargers.initMap(mapEl, all);
-        fAccess.addEventListener("change", refresh); fBand.addEventListener("change", refresh); refresh();
-        window.addEventListener("pyev-lang", () => {
-          PYEVChargers.renderKPIs(kpis, all); PYEVChargers.renderBreakdown(breakdown, all); PYEVChargers.renderTable(table, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
-          if (mapApi && mapApi.updateLanguage) mapApi.updateLanguage();
-          Array.from(fBand.options).forEach((opt, i) => { if (i > 0 && PYEVChargers.localizeValue) opt.textContent = PYEVChargers.localizeValue(opt.value); }); refresh();
+        bands.forEach(([b]) => {
+          const opt = document.createElement("option");
+          opt.value = b;
+          opt.textContent = PYEVChargers.localizeValue ? PYEVChargers.localizeValue(b) : b;
+          fBand.appendChild(opt);
         });
-      } catch (e) { kpis.innerHTML = '<div class="status error">' + e.message + "</div>"; }
+        mapApi = PYEVChargers.initMap(mapEl, all);
+        fAccess.addEventListener("change", refresh);
+        fBand.addEventListener("change", refresh);
+        refresh();
+        window.addEventListener("pyev-lang", () => {
+          PYEVChargers.renderKPIs(kpis, all);
+          PYEVChargers.renderBreakdown(breakdown, all);
+          PYEVChargers.renderTable(table, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
+          if (mapApi && mapApi.updateLanguage) mapApi.updateLanguage();
+          Array.from(fBand.options).forEach((opt, i) => { if (i > 0 && PYEVChargers.localizeValue) opt.textContent = PYEVChargers.localizeValue(opt.value); });
+          refresh();
+          if (mapApi && mapApi.invalidate) {
+            setTimeout(() => mapApi.invalidate(), 50);
+          }
+        });
+      } catch (e) {
+        kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
+      }
     });
   </script>
 </body>
