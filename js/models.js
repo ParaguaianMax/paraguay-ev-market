@@ -2,7 +2,7 @@
  * Brand/model detail for Volume/Marcas page.
  * Prefers data/models/YYYY-MM.csv (or manifest.json); falls back to Paraguay_models.csv.
  * Header: period,variant,segmento,marca,modelo,powertrain,units[,condicion],source,notes
- * Optional condicion: nuevo|usado (when absent, UI hides the new/used filter).
+ * Optional condicion: nuevo|usado|desconocido (when absent, UI hides the new/used filter).
  */
 (function (global) {
   const POWERTRAINS = ["BEV", "PHEV", "HEV", "ICE", "OTHERS"];
@@ -67,7 +67,7 @@
     return POWERTRAINS.includes(e) ? e : "OTHERS";
   }
 
-  /** Normalize to nuevo|usado|"" (blank/unknown → ""). */
+  /** Normalize to nuevo|usado|desconocido|"" (blank/absent → ""). */
   function normalizeCondicion(v) {
     const e = String(v || "")
       .trim()
@@ -88,12 +88,14 @@
     if (e === "usado" || e === "used" || e === "usada" || e === "segunda") {
       return "usado";
     }
-    return "";
+    return "desconocido";
   }
 
+  // Presence of the column is enough to enable the chips. Unknown values
+  // remain in the default Todos view and are intentionally not dropped.
   function hasCondicion(rows) {
     return (rows || []).some(
-      (r) => r.condicion === "nuevo" || r.condicion === "usado"
+      (r) => Object.prototype.hasOwnProperty.call(r, "condicion") && r.condicion !== ""
     );
   }
 
