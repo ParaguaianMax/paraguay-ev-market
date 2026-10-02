@@ -12,16 +12,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Concat monthly CSVs
+      - name: Assemble monthly CSVs
         run: |
           set -euo pipefail
-          out=data/Paraguay_models.csv
-          header='period,variant,segmento,marca,modelo,powertrain,units,source,notes'
-          echo "$header" > "$out"
-          for f in $(ls data/models/*.csv | sort); do
-            tail -n +2 "$f" >> "$out"
-          done
-          wc -l "$out"
+          python3 - <<'PYTHON'
+          import csv
+          from pathlib import Path
+
+          fields = [
+              "period", "variant", "segmento", "marca", "modelo",
+              "powertrain", "condicion", "units", "source", "notes",
+          ]
+          out = Path("data/Paraguay_models.csv")
+          rows = []
+          for path in sorted(Path("data/models").glob("????-??.csv")):
+              with path.open(newline="", encoding="utf-8") as src:
+                  for row in csv.DictReader(src):
+                      if not (row.get("condicion") or "").strip():
+                          row["condicion"] = "desconocido"
+                      rows.append({field: row.get(field, "") for field in fields})
+
+          with out.open("w", newline="", encoding="utf-8") as dst:
+              writer = csv.DictWriter(dst, fieldnames=fields, lineterminator="\n")
+              writer.writeheader()
+              writer.writerows(rows)
+          print(f"assembled {len(rows)} rows into {out}")
+          PYTHON
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
