@@ -1,1 +1,124 @@
-@/workspace/paraguay-ev-market/pages/trajectories.html
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title data-i18n="page_trajectories"></title><meta name="description" content="Trayectorias BEV/PHEV/HEV/ICE — extrapolación tipo S-curve y participación acumulada TTM. Paraguay EV Market." /><meta name="theme-color" content="#fdfdfc" />
+ <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+ <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" /><link rel="stylesheet" href="../css/style.css" /><link rel="stylesheet" href="../css/variant.css" />
+ <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+ <script src="../js/i18n.js" defer></script>
+ <script src="../js/i18n-variant.js" defer></script>
+ <script src="../js/load-csv.js" defer></script>
+ <script src="../js/charts.js" defer></script>
+ <script src="../js/trajectories.js" defer></script>
+</head><body><header class="site"><div class="wrap"><a class="brand" href="../index.html">Paraguay <span>EV Market</span></a><div class="header-actions"><nav aria-label="Principal" data-i18n-attr="aria-label:primary_nav"><a href="../index.html" data-i18n="nav_home">Inicio</a><a href="share.html" data-i18n="nav_share">Participación</a><a href="volumes.html" data-i18n="nav_volumes">Volúmenes</a><a class="active" href="trajectories.html" data-i18n="nav_trajectories">Trayectorias</a><a href="chargers.html" data-i18n="nav_chargers">Cargadores</a></nav><label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label><button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button></div></div></header><main class="wrap"><div class="page-eyebrow"><span class="badge" data-i18n="traj_badge">S-curve · TTM</span><span class="pill pill-bev">BEV</span><span class="pill pill-phev">PHEV</span><span class="pill pill-hev">HEV</span><span class="pill pill-ice">ICE</span></div><h1 data-i18n="traj_title">Trayectorias de adopción</h1><p class="lead" data-i18n="traj_lead">Curva ajustada (estilo Gallery) sobre la participación mensual observada, más el desglose acumulado en ventana móvil. Con una serie corta la proyección es ilustrativa — no un pronóstico firme.</p><div class="series-toolbar"><label class="variant-switcher"><span class="variant-label" data-i18n="variant_label">Serie</span><select id="variantToggle" aria-label="Serie"></select></label><label class="segment-switcher"><span class="variant-label" data-i18n="segment_label">Segmento</span><select id="segmentToggle" aria-label="Segmento"></select></label><span class="variant-hint" id="variantHint"></span></div><div class="note" data-i18n="traj_disclaimer">Serie corta · el ajuste logístico (logit-lineal) usa solo los meses publicados; la línea punteada es una extrapolación ilustrativa, no un pronóstico firme.</div><h2 data-i18n="traj_extra_title">Extrapolación — participación BEV / PHEV / HEV / ICE</h2><p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste sobre lo observado. Línea punteada = proyección si la tendencia logit se mantuviera.</p><div class="legend-row"><span class="lg-bev">BEV</span><span class="lg-phev">PHEV</span><span class="lg-hev">HEV</span><span class="lg-ice">ICE</span></div><div id="chart-extra" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div><p class="chart-foot" id="extra-foot"></p><h2 data-i18n="traj_ttm_title">Participación acumulada (ventana móvil)</h2><p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_ttm_lead">Cuando hay menos de 12 meses, cada barra/área usa todos los meses disponibles hasta esa fecha (ventana incompleta). Con 12+ meses pasa a TTM de 12 meses.</p><div id="chart-ttm" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div><p class="chart-foot" id="ttm-foot"></p><div class="note" data-i18n="traj_note">No se inventan meses históricos. Los totales vienen de <code>data/Paraguay.csv</code> (Aduana PY). ICE = total − BEV − PHEV − HEV − OTHERS.</div></main><footer class="site"><div class="wrap"><div class="page-nav"><a href="volumes.html" data-i18n="prev_volumes">← Volúmenes</a><a href="chargers.html" data-i18n="next_chargers">Cargadores →</a></div><div><span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay.</span> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a>
+ · <span data-i18n="inspired">Inspirado en el espíritu de</span><a href="https://leraffl.github.io/LeRaffl-Gallery/#gallery" target="_blank" rel="noopener">LeRaffl Gallery</a></div></div></footer>
+
+ <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const elExtra = document.getElementById("chart-extra");
+      const elTtm = document.getElementById("chart-ttm");
+      const footExtra = document.getElementById("extra-foot");
+      const footTtm = document.getElementById("ttm-foot");
+      const hint = document.getElementById("variantHint");
+      let allRows = [];
+
+      function updateHint() {
+        if (!hint) return;
+        const v = PYEV.getVariant(allRows);
+        const s = PYEV.getSegment(allRows);
+        const parts = [];
+        const vWrap = document.querySelector(".variant-switcher");
+        const sWrap = document.querySelector(".segment-switcher");
+        if (vWrap && !vWrap.hidden) {
+          parts.push(v === "LightVehicles" ? PYEV.t("variant_light_hint") : PYEV.t("variant_whole_hint"));
+        }
+        if (sWrap && !sWrap.hidden) {
+          parts.push(
+            s === "recreativo" ? PYEV.t("segment_recreativo_hint")
+            : s === "pesado" ? PYEV.t("segment_pesado_hint")
+            : PYEV.t("segment_leve_hint")
+          );
+        }
+        hint.textContent = parts.join(" · ");
+      }
+
+      async function draw() {
+        try {
+          if (!allRows.length) allRows = await PYEV.loadParaguay();
+          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
+          PYEV.mountSegmentToggle(document.getElementById("segmentToggle"), allRows);
+          updateHint();
+          const rows = PYEV.filterRows(allRows);
+          if (!rows.length) {
+            elExtra.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            elTtm.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            if (footExtra) footExtra.textContent = "";
+            if (footTtm) footTtm.textContent = "";
+            return;
+          }
+          elExtra.innerHTML = "";
+          elTtm.innerHTML = "";
+          PYEVTrajectories.extrapolationChart(elExtra, rows);
+          PYEVTrajectories.trailingSplitChart(elTtm, rows);
+
+          const first = rows[0];
+          const last = rows[rows.length - 1];
+          if (footExtra) {
+            footExtra.innerHTML =
+              "<b>" + PYEV.t("traj_observed") + "</b> " +
+              PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
+              " · " + rows.length + " " + PYEV.t("traj_months_short") +
+              " · " + PYEV.variantLabel(last.variant || PYEV.getVariant(allRows)) +
+              " · <em>" + PYEV.t("traj_not_forecast") + "</em>";
+          }
+          if (footTtm) {
+            const incomplete = rows.length < 12;
+            footTtm.innerHTML =
+              "<b>" + (incomplete ? PYEV.t("traj_ttm_partial_label") : PYEV.t("traj_ttm_full_label")) + "</b> · " +
+              rows.length + " " + PYEV.t("traj_months_short") + " " + PYEV.t("traj_available");
+          }
+        } catch (e) {
+          elExtra.innerHTML = '<div class="status error">' + e.message + "</div>";
+          elTtm.innerHTML = "";
+        }
+      }
+      await draw();
+      window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-variant", draw);
+      window.addEventListener("pyev-segment", draw);
+      window.addEventListener("pyev-theme", () => {
+        if (elExtra && elExtra._pyevRows) PYEVTrajectories.restyleTheme(elExtra);
+        if (elTtm && elTtm._pyevRows) PYEVTrajectories.restyleTheme(elTtm);
+      });
+    });
+  </script>
+</body></html>
