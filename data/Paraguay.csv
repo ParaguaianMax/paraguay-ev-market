@@ -1,0 +1,3 @@
+period,time_interval,variant,source,BEV,PHEV,HEV,ICE,OTHERS,TOTAL,notes
+2026-08,monthly,Whole,Aduana PY datos abiertos (HS 8703),214,613,1343,25734,12,27916,"BEV=electric; PHEV=plug-in; HEV=híbrido convencional; OTHERS=mild; ICE=TOTAL−electrified; includes nuevo+usado"
+2026-09,monthly,Whole,Aduana PY datos abiertos (HS 8703),321,481,1413,37446,5,39666,"same category defs; electrified_units=2220"
