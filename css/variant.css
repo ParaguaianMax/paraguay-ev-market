@@ -82,3 +82,75 @@
 .segment-switcher select option:disabled {
   color: var(--muted-2);
 }
+
+/* Models page — powertrain chips + view tabs */
+.models-toolbar {
+  margin-bottom: 0.55rem;
+}
+.pt-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.75rem;
+  margin: 0 0 0.85rem;
+}
+.pt-filter .variant-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.pt-filter-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.pt-chip {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 0.2rem 0.35rem;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+.pt-chip.active {
+  opacity: 1;
+  border-color: var(--text);
+}
+.pt-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.view-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.25rem 0 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.view-tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 0.5rem 0.85rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.view-tab:hover { color: var(--text); }
+.view-tab.active {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--text);
+}
+.view-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
