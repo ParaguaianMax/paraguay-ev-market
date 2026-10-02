@@ -75,6 +75,14 @@
     </div>
     <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
     <p class="lead" data-i18n="share_lead">Participación mensual de cada tipo de motorización dentro del total de vehículos importados. Las barras suman 100 % para facilitar la comparación.</p>
+    <div class="series-toolbar">
+      <label class="variant-switcher">
+        <span class="variant-label" data-i18n="variant_label">Serie</span>
+        <select id="variantToggle" aria-label="Serie"></select>
+      </label>
+      <span class="variant-hint" id="variantHint"></span>
+    </div>
+
     <div class="legend-row">
       <span class="lg-bev">BEV</span>
       <span class="lg-phev">PHEV</span>
@@ -102,18 +110,36 @@
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       const el = document.getElementById("chart");
+      const table = document.getElementById("share-table");
+      const hint = document.getElementById("variantHint");
+      let allRows = [];
       let rows = [];
-      try {
-        rows = await PYEV.loadParaguay();
-        el.innerHTML = "";
-        PYEVCharts.shareChart(el, rows);
-        PYEVCharts.renderShareTable(document.getElementById("share-table"), rows);
-      } catch (e) {
-        el.innerHTML = '<div class="status error">' + e.message + "</div>";
+      function updateHint() {
+        if (!hint) return;
+        const v = PYEV.getVariant(allRows);
+        hint.textContent = v === "LightVehicles" ? PYEV.t("variant_light_hint") : PYEV.t("variant_whole_hint");
       }
-      window.addEventListener("pyev-lang", () => {
-        if (el && el.data) { PYEVCharts.shareChart(el, rows); PYEVCharts.renderShareTable(document.getElementById("share-table"), rows); }
-      });
+      async function draw() {
+        try {
+          if (!allRows.length) allRows = await PYEV.loadParaguay();
+          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
+          updateHint();
+          rows = PYEV.filterByVariant(allRows);
+          el.innerHTML = "";
+          if (!rows.length) {
+            el.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            if (table) table.innerHTML = "";
+            return;
+          }
+          PYEVCharts.shareChart(el, rows);
+          PYEVCharts.renderShareTable(table, rows);
+        } catch (e) {
+          el.innerHTML = '<div class="status error">' + e.message + "</div>";
+        }
+      }
+      await draw();
+      window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-variant", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
       });
