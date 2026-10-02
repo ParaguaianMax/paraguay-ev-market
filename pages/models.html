@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page_models"></title>
+  <meta name="description" content="Volúmenes por marca, modelo y motorización — importaciones de vehículos Paraguay." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/variant.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/i18n-variant.js" defer></script>
+  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/models.js" defer></script>
+  <script src="../js/models-page.js" defer></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <div class="header-actions">
+        <nav aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+          <a href="../index.html" data-i18n="nav_home">Inicio</a>
+          <a href="share.html" data-i18n="nav_share">Participación</a>
+          <a href="volumes.html" data-i18n="nav_volumes">Volúmenes</a>
+          <a class="active" href="models.html" data-i18n="nav_models">Marcas</a>
+          <a href="trajectories.html" data-i18n="nav_trajectories">Trayectorias</a>
+          <a href="chargers.html" data-i18n="nav_chargers">Cargadores</a>
+        </nav>
+        <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-eyebrow">
+      <span class="badge" data-i18n="models_badge">Marca · modelo · motorización</span>
+      <span class="pill pill-bev">BEV</span>
+      <span class="pill pill-phev">PHEV</span>
+      <span class="pill pill-hev">HEV</span>
+      <span class="pill pill-ice">ICE</span>
+    </div>
+    <h1 data-i18n="models_title">Ventas por marca, modelo y motorización</h1>
+    <p class="lead" data-i18n="models_lead">Unidades importadas desglosadas por marca y modelo. Cada fila y barra indica claramente si es BEV, PHEV, HEV, ICE u OTHERS.</p>
+
+    <div id="models-empty" class="note" hidden data-i18n="models_empty">
+      Todavía no hay el detalle por marca/modelo. Cuando se publique <code>data/Paraguay_models.csv</code>, esta página se completa sola.
+    </div>
+
+    <div id="models-ui" hidden>
+      <div class="series-toolbar models-toolbar">
+        <label class="variant-switcher" id="periodWrap">
+          <span class="variant-label" data-i18n="models_period">Mes</span>
+          <select id="periodToggle" aria-label="Mes"></select>
+        </label>
+        <label class="variant-switcher">
+          <span class="variant-label" data-i18n="variant_label">Serie</span>
+          <select id="variantToggle" aria-label="Serie"></select>
+        </label>
+        <label class="segment-switcher">
+          <span class="variant-label" data-i18n="segment_label">Segmento</span>
+          <select id="segmentToggle" aria-label="Segmento"></select>
+        </label>
+        <label class="variant-switcher" id="marcaWrap">
+          <span class="variant-label" data-i18n="models_col_brand">Marca</span>
+          <select id="marcaToggle" aria-label="Marca"></select>
+        </label>
+        <label class="variant-switcher" id="modeloWrap">
+          <span class="variant-label" data-i18n="models_col_model">Modelo</span>
+          <select id="modeloToggle" aria-label="Modelo"></select>
+        </label>
+        <span class="variant-hint" id="variantHint"></span>
+      </div>
+
+      <div class="pt-filter" id="ptFilter" role="group" aria-label="Motorización">
+        <span class="variant-label" data-i18n="models_col_pt">Motorización</span>
+        <div class="pt-filter-btns" id="ptButtons"></div>
+      </div>
+
+      <div class="view-tabs" role="tablist">
+        <button type="button" class="view-tab active" data-view="general" data-i18n="models_view_general">Totales</button>
+        <button type="button" class="view-tab" data-view="brand" data-i18n="models_view_brand">Por marca</button>
+        <button type="button" class="view-tab" data-view="model" data-i18n="models_view_model">Por modelo</button>
+      </div>
+
+      <div id="kpis" class="kpi-grid"></div>
+
+      <div id="chart-models" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <div id="table-models"></div>
+      <p class="chart-foot" data-i18n="models_foot">Fuente: Aduana PY · detalle marca/modelo. Incluye vehículos nuevos y usados.</p>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="page-nav">
+        <a href="volumes.html" data-i18n="prev_volumes">← Volúmenes</a>
+        <a href="trajectories.html" data-i18n="next_trajectories">Trayectorias →</a>
+      </div>
+      <div><span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay.</span> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a></div>
+    </div>
+  </footer>
+
+</body>
+</html>
