@@ -1,0 +1,32 @@
+name: Assemble Paraguay_models.csv
+on:
+  push:
+    paths:
+      - 'data/models/**'
+      - '.github/workflows/assemble-paraguay-models.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Concat monthly CSVs
+        run: |
+          set -euo pipefail
+          out=data/Paraguay_models.csv
+          header='period,variant,segmento,marca,modelo,powertrain,units,source,notes'
+          echo "$header" > "$out"
+          for f in $(ls data/models/*.csv | sort); do
+            tail -n +2 "$f" >> "$out"
+          done
+          wc -l "$out"
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/Paraguay_models.csv
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -m "data: assemble Paraguay_models.csv from monthly parts"
+          git push
