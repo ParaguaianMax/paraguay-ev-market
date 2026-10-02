@@ -64,9 +64,17 @@
   function mountNuevosToggle(host) {
     const wrap = host || document.querySelector(".subnav-bar .wrap");
     if (!wrap) return null;
-    if (wrap.querySelector(".nuevos-toggle")) {
+    const existing = wrap.querySelector(".nuevos-toggle");
+    if (existing) {
+      const input = existing.querySelector('input[type="checkbox"]');
+      if (input && !input.dataset.nuevosBound) {
+        input.dataset.nuevosBound = "1";
+        input.addEventListener("change", () => {
+          setNuevosOnly(input.checked);
+        });
+      }
       syncToggleUI();
-      return wrap.querySelector(".nuevos-toggle");
+      return existing;
     }
     const label = document.createElement("label");
     label.className = "nuevos-toggle";
@@ -81,6 +89,7 @@
     const input = label.querySelector("input");
     input.checked = isNuevosOnly();
     input.setAttribute("aria-label", t("nuevos_label"));
+    input.dataset.nuevosBound = "1";
     input.addEventListener("change", () => {
       setNuevosOnly(input.checked);
     });

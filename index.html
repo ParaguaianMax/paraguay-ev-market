@@ -153,6 +153,24 @@
       const foot = document.getElementById("chart-foot");
       const hint = document.getElementById("variantHint");
       let allRows = [];
+      function ytdRow(rows) {
+        const latest = rows[rows.length - 1];
+        const year = String(latest.period).slice(0, 4);
+        const ytd = rows.filter((r) => String(r.period).slice(0, 4) === year);
+        const totals = ["BEV", "PHEV", "HEV", "ICE", "OTHERS", "TOTAL"].reduce((out, key) => {
+          out[key] = ytd.reduce((sum, r) => sum + (Number(r[key]) || 0), 0);
+          return out;
+        }, {});
+        const row = Object.assign({}, latest, totals, { period: year + "-YTD" });
+        row.electrified = row.BEV + row.PHEV + row.HEV + row.OTHERS;
+        row.electrified_pct = row.TOTAL ? (100 * row.electrified) / row.TOTAL : 0;
+        const pct = (n) => row.TOTAL ? (100 * n) / row.TOTAL : 0;
+        row.share = {
+          BEV: pct(row.BEV), PHEV: pct(row.PHEV), HEV: pct(row.HEV),
+          OTHERS: pct(row.OTHERS), ICE: pct(row.ICE),
+        };
+        return row;
+      }
       function updateHint() {
         if (!hint) return;
         const v = PYEV.getVariant(allRows);
@@ -188,14 +206,15 @@
             return;
           }
           const latest = rows[rows.length - 1];
-          PYEVCharts.renderKPIs(kpis, latest);
+          const ytd = ytdRow(rows);
+          PYEVCharts.renderKPIs(kpis, ytd);
           PYEVCharts.shareChart(mini, rows);
           if (foot) {
             foot.innerHTML =
-              "<b>" + PYEV.t("last_month") + "</b> " +
-              PYEV.periodLabel(latest.period) +
+              "<b>" + PYEV.t("ytd_total") + "</b> " +
+              PYEV.periodLabel(ytd.period) +
               " · " +
-              PYEV.fmtInt(latest.TOTAL) +
+              PYEV.fmtInt(ytd.TOTAL) +
               " " + PYEV.t("units_hs") +
               " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows)) +
               (resolved.nuevos ? " · " + PYEV.t("nuevos_label") : "");
