@@ -1,5 +1,6 @@
 {
   "files": [
+    "2025-12.csv",
     "2026-01.csv",
     "2026-02.csv",
     "2026-03.csv",
@@ -10,8 +11,5 @@
     "2026-08.csv",
     "2026-09.csv"
   ],
-  "header": "period,variant,segmento,marca,modelo,powertrain,units,source,notes",
-  "default_variant": "LightVehicles",
-  "default_segmento": "leve",
-  "complete_vehicles_only": true
+  "header": "period,variant,segmento,marca,modelo,powertrain,units,source,notes"
 }
