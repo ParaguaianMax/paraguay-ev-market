@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paraguay EV Market — importaciones HS 8703</title>
+  <meta name="description" content="Mercado de híbridos y eléctricos en Paraguay vs total e ICE. Datos abiertos Aduana PY." />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="js/load-csv.js" defer></script>
+  <script src="js/charts.js" defer></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="index.html">Paraguay <span>EV Market</span></a>
+      <nav>
+        <a class="active" href="index.html">Inicio</a>
+        <a href="pages/share.html">Participación</a>
+        <a href="pages/volumes.html">Volúmenes</a>
+        <a href="sources/paraguay.md">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <span class="badge">Aduana PY · datos abiertos</span>
+    <h1>Mercado híbrido / eléctrico en Paraguay</h1>
+    <p class="lead">
+      Importaciones de vehículos (HS 8703): participación y volúmenes de
+      <strong>BEV</strong>, <strong>PHEV</strong>, <strong>HEV</strong> frente al
+      <strong>total</strong> y a <strong>ICE</strong>. Estilo galería de datos,
+      números abiertos, CSV en el repo.
+    </p>
+
+    <div id="kpis" class="kpi-grid">
+      <div class="status">Cargando datos…</div>
+    </div>
+
+    <div class="note">
+      MVP con <strong>2 meses</strong> (ago–sep 2026). La serie crecerá mes a mes
+      a partir de los CSV Nivel Item de
+      <a href="https://datosabiertos.aduana.gov.py" target="_blank" rel="noopener">datosabiertos.aduana.gov.py</a>.
+      ICE = TOTAL − electrificados (BEV+PHEV+HEV+OTHERS/mild). Incluye nuevo y usado.
+    </div>
+
+    <h2>Explorar</h2>
+    <div class="cards">
+      <a class="card" href="pages/share.html">
+        <h3>Participación (%)</h3>
+        <p>Barras apiladas: cuota de BEV, PHEV, HEV, OTHERS e ICE sobre el total HS 8703.</p>
+        <span class="arrow">Ver gráfico →</span>
+      </a>
+      <a class="card" href="pages/volumes.html">
+        <h3>Volúmenes (unidades)</h3>
+        <p>Barras agrupadas por categoría y línea de TOTAL — comparación absoluta con ICE.</p>
+        <span class="arrow">Ver gráfico →</span>
+      </a>
+    </div>
+
+    <h2>Último mes — desglose</h2>
+    <div class="legend-row">
+      <span class="lg-bev">BEV</span>
+      <span class="lg-phev">PHEV</span>
+      <span class="lg-hev">HEV</span>
+      <span class="lg-others">OTHERS (mild)</span>
+      <span class="lg-ice">ICE</span>
+    </div>
+    <div id="mini-share" class="chart-panel"></div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      Datos: Aduana Nacional del Paraguay (HS 8703).
+      Repo: <a href="https://github.com/ParaguaianMax/paraguay-ev-market">ParaguaianMax/paraguay-ev-market</a>.
+      Inspirado en el espíritu de galería abierta de
+      <a href="https://leraffl.github.io/LeRaffl-Gallery/" target="_blank" rel="noopener">LeRaffl Gallery</a>
+      — no es un clon.
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const kpis = document.getElementById("kpis");
+      const mini = document.getElementById("mini-share");
+      try {
+        const rows = await PYEV.loadParaguay();
+        if (!rows.length) throw new Error("CSV vacío");
+        const latest = rows[rows.length - 1];
+        PYEVCharts.renderKPIs(kpis, latest);
+        PYEVCharts.shareChart(mini, rows);
+      } catch (e) {
+        kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
+        mini.innerHTML = "";
+      }
+    });
+  </script>
+</body>
+</html>
