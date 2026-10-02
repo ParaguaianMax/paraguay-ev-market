@@ -18,7 +18,8 @@
 | `MERCEDES - BENZ` | 22 |
 | `MERCEDES` | 14 |
 | `MERCEDES BENEZ` | 1 |
-| **sum** | **4411** |
+| `MERECEDES BENZ` | 7 |
+| **sum** | **4418** |
 
 After canonical: **`MERCEDES-BENZ` = 4418** (single marca).
 
