@@ -222,3 +222,13 @@
   max-height: min(70vh, 920px);
   overflow: auto;
 }
+
+.vol-period-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+}
+.vol-pt-mode {
+  margin-left: 0;
+}

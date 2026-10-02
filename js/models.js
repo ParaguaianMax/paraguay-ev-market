@@ -346,25 +346,13 @@
   }
 
   /**
-   * Prefer LightVehicles+leve per period; fall back to Whole+leve when LV
-   * detail is not published for that month (currently only 2026-01 has LV).
+   * LightVehicles + leve only (cars + light pickups). Never falls back to Whole:
+   * months without LV model detail are omitted (caller shows empty note).
    */
   function marketSeriesRows(rows) {
-    const byPeriod = {};
-    (rows || []).forEach((r) => {
-      if (!r.period || r.segmento !== "leve") return;
-      if (!byPeriod[r.period]) byPeriod[r.period] = { lv: [], whole: [] };
-      if (r.variant === "LightVehicles") byPeriod[r.period].lv.push(r);
-      else if (r.variant === "Whole") byPeriod[r.period].whole.push(r);
-    });
-    const out = [];
-    Object.keys(byPeriod)
-      .sort()
-      .forEach((p) => {
-        const bucket = byPeriod[p];
-        out.push(...(bucket.lv.length ? bucket.lv : bucket.whole));
-      });
-    return out;
+    return (rows || []).filter(
+      (r) => r.period && r.variant === "LightVehicles" && r.segmento === "leve"
+    );
   }
 
   function periodsOfRows(rows) {

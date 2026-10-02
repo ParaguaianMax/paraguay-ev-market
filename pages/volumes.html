@@ -123,7 +123,7 @@
     <section id="vol-rankings" class="vol-rankings">
       <h2 data-i18n="vol_rankings_title">Top marcas y modelos</h2>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.75rem;font-size:0.92rem" data-i18n="vol_rankings_lead">
-        Ranking de hasta 100 marcas y 100 modelos en el período elegido. Las barras apiladas muestran BEV, PHEV, HEV, ICE y OTHERS.
+        Ranking de hasta 100 marcas y 100 modelos — solo vehículos livianos + camionetas (LightVehicles · leve). Filtrá por período y motorización.
       </p>
 
       <div id="vol-rankings-empty" class="note" hidden data-i18n="models_empty">
@@ -132,7 +132,7 @@
 
       <div id="vol-rankings-ui" hidden>
         <div class="series-toolbar models-toolbar vol-period-toolbar">
-          <div class="period-mode" role="group" aria-label="Período">
+          <div class="period-mode" role="group" aria-label="Período" data-i18n-attr="aria-label:vol_period_month">
             <button type="button" class="period-mode-btn active" data-period-mode="month" data-i18n="vol_period_month">Mes</button>
             <button type="button" class="period-mode-btn" data-period-mode="year" data-i18n="vol_period_year">Año</button>
             <button type="button" class="period-mode-btn" data-period-mode="ytd" data-i18n="vol_period_ytd">YTD</button>
@@ -145,8 +145,17 @@
             <span class="variant-label" data-i18n="vol_year_label">Año</span>
             <select id="volYearToggle" aria-label="Año"></select>
           </label>
+          <div class="period-mode vol-pt-mode" role="group" aria-label="Motorización" data-i18n-attr="aria-label:models_col_pt">
+            <button type="button" class="period-mode-btn active" data-pt-mode="all" data-i18n="vol_pt_all">Todos</button>
+            <button type="button" class="period-mode-btn" data-pt-mode="bev">BEV</button>
+            <button type="button" class="period-mode-btn" data-pt-mode="hybrids" data-i18n="vol_pt_hybrids">Híbridos</button>
+          </div>
           <span class="variant-hint" id="volScopeHint"></span>
         </div>
+
+        <p id="vol-scope-empty" class="note" hidden data-i18n="vol_lv_empty">
+          Sin detalle LightVehicles · leve para este período. No se usa la serie Whole.
+        </p>
 
         <div class="legend-row">
           <span class="lg-bev">BEV</span>
@@ -183,7 +192,7 @@
         </div>
         <div id="chart-top-models" class="chart-panel chart-bare chart-scroll"><div class="status" data-i18n="loading">Cargando…</div></div>
         <div id="table-top-models"></div>
-        <p class="chart-foot" data-i18n="vol_rank_foot">Fuente: Aduana PY · detalle marca/modelo. Serie livianos (+ camionetas cuando hay dato). Incluye vehículos nuevos y usados.</p>
+        <p class="chart-foot" data-i18n="vol_rank_foot">Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve (livianos + camionetas). Meses sin ese detalle quedan vacíos (sin fallback Whole). Incluye vehículos nuevos y usados.</p>
       </div>
     </section>
 

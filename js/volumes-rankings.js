@@ -1,11 +1,16 @@
 /**
  * Top marcas / modelos on Volúmenes — month | year | YTD, search, powertrain stack.
+ * Scope: LightVehicles + leve only (no Whole fallback). Powertrain chips: Todos | BEV | Híbridos.
  */
 (function (global) {
   const TOP_N = 100;
   const MODE_KEY = "pyev-vol-period-mode";
   const MONTH_KEY = "pyev-vol-period-month";
   const YEAR_KEY = "pyev-vol-period-year";
+  const PT_KEY = "pyev-vol-pt-mode";
+
+  /** @type {"all"|"bev"|"hybrids"} */
+  const PT_MODES = ["all", "bev", "hybrids"];
 
   function t(k, vars) {
     return global.PYEV && global.PYEV.t ? global.PYEV.t(k, vars) : k;
@@ -24,11 +29,18 @@
     } catch (e) {}
   }
 
+  function powertrainsForMode(mode) {
+    if (mode === "bev") return ["BEV"];
+    if (mode === "hybrids") return ["PHEV", "HEV"];
+    return null; // all
+  }
+
   function init() {
     const root = document.getElementById("vol-rankings");
     if (!root || !global.PYEVModels) return;
 
     const modeBtns = root.querySelectorAll("[data-period-mode]");
+    const ptBtns = root.querySelectorAll("[data-pt-mode]");
     const monthSel = document.getElementById("volMonthToggle");
     const yearSel = document.getElementById("volYearToggle");
     const monthWrap = document.getElementById("volMonthWrap");
@@ -44,27 +56,35 @@
     const scopeHint = document.getElementById("volScopeHint");
     const emptyEl = document.getElementById("vol-rankings-empty");
     const uiEl = document.getElementById("vol-rankings-ui");
+    const scopeEmptyEl = document.getElementById("vol-scope-empty");
 
     let allModelRows = [];
     let marketRows = [];
     let mode = lsGet(MODE_KEY) || "month";
     if (!["month", "year", "ytd"].includes(mode)) mode = "month";
+    let ptMode = lsGet(PT_KEY) || "all";
+    if (!PT_MODES.includes(ptMode)) ptMode = "all";
 
     function scopedRows() {
-      return PYEVModels.filterByPeriodScope(marketRows, {
+      const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
         mode,
         month: monthSel && monthSel.value,
         year: yearSel && yearSel.value,
       });
+      const pts = powertrainsForMode(ptMode);
+      if (!pts) return periodRows;
+      return PYEVModels.filterModels(periodRows, { powertrains: pts });
     }
 
     function syncModeUI() {
       modeBtns.forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.periodMode === mode);
       });
+      ptBtns.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.ptMode === ptMode);
+      });
       if (monthWrap) monthWrap.hidden = mode !== "month";
       if (yearWrap) yearWrap.hidden = mode === "month";
-      // YTD uses year of latest data; still allow year pick for multi-year later
       if (yearWrap && mode === "ytd") yearWrap.hidden = false;
     }
 
@@ -99,31 +119,69 @@
     }
 
     function scopeLabel() {
-      const periods = PYEVModels.periodsOf(scopedRows());
+      const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
+        mode,
+        month: monthSel && monthSel.value,
+        year: yearSel && yearSel.value,
+      });
+      const periods = PYEVModels.periodsOf(periodRows);
       if (!periods.length) return "";
-      if (mode === "month") return PYEV.periodLabel(periods[0]);
-      if (mode === "year") {
-        return (
+      let label = "";
+      if (mode === "month") label = PYEV.periodLabel(periods[0]);
+      else if (mode === "year") {
+        label =
           t("vol_period_year") +
           " " +
-          (yearSel.value || periods[0].slice(0, 4))
-        );
+          (yearSel.value || periods[0].slice(0, 4));
+      } else {
+        const first = periods[0];
+        const last = periods[periods.length - 1];
+        label =
+          t("vol_period_ytd") +
+          " · " +
+          PYEV.periodLabel(first) +
+          " – " +
+          PYEV.periodLabel(last);
       }
-      const first = periods[0];
-      const last = periods[periods.length - 1];
-      return (
-        t("vol_period_ytd") +
-        " · " +
-        PYEV.periodLabel(first) +
-        " – " +
-        PYEV.periodLabel(last)
-      );
+      if (ptMode === "bev") label += " · BEV";
+      else if (ptMode === "hybrids") label += " · " + t("vol_pt_hybrids");
+      return label;
+    }
+
+    function setChartsEmpty(msg) {
+      const html = '<div class="status">' + msg + "</div>";
+      if (brandChart) brandChart.innerHTML = html;
+      if (modelChart) modelChart.innerHTML = html;
+      if (brandTable) brandTable.innerHTML = "";
+      if (modelTable) modelTable.innerHTML = "";
+      if (brandMeta) brandMeta.textContent = t("vol_showing_n", { n: "0" });
+      if (modelMeta) modelMeta.textContent = t("vol_showing_n", { n: "0" });
     }
 
     function draw() {
       syncModeUI();
-      const rows = scopedRows();
+      const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
+        mode,
+        month: monthSel && monthSel.value,
+        year: yearSel && yearSel.value,
+      });
       if (scopeHint) scopeHint.textContent = scopeLabel();
+
+      if (!periodRows.length) {
+        if (scopeEmptyEl) {
+          scopeEmptyEl.hidden = false;
+          scopeEmptyEl.textContent = t("vol_lv_empty");
+        }
+        setChartsEmpty(t("vol_lv_empty"));
+        return;
+      }
+      if (scopeEmptyEl) scopeEmptyEl.hidden = true;
+
+      const rows = scopedRows();
+      if (!rows.length) {
+        setChartsEmpty(t("models_empty_filter"));
+        return;
+      }
 
       const brands = PYEVModels.rankBrands(rows, {
         topN: TOP_N,
@@ -160,6 +218,13 @@
         draw();
       });
     });
+    ptBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        ptMode = btn.dataset.ptMode;
+        lsSet(PT_KEY, ptMode);
+        draw();
+      });
+    });
     if (monthSel) {
       monthSel.addEventListener("change", () => {
         lsSet(MONTH_KEY, monthSel.value);
@@ -191,7 +256,10 @@
         }
         marketRows = PYEVModels.marketSeriesRows(allModelRows);
         if (!marketRows.length) {
-          if (emptyEl) emptyEl.hidden = false;
+          if (emptyEl) {
+            emptyEl.hidden = false;
+            emptyEl.textContent = t("vol_lv_empty");
+          }
           if (uiEl) uiEl.hidden = true;
           return;
         }
@@ -214,12 +282,10 @@
       if (!marketRows.length) return;
       fillPeriodSelects();
       draw();
-      // refresh placeholders / mode button labels via data-i18n already applied
     });
     global.addEventListener("pyev-theme", () => {
       if (brandChart && brandChart.data) PYEVModels.restyleTheme(brandChart);
       if (modelChart && modelChart.data) PYEVModels.restyleTheme(modelChart);
-      // restyle alone may miss stacked colors — redraw
       if (marketRows.length) draw();
     });
   }

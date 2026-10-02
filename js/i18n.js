@@ -31,7 +31,7 @@
       card_models: "Marcas y modelos", card_models_desc: "Volúmenes por marca, modelo y motorización (BEV / PHEV / HEV / ICE).",
 
       vol_rankings_title: "Top marcas y modelos",
-      vol_rankings_lead: "Ranking de hasta 100 marcas y 100 modelos en el período elegido. Las barras apiladas muestran BEV, PHEV, HEV, ICE y OTHERS.",
+      vol_rankings_lead: "Ranking de hasta 100 marcas y 100 modelos — solo vehículos livianos + camionetas (LightVehicles · leve). Filtrá por período y motorización.",
       vol_top_brands: "Top 100 marcas",
       vol_top_brands_lead: "Unidades por marca con desglose de motorización. Buscá para filtrar dentro del ranking.",
       vol_top_models: "Top 100 modelos",
@@ -43,7 +43,10 @@
       vol_search_brand: "Buscar marca…",
       vol_search_model: "Buscar modelo…",
       vol_showing_n: "Mostrando {n}",
-      vol_rank_foot: "Fuente: Aduana PY · detalle marca/modelo. Serie livianos (+ camionetas cuando hay dato). Incluye vehículos nuevos y usados.",
+      vol_pt_all: "Todos",
+      vol_pt_hybrids: "Híbridos",
+      vol_lv_empty: "Sin detalle LightVehicles · leve para este período. No se usa la serie Whole.",
+      vol_rank_foot: "Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve (livianos + camionetas). Meses sin ese detalle quedan vacíos (sin fallback Whole). Incluye vehículos nuevos y usados.",
       next_models: "Marcas →", prev_models: "← Marcas"
     },
     pt: {
@@ -73,7 +76,7 @@
       card_models: "Marcas e modelos", card_models_desc: "Volumes por marca, modelo e motorização (BEV / PHEV / HEV / ICE).",
 
       vol_rankings_title: "Top marcas e modelos",
-      vol_rankings_lead: "Ranking de até 100 marcas e 100 modelos no período escolhido. As barras empilhadas mostram BEV, PHEV, HEV, ICE e OTHERS.",
+      vol_rankings_lead: "Ranking de até 100 marcas e 100 modelos — só veículos leves + picapes (LightVehicles · leve). Filtre por período e motorização.",
       vol_top_brands: "Top 100 marcas",
       vol_top_brands_lead: "Unidades por marca com detalhe de motorização. Busque para filtrar dentro do ranking.",
       vol_top_models: "Top 100 modelos",
@@ -85,7 +88,10 @@
       vol_search_brand: "Buscar marca…",
       vol_search_model: "Buscar modelo…",
       vol_showing_n: "Mostrando {n}",
-      vol_rank_foot: "Fonte: Aduana PY · detalhe marca/modelo. Série leves (+ picapes quando há dado). Inclui veículos novos e usados.",
+      vol_pt_all: "Todos",
+      vol_pt_hybrids: "Híbridos",
+      vol_lv_empty: "Sem detalhe LightVehicles · leve para este período. Não se usa a série Whole.",
+      vol_rank_foot: "Fonte: Aduana PY · detalhe marca/modelo. Só LightVehicles · leve (leves + picapes). Meses sem esse detalhe ficam vazios (sem fallback Whole). Inclui veículos novos e usados.",
       next_models: "Marcas →", prev_models: "← Marcas"
     },
     en: {
@@ -115,7 +121,7 @@
       card_models: "Brands & models", card_models_desc: "Volumes by brand, model and powertrain (BEV / PHEV / HEV / ICE).",
 
       vol_rankings_title: "Top brands and models",
-      vol_rankings_lead: "Ranking of up to 100 brands and 100 models for the selected period. Stacked bars show BEV, PHEV, HEV, ICE and OTHERS.",
+      vol_rankings_lead: "Ranking of up to 100 brands and 100 models — light vehicles + pickups only (LightVehicles · leve). Filter by period and powertrain.",
       vol_top_brands: "Top 100 brands",
       vol_top_brands_lead: "Units by brand with powertrain split. Search to filter within the ranking.",
       vol_top_models: "Top 100 models",
@@ -127,7 +133,10 @@
       vol_search_brand: "Search brand…",
       vol_search_model: "Search model…",
       vol_showing_n: "Showing {n}",
-      vol_rank_foot: "Source: Paraguay Customs · brand/model detail. Light-vehicles series (+ pickups when available). Includes new and used vehicles.",
+      vol_pt_all: "All",
+      vol_pt_hybrids: "Hybrids",
+      vol_lv_empty: "No LightVehicles · leve detail for this period. Whole series is not used.",
+      vol_rank_foot: "Source: Paraguay Customs · brand/model detail. LightVehicles · leve only (light vehicles + pickups). Months without that detail stay empty (no Whole fallback). Includes new and used vehicles.",
       next_models: "Brands →", prev_models: "← Brands"
     }
   };
