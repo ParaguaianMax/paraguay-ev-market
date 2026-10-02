@@ -85,6 +85,15 @@
     <h1 data-i18n="home_title">Mercado híbrido / eléctrico en Paraguay</h1>
     <p class="lead" data-i18n="home_lead">Seguimiento mensual de las importaciones de vehículos en Paraguay: eléctricos de batería (BEV), híbridos enchufables (PHEV) e híbridos (HEV), comparados con el total y los vehículos de combustión (ICE).</p>
 
+    <div class="series-toolbar">
+      <label class="variant-switcher">
+        <span class="variant-label" data-i18n="variant_label">Serie</span>
+        <select id="variantToggle" aria-label="Serie"></select>
+      </label>
+      <span class="variant-hint" id="variantHint"></span>
+    </div>
+
+
     <div id="kpis" class="kpi-grid">
       <div class="status" data-i18n="loading">Cargando…</div>
     </div>
@@ -138,10 +147,26 @@
       const kpis = document.getElementById("kpis");
       const mini = document.getElementById("mini-share");
       const foot = document.getElementById("chart-foot");
+      const hint = document.getElementById("variantHint");
+      let allRows = [];
+      function updateHint() {
+        if (!hint) return;
+        const v = PYEV.getVariant(allRows);
+        hint.textContent = v === "LightVehicles" ? PYEV.t("variant_light_hint") : PYEV.t("variant_whole_hint");
+      }
       async function draw() {
         try {
-          const rows = await PYEV.loadParaguay();
-          if (!rows.length) throw new Error("CSV vacío");
+          if (!allRows.length) allRows = await PYEV.loadParaguay();
+          if (!allRows.length) throw new Error("CSV vacío");
+          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
+          updateHint();
+          const rows = PYEV.filterByVariant(allRows);
+          if (!rows.length) {
+            kpis.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            mini.innerHTML = "";
+            if (foot) foot.textContent = "";
+            return;
+          }
           const latest = rows[rows.length - 1];
           PYEVCharts.renderKPIs(kpis, latest);
           PYEVCharts.shareChart(mini, rows);
@@ -151,7 +176,8 @@
               PYEV.periodLabel(latest.period) +
               " · " +
               PYEV.fmtInt(latest.TOTAL) +
-              " " + PYEV.t("units_hs");
+              " " + PYEV.t("units_hs") +
+              " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows));
           }
         } catch (e) {
           kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
@@ -161,6 +187,7 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-variant", draw);
       window.addEventListener("pyev-theme", () => {
         if (mini && mini.data) PYEVCharts.restyleTheme(mini);
       });
