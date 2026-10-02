@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Participación — Paraguay EV Market</title>
+  <title data-i18n="page_share"></title>
   <meta name="description" content="Participación % BEV, PHEV, HEV, OTHERS e ICE en importaciones HS 8703 Paraguay." />
   <meta name="theme-color" content="#fdfdfc" />
   <script>
@@ -44,7 +44,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="../css/style.css" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
-  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+<script src="../js/load-csv.js" defer></script>
   <script src="../js/charts.js" defer></script>
 </head>
 <body>
@@ -52,13 +53,13 @@
     <div class="wrap">
       <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
       <div class="header-actions">
-        <nav aria-label="Principal">
-          <a href="../index.html">Inicio</a>
-          <a class="active" href="share.html">Participación</a>
-          <a href="volumes.html">Volúmenes</a>
-          <a href="chargers.html">Cargadores</a>
-          <a href="../sources/paraguay.md">Fuentes</a>
+        <nav aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+          <a href="../index.html" data-i18n="nav_home">Inicio</a>
+          <a class="active" href="share.html" data-i18n="nav_share">Participación</a>
+          <a href="volumes.html" data-i18n="nav_volumes">Volúmenes</a>
+          <a href="chargers.html" data-i18n="nav_chargers">Cargadores</a>
         </nav>
+        <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
         <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
       </div>
     </div>
@@ -66,18 +67,14 @@
 
   <main class="wrap">
     <div class="page-eyebrow">
-      <span class="badge">% del total HS 8703</span>
+      <span class="badge" data-i18n="share_badge">% del total HS 8703</span>
       <span class="pill pill-bev">BEV</span>
       <span class="pill pill-phev">PHEV</span>
       <span class="pill pill-hev">HEV</span>
       <span class="pill pill-ice">ICE</span>
     </div>
-    <h1>Participación por tren motriz</h1>
-    <p class="lead">
-      Cuota mensual de BEV, PHEV, HEV, OTHERS (mild) e ICE. Barras apiladas al <strong>100&nbsp;%</strong> —
-      el porcentaje es la lectura principal (etiquetas en barra + hover con 2 decimales).
-      Segmentos pequeños (BEV/PHEV) se anotan arriba de la columna.
-    </p>
+    <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
+    <p class="lead" data-i18n="share_lead">Participación mensual de cada tipo de motorización dentro del total de vehículos importados. Las barras suman 100 % para facilitar la comparación.</p>
     <div class="legend-row">
       <span class="lg-bev">BEV</span>
       <span class="lg-phev">PHEV</span>
@@ -85,38 +82,38 @@
       <span class="lg-others">OTHERS</span>
       <span class="lg-ice">ICE</span>
     </div>
-    <div id="chart" class="chart-panel chart-bare"><div class="status">Cargando…</div></div>
-    <p class="chart-foot"><b>Fuente</b> <code>data/Paraguay.csv</code> · Aduana PY datos abiertos. ICE = TOTAL − (BEV+PHEV+HEV+OTHERS).</p>
-    <h2>Tabla — % exactos</h2>
+    <div id="chart" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+    <p class="chart-foot" data-i18n="ice_formula">ICE = total menos BEV, PHEV, HEV y OTHERS.</p>
+    <h2 data-i18n="exact_pct">Tabla — porcentajes exactos</h2>
     <div id="share-table"></div>
-    <div class="note">
-      Misma serie que en el inicio. Solo se agregan meses cuando existe el CSV oficial del mes.
-    </div>
+    <div class="note" data-i18n="share_note">Los porcentajes se calculan sobre el total mensual de vehículos importados.</div>
   </main>
 
   <footer class="site">
     <div class="wrap">
       <div class="page-nav">
-        <a href="../index.html">← Inicio</a>
-        <a href="volumes.html">Volúmenes →</a>
+        <a href="../index.html" data-i18n="prev_home">← Inicio</a>
+        <a href="volumes.html" data-i18n="next_volumes">Volúmenes →</a>
       </div>
-      <div>
-        <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a>
-      </div>
+      <div><span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay (HS 8703).</span> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a></div>
     </div>
   </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       const el = document.getElementById("chart");
+      let rows = [];
       try {
-        const rows = await PYEV.loadParaguay();
+        rows = await PYEV.loadParaguay();
         el.innerHTML = "";
         PYEVCharts.shareChart(el, rows);
         PYEVCharts.renderShareTable(document.getElementById("share-table"), rows);
       } catch (e) {
         el.innerHTML = '<div class="status error">' + e.message + "</div>";
       }
+      window.addEventListener("pyev-lang", () => {
+        if (el && el.data) { PYEVCharts.shareChart(el, rows); PYEVCharts.renderShareTable(document.getElementById("share-table"), rows); }
+      });
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
       });

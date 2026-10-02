@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Volúmenes — Paraguay EV Market</title>
+  <title data-i18n="page_volumes"></title>
   <meta name="description" content="Volúmenes absolutos BEV, PHEV, HEV, ICE y TOTAL — importaciones HS 8703 Paraguay." />
   <meta name="theme-color" content="#fdfdfc" />
   <script>
@@ -44,7 +44,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="../css/style.css" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
-  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+<script src="../js/load-csv.js" defer></script>
   <script src="../js/charts.js" defer></script>
 </head>
 <body>
@@ -52,13 +53,13 @@
     <div class="wrap">
       <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
       <div class="header-actions">
-        <nav aria-label="Principal">
-          <a href="../index.html">Inicio</a>
-          <a href="share.html">Participación</a>
-          <a class="active" href="volumes.html">Volúmenes</a>
-          <a href="chargers.html">Cargadores</a>
-          <a href="../sources/paraguay.md">Fuentes</a>
+        <nav aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+          <a href="../index.html" data-i18n="nav_home">Inicio</a>
+          <a href="share.html" data-i18n="nav_share">Participación</a>
+          <a class="active" href="volumes.html" data-i18n="nav_volumes">Volúmenes</a>
+          <a href="chargers.html" data-i18n="nav_chargers">Cargadores</a>
         </nav>
+        <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
         <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
       </div>
     </div>
@@ -66,20 +67,17 @@
 
   <main class="wrap">
     <div class="page-eyebrow">
-      <span class="badge">Unidades absolutas</span>
+      <span class="badge" data-i18n="volumes_badge">Unidades absolutas</span>
       <span class="pill pill-bev">BEV</span>
       <span class="pill pill-phev">PHEV</span>
       <span class="pill pill-hev">HEV</span>
       <span class="pill pill-ice">ICE</span>
     </div>
-    <h1>Volúmenes vs total e ICE</h1>
-    <p class="lead">
-      Unidades mensuales por categoría (barras) y TOTAL (línea, eje derecho).
-      Comparación directa electrificados vs combustión.
-    </p>
-    <h2>Electrificados (sin ICE)</h2>
+    <h1 data-i18n="volumes_title">Volúmenes: total, electrificados e ICE</h1>
+    <p class="lead" data-i18n="volumes_lead">Unidades importadas por mes, con una vista ampliada de los vehículos electrificados y otra con el total del mercado.</p>
+    <h2 data-i18n="electrified">Electrificados (sin ICE)</h2>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.92rem">
-      Unidades BEV / PHEV / HEV / OTHERS — sin ICE, para que las barras sean legibles. Etiquetas: unidades y % del total HS 8703.
+      <span data-i18n="electrified_lead">BEV, PHEV, HEV y OTHERS, sin ICE, para comparar mejor las categorías electrificadas. Cada etiqueta muestra unidades y porcentaje del total.</span>
     </p>
     <div class="legend-row">
       <span class="lg-bev">BEV</span>
@@ -87,11 +85,11 @@
       <span class="lg-hev">HEV</span>
       <span class="lg-others">OTHERS</span>
     </div>
-    <div id="chart-elec" class="chart-panel chart-bare"><div class="status">Cargando…</div></div>
+    <div id="chart-elec" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
 
-    <h2>Todas las categorías (+ ICE)</h2>
+    <h2 data-i18n="all_categories">Todas las categorías (+ ICE)</h2>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.92rem">
-      Comparación absoluta con ICE y TOTAL. El hover muestra <b>unidades y %</b> — ICE domina el eje; use el gráfico de arriba o la tabla para electrificados.
+      <span data-i18n="all_categories_lead">Comparación de todas las categorías con ICE y TOTAL. El gráfico superior y la tabla ayudan a leer las categorías de menor volumen.</span>
     </p>
     <div class="legend-row">
       <span class="lg-bev">BEV</span>
@@ -101,25 +99,23 @@
       <span class="lg-ice">ICE</span>
       <span class="lg-total">TOTAL</span>
     </div>
-    <div id="chart" class="chart-panel chart-bare"><div class="status">Cargando…</div></div>
-    <p class="chart-foot"><b>Fuente</b> Aduana PY · Incluye vehículos <b>nuevos y usados</b> HS 8703. Serie inicial: ago y sep 2026.</p>
+    <div id="chart" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+    <p class="chart-foot" data-i18n="includes_new_used">Incluye vehículos nuevos y usados clasificados en HS 8703.</p>
 
-    <h2>Tabla — unidades y % exactos</h2>
+    <h2 data-i18n="exact_units_pct">Tabla — unidades y porcentajes exactos</h2>
     <div id="share-table"></div>
     <div class="note">
-      Los % son participación sobre el TOTAL HS 8703 del mes. ICE ≈ TOTAL − electrificados.
+      <span data-i18n="volumes_note">Los porcentajes representan la participación de cada categoría en el total mensual. ICE es la diferencia entre el total y las categorías electrificadas.</span>
     </div>
   </main>
 
   <footer class="site">
     <div class="wrap">
       <div class="page-nav">
-        <a href="share.html">← Participación</a>
-        <a href="../index.html">Inicio</a>
+        <a href="share.html" data-i18n="prev_share">← Participación</a>
+        <a href="../index.html" data-i18n="nav_home">Inicio</a>
       </div>
-      <div>
-        <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a>
-      </div>
+      <div><span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay (HS 8703).</span> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a></div>
     </div>
   </footer>
 
@@ -128,8 +124,9 @@
       const el = document.getElementById("chart");
       const elElec = document.getElementById("chart-elec");
       const table = document.getElementById("share-table");
+      let rows = [];
       try {
-        const rows = await PYEV.loadParaguay();
+        rows = await PYEV.loadParaguay();
         el.innerHTML = "";
         elElec.innerHTML = "";
         PYEVCharts.volumesElectrifiedChart(elElec, rows);
@@ -139,6 +136,9 @@
         el.innerHTML = '<div class="status error">' + e.message + "</div>";
         elElec.innerHTML = "";
       }
+      window.addEventListener("pyev-lang", () => {
+        if (el && el.data) { PYEVCharts.volumesChart(el, rows); PYEVCharts.volumesElectrifiedChart(elElec, rows); PYEVCharts.renderShareTable(table, rows); }
+      });
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
         if (elElec && elElec.data) PYEVCharts.restyleTheme(elElec);
