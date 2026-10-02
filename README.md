@@ -29,6 +29,13 @@ Solo meses reales. Schema:
 
 `period,time_interval,variant,source,BEV,PHEV,HEV,ICE,OTHERS,TOTAL,notes`
 
+Variantes:
+
+- `Whole` — HS 8703 limpio (sin golf/ATV)
+- `LightVehicles` — una fila/mes con totales combinados: 8703 limpio + pickups livianos 8704
+
+El sitio filtra por variante (selector en Inicio / Participación / Volúmenes). Detalle en [`sources/paraguay.md`](sources/paraguay.md).
+
 Fuente: https://datosabiertos.aduana.gov.py (CSV Nivel Item mensuales).
 
 ## Activar GitHub Pages
