@@ -75,6 +75,14 @@
     </div>
     <h1 data-i18n="volumes_title">Volúmenes: total, electrificados e ICE</h1>
     <p class="lead" data-i18n="volumes_lead">Unidades importadas por mes, con una vista ampliada de los vehículos electrificados y otra con el total del mercado.</p>
+    <div class="series-toolbar">
+      <label class="variant-switcher">
+        <span class="variant-label" data-i18n="variant_label">Serie</span>
+        <select id="variantToggle" aria-label="Serie"></select>
+      </label>
+      <span class="variant-hint" id="variantHint"></span>
+    </div>
+
     <h2 data-i18n="electrified">Electrificados (sin ICE)</h2>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.92rem">
       <span data-i18n="electrified_lead">BEV, PHEV, HEV y OTHERS, sin ICE, para comparar mejor las categorías electrificadas. Cada etiqueta muestra unidades y porcentaje del total.</span>
@@ -124,21 +132,38 @@
       const el = document.getElementById("chart");
       const elElec = document.getElementById("chart-elec");
       const table = document.getElementById("share-table");
+      const hint = document.getElementById("variantHint");
+      let allRows = [];
       let rows = [];
-      try {
-        rows = await PYEV.loadParaguay();
-        el.innerHTML = "";
-        elElec.innerHTML = "";
-        PYEVCharts.volumesElectrifiedChart(elElec, rows);
-        PYEVCharts.volumesChart(el, rows);
-        PYEVCharts.renderShareTable(table, rows);
-      } catch (e) {
-        el.innerHTML = '<div class="status error">' + e.message + "</div>";
-        elElec.innerHTML = "";
+      function updateHint() {
+        if (!hint) return;
+        const v = PYEV.getVariant(allRows);
+        hint.textContent = v === "LightVehicles" ? PYEV.t("variant_light_hint") : PYEV.t("variant_whole_hint");
       }
-      window.addEventListener("pyev-lang", () => {
-        if (el && el.data) { PYEVCharts.volumesChart(el, rows); PYEVCharts.volumesElectrifiedChart(elElec, rows); PYEVCharts.renderShareTable(table, rows); }
-      });
+      async function draw() {
+        try {
+          if (!allRows.length) allRows = await PYEV.loadParaguay();
+          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
+          updateHint();
+          rows = PYEV.filterByVariant(allRows);
+          el.innerHTML = "";
+          elElec.innerHTML = "";
+          if (!rows.length) {
+            el.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            if (table) table.innerHTML = "";
+            return;
+          }
+          PYEVCharts.volumesElectrifiedChart(elElec, rows);
+          PYEVCharts.volumesChart(el, rows);
+          PYEVCharts.renderShareTable(table, rows);
+        } catch (e) {
+          el.innerHTML = '<div class="status error">' + e.message + "</div>";
+          elElec.innerHTML = "";
+        }
+      }
+      await draw();
+      window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-variant", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
         if (elElec && elElec.data) PYEVCharts.restyleTheme(elElec);
