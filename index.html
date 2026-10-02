@@ -5,6 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Paraguay EV Market — importaciones HS 8703</title>
   <meta name="description" content="Mercado de híbridos y eléctricos en Paraguay vs total e ICE. Datos abiertos Aduana PY." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) {
+        return "auto";
+      }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      root.setAttribute("data-theme-pref", p);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try {
+        if (p === "auto") localStorage.removeItem(KEY);
+        else localStorage.setItem(KEY, p);
+      } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) {
+      try { mq.addEventListener("change", apply); }
+      catch (e) { mq.addListener && mq.addListener(apply); }
+    }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
   <script src="js/load-csv.js" defer></script>
@@ -14,23 +60,33 @@
   <header class="site">
     <div class="wrap">
       <a class="brand" href="index.html">Paraguay <span>EV Market</span></a>
-      <nav>
-        <a class="active" href="index.html">Inicio</a>
-        <a href="pages/share.html">Participación</a>
-        <a href="pages/volumes.html">Volúmenes</a>
-        <a href="sources/paraguay.md">Fuentes</a>
-      </nav>
+      <div class="header-actions">
+        <nav aria-label="Principal">
+          <a class="active" href="index.html">Inicio</a>
+          <a href="pages/share.html">Participación</a>
+          <a href="pages/volumes.html">Volúmenes</a>
+          <a href="pages/chargers.html">Cargadores</a>
+          <a href="sources/paraguay.md">Fuentes</a>
+        </nav>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
-    <span class="badge">Aduana PY · datos abiertos</span>
+    <div class="page-eyebrow">
+      <span class="badge">Aduana PY · datos abiertos</span>
+      <span class="pill pill-bev">BEV</span>
+      <span class="pill pill-phev">PHEV</span>
+      <span class="pill pill-hev">HEV</span>
+      <span class="pill pill-ice">ICE</span>
+    </div>
     <h1>Mercado híbrido / eléctrico en Paraguay</h1>
     <p class="lead">
       Importaciones de vehículos (HS 8703): participación y volúmenes de
       <strong>BEV</strong>, <strong>PHEV</strong>, <strong>HEV</strong> frente al
-      <strong>total</strong> y a <strong>ICE</strong>. Estilo galería de datos,
-      números abiertos, CSV en el repo.
+      <strong>total</strong> y a <strong>ICE</strong>. Galería de datos abiertos —
+      CSV en el repo, actualizado mes a mes.
     </p>
 
     <div id="kpis" class="kpi-grid">
@@ -47,14 +103,16 @@
     <h2>Explorar</h2>
     <div class="cards">
       <a class="card" href="pages/share.html">
-        <h3>Participación (%)</h3>
+        <h3>Participación (%) <span class="arrow" aria-hidden="true">→</span></h3>
         <p>Barras apiladas: cuota de BEV, PHEV, HEV, OTHERS e ICE sobre el total HS 8703.</p>
-        <span class="arrow">Ver gráfico →</span>
       </a>
       <a class="card" href="pages/volumes.html">
-        <h3>Volúmenes (unidades)</h3>
+        <h3>Volúmenes (unidades) <span class="arrow" aria-hidden="true">→</span></h3>
         <p>Barras agrupadas por categoría y línea de TOTAL — comparación absoluta con ICE.</p>
-        <span class="arrow">Ver gráfico →</span>
+      </a>
+      <a class="card" href="pages/chargers.html">
+        <h3>Cargadores DC <span class="arrow" aria-hidden="true">→</span></h3>
+        <p>Mapa y tabla de carregadores DC (73 locais / 147 plugs). Potencia estimada · PlugShare 2026-10.</p>
       </a>
     </div>
 
@@ -66,16 +124,22 @@
       <span class="lg-others">OTHERS (mild)</span>
       <span class="lg-ice">ICE</span>
     </div>
-    <div id="mini-share" class="chart-panel"></div>
+    <div id="mini-share" class="chart-panel chart-bare"></div>
+    <p class="chart-foot" id="chart-foot"></p>
   </main>
 
   <footer class="site">
     <div class="wrap">
-      Datos: Aduana Nacional del Paraguay (HS 8703).
-      Repo: <a href="https://github.com/ParaguaianMax/paraguay-ev-market">ParaguaianMax/paraguay-ev-market</a>.
-      Inspirado en el espíritu de galería abierta de
-      <a href="https://leraffl.github.io/LeRaffl-Gallery/" target="_blank" rel="noopener">LeRaffl Gallery</a>
-      — no es un clon.
+      <div>
+        Datos: Aduana Nacional del Paraguay (HS 8703).
+        Repo:
+        <a href="https://github.com/ParaguaianMax/paraguay-ev-market">ParaguaianMax/paraguay-ev-market</a>.
+      </div>
+      <div>
+        Inspirado en el espíritu de
+        <a href="https://leraffl.github.io/LeRaffl-Gallery/" target="_blank" rel="noopener">LeRaffl Gallery</a>
+        — no es un clon.
+      </div>
     </div>
   </footer>
 
@@ -83,16 +147,32 @@
     document.addEventListener("DOMContentLoaded", async () => {
       const kpis = document.getElementById("kpis");
       const mini = document.getElementById("mini-share");
-      try {
-        const rows = await PYEV.loadParaguay();
-        if (!rows.length) throw new Error("CSV vacío");
-        const latest = rows[rows.length - 1];
-        PYEVCharts.renderKPIs(kpis, latest);
-        PYEVCharts.shareChart(mini, rows);
-      } catch (e) {
-        kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
-        mini.innerHTML = "";
+      const foot = document.getElementById("chart-foot");
+      async function draw() {
+        try {
+          const rows = await PYEV.loadParaguay();
+          if (!rows.length) throw new Error("CSV vacío");
+          const latest = rows[rows.length - 1];
+          PYEVCharts.renderKPIs(kpis, latest);
+          PYEVCharts.shareChart(mini, rows);
+          if (foot) {
+            foot.innerHTML =
+              "<b>Fuente</b> Aduana PY · <b>Último mes</b> " +
+              PYEV.periodLabel(latest.period) +
+              " · " +
+              PYEV.fmtInt(latest.TOTAL) +
+              " unidades HS 8703";
+          }
+        } catch (e) {
+          kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
+          mini.innerHTML = "";
+          if (foot) foot.textContent = "";
+        }
       }
+      await draw();
+      window.addEventListener("pyev-theme", () => {
+        if (mini && mini.data) PYEVCharts.restyleTheme(mini);
+      });
     });
   </script>
 </body>
