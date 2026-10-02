@@ -1,4 +1,4 @@
-period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
+period,variant,segmento,marca,modelo,powertrain,units,source,notes
 2025-11,LightVehicles,leve,TOYOTA,VITZ,ICE,usado,797,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-11,LightVehicles,leve,TOYOTA,RACTIS,ICE,usado,619,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-11,LightVehicles,leve,KIA,SPORTAGE,ICE,usado,436,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
