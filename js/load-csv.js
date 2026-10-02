@@ -34,6 +34,7 @@
     return total ? (100 * n) / total : 0;
   }
 
+  /** Minimal CSV splitter that respects quoted fields. */
   function splitCSVLine(line) {
     const out = [];
     let cur = "";
@@ -59,11 +60,11 @@
   }
 
   function resolveDataUrl() {
+    // From root: data/Paraguay.csv ; from pages/: ../data/Paraguay.csv
     const inPages =
       /\/pages\//.test(location.pathname) ||
       location.pathname.endsWith("/share.html") ||
-      location.pathname.endsWith("/volumes.html") ||
-      location.pathname.endsWith("/chargers.html");
+      location.pathname.endsWith("/volumes.html");
     return inPages ? "../data/Paraguay.csv" : "data/Paraguay.csv";
   }
 
@@ -78,7 +79,8 @@
   }
 
   function fmtInt(n) {
-    return Math.round(n).toLocaleString("es-PY");
+    const lang = global.PYEV && global.PYEV.language ? global.PYEV.language() : "es";
+    return Math.round(n).toLocaleString(lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-PY");
   }
 
   function fmtPct(n, digits) {
@@ -86,10 +88,14 @@
   }
 
   function periodLabel(p) {
-    const m = {
-      "01": "ene", "02": "feb", "03": "mar", "04": "abr",
-      "05": "may", "06": "jun", "07": "jul", "08": "ago",
-      "09": "sep", "10": "oct", "11": "nov", "12": "dic",
+    // 2026-08 → ago 2026
+    const lang = global.PYEV && global.PYEV.language ? global.PYEV.language() : "es";
+    const m = lang === "en" ? {
+      "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"
+    } : lang === "pt" ? {
+      "01": "jan", "02": "fev", "03": "mar", "04": "abr", "05": "mai", "06": "jun", "07": "jul", "08": "ago", "09": "set", "10": "out", "11": "nov", "12": "dez"
+    } : {
+      "01": "ene", "02": "feb", "03": "mar", "04": "abr", "05": "may", "06": "jun", "07": "jul", "08": "ago", "09": "sep", "10": "oct", "11": "nov", "12": "dic"
     };
     const [y, mo] = String(p).split("-");
     return (m[mo] || mo) + " " + y;
@@ -99,6 +105,7 @@
     return document.documentElement.getAttribute("data-theme") === "dark";
   }
 
+  /** Theme-aware drivetrain palette (gallery-muted, still distinct). */
   function colors() {
     if (isDark()) {
       return {
@@ -120,7 +127,7 @@
     };
   }
 
-  global.PYEV = {
+  global.PYEV = Object.assign(global.PYEV || {}, {
     loadParaguay,
     parseCSV,
     fmtInt,
@@ -131,5 +138,5 @@
     get COLORS() {
       return colors();
     },
-  };
+  });
 })(typeof window !== "undefined" ? window : globalThis);
