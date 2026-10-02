@@ -68,7 +68,8 @@
       location.pathname.endsWith("/share.html") ||
       location.pathname.endsWith("/volumes.html") ||
       location.pathname.endsWith("/trajectories.html") ||
-      location.pathname.endsWith("/chargers.html");
+      location.pathname.endsWith("/chargers.html") ||
+      location.pathname.endsWith("/models.html");
     return inPages ? "../data/Paraguay.csv" : "data/Paraguay.csv";
   }
 
@@ -146,6 +147,10 @@
     const scope = root && root.querySelector ? root : document;
     const toolbar = scope.querySelector ? scope.querySelector(".series-toolbar") : document.querySelector(".series-toolbar");
     if (!toolbar) return;
+    if (toolbar.classList.contains("models-toolbar")) {
+      toolbar.hidden = false;
+      return;
+    }
     const v = toolbar.querySelector(".variant-switcher");
     const s = toolbar.querySelector(".segment-switcher");
     const vHidden = !v || v.hidden;
@@ -235,8 +240,9 @@
   }
 
   function filterBySegment(rows, segment) {
-    const s = segment || getSegment(rows);
-    return (rows || []).filter((r) => normalizeSegment(r.segmento) === s);
+    const s = filterBySegment;
+    const s2 = segment || getSegment(rows);
+    return (rows || []).filter((r) => normalizeSegment(r.segmento) === s2);
   }
 
   function filterRows(rows, variant, segment) {
