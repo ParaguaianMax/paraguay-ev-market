@@ -261,11 +261,125 @@
     });
   }
 
+  /** Parse "CCS2×1, GB/T DC×2" → { CCS: n, GBT: n, CHAdeMO: n }. */
+  function parseConnectorCounts(connectorsDc) {
+    const out = { CCS: 0, GBT: 0, CHAdeMO: 0 };
+    const s = String(connectorsDc || "");
+    const re = /([^,×x]+)[×x](\d+)/gi;
+    let m;
+    while ((m = re.exec(s))) {
+      const raw = m[1].trim().toUpperCase().replace(/\s+/g, " ");
+      const n = parseInt(m[2], 10) || 0;
+      if (!n) continue;
+      if (raw.indexOf("CHADEMO") >= 0) out.CHAdeMO += n;
+      else if (raw.indexOf("GB") >= 0 || raw.indexOf("GBT") >= 0) out.GBT += n;
+      else if (raw.indexOf("CCS") >= 0) out.CCS += n;
+    }
+    return out;
+  }
+
+  function countConnectors(rows) {
+    const tot = { CCS: 0, GBT: 0, CHAdeMO: 0 };
+    (rows || []).forEach((r) => {
+      const c = parseConnectorCounts(r.connectors_dc);
+      tot.CCS += c.CCS;
+      tot.GBT += c.GBT;
+      tot.CHAdeMO += c.CHAdeMO;
+    });
+    return tot;
+  }
+
+  function chartTheme() {
+    const dark =
+      (global.PYEV && global.PYEV.isDark && global.PYEV.isDark()) ||
+      document.documentElement.getAttribute("data-theme") === "dark";
+    return {
+      dark: dark,
+      grid: dark ? "#3a3934" : "#e4e2dd",
+      text: dark ? "#ecebe6" : "#1a1a18",
+      muted: dark ? "#aeaba2" : "#55534c",
+      // Match site palette: CCS≈PHEV blue, GB/T≈OTHERS purple, CHAdeMO≈HEV gold
+      CCS: dark ? "#86acdd" : "#1d4f91",
+      GBT: dark ? "#b59ad6" : "#6b4f9a",
+      CHAdeMO: dark ? "#d4b45a" : "#8a6a12",
+    };
+  }
+
+  function renderConnectorChart(el, rows) {
+    if (!el) return;
+    if (!global.Plotly) {
+      el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
+      return;
+    }
+    const counts = countConnectors(rows);
+    // Primary ask is CCS vs GB/T; include CHAdeMO when present in the inventory.
+    const items = [
+      { key: "CCS", label: "CCS", value: counts.CCS },
+      { key: "GBT", label: "GB/T", value: counts.GBT },
+    ];
+    if (counts.CHAdeMO > 0) {
+      items.push({ key: "CHAdeMO", label: "CHAdeMO", value: counts.CHAdeMO });
+    }
+    const th = chartTheme();
+    const colors = items.map((it) => th[it.key]);
+    const total = items.reduce((s, it) => s + it.value, 0);
+    const trace = {
+      type: "bar",
+      x: items.map((it) => it.label),
+      y: items.map((it) => it.value),
+      text: items.map((it) => String(it.value)),
+      textposition: "outside",
+      marker: { color: colors, line: { width: 0 } },
+      hovertemplate: "%{x}: %{y:,} " + PYEV.t("plugs_short") + "<extra></extra>",
+      name: PYEV.t("plugs_short"),
+    };
+    const layout = {
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: {
+        family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif',
+        color: th.text,
+        size: 12,
+      },
+      showlegend: false,
+      margin: { t: 36, r: 24, b: 48, l: 56 },
+      xaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: 12, color: th.muted },
+      },
+      yaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: 11, color: th.muted },
+        title: {
+          text: PYEV.t("plugs_short"),
+          font: { size: 11, color: th.muted },
+        },
+        rangemode: "tozero",
+      },
+      bargap: 0.42,
+      hoverlabel: {
+        bgcolor: th.dark ? "#1b1b19" : "#ffffff",
+        bordercolor: th.grid,
+        font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
+      },
+    };
+    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
+    el._pyevConnectorTotal = total;
+    el._pyevConnectorCounts = counts;
+  }
+
   global.PYEVChargers = {
     loadChargers,
     renderKPIs,
     renderBreakdown,
     renderTable,
+    renderConnectorChart,
+    countConnectors,
+    parseConnectorCounts,
     initMap,
     filterRows,
     countBy,
