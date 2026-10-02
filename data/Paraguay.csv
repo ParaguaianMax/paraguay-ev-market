@@ -1,5 +1,6 @@
 period,time_interval,variant,source,BEV,PHEV,HEV,ICE,OTHERS,TOTAL,notes
 2026-01,monthly,Whole,Aduana PY datos abiertos (HS 8703),58,184,380,27833,0,28455,"8703 limpio (sin 8703.10/ATV/UTV/carrito golf); BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL−electrified; nuevo+usado; electrified=622"
+2026-01,monthly,LightVehicles,Aduana PY datos abiertos (HS 8703+8704 light),60,204,381,30560,0,31205,"8703 limpio + 8704 pickups livianos; BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL−electrified; 8704_light=2750; electrified=645"
 2026-02,monthly,Whole,Aduana PY datos abiertos (HS 8703),111,126,395,28414,0,29046,"8703 limpio (sin 8703.10/ATV/UTV/carrito golf); BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL−electrified; nuevo+usado; electrified=632"
 2026-03,monthly,Whole,Aduana PY datos abiertos (HS 8703),163,295,740,37153,1,38352,"8703 limpio (sin 8703.10/ATV/UTV/carrito golf); BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL−electrified; nuevo+usado; electrified=1199"
 2026-04,monthly,Whole,Aduana PY datos abiertos (HS 8703),89,286,765,31127,1,32268,"8703 limpio (sin 8703.10/ATV/UTV/carrito golf); BEV/PHEV/HEV/OTHERS=mild; ICE=TOTAL−electrified; nuevo+usado; electrified=1141"
