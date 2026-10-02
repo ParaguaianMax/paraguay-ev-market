@@ -4,6 +4,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Participación — Paraguay EV Market</title>
+  <meta name="description" content="Participación % BEV, PHEV, HEV, OTHERS e ICE en importaciones HS 8703 Paraguay." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="../css/style.css" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
   <script src="../js/load-csv.js" defer></script>
@@ -13,20 +51,32 @@
   <header class="site">
     <div class="wrap">
       <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
-      <nav>
-        <a href="../index.html">Inicio</a>
-        <a class="active" href="share.html">Participación</a>
-        <a href="volumes.html">Volúmenes</a>
-        <a href="../sources/paraguay.md">Fuentes</a>
-      </nav>
+      <div class="header-actions">
+        <nav aria-label="Principal">
+          <a href="../index.html">Inicio</a>
+          <a class="active" href="share.html">Participación</a>
+          <a href="volumes.html">Volúmenes</a>
+          <a href="chargers.html">Cargadores</a>
+          <a href="../sources/paraguay.md">Fuentes</a>
+        </nav>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
-    <span class="badge">% del total HS 8703</span>
+    <div class="page-eyebrow">
+      <span class="badge">% del total HS 8703</span>
+      <span class="pill pill-bev">BEV</span>
+      <span class="pill pill-phev">PHEV</span>
+      <span class="pill pill-hev">HEV</span>
+      <span class="pill pill-ice">ICE</span>
+    </div>
     <h1>Participación por tren motriz</h1>
     <p class="lead">
-      Cuota mensual de BEV, PHEV, HEV, OTHERS (mild) e ICE. Barras apiladas al 100 %.
+      Cuota mensual de BEV, PHEV, HEV, OTHERS (mild) e ICE. Barras apiladas al <strong>100&nbsp;%</strong> —
+      el porcentaje es la lectura principal (etiquetas en barra + hover con 2 decimales).
+      Segmentos pequeños (BEV/PHEV) se anotan arriba de la columna.
     </p>
     <div class="legend-row">
       <span class="lg-bev">BEV</span>
@@ -35,17 +85,24 @@
       <span class="lg-others">OTHERS</span>
       <span class="lg-ice">ICE</span>
     </div>
-    <div id="chart" class="chart-panel"><div class="status">Cargando…</div></div>
+    <div id="chart" class="chart-panel chart-bare"><div class="status">Cargando…</div></div>
+    <p class="chart-foot"><b>Fuente</b> <code>data/Paraguay.csv</code> · Aduana PY datos abiertos. ICE = TOTAL − (BEV+PHEV+HEV+OTHERS).</p>
+    <h2>Tabla — % exactos</h2>
+    <div id="share-table"></div>
     <div class="note">
-      ICE se calcula como TOTAL − (BEV+PHEV+HEV+OTHERS). Fuente:
-      <code>data/Paraguay.csv</code> · Aduana PY datos abiertos.
+      Misma serie que en el inicio. Solo se agregan meses cuando existe el CSV oficial del mes.
     </div>
   </main>
 
   <footer class="site">
     <div class="wrap">
-      <a href="../index.html">← Inicio</a> ·
-      <a href="volumes.html">Volúmenes →</a>
+      <div class="page-nav">
+        <a href="../index.html">← Inicio</a>
+        <a href="volumes.html">Volúmenes →</a>
+      </div>
+      <div>
+        <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a>
+      </div>
     </div>
   </footer>
 
@@ -56,9 +113,13 @@
         const rows = await PYEV.loadParaguay();
         el.innerHTML = "";
         PYEVCharts.shareChart(el, rows);
+        PYEVCharts.renderShareTable(document.getElementById("share-table"), rows);
       } catch (e) {
         el.innerHTML = '<div class="status error">' + e.message + "</div>";
       }
+      window.addEventListener("pyev-theme", () => {
+        if (el && el.data) PYEVCharts.restyleTheme(el);
+      });
     });
   </script>
 </body>
