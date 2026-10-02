@@ -201,10 +201,10 @@ def scan_suspicious(marcas_with_units: dict[str, int], min_ratio: float = 0.82):
 def reaggregate_models_file(path: Path) -> tuple[int, int, Counter]:
   """Rewrite one models CSV with canonical marcas; merge duplicate keys.
 
-  Key: period,variant,segmento,marca,modelo,powertrain
+  Key: period,variant,segmento,marca,modelo,powertrain,condicion
   Returns (rows_in, rows_out, merge_counter alias→canon units)
   """
-  fields = ['period', 'variant', 'segmento', 'marca', 'modelo', 'powertrain', 'units', 'source', 'notes']
+  fields = ['period', 'variant', 'segmento', 'marca', 'modelo', 'powertrain', 'condicion', 'units', 'source', 'notes']
   bucket = {}
   applied = Counter()
   rows_in = 0
@@ -217,6 +217,7 @@ def reaggregate_models_file(path: Path) -> tuple[int, int, Counter]:
         # count units moved under alias application (including hyphen unify)
         if raw.strip().upper() != canon:
           applied[(raw, canon)] += int(float(row.get('units') or 0))
+      condicion = (row.get('condicion') or 'desconocido').strip() or 'desconocido'
       key = (
         row.get('period', ''),
         row.get('variant', ''),
@@ -224,11 +225,13 @@ def reaggregate_models_file(path: Path) -> tuple[int, int, Counter]:
         canon,
         row.get('modelo', '') or '(sin modelo)',
         row.get('powertrain', '') or 'ICE',
+        condicion,
       )
       if key not in bucket:
         bucket[key] = {
           'period': key[0], 'variant': key[1], 'segmento': key[2],
           'marca': canon, 'modelo': key[4], 'powertrain': key[5],
+          'condicion': key[6],
           'units': 0,
           'source': row.get('source') or 'Aduana PY datos abiertos',
           'notes': row.get('notes') or '',
@@ -240,7 +243,7 @@ def reaggregate_models_file(path: Path) -> tuple[int, int, Counter]:
 
   out_rows = sorted(
     bucket.values(),
-    key=lambda r: (-r['units'], r['segmento'], r['marca'], r['modelo'], r['powertrain']),
+    key=lambda r: (-r['units'], r['segmento'], r['marca'], r['modelo'], r['powertrain'], r.get('condicion','')),
   )
   with path.open('w', newline='', encoding='utf-8') as f:
     w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
@@ -251,11 +254,14 @@ def reaggregate_models_file(path: Path) -> tuple[int, int, Counter]:
 
 def assemble_paraguay_models(dest: Path | None = None) -> Path:
   dest = dest or (SITE_DATA / 'Paraguay_models.csv')
-  fields = ['period', 'variant', 'segmento', 'marca', 'modelo', 'powertrain', 'units', 'source', 'notes']
+  fields = ['period', 'variant', 'segmento', 'marca', 'modelo', 'powertrain', 'condicion', 'units', 'source', 'notes']
   rows = []
   for p in sorted(MODELS_DIR.glob('????-??.csv')):
     with p.open(newline='', encoding='utf-8') as f:
-      rows.extend(csv.DictReader(f))
+      for row in csv.DictReader(f):
+        if not (row.get('condicion') or '').strip():
+          row['condicion'] = 'desconocido'
+        rows.append({k: row.get(k, '') for k in fields})
   with dest.open('w', newline='', encoding='utf-8') as f:
     w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
     w.writeheader()

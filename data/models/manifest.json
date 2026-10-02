@@ -12,5 +12,6 @@
     "2026-08.csv",
     "2026-09.csv"
   ],
-  "header": "period,variant,segmento,marca,modelo,powertrain,units,source,notes"
+  "header": "period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes",
+  "condicion": "nuevo|usado|desconocido from Aduana USO (NUEVO/USADO)"
 }

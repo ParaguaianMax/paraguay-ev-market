@@ -11,3 +11,7 @@ Primary: [datosabiertos.aduana.gov.py](https://datosabiertos.aduana.gov.py) Nive
 | MERCADERIA | Classify modelo/powertrain; exclude parts/CKD |
 
 Parts chapters (e.g. 8708) are never ingested by the 8703/8704 stream filter.
+
+## Condición nuevo/usado
+
+See [aduana-condicion-nuevo-usado.md](aduana-condicion-nuevo-usado.md) — models `condicion` from Aduana `USO`.
