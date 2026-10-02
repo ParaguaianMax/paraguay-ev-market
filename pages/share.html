@@ -49,6 +49,7 @@
   <script src="../js/i18n-variant.js" defer></script>
 <script src="../js/load-csv.js" defer></script>
   <script src="../js/charts.js" defer></script>
+  <script src="../js/trajectories.js" defer></script>
 </head>
 <body>
   <header class="site">
@@ -70,8 +71,6 @@
           <a href="../index.html" data-i18n="nav_home">Inicio</a>
           <a class="active" href="share.html" data-i18n="nav_share">Participación</a>
           <a href="volumes.html" data-i18n="nav_volumes">Volúmenes</a>
-          <a href="models.html" data-i18n="nav_models">Marcas</a>
-          <a href="trajectories.html" data-i18n="nav_trajectories">Trayectorias</a>
       </nav>
     </div>
   </div>
@@ -99,6 +98,37 @@
     <h2 data-i18n="exact_pct">Tabla — porcentajes exactos</h2>
     <div id="share-table"></div>
     <div class="note" data-i18n="share_note">Los porcentajes se calculan sobre el total mensual de vehículos importados.</div>
+
+
+    <section class="trajectory-section" aria-labelledby="traj-section-title">
+      <div class="page-eyebrow">
+        <span class="badge" data-i18n="traj_badge">S-curve · TTM</span>
+        <span class="pill pill-bev">BEV</span>
+        <span class="pill pill-phev">PHEV</span>
+        <span class="pill pill-hev">HEV</span>
+        <span class="pill pill-ice">ICE</span>
+      </div>
+      <h2 id="traj-section-title" data-i18n="traj_title">Trayectorias de adopción</h2>
+      <p class="lead" data-i18n="traj_lead">Curva ajustada (estilo Gallery) sobre la participación mensual observada, más el desglose acumulado en ventana móvil. Con una serie corta la proyección es ilustrativa — no un pronóstico firme.</p>
+      <div class="note" data-i18n="traj_disclaimer">Serie corta · el ajuste logístico (logit-lineal) usa solo los meses publicados; la línea punteada es una extrapolación ilustrativa, no un pronóstico firme.</div>
+
+      <h3 data-i18n="traj_extra_title">Extrapolación — participación BEV / PHEV / HEV / ICE</h3>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste sobre lo observado. Línea punteada = proyección si la tendencia logit se mantuviera.</p>
+      <div class="legend-row">
+        <span class="lg-bev">BEV</span>
+        <span class="lg-phev">PHEV</span>
+        <span class="lg-hev">HEV</span>
+        <span class="lg-ice">ICE</span>
+      </div>
+      <div id="chart-extra" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="chart-foot" id="extra-foot"></p>
+
+      <h3 data-i18n="traj_ttm_title">Participación acumulada (ventana móvil)</h3>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_ttm_lead">Cuando hay menos de 12 meses, cada barra/área usa todos los meses disponibles hasta esa fecha (ventana incompleta). Con 12+ meses pasa a TTM de 12 meses.</p>
+      <div id="chart-ttm" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="chart-foot" id="ttm-foot"></p>
+      <div class="note" data-i18n="traj_note">No se inventan meses históricos. Los totales vienen de <code>data/Paraguay.csv</code> (Aduana PY). ICE = total − BEV − PHEV − HEV − OTHERS.</div>
+    </section>
   </main>
 
   <footer class="site">
@@ -158,6 +188,85 @@
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const elExtra = document.getElementById("chart-extra");
+      const elTtm = document.getElementById("chart-ttm");
+      const footExtra = document.getElementById("extra-foot");
+      const footTtm = document.getElementById("ttm-foot");
+      const hint = document.getElementById("variantHint");
+      let allRows = [];
+
+      function updateHint() {
+        if (!hint) return;
+        const v = PYEV.getVariant(allRows);
+        const s = PYEV.getSegment(allRows);
+        const parts = [];
+        const vWrap = document.querySelector(".variant-switcher");
+        const sWrap = document.querySelector(".segment-switcher");
+        if (vWrap && !vWrap.hidden) {
+          parts.push(v === "LightVehicles" ? PYEV.t("variant_light_hint") : PYEV.t("variant_whole_hint"));
+        }
+        if (sWrap && !sWrap.hidden) {
+          parts.push(
+            s === "recreativo" ? PYEV.t("segment_recreativo_hint")
+            : s === "pesado" ? PYEV.t("segment_pesado_hint")
+            : PYEV.t("segment_leve_hint")
+          );
+        }
+        hint.textContent = parts.join(" · ");
+      }
+
+      async function draw() {
+        try {
+          if (!allRows.length) allRows = await PYEV.loadParaguay();
+          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
+          PYEV.mountSegmentToggle(document.getElementById("segmentToggle"), allRows);
+          updateHint();
+          const rows = PYEV.filterRows(allRows);
+          if (!rows.length) {
+            elExtra.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            elTtm.innerHTML = '<div class="status">' + PYEV.t("variant_empty") + "</div>";
+            if (footExtra) footExtra.textContent = "";
+            if (footTtm) footTtm.textContent = "";
+            return;
+          }
+          elExtra.innerHTML = "";
+          elTtm.innerHTML = "";
+          PYEVTrajectories.extrapolationChart(elExtra, rows);
+          PYEVTrajectories.trailingSplitChart(elTtm, rows);
+
+          const first = rows[0];
+          const last = rows[rows.length - 1];
+          if (footExtra) {
+            footExtra.innerHTML =
+              "<b>" + PYEV.t("traj_observed") + "</b> " +
+              PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
+              " · " + rows.length + " " + PYEV.t("traj_months_short") +
+              " · " + PYEV.variantLabel(last.variant || PYEV.getVariant(allRows)) +
+              " · <em>" + PYEV.t("traj_not_forecast") + "</em>";
+          }
+          if (footTtm) {
+            const incomplete = rows.length < 12;
+            footTtm.innerHTML =
+              "<b>" + (incomplete ? PYEV.t("traj_ttm_partial_label") : PYEV.t("traj_ttm_full_label")) + "</b> · " +
+              rows.length + " " + PYEV.t("traj_months_short") + " " + PYEV.t("traj_available");
+          }
+        } catch (e) {
+          elExtra.innerHTML = '<div class="status error">' + e.message + "</div>";
+          elTtm.innerHTML = "";
+        }
+      }
+      await draw();
+      window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-variant", draw);
+      window.addEventListener("pyev-segment", draw);
+      window.addEventListener("pyev-theme", () => {
+        if (elExtra && elExtra._pyevRows) PYEVTrajectories.restyleTheme(elExtra);
+        if (elTtm && elTtm._pyevRows) PYEVTrajectories.restyleTheme(elTtm);
       });
     });
   </script>
