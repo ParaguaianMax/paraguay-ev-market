@@ -229,6 +229,7 @@
   align-items: center;
   gap: 0.65rem 0.85rem;
 }
-.vol-pt-mode {
+.vol-pt-mode,
+.vol-cond-mode {
   margin-left: 0;
 }

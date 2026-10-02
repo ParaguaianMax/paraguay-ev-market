@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   let marketRows = [];
   let view = "general";
   let activePts = new Set(PYEVModels.POWERTRAINS);
+  /** @type {"all"|"nuevo"|"usado"} */
+  let condMode = "all";
+  let condicionAvailable = false;
+  try {
+    const saved = localStorage.getItem("pyev-models-cond") || "";
+    if (saved === "nuevo" || saved === "usado" || saved === "all") condMode = saved;
+  } catch (e) {}
 
   function showEmpty(msg) {
     emptyEl.hidden = false;
@@ -33,13 +40,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     return marketRows;
   }
 
+  function syncCondUI() {
+    const wrap = document.getElementById("modelsCondWrap");
+    if (wrap) wrap.hidden = !condicionAvailable;
+    document.querySelectorAll("#modelsCondWrap [data-cond-mode]").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.condMode === condMode);
+    });
+  }
+
   function filteredRows() {
-    return PYEVModels.filterModels(scopedBase(), {
+    const opts = {
       period: periodSel.value || null,
       powertrains: [...activePts],
       marca: marcaSel.value || null,
       modelo: modeloSel.value || null,
-    });
+    };
+    if (condicionAvailable && (condMode === "nuevo" || condMode === "usado")) {
+      opts.condicion = condMode;
+    }
+    return PYEVModels.filterModels(scopedBase(), opts);
   }
 
   function updateHint() {
@@ -80,10 +99,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function fillBrands() {
-    const rows = PYEVModels.filterModels(scopedBase(), {
+    const opts = {
       period: periodSel.value || null,
       powertrains: [...activePts],
-    });
+    };
+    if (condicionAvailable && (condMode === "nuevo" || condMode === "usado")) {
+      opts.condicion = condMode;
+    }
+    const rows = PYEVModels.filterModels(scopedBase(), opts);
     const brands = PYEVModels.brandsOf(rows);
     const prev = marcaSel.value;
     marcaSel.innerHTML = "";
@@ -103,11 +126,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function fillModels() {
-    const rows = PYEVModels.filterModels(scopedBase(), {
+    const opts = {
       period: periodSel.value || null,
       powertrains: [...activePts],
       marca: marcaSel.value || null,
-    });
+    };
+    if (condicionAvailable && (condMode === "nuevo" || condMode === "usado")) {
+      opts.condicion = condMode;
+    }
+    const rows = PYEVModels.filterModels(scopedBase(), opts);
     const models = PYEVModels.modelsOf(rows, marcaSel.value || null);
     const prev = modeloSel.value;
     modeloSel.innerHTML = "";
@@ -230,6 +257,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Variant/segment toggles intentionally not mounted — fixed LightVehicles·leve.
     fillPeriods();
     fillPowertrains();
+    syncCondUI();
     fillBrands();
     fillModels();
     updateHint();
@@ -258,6 +286,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   modeloSel.addEventListener("change", draw);
 
+  document.querySelectorAll("#modelsCondWrap [data-cond-mode]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!condicionAvailable) return;
+      condMode = btn.dataset.condMode;
+      try {
+        localStorage.setItem("pyev-models-cond", condMode);
+      } catch (e) {}
+      syncCondUI();
+      fillBrands();
+      fillModels();
+      draw();
+    });
+  });
+
   try {
     const res = await PYEVModels.loadParaguayModels();
     const all = res.rows || [];
@@ -266,6 +308,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
     marketRows = PYEVModels.marketSeriesRows(all);
+    condicionAvailable = !!(
+      PYEVModels.hasCondicion && PYEVModels.hasCondicion(marketRows)
+    );
+    if (!condicionAvailable) condMode = "all";
     if (!marketRows.length) {
       showEmpty(
         (PYEV.t && PYEV.t("vol_lv_empty")) ||

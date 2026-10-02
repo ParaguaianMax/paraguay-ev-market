@@ -1,7 +1,8 @@
 /**
  * Brand/model detail for Volume/Marcas page.
  * Prefers data/models/YYYY-MM.csv (or manifest.json); falls back to Paraguay_models.csv.
- * Header: period,variant,segmento,marca,modelo,powertrain,units,source,notes
+ * Header: period,variant,segmento,marca,modelo,powertrain,units[,condicion],source,notes
+ * Optional condicion: nuevo|usado (when absent, UI hides the new/used filter).
  */
 (function (global) {
   const POWERTRAINS = ["BEV", "PHEV", "HEV", "ICE", "OTHERS"];
@@ -66,6 +67,36 @@
     return POWERTRAINS.includes(e) ? e : "OTHERS";
   }
 
+  /** Normalize to nuevo|usado|"" (blank/unknown → ""). */
+  function normalizeCondicion(v) {
+    const e = String(v || "")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    if (!e) return "";
+    if (
+      e === "nuevo" ||
+      e === "new" ||
+      e === "nova" ||
+      e === "0km" ||
+      e === "0 km" ||
+      e === "zero km"
+    ) {
+      return "nuevo";
+    }
+    if (e === "usado" || e === "used" || e === "usada" || e === "segunda") {
+      return "usado";
+    }
+    return "";
+  }
+
+  function hasCondicion(rows) {
+    return (rows || []).some(
+      (r) => r.condicion === "nuevo" || r.condicion === "usado"
+    );
+  }
+
   function parseModelsCSV(text) {
     const lines = String(text || "").trim().split(/\r?\n/);
     if (lines.length < 2) return [];
@@ -75,6 +106,9 @@
       unidades: "units",
       powertrain: "powertrain",
       units: "units",
+      condicion: "condicion",
+      condition: "condicion",
+      estado: "condicion",
     };
     const headers = rawHeaders.map((h) => alias[h.toLowerCase()] || h);
     return lines
@@ -95,6 +129,13 @@
         row.modelo = String(row.modelo || "").trim();
         row.powertrain = normalizePowertrain(row.powertrain);
         row.units = Number(row.units) || 0;
+        row.condicion = normalizeCondicion(
+          row.condicion != null && row.condicion !== ""
+            ? row.condicion
+            : row.condition != null
+              ? row.condition
+              : ""
+        );
         row.source = String(row.source || "").trim();
         row.notes = String(row.notes || "").trim();
         return row;
@@ -676,6 +717,9 @@
       }
       if (opts.marca) a = a.filter((r) => r.marca === opts.marca);
       if (opts.modelo) a = a.filter((r) => r.modelo === opts.modelo);
+      if (opts.condicion === "nuevo" || opts.condicion === "usado") {
+        a = a.filter((r) => r.condicion === opts.condicion);
+      }
       if (opts.marcaQuery) {
         const q = String(opts.marcaQuery).trim().toLowerCase();
         if (q) a = a.filter((r) => r.marca.toLowerCase().includes(q));
@@ -689,6 +733,8 @@
     byModelStacked,
     marketSeriesRows,
     filterByPeriodScope,
+    normalizeCondicion,
+    hasCondicion,
     rankBrands,
     rankModels,
     renderTopBrandChart,

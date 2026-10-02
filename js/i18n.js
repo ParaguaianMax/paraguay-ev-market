@@ -45,6 +45,10 @@
       vol_showing_n: "Mostrando {n}",
       vol_pt_all: "Todos",
       vol_pt_hybrids: "Híbridos",
+      vol_cond_aria: "Condición",
+      vol_cond_all: "Todos",
+      vol_cond_nuevo: "Nuevo",
+      vol_cond_usado: "Usado",
       vol_lv_empty: "Sin detalle LightVehicles · leve para este período. No se usa la serie Whole.",
       vol_rank_foot: "Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve (livianos + camionetas). Meses sin ese detalle quedan vacíos (sin fallback Whole). Incluye vehículos nuevos y usados.",
       next_models: "Marcas →", prev_models: "← Marcas"
@@ -90,6 +94,10 @@
       vol_showing_n: "Mostrando {n}",
       vol_pt_all: "Todos",
       vol_pt_hybrids: "Híbridos",
+      vol_cond_aria: "Condição",
+      vol_cond_all: "Todos",
+      vol_cond_nuevo: "Novo",
+      vol_cond_usado: "Usado",
       vol_lv_empty: "Sem detalhe LightVehicles · leve para este período. Não se usa a série Whole.",
       vol_rank_foot: "Fonte: Aduana PY · detalhe marca/modelo. Só LightVehicles · leve (leves + picapes). Meses sem esse detalhe ficam vazios (sem fallback Whole). Inclui veículos novos e usados.",
       next_models: "Marcas →", prev_models: "← Marcas"
@@ -135,6 +143,10 @@
       vol_showing_n: "Showing {n}",
       vol_pt_all: "All",
       vol_pt_hybrids: "Hybrids",
+      vol_cond_aria: "Condition",
+      vol_cond_all: "All",
+      vol_cond_nuevo: "New",
+      vol_cond_usado: "Used",
       vol_lv_empty: "No LightVehicles · leve detail for this period. Whole series is not used.",
       vol_rank_foot: "Source: Paraguay Customs · brand/model detail. LightVehicles · leve only (light vehicles + pickups). Months without that detail stay empty (no Whole fallback). Includes new and used vehicles.",
       next_models: "Brands →", prev_models: "← Brands"

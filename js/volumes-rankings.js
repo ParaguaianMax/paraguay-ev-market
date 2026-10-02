@@ -1,6 +1,8 @@
 /**
  * Top marcas / modelos on Volúmenes — month | year | YTD, search, powertrain stack.
- * Scope: LightVehicles + leve only (no Whole fallback). Powertrain chips: Todos | BEV | Híbridos.
+ * Scope: LightVehicles + leve only (no Whole fallback).
+ * Powertrain chips: Todos | BEV | Híbridos.
+ * Condición chips: Todos | Nuevo | Usado (hidden until CSV has condicion).
  */
 (function (global) {
   const TOP_N = 100;
@@ -8,9 +10,12 @@
   const MONTH_KEY = "pyev-vol-period-month";
   const YEAR_KEY = "pyev-vol-period-year";
   const PT_KEY = "pyev-vol-pt-mode";
+  const COND_KEY = "pyev-vol-cond-mode";
 
   /** @type {"all"|"bev"|"hybrids"} */
   const PT_MODES = ["all", "bev", "hybrids"];
+  /** @type {"all"|"nuevo"|"usado"} */
+  const COND_MODES = ["all", "nuevo", "usado"];
 
   function t(k, vars) {
     return global.PYEV && global.PYEV.t ? global.PYEV.t(k, vars) : k;
@@ -41,6 +46,8 @@
 
     const modeBtns = root.querySelectorAll("[data-period-mode]");
     const ptBtns = root.querySelectorAll("[data-pt-mode]");
+    const condBtns = root.querySelectorAll("[data-cond-mode]");
+    const condWrap = document.getElementById("volCondWrap");
     const monthSel = document.getElementById("volMonthToggle");
     const yearSel = document.getElementById("volYearToggle");
     const monthWrap = document.getElementById("volMonthWrap");
@@ -64,6 +71,9 @@
     if (!["month", "year", "ytd"].includes(mode)) mode = "month";
     let ptMode = lsGet(PT_KEY) || "all";
     if (!PT_MODES.includes(ptMode)) ptMode = "all";
+    let condMode = lsGet(COND_KEY) || "all";
+    if (!COND_MODES.includes(condMode)) condMode = "all";
+    let condicionAvailable = false;
 
     function scopedRows() {
       // Re-assert LightVehicles·leve so YTD/year never mix Whole (HS 8703 double-count).
@@ -73,9 +83,14 @@
         month: monthSel && monthSel.value,
         year: yearSel && yearSel.value,
       });
+      const opts = {};
       const pts = powertrainsForMode(ptMode);
-      if (!pts) return periodRows;
-      return PYEVModels.filterModels(periodRows, { powertrains: pts });
+      if (pts) opts.powertrains = pts;
+      if (condicionAvailable && (condMode === "nuevo" || condMode === "usado")) {
+        opts.condicion = condMode;
+      }
+      if (!opts.powertrains && !opts.condicion) return periodRows;
+      return PYEVModels.filterModels(periodRows, opts);
     }
 
     function syncModeUI() {
@@ -85,6 +100,10 @@
       ptBtns.forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.ptMode === ptMode);
       });
+      condBtns.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.condMode === condMode);
+      });
+      if (condWrap) condWrap.hidden = !condicionAvailable;
       if (monthWrap) monthWrap.hidden = mode !== "month";
       if (yearWrap) yearWrap.hidden = mode === "month";
       if (yearWrap && mode === "ytd") yearWrap.hidden = false;
@@ -147,6 +166,8 @@
       }
       if (ptMode === "bev") label += " · BEV";
       else if (ptMode === "hybrids") label += " · " + t("vol_pt_hybrids");
+      if (condicionAvailable && condMode === "nuevo") label += " · " + t("vol_cond_nuevo");
+      else if (condicionAvailable && condMode === "usado") label += " · " + t("vol_cond_usado");
       return label;
     }
 
@@ -227,6 +248,14 @@
         draw();
       });
     });
+    condBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (!condicionAvailable) return;
+        condMode = btn.dataset.condMode;
+        lsSet(COND_KEY, condMode);
+        draw();
+      });
+    });
     if (monthSel) {
       monthSel.addEventListener("change", () => {
         lsSet(MONTH_KEY, monthSel.value);
@@ -257,6 +286,10 @@
           return;
         }
         marketRows = PYEVModels.marketSeriesRows(allModelRows);
+        condicionAvailable = !!(
+          PYEVModels.hasCondicion && PYEVModels.hasCondicion(marketRows)
+        );
+        if (!condicionAvailable) condMode = "all";
         if (!marketRows.length) {
           if (emptyEl) {
             emptyEl.hidden = false;
