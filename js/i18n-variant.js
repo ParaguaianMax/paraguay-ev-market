@@ -2,24 +2,24 @@
   const extra = {
     es: {
       variant_label: "Serie",
-      variant_whole: "HS 8703",
-      variant_light: "Livianos + pickups",
+      variant_whole: "Automóviles y similares",
+      variant_light: "Vehículos livianos + camionetas",
       variant_whole_hint: "Automóviles HS 8703 limpio (sin golf/ATV).",
       variant_light_hint: "HS 8703 limpio + pickups livianos HS 8704 (totales combinados).",
       variant_empty: "Sin datos para esta serie todavía."
     },
     pt: {
       variant_label: "Série",
-      variant_whole: "HS 8703",
-      variant_light: "Leves + pickups",
+      variant_whole: "Automóveis e similares",
+      variant_light: "Veículos leves + picapes",
       variant_whole_hint: "Automóveis HS 8703 limpo (sem golf/ATV).",
       variant_light_hint: "HS 8703 limpo + pickups leves HS 8704 (totais combinados).",
       variant_empty: "Ainda sem dados para esta série."
     },
     en: {
       variant_label: "Series",
-      variant_whole: "HS 8703",
-      variant_light: "Light + pickups",
+      variant_whole: "Passenger cars",
+      variant_light: "Light vehicles + pickups",
       variant_whole_hint: "Clean HS 8703 cars (no golf/ATV).",
       variant_light_hint: "Clean HS 8703 + light HS 8704 pickups (combined totals).",
       variant_empty: "No data for this series yet."

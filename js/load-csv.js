@@ -154,6 +154,11 @@
     const opts = availableVariants(rows);
     const withData = new Set(variantsWithData(rows));
     const current = getVariant(rows);
+    const toolbar = selectEl.closest(".series-toolbar");
+    // Keep the UI quiet while only one series is available. The internal
+    // variant value remains unchanged so the selector appears automatically
+    // once a second series (for example LightVehicles) is published.
+    if (toolbar) toolbar.hidden = withData.size < 2;
 
     selectEl.innerHTML = "";
     opts.forEach((v) => {
