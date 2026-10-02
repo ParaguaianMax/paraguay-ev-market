@@ -223,8 +223,6 @@
       async function draw() {
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
-          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
-          PYEV.mountSegmentToggle(document.getElementById("segmentToggle"), allRows);
           updateHint();
           const rows = PYEV.filterRows(allRows);
           if (!rows.length) {
