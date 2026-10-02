@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volúmenes — Paraguay EV Market</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/charts.js" defer></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="share.html">Participación</a>
+        <a class="active" href="volumes.html">Volúmenes</a>
+        <a href="../sources/paraguay.md">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <span class="badge">Unidades absolutas</span>
+    <h1>Volúmenes vs total e ICE</h1>
+    <p class="lead">
+      Unidades mensuales por categoría (barras) y TOTAL (línea, eje derecho).
+      Comparación directa electrificados vs combustión.
+    </p>
+    <div class="legend-row">
+      <span class="lg-bev">BEV</span>
+      <span class="lg-phev">PHEV</span>
+      <span class="lg-hev">HEV</span>
+      <span class="lg-others">OTHERS</span>
+      <span class="lg-ice">ICE</span>
+    </div>
+    <div id="chart" class="chart-panel"><div class="status">Cargando…</div></div>
+    <div class="note">
+      Incluye vehículos <strong>nuevos y usados</strong> clasificados en HS 8703.
+      Serie inicial: ago y sep 2026.
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <a href="share.html">← Participación</a> ·
+      <a href="../index.html">Inicio</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const el = document.getElementById("chart");
+      try {
+        const rows = await PYEV.loadParaguay();
+        el.innerHTML = "";
+        PYEVCharts.volumesChart(el, rows);
+      } catch (e) {
+        el.innerHTML = '<div class="status error">' + e.message + "</div>";
+      }
+    });
+  </script>
+</body>
+</html>

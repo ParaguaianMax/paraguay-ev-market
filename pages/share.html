@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Participación — Paraguay EV Market</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/charts.js" defer></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <nav>
+        <a href="../index.html">Inicio</a>
+        <a class="active" href="share.html">Participación</a>
+        <a href="volumes.html">Volúmenes</a>
+        <a href="../sources/paraguay.md">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <span class="badge">% del total HS 8703</span>
+    <h1>Participación por tren motriz</h1>
+    <p class="lead">
+      Cuota mensual de BEV, PHEV, HEV, OTHERS (mild) e ICE. Barras apiladas al 100 %.
+    </p>
+    <div class="legend-row">
+      <span class="lg-bev">BEV</span>
+      <span class="lg-phev">PHEV</span>
+      <span class="lg-hev">HEV</span>
+      <span class="lg-others">OTHERS</span>
+      <span class="lg-ice">ICE</span>
+    </div>
+    <div id="chart" class="chart-panel"><div class="status">Cargando…</div></div>
+    <div class="note">
+      ICE se calcula como TOTAL − (BEV+PHEV+HEV+OTHERS). Fuente:
+      <code>data/Paraguay.csv</code> · Aduana PY datos abiertos.
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <a href="../index.html">← Inicio</a> ·
+      <a href="volumes.html">Volúmenes →</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const el = document.getElementById("chart");
+      try {
+        const rows = await PYEV.loadParaguay();
+        el.innerHTML = "";
+        PYEVCharts.shareChart(el, rows);
+      } catch (e) {
+        el.innerHTML = '<div class="status error">' + e.message + "</div>";
+      }
+    });
+  </script>
+</body>
+</html>
