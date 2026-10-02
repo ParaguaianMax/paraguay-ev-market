@@ -1,9 +1,15 @@
 /**
  * Load and parse Paraguay.csv for GitHub Pages (relative paths).
  * Schema: period,time_interval,variant,source,BEV,PHEV,HEV,ICE,OTHERS,TOTAL,notes
+ *
+ * Variants:
+ *   Whole         — clean HS 8703 (no golf/ATV)
+ *   LightVehicles — one combined row/month: clean 8703 + light 8704 pickups
  */
 (function (global) {
   const NUM = ["BEV", "PHEV", "HEV", "ICE", "OTHERS", "TOTAL"];
+  const VARIANT_KEY = "pyev-variant";
+  const KNOWN_VARIANTS = ["Whole", "LightVehicles"];
 
   function parseCSV(text) {
     const lines = text.trim().split(/\r?\n/);
@@ -74,8 +80,122 @@
     if (!res.ok) throw new Error("No se pudo cargar " + u + " (" + res.status + ")");
     const text = await res.text();
     const rows = parseCSV(text);
-    rows.sort((a, b) => (a.period < b.period ? -1 : a.period > b.period ? 1 : 0));
+    rows.sort((a, b) => {
+      if (a.period < b.period) return -1;
+      if (a.period > b.period) return 1;
+      // Stable secondary: Whole before LightVehicles for same period
+      if (a.variant < b.variant) return -1;
+      if (a.variant > b.variant) return 1;
+      return 0;
+    });
     return rows;
+  }
+
+  function availableVariants(rows) {
+    // Always expose known variants so the control is ready when data arrives
+    const ordered = KNOWN_VARIANTS.slice();
+    (rows || []).forEach((r) => {
+      if (r.variant && !ordered.includes(r.variant)) ordered.push(r.variant);
+    });
+    return ordered;
+  }
+
+  function variantsWithData(rows) {
+    return [...new Set((rows || []).map((r) => r.variant).filter(Boolean))];
+  }
+
+  function latestPeriod(rows) {
+    let max = null;
+    (rows || []).forEach((r) => {
+      if (!max || r.period > max) max = r.period;
+    });
+    return max;
+  }
+
+  /** Prefer LightVehicles when the latest month has that variant; else Whole. */
+  function defaultVariant(rows) {
+    const latest = latestPeriod(rows);
+    if (latest && (rows || []).some((r) => r.variant === "LightVehicles" && r.period === latest)) {
+      return "LightVehicles";
+    }
+    if ((rows || []).some((r) => r.variant === "Whole")) return "Whole";
+    const withData = variantsWithData(rows);
+    return withData[0] || "Whole";
+  }
+
+  function getVariant(rows) {
+    try {
+      const saved = localStorage.getItem(VARIANT_KEY);
+      if (saved && (rows || []).some((r) => r.variant === saved)) return saved;
+    } catch (e) {}
+    return defaultVariant(rows);
+  }
+
+  function setVariant(variant) {
+    const v = KNOWN_VARIANTS.includes(variant) || variant ? variant : "Whole";
+    try {
+      localStorage.setItem(VARIANT_KEY, v);
+    } catch (e) {}
+    global.dispatchEvent(new CustomEvent("pyev-variant", { detail: v }));
+  }
+
+  function filterByVariant(rows, variant) {
+    const v = variant || getVariant(rows);
+    const filtered = (rows || []).filter((r) => r.variant === v);
+    if (filtered.length) return filtered;
+    // Fallback to Whole, then any data
+    const whole = (rows || []).filter((r) => r.variant === "Whole");
+    return whole.length ? whole : rows || [];
+  }
+
+  /** Wire a <select id="variantToggle"> (or any select) to the variant preference. */
+  function mountVariantToggle(selectEl, rows, onChange) {
+    if (!selectEl) return;
+    const opts = availableVariants(rows);
+    const withData = new Set(variantsWithData(rows));
+    const current = getVariant(rows);
+
+    selectEl.innerHTML = "";
+    opts.forEach((v) => {
+      const opt = document.createElement("option");
+      opt.value = v;
+      opt.disabled = !withData.has(v);
+      opt.textContent = variantLabel(v);
+      selectEl.appendChild(opt);
+    });
+    // If saved/default has no data, fall back to a variant that does
+    const effective = withData.has(current) ? current : defaultVariant(rows);
+    selectEl.value = effective;
+    selectEl.setAttribute(
+      "aria-label",
+      (global.PYEV && global.PYEV.t && global.PYEV.t("variant_label")) || "Serie"
+    );
+
+    selectEl.onchange = () => {
+      setVariant(selectEl.value);
+      if (typeof onChange === "function") onChange(selectEl.value);
+    };
+
+    // Keep labels in sync when language changes (once per element)
+    if (!selectEl._pyevLangBound) {
+      selectEl._pyevLangBound = true;
+      global.addEventListener("pyev-lang", () => {
+        Array.from(selectEl.options).forEach((opt) => {
+          opt.textContent = variantLabel(opt.value);
+        });
+        selectEl.setAttribute(
+          "aria-label",
+          (global.PYEV && global.PYEV.t && global.PYEV.t("variant_label")) || "Serie"
+        );
+      });
+    }
+  }
+
+  function variantLabel(v) {
+    const t = global.PYEV && global.PYEV.t ? global.PYEV.t : (k) => k;
+    if (v === "Whole") return t("variant_whole");
+    if (v === "LightVehicles") return t("variant_light");
+    return v;
   }
 
   function fmtInt(n) {
@@ -90,13 +210,51 @@
   function periodLabel(p) {
     // 2026-08 → ago 2026
     const lang = global.PYEV && global.PYEV.language ? global.PYEV.language() : "es";
-    const m = lang === "en" ? {
-      "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"
-    } : lang === "pt" ? {
-      "01": "jan", "02": "fev", "03": "mar", "04": "abr", "05": "mai", "06": "jun", "07": "jul", "08": "ago", "09": "set", "10": "out", "11": "nov", "12": "dez"
-    } : {
-      "01": "ene", "02": "feb", "03": "mar", "04": "abr", "05": "may", "06": "jun", "07": "jul", "08": "ago", "09": "sep", "10": "oct", "11": "nov", "12": "dic"
-    };
+    const m =
+      lang === "en"
+        ? {
+            "01": "Jan",
+            "02": "Feb",
+            "03": "Mar",
+            "04": "Apr",
+            "05": "May",
+            "06": "Jun",
+            "07": "Jul",
+            "08": "Aug",
+            "09": "Sep",
+            "10": "Oct",
+            "11": "Nov",
+            "12": "Dec",
+          }
+        : lang === "pt"
+          ? {
+              "01": "jan",
+              "02": "fev",
+              "03": "mar",
+              "04": "abr",
+              "05": "mai",
+              "06": "jun",
+              "07": "jul",
+              "08": "ago",
+              "09": "set",
+              "10": "out",
+              "11": "nov",
+              "12": "dez",
+            }
+          : {
+              "01": "ene",
+              "02": "feb",
+              "03": "mar",
+              "04": "abr",
+              "05": "may",
+              "06": "jun",
+              "07": "jul",
+              "08": "ago",
+              "09": "sep",
+              "10": "oct",
+              "11": "nov",
+              "12": "dic",
+            };
     const [y, mo] = String(p).split("-");
     return (m[mo] || mo) + " " + y;
   }
@@ -130,6 +288,15 @@
   global.PYEV = Object.assign(global.PYEV || {}, {
     loadParaguay,
     parseCSV,
+    filterByVariant,
+    getVariant,
+    setVariant,
+    defaultVariant,
+    availableVariants,
+    variantsWithData,
+    mountVariantToggle,
+    variantLabel,
+    KNOWN_VARIANTS,
     fmtInt,
     fmtPct,
     periodLabel,
