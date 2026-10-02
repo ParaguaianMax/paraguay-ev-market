@@ -1,10 +1,10 @@
 id,name,url,status,access,departamento,ciudad,lat,lon,operator,n_dc_plugs,connectors_dc,kw_max,power_band,kw_source
-623158,Audi - Prestigio Group S.A.,https://www.plugshare.com/location/623158,em manutenção,público,Alto Paraná,CDE,-25.497200,-54.634167,Audi,1,CCS2×1,25,abaixo de 50 kW,inferido (nome/desc)
+623158,Audi - Prestigio Group S.A.,https://www.plugshare.com/location/623158,em manutenção,público,Alto Paraná,CDE,-25.497200,-54.634167,Audi,1,CCS2×1,25,abaixo de 50 kW,abaixo de 50 kW
 1913002,BYD Solfrio SA Clientes (Coming Soon),https://www.plugshare.com/location/1913002,em breve,público,Alto Paraná,CDE,-25.504129,-54.637637,BYD,2,"CCS2×1, GB/T DC×1",60,50–99 kW,estimado (check-ins)
 582737,Diesa Ciudad Del Este,https://www.plugshare.com/location/582737,ativo,público,Alto Paraná,CDE,-25.500028,-54.663049,Diesa,3,"CCS2×1, GB/T DC×2",60,50–99 kW,PlugShare (outlet)
 1757000,Evergo Biggie San Jose,https://www.plugshare.com/location/1757000,em manutenção,público,Alto Paraná,CDE,-25.511043,-54.658117,Evergo,2,CCS2×2,21,abaixo de 50 kW,estimado (check-ins)
 512141,Integral Service Station AUTOMOTOR,https://www.plugshare.com/location/512141,parcialmente em manutenção,público,Alto Paraná,CDE,-25.493683,-54.714061,Automotor,2,CCS2×2,100,100–149 kW,PlugShare (outlet)
-734367,"Itaipu KM 3,5",https://www.plugshare.com/location/734367,ativo,público,Alto Paraná,CDE,-25.511204,-54.629856,PTI,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,inferido (nome/desc)
+734367,Itaipu KM 3,5,https://www.plugshare.com/location/734367,ativo,público,Alto Paraná,CDE,-25.511204,-54.629856,PTI,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,inferido (nome/desc)
 1434538,Estacion Integral Hernandarias Automotor EVERGO,https://www.plugshare.com/location/1434538,ativo,público,Alto Paraná,Hernandarias,-25.480931,-54.627037,Automotor,2,CCS2×2,90,50–99 kW,estimado (check-ins)
 559663,Estación Puma Interlagos - Evergo,https://www.plugshare.com/location/559663,ativo,público,Alto Paraná,Hernandarias,-25.388754,-54.639936,Evergo,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,PlugShare (outlet)
 1832661,Terminal de Omnibus de Hernandarias,https://www.plugshare.com/location/1832661,ativo,público,Alto Paraná,Hernandarias,-25.405118,-54.629423,PTI,2,CCS2×2,196,150+ kW,inferido (nome/desc)
@@ -36,7 +36,7 @@ id,name,url,status,access,departamento,ciudad,lat,lon,operator,n_dc_plugs,connec
 657526,Petromax San José - EverGo,https://www.plugshare.com/location/657526,ativo,público,Caaguazú,San José de los Arroyos,-25.523928,-56.754638,Evergo,2,"CCS2×1, CHAdeMO×1",51,50–99 kW,estimado (check-ins)
 576598,Estación De Servicio Puma y Drei Schritte - EverGo,https://www.plugshare.com/location/576598,ativo,público,Canindeyú,Katueté,-24.253890,-54.770294,Evergo,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,estimado (check-ins)
 1922980,LG CHARGE,https://www.plugshare.com/location/1922980,ativo,público,Canindeyú,Saltos del Guairá,-24.068589,-54.307656,Autocharge,1,GB/T DC×1,41,abaixo de 50 kW,estimado (check-ins)
-2205935,Carga Granel SA - Green Wolf Evolution Curuguaty,https://www.plugshare.com/location/2205935,ativo,público,Canindeyú,Villa Curuguaty,-24.496340,-55.676942,Green Wolf,1,GB/T DC×1,40,abaixo de 50 kW,estimado (check-ins)
+2205935,Carga Granel SA - Green Wolf Evolution Curuguaty,https://www.plugshare.com/location/2205935,ativo,público,Canindeyú,Villa Curuguaty,-24.496340,-55.676942,Green Wolf,1,GB/T DC×1,40,abaixo de 50 kW,inferido (nome/desc)
 799783,Barbería Kratos,https://www.plugshare.com/location/799783,ativo,público,Central,Fernando de la Mora,-25.329418,-57.539858,não informado,2,"CCS2×1, GB/T DC×1",22,abaixo de 50 kW,inferido (nome/desc)
 723717,Paseo Guarani,https://www.plugshare.com/location/723717,ativo,público,Central,Itauguá,-25.395657,-57.347311,não informado,1,GB/T DC×1,60,50–99 kW,estimado (check-ins)
 605133,Biggie Ita - EverGo,https://www.plugshare.com/location/605133,ativo,público,Central,Itá,-25.508370,-57.357022,Evergo,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,Max (confirmação)
