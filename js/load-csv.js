@@ -34,7 +34,6 @@
     return total ? (100 * n) / total : 0;
   }
 
-  /** Minimal CSV splitter that respects quoted fields. */
   function splitCSVLine(line) {
     const out = [];
     let cur = "";
@@ -60,8 +59,11 @@
   }
 
   function resolveDataUrl() {
-    // From root: data/Paraguay.csv ; from pages/: ../data/Paraguay.csv
-    const inPages = /\/pages\//.test(location.pathname) || location.pathname.endsWith("/share.html") || location.pathname.endsWith("/volumes.html");
+    const inPages =
+      /\/pages\//.test(location.pathname) ||
+      location.pathname.endsWith("/share.html") ||
+      location.pathname.endsWith("/volumes.html") ||
+      location.pathname.endsWith("/chargers.html");
     return inPages ? "../data/Paraguay.csv" : "data/Paraguay.csv";
   }
 
@@ -84,7 +86,6 @@
   }
 
   function periodLabel(p) {
-    // 2026-08 → ago 2026
     const m = {
       "01": "ene", "02": "feb", "03": "mar", "04": "abr",
       "05": "may", "06": "jun", "07": "jul", "08": "ago",
@@ -94,19 +95,41 @@
     return (m[mo] || mo) + " " + y;
   }
 
+  function isDark() {
+    return document.documentElement.getAttribute("data-theme") === "dark";
+  }
+
+  function colors() {
+    if (isDark()) {
+      return {
+        BEV: "#6fb585",
+        PHEV: "#86acdd",
+        HEV: "#d4b45a",
+        OTHERS: "#b39ddb",
+        ICE: "#9a978e",
+        TOTAL: "#a9c4e8",
+      };
+    }
+    return {
+      BEV: "#2f6b45",
+      PHEV: "#1d4f91",
+      HEV: "#8a6a12",
+      OTHERS: "#6b4f9a",
+      ICE: "#6b6860",
+      TOTAL: "#1d4f91",
+    };
+  }
+
   global.PYEV = {
     loadParaguay,
     parseCSV,
     fmtInt,
     fmtPct,
     periodLabel,
-    COLORS: {
-      BEV: "#22c55e",
-      PHEV: "#06b6d4",
-      HEV: "#eab308",
-      OTHERS: "#a78bfa",
-      ICE: "#64748b",
-      TOTAL: "#3d9cf0",
+    isDark,
+    colors,
+    get COLORS() {
+      return colors();
     },
   };
 })(typeof window !== "undefined" ? window : globalThis);
