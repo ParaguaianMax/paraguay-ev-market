@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cargadores DC — Paraguay EV Market</title>
+  <meta name="description" content="Inventario de carregadores DC en Paraguay (CCS2 / CHAdeMO / GB/T). PlugShare, corte 2026-10." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="../js/chargers.js" defer></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <div class="header-actions">
+        <nav aria-label="Principal">
+          <a href="../index.html">Inicio</a>
+          <a href="share.html">Participación</a>
+          <a href="volumes.html">Volúmenes</a>
+          <a class="active" href="chargers.html">Cargadores</a>
+          <a href="../sources/chargers.md">Fuentes</a>
+        </nav>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-eyebrow">
+      <span class="badge">PlugShare · corte 2026-10-02</span>
+      <span class="pill pill-bev">DC only</span>
+      <span class="pill pill-phev">CCS2</span>
+      <span class="pill pill-hev">CHAdeMO</span>
+      <span class="pill pill-others">GB/T</span>
+    </div>
+    <h1>Carregadores DC en Paraguay</h1>
+    <p class="lead">
+      Inventario de <strong>carregadores DC</strong> (no AC): ubicaciones deduplicadas
+      desde PlugShare. Potencia casi siempre <strong>estimada</strong> — ver columna
+      «Fuente kW». Rótulos de red pueden incluir marcas vistas en BR; no implica
+      operación local certificada.
+    </p>
+
+    <div id="kpis" class="kpi-grid"><div class="status">Cargando…</div></div>
+
+    <div class="note">
+      Alcance: solo DC (CCS2 / CHAdeMO / GB/T). Sin NACS. Locais só-AC ficam fora
+      (<code>excluidos_AC.csv</code>). Residencial/privado e restrito aparecem
+      marcados — o foco do mapa é público.
+    </div>
+
+    <h2>Mapa</h2>
+    <div class="map-filters">
+      <label for="f-access">Acesso</label>
+      <select id="f-access">
+        <option value="all">Todos</option>
+        <option value="público" selected>Público</option>
+        <option value="restrito">Restrito</option>
+        <option value="residencial/privado">Residencial/privado</option>
+      </select>
+      <label for="f-band">Faixa kW</label>
+      <select id="f-band">
+        <option value="all">Todas</option>
+      </select>
+    </div>
+    <div id="chargers-map" role="img" aria-label="Mapa de carregadores DC"></div>
+    <p class="chart-foot" id="map-foot"></p>
+
+    <h2>Desglose</h2>
+    <div id="breakdown"></div>
+
+    <h2>Tabla</h2>
+    <div id="table"></div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="page-nav">
+        <a href="volumes.html">← Volúmenes</a>
+        <a href="../index.html">Inicio</a>
+        <a href="../sources/chargers.md">Fuentes cargadores →</a>
+      </div>
+      <div>
+        Inventario Elon · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const kpis = document.getElementById("kpis");
+      const breakdown = document.getElementById("breakdown");
+      const table = document.getElementById("table");
+      const mapEl = document.getElementById("chargers-map");
+      const foot = document.getElementById("map-foot");
+      const fAccess = document.getElementById("f-access");
+      const fBand = document.getElementById("f-band");
+
+      let all = [];
+      let mapApi = null;
+
+      function refresh() {
+        const filtered = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
+        if (mapApi) {
+          mapApi.group.clearLayers();
+          filtered.forEach((r) => {
+            const m = mapApi.markers.find((x) => x._pyev.id === r.id);
+            if (m) mapApi.group.addLayer(m);
+          });
+          if (filtered.length) mapApi.map.fitBounds(mapApi.group.getBounds().pad(0.12));
+        }
+        PYEVChargers.renderTable(table, filtered);
+        const plugs = filtered.reduce((s, r) => s + r.n_dc_plugs, 0);
+        foot.innerHTML =
+          "<b>Mostrando</b> " +
+          filtered.length +
+          " locais / " +
+          plugs +
+          " plugs DC · potencia estimada salvo outlet PlugShare";
+      }
+
+      try {
+        all = await PYEVChargers.loadChargers();
+        PYEVChargers.renderKPIs(kpis, all);
+        PYEVChargers.renderBreakdown(breakdown, all);
+        const bands = PYEVChargers.countBy(all, "power_band");
+        bands.forEach(([b]) => {
+          const opt = document.createElement("option");
+          opt.value = b;
+          opt.textContent = b;
+          fBand.appendChild(opt);
+        });
+        mapApi = PYEVChargers.initMap(mapEl, all);
+        fAccess.addEventListener("change", refresh);
+        fBand.addEventListener("change", refresh);
+        refresh();
+      } catch (e) {
+        kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
+      }
+    });
+  </script>
+</body>
+</html>
