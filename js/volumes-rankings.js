@@ -66,7 +66,9 @@
     if (!PT_MODES.includes(ptMode)) ptMode = "all";
 
     function scopedRows() {
-      const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
+      // Re-assert LightVehicles·leve so YTD/year never mix Whole (HS 8703 double-count).
+      const base = PYEVModels.marketSeriesRows(marketRows);
+      const periodRows = PYEVModels.filterByPeriodScope(base, {
         mode,
         month: monthSel && monthSel.value,
         year: yearSel && yearSel.value,

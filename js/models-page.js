@@ -1,1 +1,293 @@
-document.addEventListener("DOMContentLoaded",(async()=>{const e=document.getElementById("models-empty"),t=document.getElementById("models-ui"),n=document.getElementById("chart-models"),l=document.getElementById("table-models"),a=document.getElementById("kpis"),o=document.getElementById("variantHint"),d=document.getElementById("periodToggle"),i=document.getElementById("marcaToggle"),s=document.getElementById("modeloToggle"),r=document.getElementById("ptButtons");let c=[],E="general",m=new Set(PYEVModels.POWERTRAINS);function u(){e.hidden=!1,t.hidden=!0}function g(){let e=c;const t=PYEV.getVariant(c),n=PYEV.getSegment(c),l=PYEV.variantsWithData(c),a=PYEV.segmentsWithData(c);return l.length&&(e=e.filter((e=>e.variant===t))),a.length&&(e=e.filter((e=>e.segmento===n))),PYEVModels.filterModels(e,{period:d.value||null,powertrains:[...m],marca:i.value||null,modelo:s.value||null})}function h(){if(!o)return;const e=[],t=(document.querySelector(".models-toolbar .variant-switcher:not(#periodWrap):not(#marcaWrap):not(#modeloWrap)"),document.getElementById("variantToggle")),n=document.getElementById("segmentToggle");if(t&&!t.hidden&&!(t.closest("label")||{}).hidden){const t=PYEV.getVariant(c);e.push("LightVehicles"===t?PYEV.t("variant_light_hint"):PYEV.t("variant_whole_hint"))}if(n&&!n.hidden&&!(n.closest("label")||{}).hidden){const t=PYEV.getSegment(c);e.push("recreativo"===t?PYEV.t("segment_recreativo_hint"):"pesado"===t?PYEV.t("segment_pesado_hint"):PYEV.t("segment_leve_hint"))}const l=g().length;e.push(PYEV.t("models_rows",{n:String(l)})),o.textContent=e.join(" · ")}function v(){let e=c;const t=PYEV.getVariant(c),n=PYEV.getSegment(c);return PYEV.variantsWithData(c).length&&(e=e.filter((e=>e.variant===t))),PYEV.segmentsWithData(c).length&&(e=e.filter((e=>e.segmento===n))),e}function p(){const e=PYEVModels.periodsOf(v()),t=e[e.length-1]||"";let n="";try{n=localStorage.getItem("pyev-models-period")||""}catch(e){}const l=e.includes(n)?n:t;d.innerHTML="",e.forEach((e=>{const t=document.createElement("option");t.value=e,t.textContent=PYEV.periodLabel(e),d.appendChild(t)})),l?d.value=l:t&&(d.value=t),document.getElementById("periodWrap").hidden=e.length<1}function V(){let e=PYEVModels.filterModels(v(),{period:d.value||null,powertrains:[...m]});const t=PYEVModels.brandsOf(e),n=i.value;i.innerHTML="";const l=document.createElement("option");l.value="",l.textContent=PYEV.t("models_all_brands"),i.appendChild(l),t.forEach((e=>{const t=document.createElement("option");t.value=e,t.textContent=e,i.appendChild(t)})),i.value=t.includes(n)?n:"",document.getElementById("marcaWrap").hidden=t.length<1}function P(){let e=PYEVModels.filterModels(v(),{period:d.value||null,powertrains:[...m],marca:i.value||null});const t=PYEVModels.modelsOf(e,i.value||null),n=s.value;s.innerHTML="";const l=document.createElement("option");l.value="",l.textContent=PYEV.t("models_all_models"),s.appendChild(l),t.forEach((e=>{const t=document.createElement("option");t.value=e,t.textContent=e,s.appendChild(t)})),s.value=t.includes(n)?n:"",document.getElementById("modeloWrap").hidden=!i.value&&t.length>40}function y(){h();const e=g();!function(e){const t=PYEVModels.sumUnits(e),n=PYEVModels.byPowertrain(e),l={};n.forEach((e=>l[e.powertrain]=e.units));const o=[{key:"total",label:PYEV.t("total"),value:t,cls:""},{key:"BEV",label:"BEV",value:l.BEV||0,cls:"bev"},{key:"PHEV",label:"PHEV",value:l.PHEV||0,cls:"phev"},{key:"HEV",label:"HEV",value:l.HEV||0,cls:"hev"},{key:"ICE",label:"ICE",value:l.ICE||0,cls:"ice"}];a.innerHTML=o.map((e=>'<div class="kpi '+e.cls+'"><div class="label">'+e.label+'</div><div class="value">'+PYEV.fmtInt(e.value)+"</div></div>")).join("")}(e),n.innerHTML="","general"===E?(PYEVModels.renderGeneralChart(n,e),PYEVModels.renderGeneralTable(l,e)):"brand"===E?(PYEVModels.renderBrandChart(n,e),PYEVModels.renderBrandTable(l,e)):(PYEVModels.renderModelChart(n,e),PYEVModels.renderModelTable(l,e))}function Y(){PYEV.mountVariantToggle(document.getElementById("variantToggle"),c),PYEV.mountSegmentToggle(document.getElementById("segmentToggle"),c),p(),function(){const e=new Set(PYEVModels.powertrainsOf(c));r.innerHTML="",PYEVModels.POWERTRAINS.forEach((t=>{if(!e.has(t)&&c.length)return;const n=document.createElement("button");n.type="button",n.className="pt-chip"+(m.has(t)?" active":""),n.dataset.pt=t,n.innerHTML='<span class="pill '+({BEV:"pill-bev",PHEV:"pill-phev",HEV:"pill-hev",ICE:"pill-ice",OTHERS:"pill-others"}[t]||"pill-others")+'">'+t+"</span>",n.addEventListener("click",(()=>{m.has(t)?m.size>1&&m.delete(t):m.add(t),n.classList.toggle("active",m.has(t)),Array.from(r.querySelectorAll(".pt-chip")).forEach((e=>{e.classList.toggle("active",m.has(e.dataset.pt))})),V(),P(),y()})),r.appendChild(n)})),document.getElementById("ptFilter").hidden=r.children.length<1}(),V(),P(),h()}document.querySelectorAll(".view-tab").forEach((e=>{e.addEventListener("click",(()=>{document.querySelectorAll(".view-tab").forEach((e=>e.classList.remove("active"))),e.classList.add("active"),E=e.dataset.view,y()}))})),d.addEventListener("change",(()=>{try{localStorage.setItem("pyev-models-period",d.value)}catch(e){}V(),P(),y()})),i.addEventListener("change",(()=>{P(),y()})),s.addEventListener("change",y),await async function(){try{const n=await PYEVModels.loadParaguayModels();if(c=n.rows||[],n.missing||!c.length)return void u();e.hidden=!0,t.hidden=!1,Y(),y()}catch(t){u(),e.hidden=!1,e.textContent=t.message||String(t),e.classList.add("error")}}(),window.addEventListener("pyev-lang",(()=>{c.length&&(Y(),y())})),window.addEventListener("pyev-variant",(()=>{c.length&&(p(),V(),P(),y())})),window.addEventListener("pyev-segment",(()=>{c.length&&(p(),V(),P(),y())})),window.addEventListener("pyev-theme",(()=>{n&&n.data&&PYEVModels.restyleTheme(n)}))}));
+/**
+ * Marcas / models page — brand·model·powertrain detail.
+ * Hard scope: LightVehicles + leve only (never Whole ∪ LightVehicles).
+ * Months without LV·leve detail stay empty (no Whole fallback).
+ */
+document.addEventListener("DOMContentLoaded", async () => {
+  const emptyEl = document.getElementById("models-empty");
+  const uiEl = document.getElementById("models-ui");
+  const chartEl = document.getElementById("chart-models");
+  const tableEl = document.getElementById("table-models");
+  const kpisEl = document.getElementById("kpis");
+  const hintEl = document.getElementById("variantHint");
+  const periodSel = document.getElementById("periodToggle");
+  const marcaSel = document.getElementById("marcaToggle");
+  const modeloSel = document.getElementById("modeloToggle");
+  const ptButtons = document.getElementById("ptButtons");
+
+  /** @type {any[]} scoped LightVehicles·leve rows only */
+  let marketRows = [];
+  let view = "general";
+  let activePts = new Set(PYEVModels.POWERTRAINS);
+
+  function showEmpty(msg) {
+    emptyEl.hidden = false;
+    uiEl.hidden = true;
+    if (msg) {
+      emptyEl.textContent = msg;
+      emptyEl.classList.add("error");
+    }
+  }
+
+  function scopedBase() {
+    return marketRows;
+  }
+
+  function filteredRows() {
+    return PYEVModels.filterModels(scopedBase(), {
+      period: periodSel.value || null,
+      powertrains: [...activePts],
+      marca: marcaSel.value || null,
+      modelo: modeloSel.value || null,
+    });
+  }
+
+  function updateHint() {
+    if (!hintEl) return;
+    const parts = [];
+    parts.push(
+      (PYEV.t && PYEV.t("variant_light_hint")) ||
+        "HS 8703 limpio + pickups livianos HS 8704 (totales combinados)."
+    );
+    parts.push(
+      (PYEV.t && PYEV.t("segment_leve_hint")) ||
+        "Automóviles y similares (livianos)."
+    );
+    const n = filteredRows().length;
+    parts.push(PYEV.t("models_rows", { n: String(n) }));
+    hintEl.textContent = parts.join(" · ");
+  }
+
+  function fillPeriods() {
+    const periods = PYEVModels.periodsOf(scopedBase());
+    const latest = periods[periods.length - 1] || "";
+    let saved = "";
+    try {
+      saved = localStorage.getItem("pyev-models-period") || "";
+    } catch (e) {}
+    const pick = periods.includes(saved) ? saved : latest;
+    periodSel.innerHTML = "";
+    periods.forEach((p) => {
+      const opt = document.createElement("option");
+      opt.value = p;
+      opt.textContent = PYEV.periodLabel(p);
+      periodSel.appendChild(opt);
+    });
+    if (pick) periodSel.value = pick;
+    else if (latest) periodSel.value = latest;
+    const wrap = document.getElementById("periodWrap");
+    if (wrap) wrap.hidden = periods.length < 1;
+  }
+
+  function fillBrands() {
+    const rows = PYEVModels.filterModels(scopedBase(), {
+      period: periodSel.value || null,
+      powertrains: [...activePts],
+    });
+    const brands = PYEVModels.brandsOf(rows);
+    const prev = marcaSel.value;
+    marcaSel.innerHTML = "";
+    const all = document.createElement("option");
+    all.value = "";
+    all.textContent = PYEV.t("models_all_brands");
+    marcaSel.appendChild(all);
+    brands.forEach((b) => {
+      const opt = document.createElement("option");
+      opt.value = b;
+      opt.textContent = b;
+      marcaSel.appendChild(opt);
+    });
+    marcaSel.value = brands.includes(prev) ? prev : "";
+    const wrap = document.getElementById("marcaWrap");
+    if (wrap) wrap.hidden = brands.length < 1;
+  }
+
+  function fillModels() {
+    const rows = PYEVModels.filterModels(scopedBase(), {
+      period: periodSel.value || null,
+      powertrains: [...activePts],
+      marca: marcaSel.value || null,
+    });
+    const models = PYEVModels.modelsOf(rows, marcaSel.value || null);
+    const prev = modeloSel.value;
+    modeloSel.innerHTML = "";
+    const all = document.createElement("option");
+    all.value = "";
+    all.textContent = PYEV.t("models_all_models");
+    modeloSel.appendChild(all);
+    models.forEach((m) => {
+      const opt = document.createElement("option");
+      opt.value = m;
+      opt.textContent = m;
+      modeloSel.appendChild(opt);
+    });
+    modeloSel.value = models.includes(prev) ? prev : "";
+    const wrap = document.getElementById("modeloWrap");
+    if (wrap) wrap.hidden = !marcaSel.value && models.length > 40;
+  }
+
+  function fillPowertrains() {
+    const available = new Set(PYEVModels.powertrainsOf(scopedBase()));
+    ptButtons.innerHTML = "";
+    const pillClass = {
+      BEV: "pill-bev",
+      PHEV: "pill-phev",
+      HEV: "pill-hev",
+      ICE: "pill-ice",
+      OTHERS: "pill-others",
+    };
+    PYEVModels.POWERTRAINS.forEach((pt) => {
+      if (!available.has(pt) && marketRows.length) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pt-chip" + (activePts.has(pt) ? " active" : "");
+      btn.dataset.pt = pt;
+      btn.innerHTML =
+        '<span class="pill ' +
+        (pillClass[pt] || "pill-others") +
+        '">' +
+        pt +
+        "</span>";
+      btn.addEventListener("click", () => {
+        if (activePts.has(pt)) {
+          if (activePts.size > 1) activePts.delete(pt);
+        } else {
+          activePts.add(pt);
+        }
+        btn.classList.toggle("active", activePts.has(pt));
+        Array.from(ptButtons.querySelectorAll(".pt-chip")).forEach((el) => {
+          el.classList.toggle("active", activePts.has(el.dataset.pt));
+        });
+        fillBrands();
+        fillModels();
+        draw();
+      });
+      ptButtons.appendChild(btn);
+    });
+    const wrap = document.getElementById("ptFilter");
+    if (wrap) wrap.hidden = ptButtons.children.length < 1;
+  }
+
+  function renderKpis(rows) {
+    const total = PYEVModels.sumUnits(rows);
+    const byPt = PYEVModels.byPowertrain(rows);
+    const map = {};
+    byPt.forEach((e) => {
+      map[e.powertrain] = e.units;
+    });
+    const items = [
+      { key: "total", label: PYEV.t("total"), value: total, cls: "" },
+      { key: "BEV", label: "BEV", value: map.BEV || 0, cls: "bev" },
+      { key: "PHEV", label: "PHEV", value: map.PHEV || 0, cls: "phev" },
+      { key: "HEV", label: "HEV", value: map.HEV || 0, cls: "hev" },
+      { key: "ICE", label: "ICE", value: map.ICE || 0, cls: "ice" },
+    ];
+    kpisEl.innerHTML = items
+      .map(
+        (e) =>
+          '<div class="kpi ' +
+          e.cls +
+          '"><div class="label">' +
+          e.label +
+          '</div><div class="value">' +
+          PYEV.fmtInt(e.value) +
+          "</div></div>"
+      )
+      .join("");
+  }
+
+  function draw() {
+    updateHint();
+    const rows = filteredRows();
+    renderKpis(rows);
+    chartEl.innerHTML = "";
+    if (!rows.length) {
+      const msg =
+        (PYEV.t && PYEV.t("vol_lv_empty")) ||
+        "Sin detalle LightVehicles · leve para este período. No se usa la serie Whole.";
+      // Period exists in LV set but filters emptied it vs no LV at all
+      const hasPeriod = marketRows.some((r) => r.period === periodSel.value);
+      chartEl.innerHTML =
+        '<div class="status">' +
+        (hasPeriod ? PYEV.t("models_empty_filter") : msg) +
+        "</div>";
+      tableEl.innerHTML = "";
+      return;
+    }
+    if (view === "general") {
+      PYEVModels.renderGeneralChart(chartEl, rows);
+      PYEVModels.renderGeneralTable(tableEl, rows);
+    } else if (view === "brand") {
+      PYEVModels.renderBrandChart(chartEl, rows);
+      PYEVModels.renderBrandTable(tableEl, rows);
+    } else {
+      PYEVModels.renderModelChart(chartEl, rows);
+      PYEVModels.renderModelTable(tableEl, rows);
+    }
+  }
+
+  function remount() {
+    // Variant/segment toggles intentionally not mounted — fixed LightVehicles·leve.
+    fillPeriods();
+    fillPowertrains();
+    fillBrands();
+    fillModels();
+    updateHint();
+  }
+
+  document.querySelectorAll(".view-tab").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".view-tab").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      view = btn.dataset.view;
+      draw();
+    });
+  });
+
+  periodSel.addEventListener("change", () => {
+    try {
+      localStorage.setItem("pyev-models-period", periodSel.value);
+    } catch (e) {}
+    fillBrands();
+    fillModels();
+    draw();
+  });
+  marcaSel.addEventListener("change", () => {
+    fillModels();
+    draw();
+  });
+  modeloSel.addEventListener("change", draw);
+
+  try {
+    const res = await PYEVModels.loadParaguayModels();
+    const all = res.rows || [];
+    if (res.missing || !all.length) {
+      showEmpty();
+      return;
+    }
+    marketRows = PYEVModels.marketSeriesRows(all);
+    if (!marketRows.length) {
+      showEmpty(
+        (PYEV.t && PYEV.t("vol_lv_empty")) ||
+          "Sin detalle LightVehicles · leve. No se usa la serie Whole."
+      );
+      return;
+    }
+    emptyEl.hidden = true;
+    uiEl.hidden = false;
+    remount();
+    draw();
+  } catch (err) {
+    showEmpty(err.message || String(err));
+  }
+
+  window.addEventListener("pyev-lang", () => {
+    if (!marketRows.length) return;
+    remount();
+    draw();
+  });
+  // Ignore variant/segment switches — series is fixed to LightVehicles·leve.
+  window.addEventListener("pyev-theme", () => {
+    if (chartEl && chartEl.data) PYEVModels.restyleTheme(chartEl);
+  });
+});

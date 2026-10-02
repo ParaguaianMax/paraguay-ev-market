@@ -84,7 +84,7 @@
       <span class="pill pill-ice">ICE</span>
     </div>
     <h1 data-i18n="models_title">Ventas por marca, modelo y motorización</h1>
-    <p class="lead" data-i18n="models_lead">Unidades importadas desglosadas por marca y modelo. Cada fila y barra indica claramente si es BEV, PHEV, HEV, ICE u OTHERS.</p>
+    <p class="lead" data-i18n="models_lead">Unidades importadas desglosadas por marca y modelo — solo vehículos livianos + camionetas (LightVehicles · leve). Cada fila y barra indica claramente si es BEV, PHEV, HEV, ICE u OTHERS. Meses sin ese detalle quedan vacíos (sin fallback Whole).</p>
 
     <div id="models-empty" class="note" hidden data-i18n="models_empty">
       Todavía no hay el detalle por marca/modelo. Cuando se publiquen los CSV en <code>data/models/</code> (o el ensamblado), esta página se completa sola.
@@ -121,7 +121,7 @@
 
       <div id="chart-models" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
       <div id="table-models"></div>
-      <p class="chart-foot" data-i18n="models_foot">Fuente: Aduana PY · detalle marca/modelo. Incluye vehículos nuevos y usados.</p>
+      <p class="chart-foot" data-i18n="models_foot">Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve (livianos + camionetas). Meses sin ese detalle quedan vacíos (sin fallback Whole). Incluye vehículos nuevos y usados.</p>
     </div>
   </main>
 
