@@ -10,5 +10,8 @@
     "2026-08.csv",
     "2026-09.csv"
   ],
-  "header": "period,variant,segmento,marca,modelo,powertrain,units,source,notes"
+  "header": "period,variant,segmento,marca,modelo,powertrain,units,source,notes",
+  "default_variant": "LightVehicles",
+  "default_segmento": "leve",
+  "complete_vehicles_only": true
 }

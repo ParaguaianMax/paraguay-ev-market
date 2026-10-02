@@ -10,7 +10,6 @@ period,variant,segmento,marca,modelo,powertrain,units,source,notes
 2026-01,LightVehicles,leve,TOYOTA,VOXY,ICE,932,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2026-01,LightVehicles,leve,TOYOTA,WISH,ICE,854,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-01,LightVehicles,leve,TOYOTA,NOAH,ICE,737,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
-2026-01,LightVehicles,leve,KENTON,(sin modelo),ICE,660,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-01,LightVehicles,leve,TOYOTA,IST,ICE,643,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-01,LightVehicles,leve,MITSUBISHI,CANTER,ICE,325,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-01,LightVehicles,leve,HYUNDAI,SANTA FE,ICE,308,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -71,7 +70,6 @@ period,variant,segmento,marca,modelo,powertrain,units,source,notes
 2026-01,LightVehicles,leve,TOYOTA,COROLLA,HEV,38,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-01,LightVehicles,leve,FIAT,FIORINO ENDURANCE 1,ICE,37,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-01,LightVehicles,leve,FIAT,PULSE DRIVE 1,ICE,37,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-01,LightVehicles,leve,DFSK,(sin modelo),ICE,36,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-01,LightVehicles,leve,HYUNDAI,PORTER II,ICE,35,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-01,LightVehicles,leve,MERCEDES-BENZ,2026,ICE,35,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-01,LightVehicles,leve,MERCEDES-BENZ,ATEGO 815,ICE,35,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -190,6 +188,7 @@ period,variant,segmento,marca,modelo,powertrain,units,source,notes
 2026-01,LightVehicles,recreativo,EXCAR,EL M1S2+2/FF,ICE,14,Aduana PY datos abiertos,NCM 8703.10
 2026-01,LightVehicles,leve,RAM,RAMPAGE BIGHORN 2,ICE,13,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-01,LightVehicles,recreativo,HDK,(sin modelo),ICE,13,Aduana PY datos abiertos,NCM 8703.10
+2026-01,LightVehicles,leve,DFSK,(sin modelo),ICE,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-01,LightVehicles,leve,HONDA,(sin modelo),BEV,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-01,LightVehicles,leve,MAXUS,(sin modelo),ICE,12,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-01,LightVehicles,leve,NISSAN,QASHQAI SENSE,ICE,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
