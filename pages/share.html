@@ -92,7 +92,7 @@
     </div>
     <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
     <p class="lead" data-i18n="share_lead">Trayectoria mensual de la participación de cada motorización en el total importado (estilo Gallery). Eje izquierdo: electrificados; eje derecho: ICE. La tabla debajo muestra los % exactos.</p>
-    <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_derived_note">Participación y volúmenes recalculados desde el detalle marca/modelo · solo nuevos.</div>
+    <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo nuevos</div>
 
 
 <div class="legend-row">
@@ -262,7 +262,6 @@
               PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
               " · " + rows.length + " " + PYEV.t("traj_months_short") +
               " · " + PYEV.variantLabel(last.variant || PYEV.getVariant(allRows)) +
-              (resolved.nuevos ? " · " + PYEV.t("nuevos_label") : "") +
               " · <em>" + PYEV.t("traj_not_forecast") + "</em>";
           }
           if (footTtm) {

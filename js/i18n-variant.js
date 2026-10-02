@@ -24,7 +24,7 @@
       models_period: "Mes", models_col_brand: "Marca", models_col_model: "Modelo", models_col_pt: "Motorización",
       models_view_general: "Totales", models_view_brand: "Por marca", models_view_model: "Por modelo",
       models_all_brands: "Todas las marcas", models_all_models: "Todos los modelos",
-      models_rows: "{n} filas", models_foot: "Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve (livianos + camionetas). Meses sin ese detalle quedan vacíos (sin fallback Whole). Incluye vehículos nuevos y usados.",
+      models_rows: "{n} filas", models_foot: "Fuente: Aduana PY · detalle marca/modelo. Solo LightVehicles · leve (livianos + camionetas). Meses sin ese detalle quedan vacíos (sin fallback Whole).",
       card_models: "Marcas y modelos", card_models_desc: "Volúmenes por marca, modelo y motorización (BEV / PHEV / HEV / ICE).",
       next_models: "Marcas →", prev_models: "← Marcas",
 
@@ -80,7 +80,7 @@
       models_period: "Mês", models_col_brand: "Marca", models_col_model: "Modelo", models_col_pt: "Motorização",
       models_view_general: "Totais", models_view_brand: "Por marca", models_view_model: "Por modelo",
       models_all_brands: "Todas as marcas", models_all_models: "Todos os modelos",
-      models_rows: "{n} linhas", models_foot: "Fonte: Aduana PY · detalhe marca/modelo. Só LightVehicles · leve (leves + picapes). Meses sem esse detalhe ficam vazios (sem fallback Whole). Inclui veículos novos e usados.",
+      models_rows: "{n} linhas", models_foot: "Fonte: Aduana PY · detalhe marca/modelo. Só LightVehicles · leve (leves + picapes). Meses sem esse detalhe ficam vazios (sem fallback Whole).",
       card_models: "Marcas e modelos", card_models_desc: "Volumes por marca, modelo e motorização (BEV / PHEV / HEV / ICE).",
       next_models: "Marcas →", prev_models: "← Marcas",
 
@@ -136,7 +136,7 @@
       models_period: "Month", models_col_brand: "Brand", models_col_model: "Model", models_col_pt: "Powertrain",
       models_view_general: "Totals", models_view_brand: "By brand", models_view_model: "By model",
       models_all_brands: "All brands", models_all_models: "All models",
-      models_rows: "{n} rows", models_foot: "Source: Paraguay Customs · brand/model detail. LightVehicles · leve only (light vehicles + pickups). Months without that detail stay empty (no Whole fallback). Includes new and used vehicles.",
+      models_rows: "{n} rows", models_foot: "Source: Paraguay Customs · brand/model detail. LightVehicles · leve only (light vehicles + pickups). Months without that detail stay empty (no Whole fallback).",
       card_models: "Brands & models", card_models_desc: "Volumes by brand, model and powertrain (BEV / PHEV / HEV / ICE).",
       next_models: "Brands →", prev_models: "← Brands",
 

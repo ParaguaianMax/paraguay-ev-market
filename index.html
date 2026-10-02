@@ -95,13 +95,12 @@
     </div>
     <h1 data-i18n="home_title">Mercado híbrido / eléctrico en Paraguay</h1>
     <p class="lead" data-i18n="home_lead">Seguimiento mensual de las importaciones de vehículos en Paraguay: eléctricos de batería (BEV), híbridos enchufables (PHEV) e híbridos (HEV), comparados con el total y los vehículos de combustión (ICE).</p>
-
+    <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo nuevos</div>
 
 <div id="kpis" class="kpi-grid">
       <div class="status" data-i18n="loading">Cargando…</div>
     </div>
 
-    <div class="note" data-i18n="home_note">Serie disponible: enero–septiembre de 2026. Incluye vehículos nuevos y usados.</div>
 
     <h2 data-i18n="explore">Explorar</h2>
     <div class="cards">
@@ -215,8 +214,7 @@
               " · " +
               PYEV.fmtInt(ytd.TOTAL) +
               " " + PYEV.t("units_hs") +
-              " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows)) +
-              (resolved.nuevos ? " · " + PYEV.t("nuevos_label") : "");
+              " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows));
           }
         } catch (e) {
           kpis.innerHTML = '<div class="status error">' + e.message + "</div>";

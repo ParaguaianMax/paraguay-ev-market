@@ -50,15 +50,6 @@
     document.querySelectorAll("[data-nuevos-note]").forEach((el) => {
       el.hidden = !on;
     });
-    document.querySelectorAll("[data-i18n='includes_new_used'], [data-i18n='home_note']").forEach((el) => {
-      // Footnotes that mention new+used: swap copy when filter is on
-      if (el.dataset.i18n === "includes_new_used" || el.dataset.i18n === "home_note") {
-        el.innerHTML = on ? t("nuevos_only_note") : t(el.dataset.i18n);
-      }
-    });
-    document.querySelectorAll("[data-i18n='vol_rank_foot']").forEach((el) => {
-      el.innerHTML = on ? t("nuevos_rank_foot") : t("vol_rank_foot");
-    });
   }
 
   function mountNuevosToggle(host) {
