@@ -86,17 +86,6 @@
     </div>
     <h1 data-i18n="volumes_title">Volúmenes: total, electrificados e ICE</h1>
     <p class="lead" data-i18n="volumes_lead">Unidades importadas por mes, con una vista ampliada de los vehículos electrificados y otra con el total del mercado.</p>
-        <div class="series-toolbar">
-      <label class="variant-switcher">
-        <span class="variant-label" data-i18n="variant_label">Serie</span>
-        <select id="variantToggle" aria-label="Serie"></select>
-      </label>
-      <label class="segment-switcher">
-        <span class="variant-label" data-i18n="segment_label">Segmento</span>
-        <select id="segmentToggle" aria-label="Segmento"></select>
-      </label>
-      <span class="variant-hint" id="variantHint"></span>
-    </div>
 
 <h2 data-i18n="electrified">Electrificados (sin ICE)</h2>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.92rem">
@@ -172,8 +161,6 @@
       async function draw() {
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
-          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
-          PYEV.mountSegmentToggle(document.getElementById("segmentToggle"), allRows);
           updateHint();
           rows = PYEV.filterRows(allRows);
           el.innerHTML = "";
@@ -193,8 +180,6 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
-      window.addEventListener("pyev-variant", draw);
-      window.addEventListener("pyev-segment", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
         if (elElec && elElec.data) PYEVCharts.restyleTheme(elElec);

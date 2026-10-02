@@ -96,18 +96,6 @@
     <h1 data-i18n="home_title">Mercado híbrido / eléctrico en Paraguay</h1>
     <p class="lead" data-i18n="home_lead">Seguimiento mensual de las importaciones de vehículos en Paraguay: eléctricos de batería (BEV), híbridos enchufables (PHEV) e híbridos (HEV), comparados con el total y los vehículos de combustión (ICE).</p>
 
-        <div class="series-toolbar">
-      <label class="variant-switcher">
-        <span class="variant-label" data-i18n="variant_label">Serie</span>
-        <select id="variantToggle" aria-label="Serie"></select>
-      </label>
-      <label class="segment-switcher">
-        <span class="variant-label" data-i18n="segment_label">Segmento</span>
-        <select id="segmentToggle" aria-label="Segmento"></select>
-      </label>
-      <span class="variant-hint" id="variantHint"></span>
-    </div>
-
 <div id="kpis" class="kpi-grid">
       <div class="status" data-i18n="loading">Cargando…</div>
     </div>
@@ -194,8 +182,6 @@
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
           if (!allRows.length) throw new Error("CSV vacío");
-          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
-          PYEV.mountSegmentToggle(document.getElementById("segmentToggle"), allRows);
           updateHint();
           const rows = PYEV.filterRows(allRows);
           if (!rows.length) {
@@ -224,8 +210,6 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
-      window.addEventListener("pyev-variant", draw);
-      window.addEventListener("pyev-segment", draw);
       window.addEventListener("pyev-theme", () => {
         if (mini && mini.data) PYEVCharts.restyleTheme(mini);
       });

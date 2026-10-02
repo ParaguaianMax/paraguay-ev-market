@@ -11,6 +11,11 @@
   const NUM = ["BEV", "PHEV", "HEV", "ICE", "OTHERS", "TOTAL"];
   const VARIANT_KEY = "pyev-variant";
   const SEGMENT_KEY = "pyev-segment";
+  // The public market views use the combined light-vehicles series for now.
+  // Keep the old selector helpers below for backwards compatibility, but do
+  // not let a value saved by an earlier version switch the published series.
+  const FIXED_VARIANT = "LightVehicles";
+  const FIXED_SEGMENT = "leve";
   const KNOWN_VARIANTS = ["Whole", "LightVehicles"];
   const KNOWN_SEGMENTS = ["leve", "recreativo", "pesado"];
 
@@ -112,25 +117,19 @@
   }
 
   function defaultVariant(rows) {
-    const latest = latestPeriod(rows);
-    if (latest && (rows || []).some((r) => r.variant === "LightVehicles" && r.period === latest)) {
-      return "LightVehicles";
-    }
+    if ((rows || []).some((r) => r.variant === FIXED_VARIANT)) return FIXED_VARIANT;
     if ((rows || []).some((r) => r.variant === "Whole")) return "Whole";
     const withData = variantsWithData(rows);
     return withData[0] || "Whole";
   }
 
   function getVariant(rows) {
-    try {
-      const saved = localStorage.getItem(VARIANT_KEY);
-      if (saved && (rows || []).some((r) => r.variant === saved)) return saved;
-    } catch (e) {}
+    if ((rows || []).some((r) => r.variant === FIXED_VARIANT)) return FIXED_VARIANT;
     return defaultVariant(rows);
   }
 
   function setVariant(variant) {
-    const v = KNOWN_VARIANTS.includes(variant) || variant ? variant : "Whole";
+    const v = FIXED_VARIANT;
     try { localStorage.setItem(VARIANT_KEY, v); } catch (e) {}
     global.dispatchEvent(new CustomEvent("pyev-variant", { detail: v }));
   }
@@ -224,17 +223,12 @@
   }
 
   function getSegment(rows) {
-    try {
-      const saved = localStorage.getItem(SEGMENT_KEY);
-      if (saved && (rows || []).some((r) => normalizeSegment(r.segmento) === normalizeSegment(saved))) {
-        return normalizeSegment(saved);
-      }
-    } catch (e) {}
+    if ((rows || []).some((r) => normalizeSegment(r.segmento) === FIXED_SEGMENT)) return FIXED_SEGMENT;
     return defaultSegment(rows);
   }
 
   function setSegment(segment) {
-    const s = normalizeSegment(segment);
+    const s = FIXED_SEGMENT;
     try { localStorage.setItem(SEGMENT_KEY, s); } catch (e) {}
     global.dispatchEvent(new CustomEvent("pyev-segment", { detail: s }));
   }

@@ -88,20 +88,7 @@
     <h1 data-i18n="traj_title">Trayectorias de adopción</h1>
     <p class="lead" data-i18n="traj_lead">Curva ajustada (estilo Gallery) sobre la participación mensual observada, más el desglose acumulado en ventana móvil. Con una serie corta la proyección es ilustrativa — no un pronóstico firme.</p>
 
-    <div class="series-toolbar">
-      <label class="variant-switcher">
-        <span class="variant-label" data-i18n="variant_label">Serie</span>
-        <select id="variantToggle" aria-label="Serie"></select>
-      </label>
-      <label class="segment-switcher">
-        <span class="variant-label" data-i18n="segment_label">Segmento</span>
-        <select id="segmentToggle" aria-label="Segmento"></select>
-      </label>
-      <span class="variant-hint" id="variantHint"></span>
-    </div>
-
-
-    <div class="note" data-i18n="traj_disclaimer">Serie corta · el ajuste logístico (logit-lineal) usa solo los meses publicados; la línea punteada es una extrapolación ilustrativa, no un pronóstico firme.</div>
+<div class="note" data-i18n="traj_disclaimer">Serie corta · el ajuste logístico (logit-lineal) usa solo los meses publicados; la línea punteada es una extrapolación ilustrativa, no un pronóstico firme.</div>
 
     <h2 data-i18n="traj_extra_title">Extrapolación — participación BEV / PHEV / HEV / ICE</h2>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste sobre lo observado. Línea punteada = proyección si la tendencia logit se mantuviera.</p>
@@ -165,8 +152,6 @@
       async function draw() {
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
-          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
-          PYEV.mountSegmentToggle(document.getElementById("segmentToggle"), allRows);
           updateHint();
           const rows = PYEV.filterRows(allRows);
           if (!rows.length) {
@@ -204,8 +189,6 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
-      window.addEventListener("pyev-variant", draw);
-      window.addEventListener("pyev-segment", draw);
       window.addEventListener("pyev-theme", () => {
         if (elExtra && elExtra._pyevRows) PYEVTrajectories.restyleTheme(elExtra);
         if (elTtm && elTtm._pyevRows) PYEVTrajectories.restyleTheme(elTtm);

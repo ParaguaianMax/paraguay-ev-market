@@ -86,17 +86,6 @@
     </div>
     <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
     <p class="lead" data-i18n="share_lead">Participación mensual de cada tipo de motorización dentro del total de vehículos importados. Las barras suman 100 % para facilitar la comparación.</p>
-        <div class="series-toolbar">
-      <label class="variant-switcher">
-        <span class="variant-label" data-i18n="variant_label">Serie</span>
-        <select id="variantToggle" aria-label="Serie"></select>
-      </label>
-      <label class="segment-switcher">
-        <span class="variant-label" data-i18n="segment_label">Segmento</span>
-        <select id="segmentToggle" aria-label="Segmento"></select>
-      </label>
-      <span class="variant-hint" id="variantHint"></span>
-    </div>
 
 <div class="legend-row">
       <span class="lg-bev">BEV</span>
@@ -151,8 +140,6 @@
       async function draw() {
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
-          PYEV.mountVariantToggle(document.getElementById("variantToggle"), allRows);
-          PYEV.mountSegmentToggle(document.getElementById("segmentToggle"), allRows);
           updateHint();
           rows = PYEV.filterRows(allRows);
           el.innerHTML = "";
@@ -169,8 +156,6 @@
       }
       await draw();
       window.addEventListener("pyev-lang", draw);
-      window.addEventListener("pyev-variant", draw);
-      window.addEventListener("pyev-segment", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
       });
