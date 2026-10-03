@@ -11,7 +11,7 @@
  * Model editions: on when rows carry `edicion` (monthly CSV, or joined
  * onto the assembled file). Blank edicion is the "no edition" bucket.
  * Ranking charts default to Top 20; "Todas" shows the full brand list
- * and up to 100 models. Bar labels include the rank number.
+ * and all models. Bar labels include the rank number.
  */
 (function (global) {
   const TOP_DEFAULT = 20;
