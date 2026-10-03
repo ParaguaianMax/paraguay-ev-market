@@ -173,13 +173,16 @@
 
         <h3 data-i18n="vol_top_brands">Top 100 marcas</h3>
         <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_brands_lead">
-          Unidades por marca con desglose de motorización. Buscá para filtrar dentro del ranking.
+          Unidades por marca con desglose de motorización. Elegí una o más marcas para filtrar el ranking.
         </p>
         <div class="vol-search-row">
-          <label class="vol-search">
-            <span class="sr-only" data-i18n="vol_search_brand">Buscar marca</span>
-            <input id="volBrandSearch" type="search" autocomplete="off" data-i18n-attr="placeholder:vol_search_brand" placeholder="Buscar marca…" />
-          </label>
+          <div class="vol-picker" id="volBrandPicker">
+            <button type="button" class="vol-picker-btn" id="volBrandPickerBtn" aria-expanded="false" aria-controls="volBrandPickerPanel" data-i18n-attr="aria-label:vol_picker_brands_aria">Marcas</button>
+            <div class="vol-picker-panel" id="volBrandPickerPanel" hidden>
+              <button type="button" class="vol-picker-clear" data-i18n="vol_picker_clear">Limpiar</button>
+              <div class="vol-picker-list" id="volBrandPickerList" role="group" aria-labelledby="volBrandPickerBtn"></div>
+            </div>
+          </div>
           <span class="vol-meta" id="volBrandMeta"></span>
         </div>
         <div id="chart-top-brands" class="chart-panel chart-bare chart-scroll"><div class="status" data-i18n="loading">Cargando…</div></div>
@@ -187,13 +190,16 @@
 
         <h3 data-i18n="vol_top_models">Top 100 modelos</h3>
         <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_models_lead">
-          Unidades por modelo (marca + nombre). Cada segmento de la barra es un powertrain.
+          Unidades por modelo (marca + nombre). Cada segmento de la barra es un powertrain. Elegí uno o más modelos para filtrar.
         </p>
         <div class="vol-search-row">
-          <label class="vol-search">
-            <span class="sr-only" data-i18n="vol_search_model">Buscar modelo</span>
-            <input id="volModelSearch" type="search" autocomplete="off" data-i18n-attr="placeholder:vol_search_model" placeholder="Buscar modelo…" />
-          </label>
+          <div class="vol-picker" id="volModelPicker">
+            <button type="button" class="vol-picker-btn" id="volModelPickerBtn" aria-expanded="false" aria-controls="volModelPickerPanel" data-i18n-attr="aria-label:vol_picker_models_aria">Modelos</button>
+            <div class="vol-picker-panel" id="volModelPickerPanel" hidden>
+              <button type="button" class="vol-picker-clear" data-i18n="vol_picker_clear">Limpiar</button>
+              <div class="vol-picker-list" id="volModelPickerList" role="group" aria-labelledby="volModelPickerBtn"></div>
+            </div>
+          </div>
           <span class="vol-meta" id="volModelMeta"></span>
         </div>
         <div id="chart-top-models" class="chart-panel chart-bare chart-scroll"><div class="status" data-i18n="loading">Cargando…</div></div>

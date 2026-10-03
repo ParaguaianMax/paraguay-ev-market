@@ -193,27 +193,88 @@
   outline-offset: 2px;
 }
 .vol-search-row {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem 1rem;
   margin: 0.35rem 0 0.65rem;
 }
-.vol-search input[type="search"] {
+.vol-picker { max-width: 100%; }
+.vol-picker-btn {
   appearance: none;
   font-family: var(--font-ui);
   font-size: 0.85rem;
-  padding: 0.45rem 0.7rem;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
   color: var(--text);
-  min-width: min(100%, 16rem);
+  cursor: pointer;
+  max-width: 100%;
+  text-align: left;
 }
-.vol-search input[type="search"]:focus-visible {
+.vol-picker-btn[aria-expanded="true"] {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.vol-picker-btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+.vol-picker-panel {
+  position: absolute;
+  z-index: 30;
+  left: 0;
+  top: calc(100% + 4px);
+  width: min(22rem, 100%);
+  max-height: min(50vh, 280px);
+  overflow: auto;
+  padding: 0.3rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+.vol-picker-clear {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  margin: 0 0 0.2rem;
+  padding: 0.35rem 0.45rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--accent, var(--text));
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.vol-picker-clear:focus-visible,
+.vol-picker-item input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.vol-picker-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.32rem 0.4rem;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  cursor: pointer;
+}
+.vol-picker-item input {
+  margin: 0.15rem 0 0;
+  flex: none;
+}
+.vol-picker-item span { min-width: 0; overflow-wrap: anywhere; }
 .vol-meta {
   font-size: 0.8rem;
   color: var(--muted);

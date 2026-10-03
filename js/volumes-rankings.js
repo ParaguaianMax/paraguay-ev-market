@@ -1,5 +1,5 @@
 /**
- * Top marcas / modelos on Volúmenes — month | year | YTD, search, powertrain stack.
+ * Top marcas / modelos on Volúmenes — month | year | YTD, multi-select name lists, powertrain stack.
  * Scope: LightVehicles + leve only (no Whole fallback).
  * Powertrain chips (multi-select): Todos | BEV | plug-in (PHEV) | HEV.
  * Todos = every powertrain in the ranking. Specific chips are a union and
@@ -76,8 +76,6 @@
     const yearSel = document.getElementById("volYearToggle");
     const monthWrap = document.getElementById("volMonthWrap");
     const yearWrap = document.getElementById("volYearWrap");
-    const brandSearch = document.getElementById("volBrandSearch");
-    const modelSearch = document.getElementById("volModelSearch");
     const brandChart = document.getElementById("chart-top-brands");
     const modelChart = document.getElementById("chart-top-models");
     const brandTable = document.getElementById("table-top-brands");
@@ -88,6 +86,117 @@
     const emptyEl = document.getElementById("vol-rankings-empty");
     const uiEl = document.getElementById("vol-rankings-ui");
     const scopeEmptyEl = document.getElementById("vol-scope-empty");
+
+    let closePickers = function () {};
+    function setupPicker(ids, labelKey) {
+      const btn = document.getElementById(ids.btn);
+      const panel = document.getElementById(ids.panel);
+      const list = document.getElementById(ids.list);
+      const clearBtn = panel ? panel.querySelector(".vol-picker-clear") : null;
+      const selected = new Set();
+      let sig = "";
+
+      function updateBtn() {
+        if (!btn) return;
+        const base = t(labelKey);
+        btn.textContent = selected.size ? base + " · " + selected.size : base;
+      }
+      function close() {
+        if (panel) panel.hidden = true;
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      }
+      function open() {
+        if (panel) panel.hidden = false;
+        if (btn) btn.setAttribute("aria-expanded", "true");
+      }
+      function sync(names) {
+        if (!list) return;
+        const clean = [];
+        const seen = new Set();
+        (names || []).forEach((name) => {
+          const value = String(name || "").trim();
+          if (!value || seen.has(value)) return;
+          seen.add(value);
+          clean.push(value);
+        });
+        selected.forEach((name) => {
+          if (!seen.has(name)) selected.delete(name);
+        });
+        const nextSig = clean.join("\0");
+        if (nextSig !== sig) {
+          sig = nextSig;
+          const scroll = list.scrollTop;
+          list.replaceChildren();
+          clean.forEach((name) => {
+            const lab = document.createElement("label");
+            lab.className = "vol-picker-item";
+            const input = document.createElement("input");
+            input.type = "checkbox";
+            input.value = name;
+            input.checked = selected.has(name);
+            const span = document.createElement("span");
+            span.textContent = name;
+            input.addEventListener("change", () => {
+              if (input.checked) selected.add(name);
+              else selected.delete(name);
+              updateBtn();
+              draw();
+            });
+            lab.appendChild(input);
+            lab.appendChild(span);
+            list.appendChild(lab);
+          });
+          list.scrollTop = scroll;
+        } else {
+          list.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+            input.checked = selected.has(input.value);
+          });
+        }
+        updateBtn();
+      }
+      if (btn) {
+        btn.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          const willOpen = !!(panel && panel.hidden);
+          closePickers();
+          if (willOpen) open();
+        });
+      }
+      if (panel) panel.addEventListener("click", (ev) => ev.stopPropagation());
+      if (clearBtn) {
+        clearBtn.addEventListener("click", (ev) => {
+          ev.preventDefault();
+          ev.stopPropagation();
+          selected.clear();
+          if (list) {
+            list.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+              input.checked = false;
+            });
+          }
+          updateBtn();
+          draw();
+        });
+      }
+      updateBtn();
+      return { selected, sync, close, updateBtn };
+    }
+
+    const brandPicker = setupPicker(
+      { btn: "volBrandPickerBtn", panel: "volBrandPickerPanel", list: "volBrandPickerList" },
+      "vol_picker_brands"
+    );
+    const modelPicker = setupPicker(
+      { btn: "volModelPickerBtn", panel: "volModelPickerPanel", list: "volModelPickerList" },
+      "vol_picker_models"
+    );
+    closePickers = function () {
+      brandPicker.close();
+      modelPicker.close();
+    };
+    document.addEventListener("click", closePickers);
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") closePickers();
+    });
 
     let allModelRows = [];
     let marketRows = [];
@@ -235,6 +344,8 @@
       if (modelTable) modelTable.innerHTML = "";
       if (brandMeta) brandMeta.textContent = t("vol_showing_n", { n: "0" });
       if (modelMeta) modelMeta.textContent = t("vol_showing_n", { n: "0" });
+      if (brandPicker) brandPicker.sync([]);
+      if (modelPicker) modelPicker.sync([]);
     }
 
     function draw() {
@@ -262,14 +373,16 @@
         return;
       }
 
-      const brands = PYEVModels.rankBrands(rows, {
-        topN: TOP_N,
-        query: brandSearch ? brandSearch.value : "",
-      });
-      const models = PYEVModels.rankModels(rows, {
-        topN: TOP_N,
-        query: modelSearch ? modelSearch.value : "",
-      });
+      const allBrands = PYEVModels.rankBrands(rows, { topN: TOP_N });
+      const allModels = PYEVModels.rankModels(rows, { topN: TOP_N });
+      brandPicker.sync(allBrands.map((b) => b.marca));
+      modelPicker.sync(allModels.map((m) => m.label));
+      const brands = brandPicker.selected.size
+        ? allBrands.filter((b) => brandPicker.selected.has(b.marca))
+        : allBrands;
+      const models = modelPicker.selected.size
+        ? allModels.filter((m) => modelPicker.selected.has(m.label))
+        : allModels;
 
       if (brandMeta) {
         brandMeta.textContent = t("vol_showing_n", { n: String(brands.length) });
@@ -337,14 +450,6 @@
         draw();
       });
     }
-    let searchTimer = null;
-    function onSearch() {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(draw, 120);
-    }
-    if (brandSearch) brandSearch.addEventListener("input", onSearch);
-    if (modelSearch) modelSearch.addEventListener("input", onSearch);
-
     async function boot() {
       try {
         const res = await PYEVModels.loadParaguayModels();
@@ -383,6 +488,8 @@
 
     boot();
     global.addEventListener("pyev-lang", () => {
+      if (brandPicker) brandPicker.updateBtn();
+      if (modelPicker) modelPicker.updateBtn();
       if (!marketRows.length) return;
       fillPeriodSelects();
       draw();
