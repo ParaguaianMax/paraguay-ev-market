@@ -215,9 +215,11 @@
   }
 
   /** Electrified-only volumes — ICE excluded so BEV/PHEV/HEV are readable. */
-  function volumesElectrifiedChart(el, rows) {
+  function volumesElectrifiedChart(el, rows, opts) {
+    opts = opts || {};
+    const mode = opts.mode === "hev" ? "hev" : "all";
     const labels = rows.map((r) => global.PYEV.periodLabel(r.period));
-    const cats = ["BEV", "PHEV", "HEV", "OTHERS"];
+    const cats = mode === "hev" ? ["HEV"] : ["BEV", "PHEV", "HEV", "OTHERS"];
     const col = C();
     const traces = cats.map((k) => ({
       type: "bar",
@@ -232,20 +234,22 @@
       marker: { color: col[k], line: { width: 0 } },
       hovertemplate: "<b>%{fullData.name}</b>: %{y:,} " + global.PYEV.t("units") + " · %{customdata:.2f}% " + global.PYEV.t("share_of_total") + "<extra></extra>",
     }));
-    // Line: electrified total
-    traces.push({
-      type: "scatter",
-      mode: "lines+markers+text",
-      name: global.PYEV.t("electrified_short"),
-      x: labels,
-      y: rows.map((r) => r.electrified),
-      text: rows.map((r) => r.electrified_pct.toFixed(1) + "%"),
-      textposition: "top center",
-      textfont: { size: 11, color: isDark() ? "#6fb585" : "#2f6b45" },
-      line: { color: isDark() ? "#6fb585" : "#2f6b45", width: 2, dash: "dot" },
-      marker: { size: 8 },
-      hovertemplate: "<b>" + global.PYEV.t("electrified_short") + "</b>: %{y:,} " + global.PYEV.t("units") + " (%{text} " + global.PYEV.t("share_of_total") + ")<extra></extra>",
-    });
+    // The all-electrified view includes the combined line; HEV-only shows only HEV.
+    if (mode !== "hev") {
+      traces.push({
+        type: "scatter",
+        mode: "lines+markers+text",
+        name: global.PYEV.t("electrified_short"),
+        x: labels,
+        y: rows.map((r) => r.electrified),
+        text: rows.map((r) => r.electrified_pct.toFixed(1) + "%"),
+        textposition: "top center",
+        textfont: { size: 11, color: isDark() ? "#6fb585" : "#2f6b45" },
+        line: { color: isDark() ? "#6fb585" : "#2f6b45", width: 2, dash: "dot" },
+        marker: { size: 8 },
+        hovertemplate: "<b>" + global.PYEV.t("electrified_short") + "</b>: %{y:,} " + global.PYEV.t("units") + " (%{text} " + global.PYEV.t("share_of_total") + ")<extra></extra>",
+      });
+    }
     const base = plotlyLayout();
     Plotly.newPlot(
       el,
@@ -267,6 +271,7 @@
     );
     el._pyevKind = "volumesElec";
     el._pyevRows = rows;
+    el._pyevElecMode = mode;
   }
 
   /** Month-by-month share table under volumes — exact %. */
@@ -336,7 +341,7 @@
   function restyleTheme(el) {
     if (!el || !el._pyevRows) return;
     if (el._pyevKind === "volumes") volumesChart(el, el._pyevRows);
-    else if (el._pyevKind === "volumesElec") volumesElectrifiedChart(el, el._pyevRows);
+    else if (el._pyevKind === "volumesElec") volumesElectrifiedChart(el, el._pyevRows, { mode: el._pyevElecMode });
     else shareChart(el, el._pyevRows, el._pyevOpts);
   }
 

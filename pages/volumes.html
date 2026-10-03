@@ -101,6 +101,13 @@
       <span class="lg-hev">HEV</span>
       <span class="lg-others">OTHERS</span>
     </div>
+    <div class="elec-chart-toolbar">
+      <div class="period-mode" role="group" aria-label="Vista de electrificados" data-i18n-attr="aria-label:elec_view_aria">
+        <button type="button" class="period-mode-btn active" data-elec-mode="all" aria-pressed="true" data-i18n="elec_view_all">Todos los electrificados</button>
+        <button type="button" class="period-mode-btn" data-elec-mode="hev" aria-pressed="false" data-i18n="elec_view_hev">Híbridos autorrecargables</button>
+      </div>
+      <p id="elecHevBanner" class="elec-chart-banner" hidden data-i18n="elec_view_hev_banner">Híbridos que se recargan solos, sin enchufe (HEV).</p>
+    </div>
     <div id="chart-elec" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
 
     <h2 data-i18n="all_categories">Todas las categorías (+ ICE)</h2>
@@ -240,7 +247,10 @@
     document.addEventListener("DOMContentLoaded", async () => {
       const el = document.getElementById("chart");
       const elElec = document.getElementById("chart-elec");
+      const elecModeBtns = document.querySelectorAll("[data-elec-mode]");
+      const elecHevBanner = document.getElementById("elecHevBanner");
       const table = document.getElementById("share-table");
+      let electrifiedMode = "all";
       const hint = document.getElementById("variantHint");
       let allRows = [];
       let rows = [];
@@ -279,7 +289,13 @@
             if (table) table.innerHTML = "";
             return;
           }
-          PYEVCharts.volumesElectrifiedChart(elElec, rows);
+          PYEVCharts.volumesElectrifiedChart(elElec, rows, { mode: electrifiedMode });
+          elecModeBtns.forEach((btn) => {
+            const on = btn.dataset.elecMode === electrifiedMode;
+            btn.classList.toggle("active", on);
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          if (elecHevBanner) elecHevBanner.hidden = electrifiedMode !== "hev";
           PYEVCharts.volumesChart(el, rows);
           PYEVCharts.renderShareTable(table, rows);
         } catch (e) {
@@ -287,6 +303,12 @@
           elElec.innerHTML = "";
         }
       }
+      elecModeBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          electrifiedMode = btn.dataset.elecMode === "hev" ? "hev" : "all";
+          draw();
+        });
+      });
       await draw();
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-nuevos", draw);
