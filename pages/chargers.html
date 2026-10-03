@@ -100,6 +100,16 @@
     <div id="chart-connectors" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
     <p class="chart-foot" id="connector-foot"></p>
 
+    <h2 data-i18n="network_pie_title">Cantidad de cargadores DC según red de carga</h2>
+    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="network_pie_lead">Número de ubicaciones DC por operadora. Cada porción muestra la red y la cantidad de cargadores, con el mismo filtro del mapa.</p>
+    <div id="chart-network-pie" class="chart-panel chart-bare chart-network-pie"><div class="status" data-i18n="loading">Cargando…</div></div>
+    <p class="chart-foot" id="network-pie-foot"></p>
+
+    <h2 data-i18n="network_bar_title">Tipos y cantidad de conectores DC según red de carga</h2>
+    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="network_bar_lead">Conectores CCS, CHAdeMO y GB/T por red, más una línea con el número de cargadores (ubicaciones). Ordenado de mayor a menor.</p>
+    <div id="chart-network-bars" class="chart-panel chart-bare chart-network-bars"><div class="status" data-i18n="loading">Cargando…</div></div>
+    <p class="chart-foot" id="network-bar-foot"></p>
+
     <h2 data-i18n="breakdown">Desglose</h2>
     <div id="breakdown"></div>
 
@@ -127,6 +137,10 @@
       const foot = document.getElementById("map-foot");
       const connectorEl = document.getElementById("chart-connectors");
       const connectorFoot = document.getElementById("connector-foot");
+      const networkPieEl = document.getElementById("chart-network-pie");
+      const networkBarsEl = document.getElementById("chart-network-bars");
+      const networkPieFoot = document.getElementById("network-pie-foot");
+      const networkBarFoot = document.getElementById("network-bar-foot");
       const fAccess = document.getElementById("f-access");
       const fBand = document.getElementById("f-band");
 
@@ -162,6 +176,23 @@
               (cc.CHAdeMO ? " · <b>CHAdeMO</b> " + cc.CHAdeMO : "") +
               " · " + PYEV.t("connector_chart_foot");
           }
+        }
+        if (networkPieEl && PYEVChargers.renderNetworkPie) {
+          PYEVChargers.renderNetworkPie(networkPieEl, filtered);
+        }
+        if (networkBarsEl && PYEVChargers.renderNetworkBars) {
+          PYEVChargers.renderNetworkBars(networkBarsEl, filtered);
+        }
+        if (networkPieFoot) {
+          const nets = PYEVChargers.networkStats ? PYEVChargers.networkStats(filtered) : [];
+          const top = nets.slice(0, 6).map((s) => {
+            const name = PYEVChargers.operatorLabel ? PYEVChargers.operatorLabel(s.key) : s.key;
+            return "<b>" + String(name).replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</b> " + s.sites;
+          }).join(" · ");
+          networkPieFoot.innerHTML = (top ? top + " · " : "") + PYEV.t("network_chart_foot");
+        }
+        if (networkBarFoot) {
+          networkBarFoot.innerHTML = PYEV.t("network_chart_foot");
         }
         const plugs = filtered.reduce((s, r) => s + r.n_dc_plugs, 0);
         foot.innerHTML =
@@ -207,6 +238,8 @@
               if (connectorEl && PYEVChargers.renderConnectorChart) {
                 PYEVChargers.renderConnectorChart(connectorEl, filtered);
               }
+              if (networkPieEl && PYEVChargers.renderNetworkPie) PYEVChargers.renderNetworkPie(networkPieEl, filtered);
+              if (networkBarsEl && PYEVChargers.renderNetworkBars) PYEVChargers.renderNetworkBars(networkBarsEl, filtered);
             }, 60);
           });
         }

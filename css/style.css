@@ -410,6 +410,8 @@ border-top: 1px solid var(--line);
 border-bottom: 1px solid var(--line);
 }
 .chart-panel .plotly-graph-div { width: 100% !important; }
+.chart-panel.chart-network-pie { min-height: 480px; }
+.chart-panel.chart-network-bars { min-height: 460px; }
 .chart-foot {
 margin: -0.5rem 0 1.5rem;
 padding-top: 0.65rem;

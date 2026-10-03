@@ -305,6 +305,239 @@
     };
   }
 
+  function operatorKey(op) {
+    const v = String(op || "").trim();
+    return v || "não informado";
+  }
+
+  function operatorLabel(op) {
+    const v = operatorKey(op);
+    if (v === "não informado") return PYEV.t("unknown_operator");
+    if (v === "sem rede") return PYEV.t("no_network");
+    return v;
+  }
+
+  /** Sites (one row = one DC charger location) and connector quantities, largest network first. */
+  function networkStats(rows) {
+    const map = {};
+    (rows || []).forEach((r) => {
+      const key = operatorKey(r.operator);
+      if (!map[key]) map[key] = { key: key, sites: 0, CCS: 0, CHAdeMO: 0, GBT: 0 };
+      map[key].sites += 1;
+      const c = parseConnectorCounts(r.connectors_dc);
+      map[key].CCS += c.CCS;
+      map[key].CHAdeMO += c.CHAdeMO;
+      map[key].GBT += c.GBT;
+    });
+    return Object.keys(map)
+      .map((k) => map[k])
+      .sort((a, b) => b.sites - a.sites || operatorLabel(a.key).localeCompare(operatorLabel(b.key)));
+  }
+
+  function operatorColor(name, dark) {
+    const light = {
+      Evergo: "#2f8a45",
+      Automotor: "#1d4f91",
+      Diesa: "#6e6b64",
+      "Shell Recharge": "#8a6a12",
+      PTI: "#9a3d62",
+      Enex: "#1f6f8a",
+      Petropar: "#5c6570",
+      "Pya'e": "#5a7a28",
+      BYD: "#1f6b4a",
+      Audi: "#4d5156",
+      "Charger Pro": "#b85c38",
+      "AG Power": "#6b4f9a",
+      "Energia Actual": "#3d6b8a",
+      Autocharge: "#8a4b2f",
+      "Green Wolf": "#3d6b45",
+    };
+    const dim = {
+      Evergo: "#7dce8a",
+      Automotor: "#86acdd",
+      Diesa: "#b7b3aa",
+      "Shell Recharge": "#d4b45a",
+      PTI: "#e09ab8",
+      Enex: "#7ec4d4",
+      Petropar: "#a8b0b8",
+      "Pya'e": "#b5cf78",
+      BYD: "#7dceaa",
+      Audi: "#c5c8cc",
+      "Charger Pro": "#e0a088",
+      "AG Power": "#b59ad6",
+      "Energia Actual": "#8eb4d4",
+      Autocharge: "#e0a888",
+      "Green Wolf": "#8ec49a",
+    };
+    const table = dark ? dim : light;
+    if (table[name]) return table[name];
+    const palette = dark
+      ? ["#e07a3d", "#9a8ad4", "#5ec4c4", "#e08a62", "#8eb0e0", "#e09ac0", "#c4d48a", "#e0c48a"]
+      : ["#c4622d", "#6b4f9a", "#2f7a7a", "#a35a32", "#3d5f8a", "#8a4a68", "#5c6b32", "#8a6a32"];
+    let h = 0;
+    for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+    return palette[h % palette.length];
+  }
+
+  function emptyChart(el) {
+    if (el && el.data && global.Plotly) {
+      try { Plotly.purge(el); } catch (e) {}
+    }
+    el.innerHTML = '<div class="status">' + PYEV.t("no_value") + "</div>";
+  }
+
+  function renderNetworkPie(el, rows) {
+    if (!el) return;
+    if (!global.Plotly) {
+      el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
+      return;
+    }
+    const stats = networkStats(rows);
+    if (!stats.length) {
+      emptyChart(el);
+      return;
+    }
+    const th = chartTheme();
+    const labels = stats.map((s) => operatorLabel(s.key));
+    const values = stats.map((s) => s.sites);
+    const colors = stats.map((s) => operatorColor(s.key, th.dark));
+    const trace = {
+      type: "pie",
+      labels: labels,
+      values: values,
+      hole: 0.46,
+      sort: false,
+      direction: "clockwise",
+      marker: { colors: colors, line: { color: th.dark ? "#141413" : "#fdfdfc", width: 1.5 } },
+      text: stats.map((s) => operatorLabel(s.key) + " " + s.sites),
+      textinfo: "text",
+      textposition: "auto",
+      insidetextorientation: "horizontal",
+      hovertemplate: "<b>%{label}</b><br>" + PYEV.t("n_chargers") + ": %{value}<br>%{percent}<extra></extra>",
+      showlegend: true,
+    };
+    const layout = {
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: {
+        family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif',
+        color: th.text,
+        size: 12,
+      },
+      margin: { t: 16, r: 12, b: 72, l: 12 },
+      legend: {
+        orientation: "h",
+        y: -0.12,
+        x: 0,
+        font: { size: 11, color: th.muted },
+        bgcolor: "rgba(0,0,0,0)",
+      },
+      hoverlabel: {
+        bgcolor: th.dark ? "#1b1b19" : "#ffffff",
+        bordercolor: th.grid,
+        font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
+      },
+    };
+    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
+  }
+
+  function renderNetworkBars(el, rows) {
+    if (!el) return;
+    if (!global.Plotly) {
+      el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
+      return;
+    }
+    const stats = networkStats(rows);
+    if (!stats.length) {
+      emptyChart(el);
+      return;
+    }
+    const th = chartTheme();
+    const names = stats.map((s) => operatorLabel(s.key));
+    function bar(key, label, color) {
+      const y = stats.map((s) => s[key]);
+      return {
+        type: "bar",
+        name: label,
+        x: names,
+        y: y,
+        marker: { color: color, line: { width: 0 } },
+        text: y.map((v) => (v ? String(v) : "")),
+        textposition: "outside",
+        textfont: { size: 10, color: th.muted },
+        hovertemplate: "<b>%{x}</b><br>" + label + ": %{y}<extra></extra>",
+        cliponaxis: false,
+      };
+    }
+    const sites = stats.map((s) => s.sites);
+    const line = {
+      type: "scatter",
+      mode: "lines+markers",
+      name: PYEV.t("n_chargers"),
+      x: names,
+      y: sites,
+      line: { color: th.text, width: 2 },
+      marker: { color: th.dark ? "#141413" : "#fdfdfc", size: 8, line: { color: th.text, width: 2 } },
+      hovertemplate: "<b>%{x}</b><br>" + PYEV.t("n_chargers") + ": %{y}<extra></extra>",
+    };
+    const maxConn = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT), 0);
+    const layout = {
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: {
+        family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif',
+        color: th.text,
+        size: 12,
+      },
+      barmode: "group",
+      bargap: 0.28,
+      bargroupgap: 0.08,
+      showlegend: true,
+      legend: {
+        orientation: "h",
+        y: 1.14,
+        x: 0,
+        font: { size: 11, color: th.muted },
+        bgcolor: "rgba(0,0,0,0)",
+      },
+      margin: { t: 48, r: 20, b: 108, l: 48 },
+      xaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: 11, color: th.muted },
+        tickangle: names.length > 8 ? -32 : 0,
+        automargin: true,
+      },
+      yaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: 11, color: th.muted },
+        title: { text: PYEV.t("units"), font: { size: 11, color: th.muted } },
+        rangemode: "tozero",
+        range: [0, Math.max(4, Math.ceil(Math.max(maxConn, Math.max.apply(null, sites)) * 1.35))],
+      },
+      hovermode: "x unified",
+      hoverlabel: {
+        bgcolor: th.dark ? "#1b1b19" : "#ffffff",
+        bordercolor: th.grid,
+        font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
+      },
+    };
+    Plotly.newPlot(
+      el,
+      [
+        bar("CCS", "CCS", th.CCS),
+        bar("CHAdeMO", "CHAdeMO", th.CHAdeMO),
+        bar("GBT", "GB/T", th.GBT),
+        line,
+      ],
+      layout,
+      { responsive: true, displayModeBar: false }
+    );
+  }
+
   function renderConnectorChart(el, rows) {
     if (!el) return;
     if (!global.Plotly) {
@@ -378,6 +611,10 @@
     renderBreakdown,
     renderTable,
     renderConnectorChart,
+    renderNetworkPie,
+    renderNetworkBars,
+    networkStats,
+    operatorLabel,
     countConnectors,
     parseConnectorCounts,
     initMap,

@@ -4,7 +4,7 @@ id,name,url,status,access,departamento,ciudad,lat,lon,operator,n_dc_plugs,connec
 582737,Diesa Ciudad Del Este,https://www.plugshare.com/location/582737,ativo,público,Alto Paraná,CDE,-25.500028,-54.663049,Diesa,3,"CCS2×1, GB/T DC×2",60,50–99 kW,PlugShare (outlet)
 1757000,Evergo Biggie San Jose,https://www.plugshare.com/location/1757000,em manutenção,público,Alto Paraná,CDE,-25.511043,-54.658117,Evergo,2,CCS2×2,21,abaixo de 50 kW,estimado (check-ins)
 512141,Integral Service Station AUTOMOTOR,https://www.plugshare.com/location/512141,parcialmente em manutenção,público,Alto Paraná,CDE,-25.493683,-54.714061,Automotor,2,CCS2×2,100,100–149 kW,PlugShare (outlet)
-734367,Itaipu KM 3,5,https://www.plugshare.com/location/734367,ativo,público,Alto Paraná,CDE,-25.511204,-54.629856,PTI,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,inferido (nome/desc)
+734367,"Itaipu KM 3,5",https://www.plugshare.com/location/734367,ativo,público,Alto Paraná,CDE,-25.511204,-54.629856,PTI,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,inferido (nome/desc)
 1434538,Estacion Integral Hernandarias Automotor EVERGO,https://www.plugshare.com/location/1434538,ativo,público,Alto Paraná,Hernandarias,-25.480931,-54.627037,Automotor,2,CCS2×2,90,50–99 kW,estimado (check-ins)
 559663,Estación Puma Interlagos - Evergo,https://www.plugshare.com/location/559663,ativo,público,Alto Paraná,Hernandarias,-25.388754,-54.639936,Evergo,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,PlugShare (outlet)
 1832661,Terminal de Omnibus de Hernandarias,https://www.plugshare.com/location/1832661,ativo,público,Alto Paraná,Hernandarias,-25.405118,-54.629423,PTI,2,CCS2×2,196,150+ kW,inferido (nome/desc)
