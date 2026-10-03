@@ -455,6 +455,7 @@
    * Group by marca + base modelo (not edition) with powertrain breakdown.
    * When the source rows carry `edicion`, each group also gets `editions`
    * (named editions by units, blank bucket last, only if it has units).
+   * Share on expand is that edition's units over the base model's units.
    * Without that column the objects match the previous shape exactly.
    */
   function byModelStacked(rows, topN) {
@@ -860,14 +861,21 @@
       }
       if (editions && open) {
         let items = "";
+        const editionTotal =
+          editions.reduce((sum, ed) => sum + (ed.units || 0), 0) || m.total || 0;
         editions.forEach((ed) => {
           const name = ed.blank ? t("vol_edition_none") : ed.name;
+          const share = editionTotal
+            ? ((ed.units / editionTotal) * 100).toFixed(1) + "%"
+            : "—";
           items +=
-            "<li><span>" +
+            "<li><span class='rank-edition-name'>" +
             esc(name) +
-            "</span><span class='num'>" +
+            "</span><span class='rank-edition-metrics'><span class='num'>" +
             fmt(ed.units) +
-            "</span></li>";
+            "</span><span class='num'>" +
+            share +
+            "</span></span></li>";
         });
         html +=
           "<tr class='rank-editions'><td colspan='5'><div class='rank-editions-label'>" +

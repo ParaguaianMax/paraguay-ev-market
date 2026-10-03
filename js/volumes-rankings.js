@@ -10,6 +10,7 @@
  * Aligns with site-wide 0 km filter (localStorage pyev-vehicles-all).
  * Model editions: on when rows carry `edicion` (monthly CSV, or joined
  * onto the assembled file). Blank edicion is the "no edition" bucket.
+ * Expanded lines show trim, units, and that edition's share of the model.
  * Ranking charts default to Top 20; "Todas" shows the full brand list
  * and all models. Bar labels include the rank number.
  */

@@ -389,8 +389,15 @@ table.data tr.rank-editions td {
 .rank-edition-list li {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   gap: 0.75rem;
   padding: 0.16rem 0;
+}
+.rank-edition-name { min-width: 0; }
+.rank-edition-metrics {
+  display: flex;
+  flex: none;
+  gap: 0.85rem;
 }
 .rank-edition-list .num { font-variant-numeric: tabular-nums; }
 
