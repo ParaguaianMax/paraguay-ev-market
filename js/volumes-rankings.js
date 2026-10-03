@@ -8,9 +8,15 @@
  * group that spans multiple powertrains (units + % for brands).
  * Condición chips: Todos | Nuevo | Usado (hidden until CSV has condicion).
  * Aligns with site-wide 0 km filter (localStorage pyev-vehicles-all).
+ * Model editions: on when rows carry `edicion` (monthly CSV, or joined
+ * onto the assembled file). Blank edicion is the "no edition" bucket.
+ * Ranking charts default to Top 20; "Todas" shows the full brand list
+ * and up to 100 models. Bar labels include the rank number.
  */
 (function (global) {
   const TOP_N = 100;
+  const TOP_DEFAULT = 20;
+  const TOP_KEY = "pyev-vol-top-limit";
   const MODE_KEY = "pyev-vol-period-mode";
   const MONTH_KEY = "pyev-vol-period-month";
   const YEAR_KEY = "pyev-vol-period-year";
@@ -69,6 +75,7 @@
     if (!root || !global.PYEVModels) return;
 
     const modeBtns = root.querySelectorAll("[data-period-mode]");
+    const topBtns = root.querySelectorAll("[data-top-limit]");
     const ptBtns = root.querySelectorAll("[data-pt-mode]");
     const condBtns = root.querySelectorAll("[data-cond-mode]");
     const condWrap = document.getElementById("volCondWrap");
@@ -194,12 +201,24 @@
       modelPicker.close();
     };
     document.addEventListener("click", closePickers);
+    if (modelTable) {
+      modelTable.addEventListener("click", (ev) => {
+        const row = ev.target.closest("tr[data-edition-key]");
+        if (!row || row.classList.contains("rank-editions")) return;
+        toggleModelEdition(row.getAttribute("data-edition-key"));
+      });
+    }
     document.addEventListener("keydown", (ev) => {
       if (ev.key === "Escape") closePickers();
     });
 
     let allModelRows = [];
     let marketRows = [];
+    let lastModels = [];
+    const expandedModels = new Set();
+    let plotGen = 0;
+    let modelClickBound = null;
+    let topLimit = lsGet(TOP_KEY) === "all" ? "all" : "20";
     let mode = lsGet(MODE_KEY) || "month";
     if (!["month", "year", "ytd"].includes(mode)) mode = "month";
     let ptSet = loadPtSet();
@@ -232,6 +251,19 @@
       modeBtns.forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.periodMode === mode);
       });
+      topBtns.forEach((btn) => {
+        const on = btn.dataset.topLimit === topLimit;
+        btn.classList.toggle("active", on);
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      const brandsTitle = document.getElementById("volBrandsTitle");
+      const modelsTitle = document.getElementById("volModelsTitle");
+      if (brandsTitle) {
+        brandsTitle.textContent = t(topLimit === "all" ? "vol_top_brands_all" : "vol_top_brands_20");
+      }
+      if (modelsTitle) {
+        modelsTitle.textContent = t(topLimit === "all" ? "vol_top_models_all" : "vol_top_models_20");
+      }
       ptBtns.forEach((btn) => {
         const mode = btn.dataset.ptMode;
         const on = mode === "all" ? ptSet.size === 0 : ptSet.has(mode);
@@ -373,16 +405,23 @@
         return;
       }
 
-      const allBrands = PYEVModels.rankBrands(rows, { topN: TOP_N });
+      const allBrands = PYEVModels.rankBrands(rows, { topN: 0 });
       const allModels = PYEVModels.rankModels(rows, { topN: TOP_N });
+      allBrands.forEach((b, i) => {
+        b.rank = i + 1;
+      });
+      allModels.forEach((m, i) => {
+        m.rank = i + 1;
+      });
       brandPicker.sync(allBrands.map((b) => b.marca));
       modelPicker.sync(allModels.map((m) => m.label));
+      const cap = topLimit === "all" ? Infinity : TOP_DEFAULT;
       const brands = brandPicker.selected.size
         ? allBrands.filter((b) => brandPicker.selected.has(b.marca))
-        : allBrands;
+        : allBrands.slice(0, cap);
       const models = modelPicker.selected.size
         ? allModels.filter((m) => modelPicker.selected.has(m.label))
-        : allModels;
+        : allModels.slice(0, cap);
 
       if (brandMeta) {
         brandMeta.textContent = t("vol_showing_n", { n: String(brands.length) });
@@ -397,17 +436,67 @@
       }
       if (modelChart) {
         modelChart.innerHTML = "";
-        PYEVModels.renderTopModelChart(modelChart, models);
+        modelChart._pyevPlotPromise = PYEVModels.renderTopModelChart(modelChart, models);
       }
       const tableOpts = { showGroupTotals: ptSet.size >= 2 };
       PYEVModels.renderTopBrandTable(brandTable, brands, tableOpts);
-      PYEVModels.renderTopModelTable(modelTable, models, tableOpts);
+      lastModels = models;
+      paintModelTable();
+      bindModelChartClicks(models);
+    }
+
+    function paintModelTable() {
+      PYEVModels.renderTopModelTable(modelTable, lastModels, {
+        showGroupTotals: ptSet.size >= 2,
+        expandedModels,
+      });
+    }
+
+    function toggleModelEdition(key) {
+      if (!key) return;
+      if (expandedModels.has(key)) expandedModels.delete(key);
+      else expandedModels.add(key);
+      paintModelTable();
+    }
+
+    function bindModelChartClicks(models) {
+      const gen = ++plotGen;
+      const expandable = (models || []).some((m) => m.editions);
+      const plotted = modelChart && modelChart.data ? Promise.resolve(modelChart) : null;
+      // renderTopModelChart returns the Plotly promise when it just plotted.
+      const pending = modelChart && modelChart._pyevPlotPromise;
+      Promise.resolve(pending || plotted).then((gd) => {
+        const node = gd || modelChart;
+        if (gen !== plotGen || !node || typeof node.on !== "function") return;
+        if (modelClickBound && node.removeListener) {
+          node.removeListener("plotly_click", modelClickBound);
+          modelClickBound = null;
+        }
+        if (!expandable) return;
+        modelClickBound = function (ev) {
+          const pt = ev && ev.points && ev.points[0];
+          if (!pt) return;
+          const raw = String((pt.customdata != null ? pt.customdata : pt.y) || "");
+          const label = raw.replace(/^\d+\.\s+/, "");
+          const hit = models.find((m) => (m.label === label || m.label === raw) && m.editions);
+          if (!hit) return;
+          toggleModelEdition(hit.marca + "\0" + hit.modelo);
+        };
+        node.on("plotly_click", modelClickBound);
+      });
     }
 
     modeBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         mode = btn.dataset.periodMode;
         lsSet(MODE_KEY, mode);
+        draw();
+      });
+    });
+    topBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        topLimit = btn.dataset.topLimit === "all" ? "all" : "20";
+        lsSet(TOP_KEY, topLimit);
         draw();
       });
     });
@@ -501,6 +590,14 @@
       else if (lsGet(COND_KEY) === "nuevo") lsSet(COND_KEY, "all");
       draw();
     });
+    if (global.matchMedia) {
+      const mq = global.matchMedia("(max-width: 640px)");
+      const onWidth = () => {
+        if (marketRows.length) draw();
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onWidth);
+      else if (mq.addListener) mq.addListener(onWidth);
+    }
     global.addEventListener("pyev-theme", () => {
       if (brandChart && brandChart.data) PYEVModels.restyleTheme(brandChart);
       if (modelChart && modelChart.data) PYEVModels.restyleTheme(modelChart);

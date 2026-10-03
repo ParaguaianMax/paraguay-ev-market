@@ -319,3 +319,90 @@
   font-size: 0.78rem;
   line-height: 1.35;
 }
+
+button.rank-model-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  width: 100%;
+  min-height: 2.4rem;
+  margin: 0;
+  padding: 0.1rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.rank-chev { flex: none; width: 0.8rem; color: var(--muted); }
+table.data tr.rank-model-hit { cursor: pointer; }
+table.data tr.rank-editions td {
+  background: color-mix(in srgb, var(--surface-2) 72%, transparent);
+  padding-top: 0.3rem;
+  padding-bottom: 0.45rem;
+}
+.rank-editions-label {
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin: 0 0 0.15rem;
+}
+.rank-edition-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rank-edition-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.16rem 0;
+}
+.rank-edition-list .num { font-variant-numeric: tabular-nums; }
+
+.chart-scroll + .chart-readout {
+  margin: 0.2rem 0 0.85rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.chart-scroll + .chart-readout ul {
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0;
+}
+.chart-scroll + .chart-readout li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.08rem 0;
+}
+.chart-readout-cat { font-weight: 650; }
+
+@media (max-width: 640px) {
+  #chart-top-brands.chart-panel,
+  #chart-top-models.chart-panel {
+    min-height: 0;
+    padding: 0;
+    margin: 0.2rem 0 0.35rem;
+  }
+  #chart-top-brands.chart-scroll,
+  #chart-top-models.chart-scroll {
+    max-height: none;
+    overflow: visible;
+  }
+  .chart-scroll + .chart-readout {
+    margin: 0 0 0.75rem;
+    padding: 0.3rem 0.45rem;
+  }
+  table.rank-models tr.rank-editions td {
+    width: auto;
+  }
+  button.rank-model-toggle { min-height: 2.75rem; }
+}

@@ -1,8 +1,9 @@
 /**
  * Brand/model detail for Volume/Marcas page.
  * Prefers data/models/YYYY-MM.csv (or manifest.json); falls back to Paraguay_models.csv.
- * Header: period,variant,segmento,marca,modelo,powertrain,units[,condicion],source,notes
+ * Header: period,variant,segmento,marca,modelo,powertrain,units[,condicion][,edicion],source,notes
  * Optional condicion: nuevo|usado|desconocido (when absent, UI hides the new/used filter).
+ * Optional edicion: trim; blank means no edition. Absent column → ranking unchanged.
  */
 (function (global) {
   const POWERTRAINS = ["BEV", "PHEV", "HEV", "ICE", "OTHERS"];
@@ -99,6 +100,81 @@
     );
   }
 
+  /** True only when the CSV header included edicion (blank cells still count). */
+  function hasEdicion(rows) {
+    return (rows || []).some((r) => Object.prototype.hasOwnProperty.call(r, "edicion"));
+  }
+
+  function editionList(map) {
+    const named = [];
+    let blank = 0;
+    Object.keys(map).forEach((name) => {
+      if (!name) blank += map[name];
+      else named.push({ name, units: map[name], blank: false });
+    });
+    named.sort((a, b) => b.units - a.units || a.name.localeCompare(b.name));
+    if (blank > 0) named.push({ name: "", units: blank, blank: true });
+    return named;
+  }
+
+  function editionJoinKey(r, withModelo) {
+    const parts = [
+      r.period,
+      r.variant,
+      r.segmento,
+      r.marca,
+      r.powertrain,
+      r.condicion || "",
+      String(r.units),
+    ];
+    if (withModelo) parts.push(r.modelo);
+    return parts.join("\0");
+  }
+
+  /**
+   * Assembled Paraguay_models.csv drops `edicion` (and sometimes folds the
+   * edition into `modelo`). Copy edicion from monthly rows that match
+   * period, variant, segmento, marca, powertrain, condicion and units.
+   * Exact modelo wins; otherwise a single monthly base-name prefix match.
+   * Rows that already have the column are left untouched.
+   */
+  function joinEdicion(baseRows, monthlyRows) {
+    const base = baseRows || [];
+    if (!base.length || hasEdicion(base)) return base;
+    const detail = monthlyRows || [];
+    if (!hasEdicion(detail)) return base;
+    const exact = new Map();
+    const loose = new Map();
+    detail.forEach((r) => {
+      const ek = editionJoinKey(r, true);
+      const lk = editionJoinKey(r, false);
+      if (!exact.has(ek)) exact.set(ek, []);
+      exact.get(ek).push(r);
+      if (!loose.has(lk)) loose.set(lk, []);
+      loose.get(lk).push(r);
+    });
+    return base.map((row) => {
+      const exactHits = exact.get(editionJoinKey(row, true)) || [];
+      let src = exactHits.length === 1 ? exactHits[0] : null;
+      if (!src) {
+        const hits = (loose.get(editionJoinKey(row, false)) || []).filter((r) => {
+          if (r.modelo === row.modelo) return true;
+          return (
+            row.modelo === r.modelo ||
+            (r.modelo &&
+              (row.modelo.startsWith(r.modelo + " ") || row.modelo.startsWith(r.modelo + "/")))
+          );
+        });
+        if (hits.length === 1) src = hits[0];
+      }
+      if (!src) return row;
+      const next = Object.assign({}, row);
+      next.edicion = String(src.edicion || "").trim();
+      if (src.modelo) next.modelo = src.modelo;
+      return next;
+    });
+  }
+
   function parseModelsCSV(text) {
     const lines = String(text || "").trim().split(/\r?\n/);
     if (lines.length < 2) return [];
@@ -111,6 +187,9 @@
       condicion: "condicion",
       condition: "condicion",
       estado: "condicion",
+      edicion: "edicion",
+      edición: "edicion",
+      edition: "edicion",
     };
     const headers = rawHeaders.map((h) => alias[h.toLowerCase()] || h);
     return lines
@@ -138,6 +217,9 @@
               ? row.condition
               : ""
         );
+        if (Object.prototype.hasOwnProperty.call(row, "edicion")) {
+          row.edicion = String(row.edicion || "").trim();
+        }
         row.source = String(row.source || "").trim();
         row.notes = String(row.notes || "").trim();
         return row;
@@ -292,7 +374,10 @@
       }
 
       const fallback = await loadAssembledFallback();
-      const rows = sortModelRows(fallback.rows || []);
+      let rows = sortModelRows(fallback.rows || []);
+      if (rows.length && !hasEdicion(rows) && monthly.rows.length) {
+        rows = sortModelRows(joinEdicion(rows, monthly.rows));
+      }
       return {
         rows,
         missing: fallback.missing || rows.length < MIN_ROWS,
@@ -366,8 +451,14 @@
     return a;
   }
 
-  /** Group by marca+modelo with powertrain breakdown (for stacked Top N). */
+  /**
+   * Group by marca + base modelo (not edition) with powertrain breakdown.
+   * When the source rows carry `edicion`, each group also gets `editions`
+   * (named editions by units, blank bucket last, only if it has units).
+   * Without that column the objects match the previous shape exactly.
+   */
   function byModelStacked(rows, topN) {
+    const editionAware = hasEdicion(rows);
     const e = {};
     (rows || []).forEach((r) => {
       const k = r.marca + "\0" + r.modelo;
@@ -379,12 +470,25 @@
           total: 0,
           byPt: {},
         };
+        if (editionAware) e[k].editionMap = {};
       }
       e[k].total += r.units;
       e[k].byPt[r.powertrain] = (e[k].byPt[r.powertrain] || 0) + r.units;
+      if (editionAware) {
+        const name = Object.prototype.hasOwnProperty.call(r, "edicion")
+          ? String(r.edicion || "").trim()
+          : "";
+        e[k].editionMap[name] = (e[k].editionMap[name] || 0) + r.units;
+      }
     });
     let a = Object.values(e).sort((x, y) => y.total - x.total);
     if (topN && a.length > topN) a = a.slice(0, topN);
+    if (editionAware) {
+      a.forEach((m) => {
+        m.editions = editionList(m.editionMap);
+        delete m.editionMap;
+      });
+    }
     return a;
   }
 
@@ -510,31 +614,68 @@
     return models;
   }
 
+  function isNarrowChart() {
+    try {
+      return !!(
+        global.matchMedia && global.matchMedia("(max-width: 640px)").matches
+      );
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function fitTick(s, max) {
+    s = String(s);
+    if (s.length <= max) return s;
+    return s.slice(0, Math.max(1, max - 1)) + "…";
+  }
+
   function renderStackedHBar(el, items, labelFn) {
-    if (!el || !global.Plotly) return;
+    if (!el || !global.Plotly) return null;
     if (!items || !items.length) {
       el.innerHTML = '<div class="status">' + t("models_empty_filter") + "</div>";
-      return;
+      return null;
     }
     const c = colors();
-    const labels = items.map(labelFn).reverse();
+    const narrow = isNarrowChart();
+    const n = items.length;
+    const full = items.map((it, i) => {
+      const name = labelFn(it);
+      const rank = it.rank || i + 1;
+      return { name, rank, tick: rank + ". " + name };
+    });
+    const yLabels = full
+      .map((f) => (narrow ? fitTick(f.tick, 18) : f.tick))
+      .reverse();
+    const fullNames = full.map((f) => f.tick).reverse();
     const traces = POWERTRAINS.map((pt) => ({
       type: "bar",
       orientation: "h",
       name: pt,
-      y: labels,
+      y: yLabels,
       x: items.map((it) => it.byPt[pt] || 0).reverse(),
+      customdata: fullNames,
       marker: { color: c[pt] },
-      hovertemplate: "%{y} · " + pt + ": %{x:,}<extra></extra>",
+      hovertemplate: "%{customdata} · " + pt + ": %{x:,}<extra></extra>",
     })).filter((tr) => tr.x.some((v) => v > 0));
-    const rowH = items.length > 40 ? 16 : items.length > 20 ? 18 : 22;
-    Plotly.newPlot(
+    const rowH = narrow ? 28 : n > 40 ? 20 : n > 20 ? 22 : 26;
+    const longest = full.reduce((m, f) => Math.max(m, (narrow ? fitTick(f.tick, 18) : f.tick).length), 0);
+    const left = narrow
+      ? Math.min(128, Math.max(84, Math.round(longest * 6.8)))
+      : Math.min(220, Math.max(128, Math.round(longest * 7)));
+    const chrome = narrow ? 36 : 78;
+    const height = narrow ? rowH * n + chrome : Math.max(420, rowH * n + chrome);
+    return Plotly.newPlot(
       el,
       traces,
       chartLayout({
         barmode: "stack",
-        height: Math.max(360, rowH * items.length + 100),
-        margin: { t: 36, r: 24, b: 40, l: 160 },
+        bargap: narrow ? 0.22 : 0.28,
+        height,
+        showlegend: !narrow,
+        margin: narrow
+          ? { t: 6, r: 8, b: 22, l: left }
+          : { t: 32, r: 16, b: 36, l: left },
         legend: {
           orientation: "h",
           y: 1.02,
@@ -543,12 +684,15 @@
           bgcolor: "rgba(0,0,0,0)",
         },
         xaxis: Object.assign({}, chartLayout().xaxis, {
-          title: { text: t("units") },
+          title: narrow ? "" : { text: t("units") },
+          rangemode: "tozero",
+          automargin: false,
+          tickfont: { size: narrow ? 10 : 12 },
         }),
         yaxis: Object.assign({}, chartLayout().yaxis, {
           title: "",
-          automargin: true,
-          tickfont: { size: items.length > 40 ? 9 : 11 },
+          automargin: !narrow,
+          tickfont: { size: narrow ? 11 : n > 40 ? 10 : 12 },
         }),
       }),
       { responsive: true, displayModeBar: false }
@@ -556,11 +700,11 @@
   }
 
   function renderTopBrandChart(el, brands) {
-    renderStackedHBar(el, brands, (b) => b.marca);
+    return renderStackedHBar(el, brands, (b) => b.marca);
   }
 
   function renderTopModelChart(el, models) {
-    renderStackedHBar(el, models, (m) => m.label);
+    return renderStackedHBar(el, models, (m) => m.label);
   }
 
   function renderTopBrandTable(el, brands, opts) {
@@ -593,7 +737,7 @@
         html +=
           "<tr>" +
           "<td class='num'>" +
-          (j === 0 ? i + 1 : "") +
+          (j === 0 ? b.rank || i + 1 : "") +
           "</td>" +
           "<td>" +
           (j === 0 ? esc(b.marca) : "") +
@@ -628,6 +772,10 @@
     el.innerHTML = html;
   }
 
+  function modelEditionKey(m) {
+    return m.marca + "\0" + m.modelo;
+  }
+
   function renderTopModelTable(el, models, opts) {
     if (!el) return;
     if (!models || !models.length) {
@@ -636,6 +784,7 @@
     }
     opts = opts || {};
     const showGroupTotals = !!opts.showGroupTotals;
+    const expanded = opts.expandedModels;
     let html =
       '<div class="data-table-wrap table-fit"><table class="data rank-models"><thead><tr><th>#</th><th>' +
       t("models_col_brand") +
@@ -648,20 +797,46 @@
       "</th></tr></thead><tbody>";
     models.forEach((m, i) => {
       const pts = POWERTRAINS.filter((pt) => (m.byPt[pt] || 0) > 0);
+      const editions = m.editions;
+      const key = editions ? modelEditionKey(m) : "";
+      const open = !!(editions && expanded && expanded.has(key));
       let groupUnits = 0;
       pts.forEach((pt, j) => {
         const u = m.byPt[pt] || 0;
         groupUnits += u;
+        const modelCell = !editions
+          ? j === 0
+            ? esc(m.modelo)
+            : ""
+          : j === 0
+            ? '<button type="button" class="rank-model-toggle" aria-expanded="' +
+              (open ? "true" : "false") +
+              '" aria-label="' +
+              esc(t("vol_editions")) +
+              '"><span class="rank-chev" aria-hidden="true">' +
+              (open ? "▾" : "▸") +
+              "</span>" +
+              esc(m.modelo) +
+              "</button>"
+            : "";
         html +=
-          "<tr>" +
+          "<tr" +
+          (editions
+            ? ' class="rank-model-hit' +
+              (open ? " is-open" : "") +
+              '" data-edition-key="' +
+              esc(key) +
+              '"'
+            : "") +
+          ">" +
           "<td class='num'>" +
-          (j === 0 ? i + 1 : "") +
+          (j === 0 ? m.rank || i + 1 : "") +
           "</td>" +
           "<td>" +
           (j === 0 ? esc(m.marca) : "") +
           "</td>" +
           "<td>" +
-          (j === 0 ? esc(m.modelo) : "") +
+          modelCell +
           "</td>" +
           "<td>" +
           pillHtml(pt) +
@@ -682,6 +857,24 @@
           "<td class='num'>" +
           fmt(groupUnits) +
           "</td></tr>";
+      }
+      if (editions && open) {
+        let items = "";
+        editions.forEach((ed) => {
+          const name = ed.blank ? t("vol_edition_none") : ed.name;
+          items +=
+            "<li><span>" +
+            esc(name) +
+            "</span><span class='num'>" +
+            fmt(ed.units) +
+            "</span></li>";
+        });
+        html +=
+          "<tr class='rank-editions'><td colspan='5'><div class='rank-editions-label'>" +
+          esc(t("vol_editions")) +
+          "</div><ul class='rank-edition-list'>" +
+          items +
+          "</ul></td></tr>";
       }
     });
     html += "</tbody></table></div>";
@@ -827,6 +1020,8 @@
     filterByPeriodScope,
     normalizeCondicion,
     hasCondicion,
+    hasEdicion,
+    joinEdicion,
     rankBrands,
     rankModels,
     renderTopBrandChart,
