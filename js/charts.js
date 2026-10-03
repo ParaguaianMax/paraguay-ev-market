@@ -52,28 +52,27 @@
     return Object.assign(base, extra || {});
   }
 
-  /** Gallery-style share trajectory — monthly % lines by powertrain (observed). */
-  function shareChart(el, rows) {
+  /** Gallery-style share trajectory — monthly % lines by powertrain (observed).
+   * Dual axis: electrified (left) and ICE (right). opts.home tightens the homepage chart.
+   */
+  function shareChart(el, rows, opts) {
     if (!el || !rows || !rows.length) return;
+    opts = opts || {};
     const col = C();
     const dark = isDark();
     const muted = dark ? "#aeaba2" : "#55534c";
     const markerBorder = dark ? "#141413" : "#fdfdfc";
+    const narrow = typeof window !== "undefined" && window.innerWidth < 640;
     const periods = rows.map((r) => r.period);
-    const displayCats = ["BEV", "PHEV", "HEV", "ICE"];
-    if (rows.some((r) => (r.share.OTHERS || 0) >= 0.15)) {
-      displayCats.splice(3, 0, "OTHERS");
-    }
-
-    // Dual axis: electrified (left) readable; ICE (right) so ~95% does not crush the chart
+    const displayCats = ["BEV", "PHEV", "HEV", "OTHERS", "ICE"];
     const elecCats = displayCats.filter((k) => k !== "ICE");
     let maxElec = 0;
     elecCats.forEach((k) => {
       rows.forEach((r) => {
-        if (r.share[k] > maxElec) maxElec = r.share[k];
+        if ((r.share[k] || 0) > maxElec) maxElec = r.share[k] || 0;
       });
     });
-    const leftTop = Math.max(4, Math.ceil((maxElec * 1.35) * 2) / 2); // nice headroom
+    const leftTop = Math.max(4, Math.ceil((maxElec * 1.35) * 2) / 2);
     let iceMin = 100;
     let iceMax = 0;
     rows.forEach((r) => {
@@ -92,59 +91,70 @@
         mode: "lines+markers",
         name: k,
         x: periods,
-        y: rows.map((r) => +r.share[k].toFixed(4)),
-        line: { color: col[k], width: 2.25 },
-        marker: { color: col[k], size: 8, line: { width: 1, color: markerBorder } },
+        y: rows.map((r) => +((r.share[k] || 0).toFixed(4))),
+        line: { color: col[k], width: narrow ? 1.75 : 2.25 },
+        marker: { color: col[k], size: narrow ? 5 : 7, line: { width: 1, color: markerBorder } },
         hovertemplate: "<b>" + k + "</b>: %{y:.2f}%<extra></extra>",
       });
     });
-    if (displayCats.indexOf("ICE") !== -1) {
-      traces.push({
-        type: "scatter",
-        mode: "lines+markers",
-        name: "ICE",
-        x: periods,
-        y: rows.map((r) => +r.share.ICE.toFixed(4)),
-        yaxis: "y2",
-        line: { color: col.ICE, width: 2.25 },
-        marker: { color: col.ICE, size: 8, line: { width: 1, color: markerBorder } },
-        hovertemplate: "<b>ICE</b>: %{y:.2f}%<extra></extra>",
-      });
-    }
+    traces.push({
+      type: "scatter",
+      mode: "lines+markers",
+      name: "ICE",
+      x: periods,
+      y: rows.map((r) => +((r.share.ICE || 0).toFixed(4))),
+      yaxis: "y2",
+      line: { color: col.ICE, width: narrow ? 1.75 : 2.25 },
+      marker: { color: col.ICE, size: narrow ? 5 : 7, line: { width: 1, color: markerBorder } },
+      hovertemplate: "<b>ICE</b>: %{y:.2f}%<extra></extra>",
+    });
 
     const base = plotlyLayout();
+    const titleFont = { size: narrow ? 10 : 11, color: muted };
+    const tickFont = { size: narrow ? 10 : 11, color: muted };
+    const elecTitle = narrow ? global.PYEV.t("share_axis_elec_short") : global.PYEV.t("share_axis_elec");
+    const iceTitle = narrow ? global.PYEV.t("share_axis_ice_short") : global.PYEV.t("share_axis_ice");
     Plotly.newPlot(
       el,
       traces,
       plotlyLayout({
+        showlegend: false,
+        height: narrow ? 320 : 420,
         yaxis: Object.assign({}, base.yaxis, {
-          title: { text: global.PYEV.t("share_axis_elec"), font: base.yaxis.title.font },
+          title: { text: elecTitle, font: titleFont, standoff: 6 },
           range: [0, leftTop],
           ticksuffix: "%",
           rangemode: "tozero",
+          automargin: true,
+          tickfont: tickFont,
         }),
         yaxis2: {
-          title: { text: global.PYEV.t("share_axis_ice"), font: { size: 11, color: muted } },
+          title: { text: iceTitle, font: titleFont, standoff: 6 },
           overlaying: "y",
           side: "right",
           range: [iceLo, iceHi],
           ticksuffix: "%",
           showgrid: false,
           zeroline: false,
-          tickfont: { size: 11, color: muted },
+          automargin: true,
+          tickfont: tickFont,
         },
         xaxis: Object.assign({}, base.xaxis, {
-          title: { text: global.PYEV.t("month"), font: base.xaxis.title.font },
+          title: { text: global.PYEV.t("month"), font: titleFont, standoff: 8 },
           type: "date",
-          tickformat: "%b %Y",
+          tickformat: narrow ? "%b %y" : "%b %Y",
+          nticks: narrow ? 5 : 8,
+          automargin: true,
+          tickfont: tickFont,
+          tickangle: 0,
         }),
-        legend: Object.assign({}, base.legend || {}, { orientation: "h", y: 1.14, x: 0 }),
-        margin: { t: 40, r: 56, b: 52, l: 56 },
+        margin: narrow ? { t: 8, r: 8, b: 8, l: 8 } : { t: 12, r: 8, b: 8, l: 8 },
       }),
       { responsive: true, displayModeBar: false }
     );
     el._pyevKind = "share";
     el._pyevRows = rows;
+    el._pyevOpts = opts;
   }
 
   /** Full volumes with ICE — secondary; hover shows units + %. */
@@ -327,7 +337,7 @@
     if (!el || !el._pyevRows) return;
     if (el._pyevKind === "volumes") volumesChart(el, el._pyevRows);
     else if (el._pyevKind === "volumesElec") volumesElectrifiedChart(el, el._pyevRows);
-    else shareChart(el, el._pyevRows);
+    else shareChart(el, el._pyevRows, el._pyevOpts);
   }
 
   global.PYEVCharts = {

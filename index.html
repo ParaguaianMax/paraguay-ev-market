@@ -101,6 +101,22 @@
       <div class="status" data-i18n="loading">Cargando…</div>
     </div>
 
+    <section class="home-yty" aria-labelledby="home-yty-title">
+      <div class="page-eyebrow">
+        <span class="badge" data-i18n="home_yty_badge">YtY · 12 meses</span>
+      </div>
+      <h2 id="home-yty-title" data-i18n="home_yty_title">YtY — trayectoria de participación</h2>
+      <p class="lead" data-i18n="home_yty_lead">Últimos 12 meses (ventana móvil hasta el mes más reciente). Eje izquierdo: BEV, PHEV, HEV y OTHERS. Eje derecho: ICE.</p>
+      <div class="legend-row">
+        <span class="lg-bev">BEV</span>
+        <span class="lg-phev">PHEV</span>
+        <span class="lg-hev">HEV</span>
+        <span class="lg-others" data-i18n="others_mild">OTHERS (mild)</span>
+        <span class="lg-ice">ICE</span>
+      </div>
+      <div id="mini-share" class="chart-panel chart-bare chart-yty"></div>
+      <p class="chart-foot" id="chart-foot"></p>
+    </section>
 
     <h2 data-i18n="explore">Explorar</h2>
     <div class="cards">
@@ -118,16 +134,6 @@
       </a>
     </div>
 
-    <h2 data-i18n="latest_breakdown">Último mes — desglose</h2>
-    <div class="legend-row">
-      <span class="lg-bev">BEV</span>
-      <span class="lg-phev">PHEV</span>
-      <span class="lg-hev">HEV</span>
-      <span class="lg-others" data-i18n="others_mild">OTHERS (mild)</span>
-      <span class="lg-ice">ICE</span>
-    </div>
-    <div id="mini-share" class="chart-panel chart-bare"></div>
-    <p class="chart-foot" id="chart-foot"></p>
   </main>
 
   <footer class="site">
@@ -151,6 +157,22 @@
       const foot = document.getElementById("chart-foot");
       const hint = document.getElementById("variantHint");
       let allRows = [];
+      function rolling12(rows) {
+        const latest = rows[rows.length - 1];
+        const parts = String(latest.period).split("-");
+        const y = Number(parts[0]);
+        const m = Number(parts[1]);
+        if (!y || !m) return rows.slice(-12);
+        const idx = y * 12 + (m - 1) - 11;
+        const sy = Math.floor(idx / 12);
+        const sm = (idx % 12) + 1;
+        const start = sy + "-" + String(sm).padStart(2, "0");
+        const end = String(latest.period).slice(0, 7);
+        return rows.filter((r) => {
+          const p = String(r.period).slice(0, 7);
+          return p >= start && p <= end;
+        });
+      }
       function ytdRow(rows) {
         const latest = rows[rows.length - 1];
         const year = String(latest.period).slice(0, 4);
@@ -205,15 +227,17 @@
           }
           const latest = rows[rows.length - 1];
           const ytd = ytdRow(rows);
+          const windowRows = rolling12(rows);
           PYEVCharts.renderKPIs(kpis, ytd);
-          PYEVCharts.shareChart(mini, rows);
+          PYEVCharts.shareChart(mini, windowRows, { home: true });
           if (foot) {
+            const first = windowRows[0] || latest;
+            const year = String(ytd.period).slice(0, 4);
             foot.innerHTML =
-              "<b>" + PYEV.t("ytd_total") + "</b> " +
-              PYEV.periodLabel(ytd.period) +
-              " · " +
-              PYEV.fmtInt(ytd.TOTAL) +
-              " " + PYEV.t("units_hs") +
+              "<b>" + PYEV.t("home_yty_title") + "</b> " +
+              PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(latest.period) +
+              " · <b>" + PYEV.t("ytd_total") + "</b> " + year +
+              " · " + PYEV.fmtInt(ytd.TOTAL) + " " + PYEV.t("units_hs") +
               " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows));
           }
         } catch (e) {
@@ -225,6 +249,14 @@
       await draw();
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-nuevos", draw);
+      let ytyNarrow = window.innerWidth < 640;
+      window.addEventListener("resize", () => {
+        const n = window.innerWidth < 640;
+        if (n !== ytyNarrow) {
+          ytyNarrow = n;
+          if (mini && mini._pyevRows) PYEVCharts.shareChart(mini, mini._pyevRows, { home: true });
+        }
+      });
       window.addEventListener("pyev-theme", () => {
         if (mini && mini.data) PYEVCharts.restyleTheme(mini);
       });
