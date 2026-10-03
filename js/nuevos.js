@@ -6,6 +6,11 @@
 (function (global) {
   const KEY = "pyev-vehicles-all";
   const COND_KEY = "pyev-vol-cond-mode";
+  const IMPORTS_BANNER = {
+    es: "Todas las importaciones de vehículos, incluyendo nuevos y usados.",
+    pt: "Todas as importações de veículos, incluindo novos e usados.",
+    en: "All vehicle imports, including new and used.",
+  };
 
   function t(k, vars) {
     return global.PYEV && global.PYEV.t ? global.PYEV.t(k, vars) : k;
@@ -60,7 +65,11 @@
     });
     document.documentElement.setAttribute("data-nuevos", on ? "0" : "1");
     document.querySelectorAll("[data-nuevos-note]").forEach((el) => {
-      el.hidden = on;
+      // The default 0 km-only view is intentionally quiet; explain the broader
+      // scope only after the user turns on “Nuevos y usados”.
+      el.hidden = !on;
+      const lang = global.PYEV && global.PYEV.language ? global.PYEV.language() : "es";
+      el.textContent = IMPORTS_BANNER[lang] || IMPORTS_BANNER.es;
     });
   }
 
