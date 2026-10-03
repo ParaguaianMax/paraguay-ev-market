@@ -1,17 +1,17 @@
 /**
- * Site-wide "Nuevos" toggle for Vehículos tabs.
- * ON → only condicion=nuevo (from models CSV). OFF → all (Paraguay.csv aggregate).
- * Persists in localStorage (pyev-nuevos) and syncs with Volúmenes condición chips.
+ * Site-wide 0 km filter for Vehículos tabs.
+ * OFF (default) → only condicion=nuevo (from models CSV). ON → all (Paraguay.csv aggregate).
+ * Persists in localStorage and syncs with Volúmenes condición chips.
  */
 (function (global) {
-  const KEY = "pyev-nuevos";
+  const KEY = "pyev-vehicles-all";
   const COND_KEY = "pyev-vol-cond-mode";
 
   function t(k, vars) {
     return global.PYEV && global.PYEV.t ? global.PYEV.t(k, vars) : k;
   }
 
-  function isNuevosOnly() {
+  function isAllVehicles() {
     try {
       return localStorage.getItem(KEY) === "1";
     } catch (e) {
@@ -19,7 +19,12 @@
     }
   }
 
-  function setNuevosOnly(on, opts) {
+  // Compatibility API: callers historically ask whether the 0 km-only filter is on.
+  function isNuevosOnly() {
+    return !isAllVehicles();
+  }
+
+  function setAllVehicles(on, opts) {
     opts = opts || {};
     const next = !!on;
     try {
@@ -27,28 +32,35 @@
     } catch (e) {}
     // Align Volúmenes local cond chip with global toggle
     try {
-      if (next) localStorage.setItem(COND_KEY, "nuevo");
-      else {
+      if (next) {
         const cur = localStorage.getItem(COND_KEY);
         if (cur === "nuevo") localStorage.setItem(COND_KEY, "all");
+      } else {
+        localStorage.setItem(COND_KEY, "nuevo");
       }
     } catch (e) {}
     syncToggleUI();
     if (!opts.silent) {
-      global.dispatchEvent(new CustomEvent("pyev-nuevos", { detail: next }));
+      // Event detail remains the historical "0 km only" boolean for consumers.
+      global.dispatchEvent(new CustomEvent("pyev-nuevos", { detail: !next }));
     }
   }
 
+  // Compatibility API: true means 0 km only, as before this inversion.
+  function setNuevosOnly(on, opts) {
+    setAllVehicles(!on, opts);
+  }
+
   function syncToggleUI() {
-    const on = isNuevosOnly();
+    const on = isAllVehicles();
     document.querySelectorAll("#nuevosToggle, [data-nuevos-toggle]").forEach((el) => {
       if (el.type === "checkbox") el.checked = on;
       else el.classList.toggle("active", on);
       el.setAttribute("aria-pressed", on ? "true" : "false");
     });
-    document.documentElement.setAttribute("data-nuevos", on ? "1" : "0");
+    document.documentElement.setAttribute("data-nuevos", on ? "0" : "1");
     document.querySelectorAll("[data-nuevos-note]").forEach((el) => {
-      el.hidden = !on;
+      el.hidden = on;
     });
   }
 
@@ -61,7 +73,7 @@
       if (input && !input.dataset.nuevosBound) {
         input.dataset.nuevosBound = "1";
         input.addEventListener("change", () => {
-          setNuevosOnly(input.checked);
+          setAllVehicles(input.checked);
         });
       }
       syncToggleUI();
@@ -78,11 +90,11 @@
       "</span>";
     wrap.appendChild(label);
     const input = label.querySelector("input");
-    input.checked = isNuevosOnly();
+    input.checked = isAllVehicles();
     input.setAttribute("aria-label", t("nuevos_label"));
     input.dataset.nuevosBound = "1";
     input.addEventListener("change", () => {
-      setNuevosOnly(input.checked);
+      setAllVehicles(input.checked);
     });
     syncToggleUI();
     return label;
@@ -90,11 +102,11 @@
 
   /**
    * Resolve market rows for Vehículos charts.
-   * When Nuevos is OFF → Paraguay.csv filtered LightVehicles·leve.
-   * When ON → aggregate models CSV LightVehicles·leve·nuevo (shares recomputed).
+   * When the toggle is ON → Paraguay.csv filtered LightVehicles·leve (new + used).
+   * When OFF (default) → aggregate models CSV LightVehicles·leve·nuevo (shares recomputed).
    */
   async function resolveVehicleRows(paraguayRows) {
-    if (!isNuevosOnly()) {
+    if (isAllVehicles()) {
       const rows =
         global.PYEV && global.PYEV.filterRows
           ? global.PYEV.filterRows(paraguayRows || [])
@@ -144,6 +156,8 @@
 
   global.PYEV = Object.assign(global.PYEV || {}, {
     isNuevosOnly: isNuevosOnly,
+    isAllVehicles: isAllVehicles,
+    setAllVehicles: setAllVehicles,
     setNuevosOnly: setNuevosOnly,
     mountNuevosToggle: mountNuevosToggle,
     resolveVehicleRows: resolveVehicleRows,

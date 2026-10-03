@@ -3,7 +3,7 @@
  * Scope: LightVehicles + leve only (no Whole fallback).
  * Powertrain chips: Todos | BEV | Híbridos.
  * Condición chips: Todos | Nuevo | Usado (hidden until CSV has condicion).
- * Aligns with site-wide Nuevos toggle (localStorage pyev-nuevos).
+ * Aligns with site-wide 0 km filter (localStorage pyev-vehicles-all).
  */
 (function (global) {
   const TOP_N = 100;
@@ -12,7 +12,7 @@
   const YEAR_KEY = "pyev-vol-period-year";
   const PT_KEY = "pyev-vol-pt-mode";
   const COND_KEY = "pyev-vol-cond-mode";
-  const NUEVOS_KEY = "pyev-nuevos";
+  const ALL_VEHICLES_KEY = "pyev-vehicles-all";
 
   /** @type {"all"|"bev"|"hybrids"} */
   const PT_MODES = ["all", "bev", "hybrids"];
@@ -75,8 +75,9 @@
     if (!PT_MODES.includes(ptMode)) ptMode = "all";
     let condMode = lsGet(COND_KEY) || "all";
     if (!COND_MODES.includes(condMode)) condMode = "all";
-    // Site-wide Nuevos toggle wins when ON
-    if (lsGet(NUEVOS_KEY) === "1") condMode = "nuevo";
+    // Default is 0 km only; the site-wide toggle explicitly enables new + used.
+    if (lsGet(ALL_VEHICLES_KEY) !== "1") condMode = "nuevo";
+    else if (condMode === "nuevo") condMode = "all";
     let condicionAvailable = false;
 
     function scopedRows() {
@@ -261,7 +262,7 @@
         if (global.PYEV && global.PYEV.setNuevosOnly) {
           global.PYEV.setNuevosOnly(condMode === "nuevo", { silent: false });
         } else {
-          lsSet(NUEVOS_KEY, condMode === "nuevo" ? "1" : "0");
+          lsSet(ALL_VEHICLES_KEY, condMode === "nuevo" ? "0" : "1");
         }
         draw();
       });
