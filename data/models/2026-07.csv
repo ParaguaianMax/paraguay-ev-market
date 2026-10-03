@@ -91,7 +91,7 @@ period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
 2026-07,LightVehicles,pesado,SCANIA,(sin modelo),ICE,usado,42,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2026-07,LightVehicles,leve,ISUZU,ELO,ICE,nuevo,41,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-07,LightVehicles,leve,CHERY,T8 PRO 1,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-07,LightVehicles,leve,CHEVROLET,SPARK EUV,BEV,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-07,LightVehicles,leve,CHEVROLET,SPARK EUV,BEV,nuevo,48,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve); alias MERCADERIA: SPARK EV
 2026-07,LightVehicles,leve,NISSAN,KAIT ADVANCE PLUS CVT - FLEX,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,recreativo,HEBEI,(sin modelo),ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703.10
 2026-07,LightVehicles,leve,FIAT,ARGO TREKKING 1,ICE,nuevo,37,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -281,7 +281,6 @@ period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
 2026-07,LightVehicles,leve,NISSAN,QASHQAI ADVANCE,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,PEUGEOT,LANDTREK 4ACTION 2,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-07,LightVehicles,leve,VENTURA,(sin modelo),ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-07,LightVehicles,leve,CHEVROLET,SPARK EV,BEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,CHEVROLET,TRACKER LITE,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,FORD,F-150,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,ICAUR,03T LUXURY 1,PHEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
