@@ -1,0 +1,377 @@
+period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
+2024-07,LightVehicles,leve,TOYOTA,(sin modelo),ICE,usado,852,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,VITZ,ICE,usado,763,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,RACTIS,ICE,usado,389,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,SONET,ICE,nuevo,308,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,(sin modelo),ICE,nuevo,305,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,AURIS,ICE,usado,286,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,SPORTAGE,ICE,usado,270,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,HILUX,ICE,nuevo,203,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,KIA,SOLUTO,ICE,nuevo,150,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,IST,ICE,usado,145,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,CARENS,ICE,nuevo,142,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUZUKI,(sin modelo),ICE,nuevo,120,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,SIENTA,ICE,usado,107,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,NOAH,ICE,usado,102,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
+2024-07,LightVehicles,leve,TOYOTA,COROLLA CROSS,HEV,nuevo,92,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FIAT,FIORINO ENDURANCE 1,ICE,nuevo,89,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,NEW GRAND I10 CON,ICE,nuevo,87,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,TUCSON,ICE,nuevo,84,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MITSUBISHI,(sin modelo),ICE,usado,81,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,TOYOTA,FORTUNER,ICE,nuevo,81,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,RANGER 2,ICE,nuevo,78,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,(sin modelo),ICE,usado,75,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,NEW HB20 HATCH 1,ICE,nuevo,70,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,VOXY,ICE,usado,68,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
+2024-07,LightVehicles,leve,HYUNDAI,NEW CRETA,ICE,nuevo,64,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,WISH,ICE,usado,62,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,HB20 CON,ICE,nuevo,55,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,COROLLA,ICE,usado,54,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,FRONTIER DOBLE CABINA,ICE,nuevo,53,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,NISSAN,KICKS SENSE CVT 1,ICE,nuevo,51,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,(sin modelo),ICE,nuevo,51,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,CRETA CON,ICE,nuevo,48,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,(sin modelo),ICE,usado,46,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,H-100,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,ISUZU,QMR77L-HH5AYN,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,JETOUR,(sin modelo),ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,VOLKSWAGEN,T-CROSS 1,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,PICANTO,ICE,nuevo,39,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,ONIX HB LS 1,ICE,nuevo,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,ALLION,ICE,usado,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,HB20S CON,ICE,nuevo,35,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,PREMIO,ICE,usado,32,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,VOLKSWAGEN,SAVEIRO ROBUST DC 1,ICE,nuevo,31,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FIAT,STRADA ENDURANCE C/P 1,ICE,nuevo,30,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,TOYOTA,COROLLA AXIO,ICE,usado,26,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BYD,SONG PLUS,PHEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,NEW TUCSON NAFT,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,VOLKSWAGEN,SAVEIRO ROBUST SC 1,ICE,nuevo,23,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MERCEDES-BENZ,(sin modelo),ICE,usado,22,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,KONA,HEV,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,NEW HB20S 1,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,STARGAZER,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,KICKS EXCLUSIVE CVT 1,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FIAT,STRADA ULTRA D/C 1,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,NISSAN,X-TRAIL E-POWER,HEV,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUBARU,(sin modelo),ICE,usado,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,pesado,ISUZU,NPR71L-KJ5VAYN,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,ISUZU,(sin modelo),ICE,nuevo,17,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,JETOUR,T2,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MAZDA,(sin modelo),ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MAZDA,2025,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,pesado,SCANIA,(sin modelo),ICE,usado,17,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,CITROEN,(sin modelo),ICE,nuevo,16,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FIAT,STRADA FREEDOM D/C 1,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FORD,RANGER 3,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,CRETA,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,JEEP,RENEGADE SPORT 1,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MINI,(sin modelo),ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,X-TRAIL ICE SENSE,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,VOLKSWAGEN,(sin modelo),ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FIAT,STRADA VOLCANO D/C 1,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,SANTA FE,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,ISUZU,QLR77L-EE1AYN,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,S10 HIGH COUNTRY,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,TOYOTA,HILUX,ICE,usado,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,VOLKSWAGEN,SAVEIRO EXTREME DC 1,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,BMW,(sin modelo),ICE,usado,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,S10 WT,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,NISSAN,(sin modelo),ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,RENAULT,(sin modelo),ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,RENAULT,KWID ZEN 1,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,(sin modelo),ICE,usado,13,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,CHEVROLET,ONIX LS FLEX MT,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,S10 CD HC 2,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,TRAILBLAZER HC 2,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,QASHQAI ADVANCE,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PEUGEOT,(sin modelo),ICE,nuevo,11,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,pesado,ISUZU,NQR71L-LN5VAYN,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,CHEVROLET,SILVERADO Z71 3,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FIAT,STRADA RANCH D/C 1,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HONDA,HR-V EXL HS,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,(sin modelo),ICE,usado,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,COROLLA,HEV,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,recreativo,CFMOTO,(sin modelo),ICE,nuevo,10,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-07,LightVehicles,leve,AUDI,Q2 1,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X3 SDRIVE20I,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,TERRITORY 1,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,FUNCARGO,ICE,usado,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,S10 CS WORK 2,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,GREATWALL,WINGLE 7 LUXURY,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HINO,(sin modelo),ICE,usado,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HONDA,WR-V LXC CVT,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,SORENTO,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,2024,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,QASHQAI EXCLUSIVE,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,pesado,HINO,(sin modelo),ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,ATEGO,ICE,usado,8,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,JEEP,(sin modelo),ICE,nuevo,7,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MINI,(sin modelo),ICE,usado,7,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUBARU,CROSSTREK,OTHERS,nuevo,7,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,pesado,MITSUBISHI FUSO,2025,ICE,nuevo,7,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,CHEVROLET,ONIX LS FLEX AT TURBO,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,S10 CD WORK 2,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,S10 CD Z71 2,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,KIA,CARNIVAL,ICE,usado,6,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
+2024-07,LightVehicles,leve,MITSUBISHI,CANTER,ICE,usado,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,SUBARU,FORESTER 2,HEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,RAV4,ICE,usado,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,pesado,FOTON,BJ1166VKPFG-0F,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,VOLKSWAGEN,E5,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,AUDI,(sin modelo),ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X5 XDRIVE30D,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X5 XDRIVE50E,PHEV,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHANGAN,HUNTER ELITE,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHERY,T8 PRO 1,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,TRACKER RS FLEX AT TURBO,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,(sin modelo),ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,GEELY,GEOMETRY E225 380KM GL,BEV,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,EX6,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,SANTA FE,ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,QASHQAI SENSE,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,pesado,HYUNDAI,EX8,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,leve,BMW,X6 XDRIVE30D M SPORT,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CFMOTO,CF800AU-2A,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHANGAN,MD201 CABINA SIMPLE,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,MONTANA CD LS 1,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,S10 CD LTZ 2,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,S10 LTZ,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,S10 Z71,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,SILVERADO Z71,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,DODGE,(sin modelo),ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,GREATWALL,POER TOOL ELITE,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MAXUS,D60 7 ASIENTOS LUXURY,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MAXUS,T60 D20 ELITE AT,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MAXUS,T90 D20 LUXURY,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MAZDA,(sin modelo),ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MITSUBISHI FUSO,2025,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,NISSAN,SILVIA,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SCANIA,(sin modelo),ICE,usado,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,TOYOTA,LAND CRUISER PRADO,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,VOLKSWAGEN,(sin modelo),ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,recreativo,CAN AM,OUTLANDER PRO,ICE,nuevo,4,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-07,LightVehicles,leve,BMW,218I GRAN COUPE,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X1 SDRIVE18I,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X3 XDRIVE20D,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X4 XDRIVE20I,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CFMOTO,CF500AU-9L,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHANGAN,M201 FURGON CARGO,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,(sin modelo),ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,S10 MIDNIGHT,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,TRACKER LTZ FLEX AT TURBO,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,F-150 DC,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,GREATWALL,POER TOOL LUXURY,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HONDA,(sin modelo),ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,STARIA,ICE,nuevo,3,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
+2024-07,LightVehicles,leve,ISUZU,(sin modelo),ICE,usado,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,JEEP,(sin modelo),ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LEXUS,NX350H,HEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,2025,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,FAIRLADY Z,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,RENAULT,CLIO V INTENS 1,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUBARU,IMPREZA,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUZUKI,(sin modelo),ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,AXIO,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,MARK X,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,PREMIO NAFTERO,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,AUDI,Q3 1,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,320I,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,IX3 M SPORT,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X3 XDRIVE30E,PHEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,ONIX LTZ FLEX AT TURBO,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,TRACKER LITE FLEX AT TURBO,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,TRAILBLAZER PREMIER,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FIAT,ARGO TREKKING 1,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FIAT,PULSE ABARTH 1,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,BRONCO SPORT 2,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,MUSTANG,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,RANGER RAPTOR DC 3,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HINO,(sin modelo),ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HONDA,PILOT 5DR TRG 10A,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,ACCENT,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,SANTA FE CON,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,TUCSON,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,IVECO,DAILY 30 - 160 VAN,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,JEEP,WRANGLER,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KAIYUN MOTORS,(sin modelo),ICE,nuevo,2,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
+2024-07,LightVehicles,leve,KGM,KORANDO,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KGM,XLV,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LAND ROVER,(sin modelo),ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LAND ROVER,DEFENDER,PHEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LAND ROVER,RANGE ROVER 3,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MAXUS,T60 D20 LUXURY,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MERCEDES-BENZ,ATEGO,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MINI,COOPER,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,SKYLINE,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PEUGEOT,(sin modelo),ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PEUGEOT,208 ALLURE 1,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,RENAULT,KARDIAN PREMIERE EDITION 1,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,4RUNNER,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,BELTA,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,COROLLA,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,COROLLA CROSS,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,LAND CRUISER,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,PRIUS,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,SUPRA,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,TUNDRA,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,pesado,BYD,BYD SHARK,HEV,nuevo,2,Aduana PY datos abiertos,8704 without light-pickup signal → pesado
+2024-07,LightVehicles,pesado,HYUNDAI,EX10,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,HYUNDAI,EX11,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,1517,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,P310 B6X4,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,P94,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SINOTRUK,(sin modelo),ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
+2024-07,LightVehicles,recreativo,CAN AM,DEFENDER,ICE,nuevo,2,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-07,LightVehicles,recreativo,EZGO,(sin modelo),ICE,usado,2,Aduana PY datos abiertos,NCM 8703.10
+2024-07,LightVehicles,leve,AUDI,Q5 2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,AUDI,Q7 2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,AUDI,Q8 ETRON 55 SPORTBACK SLINE,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BACKDRAFT,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,320D,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,520I LIMOUSINE,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,E9,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,M240I,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X2 XDRIVE20I,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X3 XDRIVE30I,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X5,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BMW,X6,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,BYD,(sin modelo),BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CADILLAC,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHANGAN,MS201 DOBLE CABINA,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHERY,T2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHERY,T8 PRO 1,PHEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,CRUZE,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,CHEVROLET,MONTANA CD LTZ 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,MONTANA CD PREMIER 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,MONTANA RS 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,SILVERADO LTZ,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,CHEVROLET,TRACKER LITE 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,DAIHATSU,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,DONGFENG,AX7 E2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,F0RD,RANGER 2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FIAT,PULSE IMPETUS1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FIAT,ULTRA D/C 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FORD,2024 - ESTADO NUEVO,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FORD,BRONCO,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,CROWN VICTORIA,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,EXPLORER 4WD LIMITED 2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,EXPLORER 4WD XLT 2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,F-150 RAPTOR,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FORD,MUSTANG GT,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,FORD,RANGER,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,FORD,RANGER DC,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,GENESIS,GV70 CON,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,GREATWALL,HAVAL H6 ELITE,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,GREATWALL,JOLION,HEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,GREATWALL,POER FAMILY LUXURY PLUS,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,AVANTE,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,DIESEL,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,PALISADE,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,PORTER II,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,HYUNDAI,SPORTAGE,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,THE ALL NEW TUCSON,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,TUCSON CON,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,INFINITI,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,ISUZU,NLR85L-EC1WA,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,IVECO,(sin modelo),ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,IVECO,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,JEEP,RENEGADE LONGITUDE 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,JEEP,WRANGLER,PHEV,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KGM,TORRES,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,BONGO III,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,KIA,K 5,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,KIA,K5,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LAND ROVER,DEFENDER,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LAND ROVER,RANGE ROVER 3,PHEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LAND ROVER,RANGE ROVER SPORT 3,PHEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LEXUS,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,LEXUS,RX350H,HEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,280SL,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,300CE,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,AMG C63,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,AMG GLE 53 4MATIC+,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,ATEGO 815,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MERCEDES-BENZ,C220,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,E200,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,E220,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,GL 450 4MATIC,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,GLK 220 CDI 4MATIC,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,GLS 450 D 4MATIC,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MERCEDES-BENZ,SPRINTER,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MERCEDES-BENZ,SPRINTER 311,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MINI,(sin modelo),BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,MITSUBISHI,CANTER DIESEL,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MITSUBISHI,CANTER FUSO,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,MITSUBISHI,PAJERO MINI,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,NISSAN,CABSTAR,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,NISSAN,SYLPHY,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PEUGEOT,208 ACTIVE 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PEUGEOT,GRIFFE 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,POLARIS,SCRAMBLER,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PORSCHE,(sin modelo),ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PORSCHE,CAYENNE,PHEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,PORSCHE,MACAN,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,RAM,RAMPAGE BIGHORN D,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,RAM,RAMPAGE LARAMIE 2,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,RENAULT,KWID INTENS 1,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUBARU,BRZ,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUBARU,FORESTER,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUBARU,WRX WGN TS ES CVT VNHDLB8 E3 TV,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,SUZUKI,SWIFT,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TESLA,Model 3,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TESLA,Model Y,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,ALLION NAFTERO,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,AQUA,HEV,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,AQUA,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,AURIS,HEV,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,CAMRY,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,COROLLA CROSS,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,CROWN,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,DYNA,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,TOYOTA,E,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,GRANVIA,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,HIACE SUPEL GL,ICE,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
+2024-07,LightVehicles,leve,TOYOTA,LAND CRUISER,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,NOAH,HEV,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
+2024-07,LightVehicles,leve,TOYOTA,PASSO,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,RUSH,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,RUSH NAFTERO,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,TACOMA,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,TOYOTA,TOYOACE,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-07,LightVehicles,leve,TOYOTA,TUNDRA,HEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,TOYOTA,TUNDRA,ICE,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
+2024-07,LightVehicles,leve,TOYOTA,VOXY,HEV,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
+2024-07,LightVehicles,leve,VOLKSWAGEN,GOLF,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,pesado,HYUNDAI,EX6,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,ISUZU,FRR90SL-NAN,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,ISUZU,NPR71L-KJ5VAY,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,IVECO,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,1024L,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,1114,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,2025,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,508,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,711,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,814,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 816,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,NISSAN,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,RENAULT,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,114 340 6X2,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,124 420,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,G 450,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,G280,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,P 94,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,P270,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,P94-300,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,SCANIA,T93,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-07,LightVehicles,pesado,VOLKSWAGEN,31,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
+2024-07,LightVehicles,recreativo,CAN AM,COMMANDER MAX,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-07,LightVehicles,recreativo,CAN AM,MAVERICK R XRS,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-07,LightVehicles,recreativo,CANAM,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-07,LightVehicles,recreativo,CLUB CAR,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703.10
+2024-07,LightVehicles,recreativo,LVTONG,LT-A827,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10
+2024-07,LightVehicles,recreativo,SAYOON,(sin modelo),ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10
+2024-07,LightVehicles,recreativo,XPRO,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703.10
+2024-07,LightVehicles,recreativo,YAMAHA,(sin modelo),ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-07,LightVehicles,recreativo,YAMAHA,(sin modelo),ICE,usado,1,Aduana PY datos abiertos,NCM 8703.10
+2024-07,LightVehicles,recreativo,YAMAHA,KODIAK 450,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
