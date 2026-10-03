@@ -102,14 +102,6 @@
     }
     return null;
   }
-  function firstBevAt80(fitted, periods) {
-    for (let i = 0; i < periods.length; i++) {
-      const period = periods[i];
-      const share = fitted.at(period).BEV;
-      if (share >= 80) return { period: period, share: share };
-    }
-    return null;
-  }
   function t(key, vars) {
     return (global.PYEV && global.PYEV.t && global.PYEV.t(key, vars)) || key;
   }
@@ -124,9 +116,8 @@
       ? global.PYEVCharts.plotlyLayout(extra)
       : Object.assign({ paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", margin: { t: 40, r: 24, b: 48, l: 52 } }, extra || {});
   }
-  function extrapolationChart(el, rows, opts) {
+  function extrapolationChart(el, rows) {
     if (!el || !rows || !rows.length) return;
-    const thresholdMode = opts && opts.threshold ? opts.threshold : (el._pyevThresholdMode || "ice");
     const col = colors();
     const dark = isDark();
     const muted = dark ? "#aeaba2" : "#55534c";
@@ -151,10 +142,7 @@
       histCurveByCat[k] = histCurveX.map(function (p) { return +fitted.at(p)[k].toFixed(4); });
     });
     const iceBelow50 = firstIceBelow50(fitted, tl.future);
-    const bevAt80 = firstBevAt80(fitted, tl.future);
-    const threshold = thresholdMode === "bev80"
-      ? { crossing: bevAt80, value: 80, color: col.BEV || muted, annotation: "traj_bev80_annotation" }
-      : { crossing: iceBelow50, value: 50, color: col.ICE || muted, annotation: "traj_ice_below50_annotation" };
+    const threshold = { crossing: iceBelow50, value: 50, color: col.ICE || muted, annotation: "traj_ice_below50_annotation" };
     const traces = [];
     const displayCats = ["BEV", "PHEV", "HEV", "ICE"];
     if (rows.some(function (r) { return r.share.OTHERS >= 0.15; })) displayCats.splice(3, 0, "OTHERS");
@@ -209,8 +197,7 @@
     }), { responsive: true, displayModeBar: false });
     el._pyevKind = "trajExtra";
     el._pyevRows = rows;
-    el._pyevThresholdMode = thresholdMode;
-    el._pyevMeta = { iceBelow50: iceBelow50, bevAt80: bevAt80, threshold: thresholdMode };
+    el._pyevMeta = { iceBelow50: iceBelow50 };
   }
   function trailingSplitChart(el, rows) {
     if (!el || !rows || !rows.length) return;
