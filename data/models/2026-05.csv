@@ -260,7 +260,7 @@ period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
 2026-05,LightVehicles,leve,BENDA,2026,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-05,LightVehicles,leve,CHERY,HIMLA 2,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-05,LightVehicles,leve,CHEVROLET,MONTANA LT CABINA DOBLE,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
-2026-05,LightVehicles,leve,CHEVROLET,SPARK EV,BEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-05,LightVehicles,leve,CHEVROLET,SPARK EUV,BEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve); alias MERCADERIA: SPARK EV
 2026-05,LightVehicles,leve,CHEVROLET,TRACKER LITE 1,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-05,LightVehicles,leve,FORD,ELO,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-05,LightVehicles,leve,LMT,(sin modelo),BEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
