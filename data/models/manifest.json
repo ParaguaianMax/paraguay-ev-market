@@ -1,5 +1,7 @@
 {
   "files": [
+    "2022-12.csv",
+    "2023-09.csv",
     "2023-10.csv",
     "2023-11.csv",
     "2023-12.csv",
@@ -38,6 +40,5 @@
     "2026-09.csv"
   ],
   "header": "period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,notes",
-  "condicion": "nuevo|usado|desconocido from Aduana USO (NUEVO/USADO)",
-  "edicion": "edition/version/km/code stripped from modelo; empty if none"
+  "condicion": "nuevo|usado|desconocido from Aduana USO (NUEVO/USADO)"
 }
