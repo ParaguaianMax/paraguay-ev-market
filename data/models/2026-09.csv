@@ -186,7 +186,7 @@ period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
 2026-09,LightVehicles,leve,FIAT,TITANO,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,ICAUR,03T LUXURY 1,PHEV,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,NISSAN,QASHQAI SENSE,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-09,LightVehicles,leve,CHEVROLET,SPARK EUV,BEV,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-09,LightVehicles,leve,CHEVROLET,SPARK EUV,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve); alias MERCADERIA: SPARK EV
 2026-09,LightVehicles,leve,GAC,AION UT PREMIO EV AT,BEV,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,GAC,GS8 GX,HEV,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -279,7 +279,6 @@ period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
 2026-09,LightVehicles,leve,CHEVROLET,(sin modelo),ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHEVROLET,NOVA MONTANA LTZ FLEX AT TURBO,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,CHEVROLET,SONIC PREMIER 1,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-09,LightVehicles,leve,CHEVROLET,SPARK EV,BEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHEVROLET,TRACKER LITE FLEX AT TURBO,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHEVROLET,TRACKER LTZ FLEX AT TURBO,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,FIAT,ARGO DRIVE 1,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
