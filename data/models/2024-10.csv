@@ -131,8 +131,8 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-10,LightVehicles,leve,GREATWALL,JOLION PRO,,HEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,GREATWALL,WINGLE 7 D,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-10,LightVehicles,leve,LEXUS,NX350H,,HEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-10,LightVehicles,leve,NISSAN,PATHFINDER LIMITED,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-10,LightVehicles,leve,NISSAN,PATHFINDER PLATINUM,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-10,LightVehicles,leve,NISSAN,PATHFINDER,LIMITED,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-10,LightVehicles,leve,NISSAN,PATHFINDER,PLATINUM,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,RENAULT,KWID E-TECH,,BEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,RENAULT,KWID ZEN 1,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,SUZUKI,(sin modelo),,ICE,usado,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -199,7 +199,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-10,LightVehicles,leve,CHANGAN,NEW CS35 PLUS LUXURY,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,CHANGAN,NEW CS55 PLUS ELITE,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,CHANGAN,UNI- K,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-10,LightVehicles,leve,CHANGAN,UNI-T ELITE,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-10,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,CHEVROLET,CAPTIVA,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-10,LightVehicles,leve,CHEVROLET,MONTANA RS,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2024-10,LightVehicles,leve,CHEVROLET,S10 CABINA DOBLE WORK TRUCK,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

@@ -67,7 +67,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-09,LightVehicles,leve,VOLVO,C40,,BEV,nuevo,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-09,LightVehicles,leve,FIAT,PULSE DRIVE 1,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-09,LightVehicles,leve,TOYOTA,RAV4,,HEV,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-09,LightVehicles,leve,CHANGAN,UNI-T ELITE,,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-09,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-09,LightVehicles,leve,PEUGEOT,LANDTREK 1,,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-09,LightVehicles,leve,SUBARU,(sin modelo),,ICE,usado,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-09,LightVehicles,leve,SUZUKI,(sin modelo),,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

@@ -74,7 +74,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-06,LightVehicles,leve,VOLKSWAGEN,SAVEIRO ROBUST SC 1,,ICE,nuevo,19,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-06,LightVehicles,leve,TOYOTA,COROLLA AXIO,,ICE,usado,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,FIAT,FASTBACK AUDACE MILD,,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-06,LightVehicles,leve,NISSAN,PATHFINDER PLATINUM,,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-06,LightVehicles,leve,NISSAN,PATHFINDER,PLATINUM,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,CHEVROLET,MONTANA CD LS 1,,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-06,LightVehicles,leve,FIAT,ARGO DRIVE 1,,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT NAFTERO 1,,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -150,7 +150,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-06,LightVehicles,leve,SUZUKI,(sin modelo),,ICE,usado,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,pesado,FUSO,2025,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2025-06,LightVehicles,recreativo,CFMOTO,2,,ICE,nuevo,6,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
-2025-06,LightVehicles,leve,CHANGAN,UNI-T ELITE,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-06,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,CHEVROLET,S10 HIGH COUNTRY,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-06,LightVehicles,leve,CHEVROLET,S10 Z71,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-06,LightVehicles,leve,CHEVROLET,TRAILBLAZER HC 2,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -158,7 +158,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-06,LightVehicles,leve,GREATWALL,HAVAL H6,,HEV,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,JEEP,WRANGLER,,ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,KIA,CARNIVAL,,ICE,nuevo,5,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
-2025-06,LightVehicles,leve,NISSAN,PATHFINDER LIMITED,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-06,LightVehicles,leve,NISSAN,PATHFINDER,LIMITED,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,SUBARU,CROSSTREK,,OTHERS,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,SUZUKI,SWIFT,,ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,TOYOTA,CROWN,,ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -198,7 +198,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-06,LightVehicles,leve,HONDA,(sin modelo),,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,HYUNDAI,EX6,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-06,LightVehicles,leve,HYUNDAI,PALISADE,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-06,LightVehicles,leve,JAC,E30X LUXURY,,BEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-06,LightVehicles,leve,JAC,E30X,LUXURY,BEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,JEEP,COMMANDER OVERLAND 1,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,JEEP,WRANGLER 4-DOOR RUBICON,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-06,LightVehicles,leve,LEXUS,NX350H,,HEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

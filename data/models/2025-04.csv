@@ -85,7 +85,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-04,LightVehicles,leve,TOYOTA,LAND CRUISER,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,BMW,X3 20 XDRIVE,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,CHANGAN,MD201 CABINA SIMPLE,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
-2025-04,LightVehicles,leve,CHANGAN,UNI-T ELITE,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-04,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,HYUNDAI,NEW GRAND I10,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,MINI,(sin modelo),,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,MITSUBISHI,2025 DIESEL,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

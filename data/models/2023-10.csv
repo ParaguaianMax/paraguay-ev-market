@@ -71,7 +71,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-10,LightVehicles,leve,CHEVROLET,S10 CD LS 2,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,FOTON,BJ1030V6JB5-DA,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2023-10,LightVehicles,leve,CHANGAN,UNI-T ELITE,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-10,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHEVROLET,ONIX HB LS 1,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,FOTON,TUNLAND G7 - BJ2037Y3MAV-F8,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,GREATWALL,2024,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -170,7 +170,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-10,LightVehicles,leve,BMW,X4 XDRIVE30I,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,BMW,X5 XDRIVE30D,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHANGAN,NEW CS15 DCT,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-10,LightVehicles,leve,CHANGAN,UNI-T LUXURY,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-10,LightVehicles,leve,CHANGAN,UNI-T,LUXURY,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHEVROLET,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHEVROLET,MONTANA CD LS 1,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,CHEVROLET,MONTANA LS,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta

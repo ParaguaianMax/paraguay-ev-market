@@ -166,7 +166,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-12,LightVehicles,pesado,MERCEDES-BENZ,(sin modelo),,ICE,usado,7,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2025-12,LightVehicles,recreativo,SEGWAY,(sin modelo),,ICE,nuevo,7,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2025-12,LightVehicles,leve,CHANGAN,MD201 CABINA SIMPLE,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
-2025-12,LightVehicles,leve,CHANGAN,UNI-T ELITE,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-12,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,CHEVROLET,S10 HIGH COUNTRY,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-12,LightVehicles,leve,CHEVROLET,TRAILBLAZER HIGH COUNTRY,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -438,7 +438,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-12,LightVehicles,leve,FORD,MUSTANG ECOBOOS PREMIUN,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,FORD,MUSTANG GT PREMIUN COUPE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,FORD,TRANSIT,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2025-12,LightVehicles,leve,GEELY,RIDDARA RD6 ELECTRICO 86KWH 4WD ULTRA,,BEV,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
+2025-12,LightVehicles,leve,GEELY,RIDDARA RD6,86KWH 4WD ULTRA,BEV,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
 2025-12,LightVehicles,leve,GMC,CANYON SLT,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-12,LightVehicles,leve,HINO,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-12,LightVehicles,leve,HINO,RANGER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

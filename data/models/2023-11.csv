@@ -37,7 +37,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-11,LightVehicles,leve,RENAULT,KWID ZEN 1,,ICE,nuevo,30,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,ISUZU,(sin modelo),,ICE,nuevo,29,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-11,LightVehicles,leve,TOYOTA,PREMIO,,ICE,usado,28,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-11,LightVehicles,leve,CHANGAN,UNI-T ELITE,,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-11,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,PEUGEOT,(sin modelo),,ICE,nuevo,23,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,CHEVROLET,ONIX HB LS 1,,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,KIA,SORENTO,,ICE,usado,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -210,7 +210,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-11,LightVehicles,leve,BMW,X6 XDRIVE40I M SPORT,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,BMW,XM,,PHEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,CHANGAN,NEW CS55 PLUS LUXURY,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-11,LightVehicles,leve,CHANGAN,UNI-T LUXURY,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-11,LightVehicles,leve,CHANGAN,UNI-T,LUXURY,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,CHERY,T8 PRO 1,,PHEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,CHEVROLET,CRUZE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,CHEVROLET,SILVERADO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
