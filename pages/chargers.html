@@ -208,7 +208,15 @@
         PYEVChargers.renderKPIs(kpis, all);
         PYEVChargers.renderBreakdown(breakdown, all);
         // populate band filter
-        const bands = PYEVChargers.countBy(all, "power_band");
+        const bands = PYEVChargers.countByInOrder
+          ? PYEVChargers.countByInOrder(all, "power_band", [
+              "abaixo de 50 kW",
+              "50–99 kW",
+              "100–149 kW",
+              "150+ kW",
+              "desconhecida",
+            ])
+          : PYEVChargers.countBy(all, "power_band");
         bands.forEach(([b]) => {
           const opt = document.createElement("option");
           opt.value = b;

@@ -58,6 +58,38 @@
     return Object.entries(m).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   }
 
+  // Keep these orders independent of translated labels and of the row counts.
+  // The power filter and the breakdown must read from weakest to strongest.
+  const POWER_BAND_ORDER = [
+    "abaixo de 50 kW",
+    "50–99 kW",
+    "100–149 kW",
+    "150+ kW",
+    "desconhecida",
+  ];
+  const STATUS_ORDER = [
+    "ativo",
+    "ativo (residencial/privado)",
+    "ativo (restrito)",
+    // Keep the two "em breve" variants adjacent.
+    "em breve",
+    "em breve (restrito)",
+    // Keep both maintenance variants adjacent as well.
+    "em manutenção",
+    "parcialmente em manutenção",
+  ];
+
+  function countByInOrder(rows, key, order) {
+    const pairs = countBy(rows, key);
+    const rank = {};
+    order.forEach((value, i) => (rank[value] = i));
+    return pairs.sort((a, b) => {
+      const ar = rank[a[0]] == null ? order.length : rank[a[0]];
+      const br = rank[b[0]] == null ? order.length : rank[b[0]];
+      return ar - br || a[0].localeCompare(b[0]);
+    });
+  }
+
   function renderKPIs(el, rows) {
     const plugs = rows.reduce((s, r) => s + r.n_dc_plugs, 0);
     const pub = rows.filter((r) => r.access === "público").length;
@@ -77,8 +109,8 @@
   }
 
   function renderBreakdown(el, rows) {
-    const bands = countBy(rows, "power_band");
-    const statuses = countBy(rows, "status");
+    const bands = countByInOrder(rows, "power_band", POWER_BAND_ORDER);
+    const statuses = countByInOrder(rows, "status", STATUS_ORDER);
     const ops = countBy(rows, "operator").slice(0, 8);
     function list(title, pairs) {
       return (
@@ -119,7 +151,17 @@
     const v = String(value || "");
     const map = {
       "abaixo de 50 kW": { es: "menos de 50 kW", pt: "abaixo de 50 kW", en: "under 50 kW" },
+      "50–99 kW": { es: "50–99 kW", pt: "50–99 kW", en: "50–99 kW" },
+      "100–149 kW": { es: "100–149 kW", pt: "100–149 kW", en: "100–149 kW" },
+      "150+ kW": { es: "150+ kW", pt: "150+ kW", en: "150+ kW" },
       "desconhecida": { es: "desconocida", pt: "desconhecida", en: "unknown" },
+      "ativo": { es: "activo", pt: "ativo", en: "active" },
+      "ativo (residencial/privado)": { es: "activo (residencial/privado)", pt: "ativo (residencial/privado)", en: "active (residential/private)" },
+      "ativo (restrito)": { es: "activo (restringido)", pt: "ativo (restrito)", en: "active (restricted)" },
+      "em breve": { es: "próximamente", pt: "em breve", en: "coming soon" },
+      "em breve (restrito)": { es: "próximamente (restringido)", pt: "em breve (restrito)", en: "coming soon (restricted)" },
+      "em manutenção": { es: "en mantenimiento", pt: "em manutenção", en: "under maintenance" },
+      "parcialmente em manutenção": { es: "parcialmente en mantenimiento", pt: "parcialmente em manutenção", en: "partially under maintenance" },
       "inferido (nome/desc)": { es: "inferido (nombre/desc.)", pt: "inferido (nome/desc.)", en: "inferred (name/description)" },
       "estimado (check-ins)": { es: "estimado (check-ins)", pt: "estimado (check-ins)", en: "estimated (check-ins)" },
       "PlugShare (outlet)": { es: "PlugShare (punto)", pt: "PlugShare (outlet)", en: "PlugShare (outlet)" },
@@ -639,6 +681,7 @@
     initMap,
     filterRows,
     countBy,
+    countByInOrder,
     updateLanguage,
     localizeValue,
     invalidateMap,
