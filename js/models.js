@@ -563,12 +563,14 @@
     renderStackedHBar(el, models, (m) => m.label);
   }
 
-  function renderTopBrandTable(el, brands) {
+  function renderTopBrandTable(el, brands, opts) {
     if (!el) return;
     if (!brands || !brands.length) {
       el.innerHTML = "";
       return;
     }
+    opts = opts || {};
+    const showGroupTotals = !!opts.showGroupTotals;
     let html =
       '<div class="data-table-wrap table-fit"><table class="data rank-brands"><thead><tr><th>#</th><th>' +
       t("models_col_brand") +
@@ -580,9 +582,14 @@
     const grand = brands.reduce((a, b) => a + b.total, 0);
     brands.forEach((b, i) => {
       const pts = POWERTRAINS.filter((pt) => (b.byPt[pt] || 0) > 0);
+      let groupUnits = 0;
+      let groupPct = 0;
       pts.forEach((pt, j) => {
         const u = b.byPt[pt] || 0;
-        const pct = grand ? ((100 * u) / grand).toFixed(1) + "%" : "—";
+        const pctNum = grand ? (100 * u) / grand : 0;
+        const pct = grand ? pctNum.toFixed(1) + "%" : "—";
+        groupUnits += u;
+        groupPct += pctNum;
         html +=
           "<tr>" +
           "<td class='num'>" +
@@ -601,17 +608,34 @@
           pct +
           "</td></tr>";
       });
+      if (showGroupTotals && pts.length >= 2) {
+        html +=
+          "<tr class='rank-group-total'>" +
+          "<td class='num'></td>" +
+          "<td></td>" +
+          "<td>" +
+          esc(t("total")) +
+          "</td>" +
+          "<td class='num'>" +
+          fmt(groupUnits) +
+          "</td>" +
+          "<td class='num'>" +
+          (grand ? groupPct.toFixed(1) + "%" : "—") +
+          "</td></tr>";
+      }
     });
     html += "</tbody></table></div>";
     el.innerHTML = html;
   }
 
-  function renderTopModelTable(el, models) {
+  function renderTopModelTable(el, models, opts) {
     if (!el) return;
     if (!models || !models.length) {
       el.innerHTML = "";
       return;
     }
+    opts = opts || {};
+    const showGroupTotals = !!opts.showGroupTotals;
     let html =
       '<div class="data-table-wrap table-fit"><table class="data rank-models"><thead><tr><th>#</th><th>' +
       t("models_col_brand") +
@@ -624,8 +648,10 @@
       "</th></tr></thead><tbody>";
     models.forEach((m, i) => {
       const pts = POWERTRAINS.filter((pt) => (m.byPt[pt] || 0) > 0);
+      let groupUnits = 0;
       pts.forEach((pt, j) => {
         const u = m.byPt[pt] || 0;
+        groupUnits += u;
         html +=
           "<tr>" +
           "<td class='num'>" +
@@ -644,6 +670,19 @@
           fmt(u) +
           "</td></tr>";
       });
+      if (showGroupTotals && pts.length >= 2) {
+        html +=
+          "<tr class='rank-group-total'>" +
+          "<td class='num'></td>" +
+          "<td></td>" +
+          "<td></td>" +
+          "<td>" +
+          esc(t("total")) +
+          "</td>" +
+          "<td class='num'>" +
+          fmt(groupUnits) +
+          "</td></tr>";
+      }
     });
     html += "</tbody></table></div>";
     el.innerHTML = html;

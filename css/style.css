@@ -646,6 +646,14 @@ table.data td.num { text-align: right; }
 table.data tr:last-child td { border-bottom: 0; }
 table.data tr:hover td { background: var(--surface-2); }
 table.data a { color: var(--accent); }
+table.data tr.rank-group-total td {
+  font-weight: 650;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  background: color-mix(in srgb, var(--surface-2) 55%, transparent);
+}
+table.data tr.rank-group-total:hover td {
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+}
 .muted-cell { color: var(--muted); }
 .tag-access {
 display: inline-block;
