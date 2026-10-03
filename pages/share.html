@@ -257,11 +257,16 @@
           const first = rows[0];
           const last = rows[rows.length - 1];
           if (footExtra) {
+            const crossing = elExtra._pyevMeta && elExtra._pyevMeta.iceBelow50;
+            const crossingCaption = crossing
+              ? PYEV.t("traj_ice_below50_caption", { period: PYEV.periodLabel(crossing.period) })
+              : PYEV.t("traj_ice_below50_unreached");
             footExtra.innerHTML =
               "<b>" + PYEV.t("traj_observed") + "</b> " +
               PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
               " · " + rows.length + " " + PYEV.t("traj_months_short") +
               " · " + PYEV.variantLabel(last.variant || PYEV.getVariant(allRows)) +
+              "<br><b>" + crossingCaption + "</b>" +
               " · <em>" + PYEV.t("traj_not_forecast") + "</em>";
           }
           if (footTtm) {

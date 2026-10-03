@@ -94,8 +94,16 @@
     }
     return { models: models, at: normalized };
   }
-  function t(key) {
-    return (global.PYEV && global.PYEV.t && global.PYEV.t(key)) || key;
+  function firstIceBelow50(fitted, periods) {
+    for (let i = 0; i < periods.length; i++) {
+      const period = periods[i];
+      const share = fitted.at(period).ICE;
+      if (share < 50) return { period: period, share: share };
+    }
+    return null;
+  }
+  function t(key, vars) {
+    return (global.PYEV && global.PYEV.t && global.PYEV.t(key, vars)) || key;
   }
   function colors() {
     return (global.PYEV && global.PYEV.colors && global.PYEV.colors()) || {};
@@ -133,6 +141,7 @@
     CATS.forEach(function (k) {
       histCurveByCat[k] = histCurveX.map(function (p) { return +fitted.at(p)[k].toFixed(4); });
     });
+    const iceBelow50 = firstIceBelow50(fitted, tl.future);
     const traces = [];
     const displayCats = ["BEV", "PHEV", "HEV", "ICE"];
     if (rows.some(function (r) { return r.share.OTHERS >= 0.15; })) displayCats.splice(3, 0, "OTHERS");
@@ -142,6 +151,28 @@
       traces.push({ type: "scatter", mode: "markers", name: k, x: histByCat[k].x, y: histByCat[k].y, marker: { color: col[k], size: 8, line: { width: 1, color: dark ? "#141413" : "#fdfdfc" } }, legendgroup: k, hovertemplate: "<b>" + k + "</b>: %{y:.2f}%<extra></extra>" });
     });
     const annotations = [];
+    const shapes = [{
+      type: "line", xref: "paper", x0: 0, x1: 1, yref: "y", y0: 50, y1: 50,
+      line: { color: muted, width: 1, dash: "dot" }, opacity: 0.55
+    }];
+    if (iceBelow50) {
+      const periodLabel = global.PYEV && global.PYEV.periodLabel
+        ? global.PYEV.periodLabel(iceBelow50.period)
+        : iceBelow50.period;
+      annotations.push({
+        xref: "x", yref: "y", x: iceBelow50.period, y: 50,
+        text: t("traj_ice_below50_annotation", { period: periodLabel }),
+        showarrow: true, arrowhead: 2, ax: 46, ay: -42,
+        align: "left", bgcolor: dark ? "rgba(20,20,19,0.9)" : "rgba(253,253,252,0.92)",
+        bordercolor: col.ICE || muted, borderwidth: 1,
+        font: { size: 11, color: col.ICE || muted }
+      });
+      shapes.push({
+        type: "line", xref: "x", x0: iceBelow50.period, x1: iceBelow50.period,
+        yref: "paper", y0: 0, y1: 1,
+        line: { color: col.ICE || muted, width: 1.25, dash: "dash" }, opacity: 0.8
+      });
+    }
     const milestones = [];
     const lastY = Number(String(lastHist).slice(0, 4));
     for (let y = lastY + 1; y <= lastY + 4; y++) milestones.push(y + "-01");
@@ -159,11 +190,13 @@
       yaxis: Object.assign({}, base.yaxis || {}, { title: { text: t("traj_axis_share"), font: (base.yaxis && base.yaxis.title && base.yaxis.title.font) || { size: 11, color: muted } }, range: [0, 105], ticksuffix: "%", dtick: 20 }),
       xaxis: Object.assign({}, base.xaxis || {}, { title: { text: t("month"), font: (base.xaxis && base.xaxis.title && base.xaxis.title.font) || { size: 11, color: muted } }, type: "date", tickformat: "%b %Y" }),
       annotations: annotations,
+      shapes: shapes,
       margin: { t: 36, r: 24, b: 52, l: 52 },
       legend: Object.assign({}, base.legend || {}, { orientation: "h", y: 1.14, x: 0 })
     }), { responsive: true, displayModeBar: false });
     el._pyevKind = "trajExtra";
     el._pyevRows = rows;
+    el._pyevMeta = { iceBelow50: iceBelow50 };
   }
   function trailingSplitChart(el, rows) {
     if (!el || !rows || !rows.length) return;
