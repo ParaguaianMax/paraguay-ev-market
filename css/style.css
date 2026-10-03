@@ -842,3 +842,66 @@ background: var(--surface-2); color: var(--muted); cursor: pointer;
   .chart-panel.chart-yty { min-height: 0; padding: 0.15rem 0; }
   .home-yty .legend-row { gap: 0.4rem 0.75rem; margin-bottom: 0.35rem; font-size: 0.75rem; }
 }
+
+/* Phone: few-column ranking/units tables fit without sideways scroll.
+   The wide month-by-month share table stays horizontally scrollable. */
+@media (max-width: 640px) {
+  .data-table-wrap.table-fit {
+    overflow-x: clip;
+  }
+  .data-table-wrap.table-fit table.data {
+    table-layout: fixed;
+    width: 100%;
+    font-size: 0.74rem;
+  }
+  .data-table-wrap.table-fit th,
+  .data-table-wrap.table-fit td {
+    padding: 0.36rem 0.28rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.25;
+  }
+  .data-table-wrap.table-fit th {
+    font-size: 0.6rem;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+  }
+  .data-table-wrap.table-fit td.num,
+  .data-table-wrap.table-fit th.num {
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: nowrap;
+    padding-left: 0.18rem;
+    padding-right: 0.22rem;
+  }
+  .data-table-wrap.table-fit .pill {
+    font-size: 0.62rem;
+    letter-spacing: 0;
+    padding: 0.06rem 0.22rem;
+  }
+  table.rank-brands th:nth-child(1),
+  table.rank-brands td:nth-child(1),
+  table.rank-models th:nth-child(1),
+  table.rank-models td:nth-child(1) {
+    width: 1.55rem;
+    padding-left: 0.2rem;
+    padding-right: 0.12rem;
+  }
+  table.rank-brands th:nth-child(3),
+  table.rank-brands td:nth-child(3),
+  table.rank-models th:nth-child(4),
+  table.rank-models td:nth-child(4) {
+    width: 3.65rem;
+  }
+  table.rank-brands th:nth-child(4),
+  table.rank-brands td:nth-child(4),
+  table.rank-models th:nth-child(5),
+  table.rank-models td:nth-child(5) {
+    width: 3.35rem;
+  }
+  table.rank-brands th:nth-child(5),
+  table.rank-brands td:nth-child(5) {
+    width: 2.7rem;
+  }
+}

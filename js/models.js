@@ -570,7 +570,7 @@
       return;
     }
     let html =
-      '<div class="data-table-wrap"><table class="data"><thead><tr><th>#</th><th>' +
+      '<div class="data-table-wrap table-fit"><table class="data rank-brands"><thead><tr><th>#</th><th>' +
       t("models_col_brand") +
       "</th><th>" +
       t("models_col_pt") +
@@ -613,7 +613,7 @@
       return;
     }
     let html =
-      '<div class="data-table-wrap"><table class="data"><thead><tr><th>#</th><th>' +
+      '<div class="data-table-wrap table-fit"><table class="data rank-models"><thead><tr><th>#</th><th>' +
       t("models_col_brand") +
       "</th><th>" +
       t("models_col_model") +
@@ -893,7 +893,7 @@
         return;
       }
       let html =
-        '<div class="data-table-wrap"><table class="data"><thead><tr><th>' +
+        '<div class="data-table-wrap table-fit"><table class="data"><thead><tr><th>' +
         t("models_col_pt") +
         "</th><th class='num'>" +
         t("units") +
@@ -934,7 +934,7 @@
       });
       flat.sort((a, b) => b.total - a.total || b.units - a.units);
       let html =
-        '<div class="data-table-wrap"><table class="data"><thead><tr><th>' +
+        '<div class="data-table-wrap table-fit"><table class="data"><thead><tr><th>' +
         t("models_col_brand") +
         "</th><th>" +
         t("models_col_pt") +
@@ -962,7 +962,7 @@
         return;
       }
       let html =
-        '<div class="data-table-wrap"><table class="data"><thead><tr><th>' +
+        '<div class="data-table-wrap table-fit"><table class="data"><thead><tr><th>' +
         t("models_col_brand") +
         "</th><th>" +
         t("models_col_model") +
