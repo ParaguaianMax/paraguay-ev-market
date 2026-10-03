@@ -1,7 +1,9 @@
 /**
  * Top marcas / modelos on Volúmenes — month | year | YTD, search, powertrain stack.
  * Scope: LightVehicles + leve only (no Whole fallback).
- * Powertrain chips: Todos | BEV | Híbridos.
+ * Powertrain chips (multi-select): Todos | BEV | plug-in (PHEV) | HEV.
+ * Todos = every powertrain in the ranking. Specific chips are a union and
+ * never include ICE/OTHERS. Turning the last specific chip off returns to Todos.
  * Condición chips: Todos | Nuevo | Usado (hidden until CSV has condicion).
  * Aligns with site-wide 0 km filter (localStorage pyev-vehicles-all).
  */
@@ -14,8 +16,8 @@
   const COND_KEY = "pyev-vol-cond-mode";
   const ALL_VEHICLES_KEY = "pyev-vehicles-all";
 
-  /** @type {"all"|"bev"|"hybrids"} */
-  const PT_MODES = ["all", "bev", "hybrids"];
+  /** Specific chips. Empty selection means Todos (all powertrains). */
+  const PT_SPECIFIC = ["bev", "plugin", "hev"];
   /** @type {"all"|"nuevo"|"usado"} */
   const COND_MODES = ["all", "nuevo", "usado"];
 
@@ -36,10 +38,28 @@
     } catch (e) {}
   }
 
-  function powertrainsForMode(mode) {
-    if (mode === "bev") return ["BEV"];
-    if (mode === "hybrids") return ["PHEV", "HEV"];
-    return null; // all
+  function loadPtSet() {
+    const raw = (lsGet(PT_KEY) || "all").trim();
+    if (!raw || raw === "all") return new Set();
+    // Previous single chip grouped PHEV + HEV.
+    if (raw === "hybrids") return new Set(["plugin", "hev"]);
+    const parts = raw.split(",").map((s) => s.trim()).filter((s) => PT_SPECIFIC.includes(s));
+    return new Set(parts);
+  }
+
+  function savePtSet(ptSet) {
+    if (!ptSet.size) lsSet(PT_KEY, "all");
+    else lsSet(PT_KEY, PT_SPECIFIC.filter((k) => ptSet.has(k)).join(","));
+  }
+
+  /** null = all powertrains (Todos). Otherwise the union of selected types. */
+  function powertrainsForSet(ptSet) {
+    if (!ptSet.size) return null;
+    const pts = [];
+    if (ptSet.has("bev")) pts.push("BEV");
+    if (ptSet.has("plugin")) pts.push("PHEV");
+    if (ptSet.has("hev")) pts.push("HEV");
+    return pts;
   }
 
   function init() {
@@ -71,8 +91,7 @@
     let marketRows = [];
     let mode = lsGet(MODE_KEY) || "month";
     if (!["month", "year", "ytd"].includes(mode)) mode = "month";
-    let ptMode = lsGet(PT_KEY) || "all";
-    if (!PT_MODES.includes(ptMode)) ptMode = "all";
+    let ptSet = loadPtSet();
     let condMode = lsGet(COND_KEY) || "all";
     if (!COND_MODES.includes(condMode)) condMode = "all";
     // Default is 0 km only; the site-wide toggle explicitly enables new + used.
@@ -89,7 +108,7 @@
         year: yearSel && yearSel.value,
       });
       const opts = {};
-      const pts = powertrainsForMode(ptMode);
+      const pts = powertrainsForSet(ptSet);
       if (pts) opts.powertrains = pts;
       if (condicionAvailable && (condMode === "nuevo" || condMode === "usado")) {
         opts.condicion = condMode;
@@ -103,8 +122,12 @@
         btn.classList.toggle("active", btn.dataset.periodMode === mode);
       });
       ptBtns.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.ptMode === ptMode);
+        const mode = btn.dataset.ptMode;
+        const on = mode === "all" ? ptSet.size === 0 : ptSet.has(mode);
+        btn.classList.toggle("active", on);
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
       });
+      renderPtBanners();
       condBtns.forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.condMode === condMode);
       });
@@ -169,11 +192,37 @@
           " – " +
           PYEV.periodLabel(last);
       }
-      if (ptMode === "bev") label += " · BEV";
-      else if (ptMode === "hybrids") label += " · " + t("vol_pt_hybrids");
+      if (ptSet.size) {
+        const bits = [];
+        if (ptSet.has("bev")) bits.push("BEV");
+        if (ptSet.has("plugin")) bits.push(t("vol_pt_plugin"));
+        if (ptSet.has("hev")) bits.push(t("vol_pt_hev"));
+        if (bits.length) label += " · " + bits.join(" + ");
+      }
       if (condicionAvailable && condMode === "nuevo") label += " · " + t("vol_cond_nuevo");
       else if (condicionAvailable && condMode === "usado") label += " · " + t("vol_cond_usado");
       return label;
+    }
+
+    function renderPtBanners() {
+      const el = document.getElementById("volPtBanners");
+      if (!el) return;
+      const keys = [];
+      if (ptSet.has("bev")) keys.push("vol_pt_banner_bev");
+      if (ptSet.has("plugin")) keys.push("vol_pt_banner_plugin");
+      if (ptSet.has("hev")) keys.push("vol_pt_banner_hev");
+      el.replaceChildren();
+      if (!keys.length) {
+        el.hidden = true;
+        return;
+      }
+      keys.forEach((k) => {
+        const line = document.createElement("p");
+        line.className = "vol-pt-banner";
+        line.textContent = t(k);
+        el.appendChild(line);
+      });
+      el.hidden = false;
     }
 
     function setChartsEmpty(msg) {
@@ -248,8 +297,14 @@
     });
     ptBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        ptMode = btn.dataset.ptMode;
-        lsSet(PT_KEY, ptMode);
+        const mode = btn.dataset.ptMode;
+        if (mode === "all") {
+          ptSet.clear();
+        } else if (PT_SPECIFIC.includes(mode)) {
+          if (ptSet.has(mode)) ptSet.delete(mode);
+          else ptSet.add(mode);
+        }
+        savePtSet(ptSet);
         draw();
       });
     });
