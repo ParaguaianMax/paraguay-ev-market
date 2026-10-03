@@ -119,6 +119,11 @@
 
       <h3 data-i18n="traj_extra_title">Extrapolación — participación BEV / PHEV / HEV / ICE</h3>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste sobre lo observado. Línea punteada = proyección si la tendencia logit se mantuviera.</p>
+      <label class="trajectory-toggle" title="Mostrar cuándo el BEV llega al 80%" data-i18n-attr="title:traj_bev80_toggle_hint">
+        <input type="checkbox" id="bev80Toggle" />
+        <span class="trajectory-toggle-ui" aria-hidden="true"></span>
+        <span class="trajectory-toggle-label" data-i18n="traj_bev80_toggle">Ver BEV al 80%</span>
+      </label>
       <div class="legend-row">
         <span class="lg-bev">BEV</span>
         <span class="lg-phev">PHEV</span>
@@ -211,6 +216,7 @@
       const elTtm = document.getElementById("chart-ttm");
       const footExtra = document.getElementById("extra-foot");
       const footTtm = document.getElementById("ttm-foot");
+      const bev80Toggle = document.getElementById("bev80Toggle");
       const hint = document.getElementById("variantHint");
       let allRows = [];
 
@@ -251,16 +257,24 @@
           }
           elExtra.innerHTML = "";
           elTtm.innerHTML = "";
-          PYEVTrajectories.extrapolationChart(elExtra, rows);
+          PYEVTrajectories.extrapolationChart(elExtra, rows, {
+            threshold: bev80Toggle && bev80Toggle.checked ? "bev80" : "ice"
+          });
           PYEVTrajectories.trailingSplitChart(elTtm, rows);
 
           const first = rows[0];
           const last = rows[rows.length - 1];
           if (footExtra) {
-            const crossing = elExtra._pyevMeta && elExtra._pyevMeta.iceBelow50;
-            const crossingCaption = crossing
-              ? PYEV.t("traj_ice_below50_caption", { period: PYEV.periodLabel(crossing.period) })
-              : PYEV.t("traj_ice_below50_unreached");
+            const meta = elExtra._pyevMeta || {};
+            const bevMode = meta.threshold === "bev80";
+            const crossing = bevMode ? meta.bevAt80 : meta.iceBelow50;
+            const crossingCaption = bevMode
+              ? (crossing
+                ? PYEV.t("traj_bev80_caption", { period: PYEV.periodLabel(crossing.period) })
+                : PYEV.t("traj_bev80_unreached"))
+              : (crossing
+                ? PYEV.t("traj_ice_below50_caption", { period: PYEV.periodLabel(crossing.period) })
+                : PYEV.t("traj_ice_below50_unreached"));
             footExtra.innerHTML =
               "<b>" + PYEV.t("traj_observed") + "</b> " +
               PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
@@ -285,6 +299,7 @@
       window.addEventListener("pyev-variant", draw);
       window.addEventListener("pyev-segment", draw);
       window.addEventListener("pyev-nuevos", draw);
+      if (bev80Toggle) bev80Toggle.addEventListener("change", draw);
       window.addEventListener("pyev-theme", () => {
         if (elExtra && elExtra._pyevRows) PYEVTrajectories.restyleTheme(elExtra);
         if (elTtm && elTtm._pyevRows) PYEVTrajectories.restyleTheme(elTtm);

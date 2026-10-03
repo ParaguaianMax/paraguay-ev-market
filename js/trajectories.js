@@ -102,6 +102,14 @@
     }
     return null;
   }
+  function firstBevAt80(fitted, periods) {
+    for (let i = 0; i < periods.length; i++) {
+      const period = periods[i];
+      const share = fitted.at(period).BEV;
+      if (share >= 80) return { period: period, share: share };
+    }
+    return null;
+  }
   function t(key, vars) {
     return (global.PYEV && global.PYEV.t && global.PYEV.t(key, vars)) || key;
   }
@@ -116,8 +124,9 @@
       ? global.PYEVCharts.plotlyLayout(extra)
       : Object.assign({ paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", margin: { t: 40, r: 24, b: 48, l: 52 } }, extra || {});
   }
-  function extrapolationChart(el, rows) {
+  function extrapolationChart(el, rows, opts) {
     if (!el || !rows || !rows.length) return;
+    const thresholdMode = opts && opts.threshold ? opts.threshold : (el._pyevThresholdMode || "ice");
     const col = colors();
     const dark = isDark();
     const muted = dark ? "#aeaba2" : "#55534c";
@@ -142,6 +151,10 @@
       histCurveByCat[k] = histCurveX.map(function (p) { return +fitted.at(p)[k].toFixed(4); });
     });
     const iceBelow50 = firstIceBelow50(fitted, tl.future);
+    const bevAt80 = firstBevAt80(fitted, tl.future);
+    const threshold = thresholdMode === "bev80"
+      ? { crossing: bevAt80, value: 80, color: col.BEV || muted, annotation: "traj_bev80_annotation" }
+      : { crossing: iceBelow50, value: 50, color: col.ICE || muted, annotation: "traj_ice_below50_annotation" };
     const traces = [];
     const displayCats = ["BEV", "PHEV", "HEV", "ICE"];
     if (rows.some(function (r) { return r.share.OTHERS >= 0.15; })) displayCats.splice(3, 0, "OTHERS");
@@ -152,25 +165,25 @@
     });
     const annotations = [];
     const shapes = [{
-      type: "line", xref: "paper", x0: 0, x1: 1, yref: "y", y0: 50, y1: 50,
+      type: "line", xref: "paper", x0: 0, x1: 1, yref: "y", y0: threshold.value, y1: threshold.value,
       line: { color: muted, width: 1, dash: "dot" }, opacity: 0.55
     }];
-    if (iceBelow50) {
+    if (threshold.crossing) {
       const periodLabel = global.PYEV && global.PYEV.periodLabel
-        ? global.PYEV.periodLabel(iceBelow50.period)
-        : iceBelow50.period;
+        ? global.PYEV.periodLabel(threshold.crossing.period)
+        : threshold.crossing.period;
       annotations.push({
-        xref: "x", yref: "y", x: iceBelow50.period, y: 50,
-        text: t("traj_ice_below50_annotation", { period: periodLabel }),
+        xref: "x", yref: "y", x: threshold.crossing.period, y: threshold.value,
+        text: t(threshold.annotation, { period: periodLabel }),
         showarrow: true, arrowhead: 2, ax: 46, ay: -42,
         align: "left", bgcolor: dark ? "rgba(20,20,19,0.9)" : "rgba(253,253,252,0.92)",
-        bordercolor: col.ICE || muted, borderwidth: 1,
-        font: { size: 11, color: col.ICE || muted }
+        bordercolor: threshold.color, borderwidth: 1,
+        font: { size: 11, color: threshold.color }
       });
       shapes.push({
-        type: "line", xref: "x", x0: iceBelow50.period, x1: iceBelow50.period,
+        type: "line", xref: "x", x0: threshold.crossing.period, x1: threshold.crossing.period,
         yref: "paper", y0: 0, y1: 1,
-        line: { color: col.ICE || muted, width: 1.25, dash: "dash" }, opacity: 0.8
+        line: { color: threshold.color, width: 1.25, dash: "dash" }, opacity: 0.8
       });
     }
     const milestones = [];
@@ -196,7 +209,8 @@
     }), { responsive: true, displayModeBar: false });
     el._pyevKind = "trajExtra";
     el._pyevRows = rows;
-    el._pyevMeta = { iceBelow50: iceBelow50 };
+    el._pyevThresholdMode = thresholdMode;
+    el._pyevMeta = { iceBelow50: iceBelow50, bevAt80: bevAt80, threshold: thresholdMode };
   }
   function trailingSplitChart(el, rows) {
     if (!el || !rows || !rows.length) return;

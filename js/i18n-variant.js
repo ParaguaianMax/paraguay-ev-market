@@ -54,6 +54,11 @@
       traj_ice_below50_annotation: "ICE < 50% · {period}",
       traj_ice_below50_caption: "El ajuste sitúa ICE por debajo del 50% de importaciones en {period}.",
       traj_ice_below50_unreached: "ICE no baja del 50% dentro de la ventana proyectada.",
+      traj_bev80_toggle: "Ver BEV al 80%",
+      traj_bev80_toggle_hint: "Mostrar cuándo el BEV llega al 80% en la proyección.",
+      traj_bev80_annotation: "BEV ≥ 80% · {period}",
+      traj_bev80_caption: "El ajuste sitúa BEV en 80% o más de las importaciones en {period}.",
+      traj_bev80_unreached: "BEV no alcanza el 80% dentro de la ventana proyectada.",
       traj_not_forecast: "no es pronóstico firme",
       traj_ttm_partial_label: "Ventana incompleta (menos de 12 meses)",
       traj_ttm_full_label: "TTM 12 meses",
@@ -113,6 +118,11 @@
       traj_ice_below50_annotation: "ICE < 50% · {period}",
       traj_ice_below50_caption: "O ajuste coloca o ICE abaixo de 50% das importações em {period}.",
       traj_ice_below50_unreached: "O ICE não cai abaixo de 50% dentro da janela projetada.",
+      traj_bev80_toggle: "Ver BEV em 80%",
+      traj_bev80_toggle_hint: "Mostrar quando o BEV chega a 80% na projeção.",
+      traj_bev80_annotation: "BEV ≥ 80% · {period}",
+      traj_bev80_caption: "O ajuste coloca o BEV em 80% ou mais das importações em {period}.",
+      traj_bev80_unreached: "O BEV não chega a 80% dentro da janela projetada.",
       traj_not_forecast: "não é prognóstico firme",
       traj_ttm_partial_label: "Janela incompleta (menos de 12 meses)",
       traj_ttm_full_label: "TTM 12 meses",
@@ -172,6 +182,11 @@
       traj_ice_below50_annotation: "ICE < 50% · {period}",
       traj_ice_below50_caption: "The fit places ICE below 50% of imports in {period}.",
       traj_ice_below50_unreached: "ICE does not fall below 50% within the projected window.",
+      traj_bev80_toggle: "Show BEV at 80%",
+      traj_bev80_toggle_hint: "Show when BEV reaches 80% in the projection.",
+      traj_bev80_annotation: "BEV ≥ 80% · {period}",
+      traj_bev80_caption: "The fit places BEV at 80% or more of imports in {period}.",
+      traj_bev80_unreached: "BEV does not reach 80% within the projected window.",
       traj_not_forecast: "not a firm forecast",
       traj_ttm_partial_label: "Incomplete window (under 12 months)",
       traj_ttm_full_label: "12-month TTM",
@@ -199,6 +214,12 @@
     function paint() {
       document.querySelectorAll("[data-i18n^='variant_'], [data-i18n^='segment_'], [data-i18n^='traj_'], [data-i18n^='models_'], [data-i18n='nav_trajectories'], [data-i18n='nav_models'], [data-i18n='page_trajectories'], [data-i18n='page_models'], [data-i18n='card_traj'], [data-i18n='card_traj_desc'], [data-i18n='card_models'], [data-i18n='card_models_desc'], [data-i18n='next_trajectories'], [data-i18n='prev_trajectories'], [data-i18n='next_chargers'], [data-i18n='next_models'], [data-i18n='prev_models']").forEach(function (el) {
         el.innerHTML = global.PYEV.t(el.dataset.i18n);
+      });
+      document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
+        el.dataset.i18nAttr.split(":").forEach(function (item) {
+          var pair = item.split(":");
+          if (pair.length >= 2) el.setAttribute(pair[0], global.PYEV.t(pair.slice(1).join(":")));
+        });
       });
     }
     global.addEventListener("pyev-lang", paint);
