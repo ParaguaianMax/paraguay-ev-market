@@ -137,8 +137,9 @@
       "</tr></thead>";
     const body = rows
       .map((r) => {
-        const name = r.url
-          ? `<a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a>`
+        const rowUrl = plugShareUrl(r);
+        const name = rowUrl
+          ? `<a href="${escapeHtml(rowUrl)}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a>`
           : escapeHtml(r.name);
         const kw = r.kw_max == null ? PYEV.t("no_value") : String(r.kw_max);
         return (
@@ -166,6 +167,35 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  // Prefer the published PlugShare URL, but keep the map useful when only the
+  // source location id is available in the CSV.
+  function plugShareUrl(row) {
+    const url = String(row && row.url || "").trim();
+    if (url) return url;
+    const id = String(row && row.id || "").trim();
+    return /^\d+$/.test(id) ? "https://www.plugshare.com/location/" + encodeURIComponent(id) : "";
+  }
+
+  function plugShareLink(row) {
+    const url = plugShareUrl(row);
+    return url
+      ? `<br><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(PYEV.t("plugshare_link"))}</a>`
+      : "";
+  }
+
+  function chargerPopup(row) {
+    const kw = row.kw_max == null ? "—" : row.kw_max + " kW";
+    return (
+      `<b>${escapeHtml(row.name)}</b><br>` +
+      `${escapeHtml(row.ciudad)}, ${escapeHtml(row.departamento)}<br>` +
+      `${escapeHtml(PYEV.t("operators"))}: ${escapeHtml(row.operator)}<br>` +
+      `${row.n_dc_plugs} ${escapeHtml(PYEV.t("plugs"))} · ${escapeHtml(row.connectors_dc || PYEV.t("no_value"))}<br>` +
+      `${escapeHtml(PYEV.t("max_kw"))}: ${kw} <span style="opacity:.75">(${escapeHtml(localizeValue(row.kw_source || "est."))})</span><br>` +
+      `${escapeHtml(localizeValue(row.status))} · ${escapeHtml(localizeValue(row.access))}` +
+      plugShareLink(row)
+    );
   }
 
   function invalidateMap(map) {
@@ -196,16 +226,7 @@
         iconSize: [12, 12],
         iconAnchor: [6, 6],
       });
-      const kw = r.kw_max == null ? "—" : r.kw_max + " kW";
-      const popup =
-        `<b>${escapeHtml(r.name)}</b><br>` +
-        `${escapeHtml(r.ciudad)}, ${escapeHtml(r.departamento)}<br>` +
-        `Operadora: ${escapeHtml(r.operator)}<br>` +
-        `${r.n_dc_plugs} ${escapeHtml(PYEV.t("plugs"))} · ${escapeHtml(r.connectors_dc || PYEV.t("no_value"))}<br>` +
-        `${escapeHtml(PYEV.t("max_kw"))}: ${kw} <span style="opacity:.75">(${escapeHtml(localizeValue(r.kw_source || "est."))})</span><br>` +
-        `${escapeHtml(localizeValue(r.status))} · ${escapeHtml(localizeValue(r.access))}` +
-        (r.url ? `<br><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(PYEV.t("plugshare_link"))}</a>` : "");
-      const m = L.marker([r.lat, r.lon], { icon }).bindPopup(popup);
+      const m = L.marker([r.lat, r.lon], { icon }).bindPopup(chargerPopup(r));
       m._pyev = r;
       markers.push(m);
       group.addLayer(m);
@@ -247,9 +268,7 @@
     if (!mapApi) return;
     mapApi.markers.forEach((m) => {
       const r = m._pyev;
-      const kw = r.kw_max == null ? PYEV.t("no_value") : r.kw_max + " kW";
-      const popup = `<b>${escapeHtml(r.name)}</b><br>${escapeHtml(r.ciudad)}, ${escapeHtml(r.departamento)}<br>${escapeHtml(PYEV.t("operators"))}: ${escapeHtml(r.operator)}<br>${r.n_dc_plugs} ${escapeHtml(PYEV.t("plugs"))} · ${escapeHtml(r.connectors_dc || PYEV.t("no_value"))}<br>${escapeHtml(PYEV.t("max_kw"))}: ${kw} <span style="opacity:.75">(${escapeHtml(localizeValue(r.kw_source || "est."))})</span><br>${escapeHtml(localizeValue(r.status))} · ${escapeHtml(localizeValue(r.access))}` + (r.url ? `<br><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(PYEV.t("plugshare_link"))}</a>` : "");
-      m.bindPopup(popup);
+      m.bindPopup(chargerPopup(r));
     });
   }
 
