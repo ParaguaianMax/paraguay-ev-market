@@ -14,7 +14,6 @@
  * and up to 100 models. Bar labels include the rank number.
  */
 (function (global) {
-  const TOP_N = 100;
   const TOP_DEFAULT = 20;
   const TOP_KEY = "pyev-vol-top-limit";
   const MODE_KEY = "pyev-vol-period-mode";
@@ -406,7 +405,7 @@
       }
 
       const allBrands = PYEVModels.rankBrands(rows, { topN: 0 });
-      const allModels = PYEVModels.rankModels(rows, { topN: TOP_N });
+      const allModels = PYEVModels.rankModels(rows, { topN: 0 });
       allBrands.forEach((b, i) => {
         b.rank = i + 1;
       });

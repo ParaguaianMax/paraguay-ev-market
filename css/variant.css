@@ -161,6 +161,20 @@
   margin: 1.75rem 0 0.35rem;
   font-size: 1.15rem;
 }
+.vol-ranking-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  margin-top: 1.75rem;
+}
+.vol-ranking-heading h3 {
+  margin: 0;
+}
+.vol-ranking-heading .vol-top-limit {
+  flex: none;
+}
 .period-mode {
   display: inline-flex;
   flex-wrap: wrap;

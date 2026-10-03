@@ -134,10 +134,6 @@
             <button type="button" class="period-mode-btn" data-period-mode="year" data-i18n="vol_period_year">Año</button>
             <button type="button" class="period-mode-btn" data-period-mode="ytd" data-i18n="vol_period_ytd">YTD</button>
           </div>
-          <div class="period-mode vol-top-limit" role="group" aria-label="Ranking" data-i18n-attr="aria-label:vol_top_limit_aria">
-            <button type="button" class="period-mode-btn active" data-top-limit="20" aria-pressed="true" data-i18n="vol_top_20">Top 20</button>
-            <button type="button" class="period-mode-btn" data-top-limit="all" aria-pressed="false" data-i18n="vol_top_all">Todas</button>
-          </div>
           <label class="variant-switcher" id="volMonthWrap">
             <span class="variant-label" data-i18n="models_period">Mes</span>
             <select id="volMonthToggle" aria-label="Mes"></select>
@@ -175,7 +171,13 @@
           <span class="lg-others">OTHERS</span>
         </div>
 
-        <h3 id="volBrandsTitle" data-i18n="vol_top_brands_20">Top 20 marcas</h3>
+        <div class="vol-ranking-heading">
+          <h3 id="volBrandsTitle" data-i18n="vol_top_brands_20">Top 20 marcas</h3>
+          <div class="period-mode vol-top-limit" role="group" aria-label="Ranking de marcas" data-i18n-attr="aria-label:vol_top_limit_brands_aria">
+            <button type="button" class="period-mode-btn active" data-top-limit="20" aria-pressed="true" data-i18n="vol_top_20">Top 20</button>
+            <button type="button" class="period-mode-btn" data-top-limit="all" aria-pressed="false" data-i18n="vol_top_all">Todas</button>
+          </div>
+        </div>
         <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_brands_lead">
           Unidades por marca con desglose de motorización. Elegí una o más marcas para filtrar el ranking.
         </p>
@@ -192,7 +194,13 @@
         <div id="chart-top-brands" class="chart-panel chart-bare chart-scroll"><div class="status" data-i18n="loading">Cargando…</div></div>
         <div id="table-top-brands"></div>
 
-        <h3 id="volModelsTitle" data-i18n="vol_top_models_20">Top 20 modelos</h3>
+        <div class="vol-ranking-heading">
+          <h3 id="volModelsTitle" data-i18n="vol_top_models_20">Top 20 modelos</h3>
+          <div class="period-mode vol-top-limit" role="group" aria-label="Ranking de modelos" data-i18n-attr="aria-label:vol_top_limit_models_aria">
+            <button type="button" class="period-mode-btn active" data-top-limit="20" aria-pressed="true" data-i18n="vol_top_20">Top 20</button>
+            <button type="button" class="period-mode-btn" data-top-limit="all" aria-pressed="false" data-i18n="vol_top_all">Todas</button>
+          </div>
+        </div>
         <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_models_lead">
           Unidades por modelo (marca + nombre). Cada segmento de la barra es un powertrain. Elegí uno o más modelos para filtrar.
         </p>
