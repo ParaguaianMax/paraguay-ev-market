@@ -163,7 +163,7 @@ period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
 2026-03,LightVehicles,recreativo,CLUB CAR,(sin modelo),ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703.10
 2026-03,LightVehicles,recreativo,FEST,3WHEEL RED 110V-240V,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703.10
 2026-03,LightVehicles,leve,CHEVROLET,ONIX LT HB FLEX AT TURBO,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-03,LightVehicles,leve,CHEVROLET,SPARK EUV,BEV,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-03,LightVehicles,leve,CHEVROLET,SPARK EUV,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve); alias MERCADERIA: SPARK EV
 2026-03,LightVehicles,leve,KIA,CARNIVAL,HEV,nuevo,16,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2026-03,LightVehicles,leve,PEUGEOT,(sin modelo),ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-03,LightVehicles,leve,CHERY,T8 PRO 1,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -263,7 +263,6 @@ period,variant,segmento,marca,modelo,powertrain,condicion,units,source,notes
 2026-03,LightVehicles,leve,NISSAN,NEW KICKS 220T ADVANCE PLUS 6 DCT - FLEX FLEX,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-03,LightVehicles,leve,TOYOTA,TACOMA,ICE,usado,9,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-03,LightVehicles,leve,CHEVROLET,(sin modelo),HEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-03,LightVehicles,leve,CHEVROLET,SPARK EV,BEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-03,LightVehicles,leve,CHEVROLET,TRACKER LTZ FLEX AT TURBO,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-03,LightVehicles,leve,GAC,SE PICKUP C-MT STANDARD,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-03,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM NAFTERO 1,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
