@@ -420,40 +420,6 @@ line-height: 1.55;
 color: var(--muted);
 }
 .chart-foot b { color: var(--text); font-weight: 600; }
-.chart-readout {
-margin: 0.35rem 0 0.85rem;
-padding: 0.55rem 0.75rem;
-font-size: 0.82rem;
-line-height: 1.45;
-color: var(--muted);
-background: var(--bg-deep);
-border: 1px solid var(--line);
-}
-.chart-readout[hidden] { display: none !important; }
-.chart-readout-cat {
-color: var(--text);
-font-weight: 600;
-margin-bottom: 0.15rem;
-}
-.chart-readout ul {
-list-style: none;
-margin: 0;
-padding: 0;
-}
-.chart-readout li {
-display: flex;
-justify-content: space-between;
-gap: 1rem;
-padding: 0.18rem 0;
-border-top: 1px solid var(--line);
-}
-.chart-readout .val {
-color: var(--text);
-font-weight: 600;
-font-variant-numeric: tabular-nums;
-text-align: right;
-}
-.chart-readout li.is-hit .name { color: var(--text); }
 .note, .footer-note {
 font-size: 0.85rem;
 color: var(--muted);
@@ -721,6 +687,7 @@ background: var(--surface-2); color: var(--muted); cursor: pointer;
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
+
 .variant-switcher {
   display: inline-flex;
   align-items: center;
@@ -875,4 +842,3 @@ background: var(--surface-2); color: var(--muted); cursor: pointer;
   .chart-panel.chart-yty { min-height: 0; padding: 0.15rem 0; }
   .home-yty .legend-row { gap: 0.4rem 0.75rem; margin-bottom: 0.35rem; font-size: 0.75rem; }
 }
-
