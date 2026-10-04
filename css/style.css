@@ -198,29 +198,49 @@ gap: 0.1rem;
 flex-wrap: wrap;
 align-items: center;
 }
-.nav-sub a {
+.nav-sub a,
+.nav-sub button {
 padding: 0.3rem 0.65rem;
 border-radius: var(--radius);
 color: var(--muted);
 font-size: 0.8rem;
 font-weight: 500;
 text-decoration: none;
+border: none;
 border-bottom: 2px solid transparent;
+background: transparent;
+font-family: inherit;
+line-height: inherit;
+cursor: pointer;
 }
-.nav-sub a:hover {
+.nav-sub a:hover,
+.nav-sub button:hover {
 color: var(--text);
 text-decoration: none;
 background: var(--surface-2);
 }
-.nav-sub a.active {
+.nav-sub a.active,
+.nav-sub button.active {
 color: var(--text);
 font-weight: 600;
 border-bottom-color: var(--accent);
 background: transparent;
 }
+.nav-sub-fit {
+flex-wrap: nowrap;
+}
+.nav-sub-fit a,
+.nav-sub-fit button {
+white-space: nowrap;
+}
 @media (max-width: 720px) {
 .nav-primary a { padding: 0.35rem 0.6rem; font-size: 0.85rem; }
-.nav-sub a { padding: 0.28rem 0.5rem; font-size: 0.75rem; }
+.nav-sub a,
+.nav-sub button { padding: 0.28rem 0.5rem; font-size: 0.75rem; }
+}
+@media (max-width: 380px) {
+.nav-sub-fit a,
+.nav-sub-fit button { padding: 0.28rem 0.35rem; font-size: 0.7rem; }
 }
 
 .theme-toggle {

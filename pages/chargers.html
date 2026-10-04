@@ -63,8 +63,17 @@
       </div>
     </div>
   </header>
+  <div class="subnav-bar">
+    <div class="wrap">
+      <nav class="nav-sub nav-sub-fit" role="tablist" aria-label="Cargadores" data-i18n-attr="aria-label:chargers_sub_aria">
+        <button type="button" class="active" id="tab-current" role="tab" aria-selected="true" aria-controls="panel-current" data-charger-panel="current" data-i18n="chargers_sub_current">Red actual</button>
+        <button type="button" id="tab-history" role="tab" aria-selected="false" aria-controls="panel-history" tabindex="-1" data-charger-panel="history" data-i18n="chargers_sub_history">Datos históricos</button>
+      </nav>
+    </div>
+  </div>
 
   <main class="wrap">
+    <section id="panel-current" role="tabpanel" aria-labelledby="tab-current" data-charger-view="current">
     <div class="page-eyebrow">
       <span class="badge" data-i18n="chargers_badge">PlugShare · actualización 2 oct 2026</span>
       <span class="pill pill-bev" data-i18n="dc_only">Solo DC</span>
@@ -116,9 +125,10 @@
 
     <h2 data-i18n="table">Tabla</h2>
     <div id="table"></div>
+    </section>
 
-    <hr class="section-rule" />
-    <h2 data-i18n="chargers_history_title">Historial</h2>
+    <section id="panel-history" role="tabpanel" aria-labelledby="tab-history" data-charger-view="history" hidden>
+    <h1 data-i18n="chargers_history_title">Historial</h1>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="chargers_history_lead">Cortes de los informes de 2024 y de principios de 2025. Esta serie no es el inventario actual del mapa.</p>
     <div id="chart-history" class="chart-panel chart-bare chart-history"><div class="status" data-i18n="loading">Cargando…</div></div>
     <p class="note" data-i18n="chargers_history_note">Enero y febrero de 2024 no tienen tabla de locales: el número es solo el total del gráfico de redes de cada informe. No son un inventario punto por punto (marcador vacío). Desde marzo de 2024 cada punto cuenta los locales de la tabla de ese corte. El inventario de octubre de 2026 no entra en esta serie.</p>
@@ -128,6 +138,7 @@
     <div id="chart-history-networks" class="chart-panel chart-bare chart-history-networks"><div class="status" data-i18n="loading">Cargando…</div></div>
     <p class="note" data-i18n="chargers_history_networks_note">La línea cuenta los locales de la tabla (o el total del informe cuando no hay tabla). El apilado es el gráfico de redes de cada informe. No tienen que sumar lo mismo: en mayo de 2024 la línea es 36 y las redes suman 34; en marzo de 2025 la línea es 42 y las redes suman 44.</p>
     <p class="chart-foot" id="history-foot" data-i18n="chargers_history_foot">Informes de cargadores DC, cortes 2024-01 a 2025-03. Separado del inventario actual.</p>
+    </section>
   </main>
 
   <footer class="site">
@@ -163,13 +174,56 @@
       let mapApi = null;
       let historyBundle = null;
 
+      const panelCurrent = document.getElementById("panel-current");
+      const panelHistory = document.getElementById("panel-history");
+      const tabButtons = Array.from(document.querySelectorAll("[data-charger-panel]"));
+
+      function resizePlots(root) {
+        if (!window.Plotly || !root) return;
+        root.querySelectorAll(".js-plotly-plot").forEach((el) => {
+          try { Plotly.Plots.resize(el); } catch (err) {}
+        });
+      }
+
       function paintHistory() {
+        if (panelHistory && panelHistory.hidden) return;
         if (!historyBundle || !historyBundle.points || !PYEVChargers.renderHistory) return;
         if (historyEl) PYEVChargers.renderHistory(historyEl, historyBundle.points);
         if (historyNetEl && PYEVChargers.renderHistoryNetworks) {
           PYEVChargers.renderHistoryNetworks(historyNetEl, historyBundle.stacks);
         }
+        requestAnimationFrame(() => resizePlots(panelHistory));
       }
+
+      function showPanel(which) {
+        const historyOn = which === "history";
+        if (panelCurrent) panelCurrent.hidden = historyOn;
+        if (panelHistory) panelHistory.hidden = !historyOn;
+        tabButtons.forEach((btn) => {
+          const on = btn.dataset.chargerPanel === (historyOn ? "history" : "current");
+          btn.classList.toggle("active", on);
+          btn.setAttribute("aria-selected", on ? "true" : "false");
+          if (on) btn.removeAttribute("tabindex");
+          else btn.tabIndex = -1;
+        });
+        requestAnimationFrame(() => {
+          if (historyOn) paintHistory();
+          else {
+            if (mapApi && mapApi.invalidate) mapApi.invalidate();
+            resizePlots(panelCurrent);
+            setTimeout(() => { if (mapApi && mapApi.invalidate) mapApi.invalidate(); }, 120);
+          }
+        });
+      }
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.chargerPanel === "history" ? "history" : "current";
+          const next = id === "history" ? "#historico" : (location.pathname + location.search);
+          history.replaceState(null, "", next);
+          showPanel(id);
+        });
+      });
 
       function refresh() {
         const filtered = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
@@ -279,6 +333,10 @@
         }
         try {
           historyBundle = await PYEVChargers.loadHistory();
+          const startHash = (location.hash || "").toLowerCase();
+          if (startHash === "#historico" || startHash === "#history" || startHash === "#datos-historicos") {
+            showPanel("history");
+          }
           paintHistory();
           let historyTimer = 0;
           window.addEventListener("resize", () => {
