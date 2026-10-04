@@ -65,9 +65,9 @@
   </header>
   <div class="subnav-bar">
     <div class="wrap">
-      <nav class="nav-sub nav-sub-fit" role="tablist" aria-label="Cargadores" data-i18n-attr="aria-label:chargers_sub_aria">
-        <button type="button" class="active" id="tab-current" role="tab" aria-selected="true" aria-controls="panel-current" data-charger-panel="current" data-i18n="chargers_sub_current">Red actual</button>
-        <button type="button" id="tab-history" role="tab" aria-selected="false" aria-controls="panel-history" tabindex="-1" data-charger-panel="history" data-i18n="chargers_sub_history">Datos históricos</button>
+      <nav class="nav-sub" aria-label="Cargadores" data-i18n-attr="aria-label:chargers_sub_aria">
+        <a class="active" id="tab-current" href="chargers.html" data-charger-panel="current" data-i18n="chargers_sub_current">Red actual</a>
+        <a id="tab-history" href="chargers.html#historico" data-charger-panel="history" data-i18n="chargers_sub_history">Datos históricos</a>
       </nav>
     </div>
   </div>
@@ -202,9 +202,6 @@
         tabButtons.forEach((btn) => {
           const on = btn.dataset.chargerPanel === (historyOn ? "history" : "current");
           btn.classList.toggle("active", on);
-          btn.setAttribute("aria-selected", on ? "true" : "false");
-          if (on) btn.removeAttribute("tabindex");
-          else btn.tabIndex = -1;
         });
         requestAnimationFrame(() => {
           if (historyOn) paintHistory();
@@ -217,7 +214,8 @@
       }
 
       tabButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
           const id = btn.dataset.chargerPanel === "history" ? "history" : "current";
           const next = id === "history" ? "#historico" : (location.pathname + location.search);
           history.replaceState(null, "", next);
