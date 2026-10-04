@@ -244,6 +244,12 @@
       if (condicionAvailable && (condMode === "nuevo" || condMode === "usado")) {
         rows = PYEVModels.filterModels(rows, { condicion: condMode });
       }
+      if (brandPicker && brandPicker.selected.size) {
+        rows = rows.filter((r) => brandPicker.selected.has(r.marca));
+      }
+      if (modelPicker && modelPicker.selected.size) {
+        rows = rows.filter((r) => modelPicker.selected.has(r.marca + " " + r.modelo));
+      }
       return rows;
     }
 
@@ -434,6 +440,8 @@
 
     function draw() {
       syncModeUI();
+      // Keep the month/year choices limited to periods present under all active filters.
+      fillPeriodSelects();
       const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
         mode,
         month: selectedMonthPeriod(),
