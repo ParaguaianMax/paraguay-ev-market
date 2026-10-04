@@ -228,14 +228,11 @@
   }
 
   function chargerPopup(row) {
-    const kw = row.kw_max == null ? "—" : row.kw_max + " kW";
+    const kw = Number.isFinite(row.kw_max) ? row.kw_max + " kW" : PYEV.t("not_published");
     return (
       `<b>${escapeHtml(row.name)}</b><br>` +
-      `${escapeHtml(row.ciudad)}, ${escapeHtml(row.departamento)}<br>` +
-      `${escapeHtml(PYEV.t("operators"))}: ${escapeHtml(row.operator)}<br>` +
-      `${row.n_dc_plugs} ${escapeHtml(PYEV.t("plugs"))} · ${escapeHtml(row.connectors_dc || PYEV.t("no_value"))}<br>` +
-      `${escapeHtml(PYEV.t("max_kw"))}: ${kw} <span style="opacity:.75">(${escapeHtml(localizeValue(row.kw_source || "est."))})</span><br>` +
-      `${escapeHtml(localizeValue(row.status))} · ${escapeHtml(localizeValue(row.access))}` +
+      `${escapeHtml(PYEV.t("network"))}: ${escapeHtml(operatorLabel(row.operator))}<br>` +
+      `${escapeHtml(PYEV.t("power"))}: ${escapeHtml(kw)}` +
       plugShareLink(row)
     );
   }
