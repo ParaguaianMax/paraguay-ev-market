@@ -432,11 +432,32 @@ border-bottom: 1px solid var(--line);
 .chart-panel .plotly-graph-div { width: 100% !important; }
 .chart-panel.chart-network-pie { min-height: 480px; }
 .chart-panel.chart-network-bars { min-height: 460px; }
-.chart-panel.chart-history { min-height: 280px; margin-top: 0.35rem; }
-.chart-panel.chart-history-networks { min-height: 380px; margin-top: 0.35rem; }
+.chart-panel.chart-history { min-height: 360px; margin-top: 0.35rem; }
+.chart-panel.chart-history-networks { min-height: 440px; margin-top: 0.35rem; }
+.history-network-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.history-network-legend .item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.history-network-legend .swatch {
+  width: 0.7rem;
+  height: 0.7rem;
+  flex: 0 0 0.7rem;
+  border-radius: 1px;
+}
 @media (max-width: 640px) {
-  .chart-panel.chart-history { min-height: 260px; padding-left: 0; padding-right: 0; }
-  .chart-panel.chart-history-networks { min-height: 360px; padding-left: 0; padding-right: 0; }
+  .chart-panel.chart-history { min-height: 300px; padding-left: 0; padding-right: 0; }
+  .chart-panel.chart-history-networks { min-height: 400px; padding-left: 0; padding-right: 0; }
 }
 .chart-foot {
 margin: -0.5rem 0 1.5rem;

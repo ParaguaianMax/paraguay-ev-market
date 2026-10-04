@@ -440,10 +440,18 @@
     return palette[h % palette.length];
   }
 
-  function emptyChart(el) {
-    if (el && el.data && global.Plotly) {
+  function resetChart(el) {
+    if (!el) return;
+    if (el.data && global.Plotly) {
       try { Plotly.purge(el); } catch (e) {}
     }
+    // Plotly replaces this node's contents when it draws. Clear the initial
+    // status explicitly so a stale "Cargando…" cannot remain over the plot.
+    el.innerHTML = "";
+  }
+
+  function emptyChart(el) {
+    resetChart(el);
     el.innerHTML = '<div class="status">' + PYEV.t("no_value") + "</div>";
   }
 
@@ -817,7 +825,7 @@
         size: 12,
       },
       showlegend: false,
-      margin: phone ? { t: 28, r: 10, b: 64, l: 36 } : { t: 32, r: 16, b: 48, l: 48 },
+      margin: phone ? { t: 28, r: 10, b: 82, l: 42 } : { t: 32, r: 16, b: 64, l: 52 },
       xaxis: {
         type: "category",
         gridcolor: th.grid,
@@ -844,8 +852,23 @@
         font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
       },
     };
-    el.style.minHeight = (phone ? 280 : 340) + "px";
+    el.style.minHeight = (phone ? 300 : 360) + "px";
+    resetChart(el);
     Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
+  }
+
+  function renderHistoryNetworkLegend(el, stacks) {
+    if (!el) return;
+    const networks = (stacks && stacks.networks) || [];
+    if (!networks.length) {
+      el.innerHTML = "";
+      return;
+    }
+    const th = chartTheme();
+    el.innerHTML = networks.map((name) => {
+      const color = historyNetworkColor(name, th.dark);
+      return '<span class="item"><span class="swatch" style="background:' + escapeHtml(color) + '"></span>' + escapeHtml(name) + '</span>';
+    }).join("");
   }
 
   function renderHistoryNetworks(el, stacks) {
@@ -885,18 +908,10 @@
       },
       barmode: "stack",
       bargap: phone ? 0.28 : 0.35,
-      showlegend: true,
-      legend: {
-        orientation: "h",
-        yanchor: "top",
-        y: phone ? -0.38 : -0.22,
-        xanchor: "left",
-        x: 0,
-        font: { size: phone ? 10 : 11, color: th.muted },
-        bgcolor: "rgba(0,0,0,0)",
-        traceorder: "normal",
-      },
-      margin: phone ? { t: 8, r: 8, b: 118, l: 36 } : { t: 12, r: 16, b: 88, l: 48 },
+      // The legend is rendered as a normal-flow HTML row below the chart.
+      // Keeping it out of Plotly prevents it from covering the explanatory note.
+      showlegend: false,
+      margin: phone ? { t: 8, r: 8, b: 68, l: 36 } : { t: 12, r: 16, b: 58, l: 48 },
       xaxis: {
         type: "category",
         gridcolor: th.grid,
@@ -923,7 +938,8 @@
         font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
       },
     };
-    el.style.minHeight = (phone ? 380 : 420) + "px";
+    el.style.minHeight = (phone ? 400 : 440) + "px";
+    resetChart(el);
     Plotly.newPlot(el, traces, layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
   }
 
@@ -938,6 +954,7 @@
     loadHistory,
     renderHistory,
     renderHistoryNetworks,
+    renderHistoryNetworkLegend,
     historyPoints,
     historyStacks,
     historyBundle,
