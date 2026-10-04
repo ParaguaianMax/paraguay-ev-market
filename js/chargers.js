@@ -716,11 +716,55 @@
     return (months[parts[1]] || parts[1]) + " " + yy;
   }
 
+  function parseNetworkJSON(raw) {
+    const s = String(raw || "").trim();
+    if (!s) return {};
+    let obj;
+    try { obj = JSON.parse(s); } catch (e) { return {}; }
+    if (!obj || typeof obj !== "object" || Array.isArray(obj)) return {};
+    const out = {};
+    Object.keys(obj).forEach((k) => {
+      const name = String(k).trim();
+      if (!name) return;
+      const n = Number(obj[k]);
+      if (Number.isFinite(n)) out[name] = n;
+    });
+    return out;
+  }
+
+  // Stacked series from n_grafico_por_rede only.
+  // Same cuts as the line (no 2026, never chargers-dc.csv).
+  // The stack is not forced to equal the line.
+  function historyStacks(rows) {
+    const cuts = (rows || []).map((r) => {
+      const corte = String(r.corte || "").trim();
+      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-01") return null;
+      return { corte: corte, byNet: parseNetworkJSON(r.n_grafico_por_rede) };
+    }).filter(Boolean);
+    const totals = {};
+    cuts.forEach((c) => {
+      Object.keys(c.byNet).forEach((k) => {
+        totals[k] = (totals[k] || 0) + c.byNet[k];
+      });
+    });
+    const networks = Object.keys(totals).sort((a, b) => (totals[b] - totals[a]) || a.localeCompare(b));
+    return { networks: networks, cuts: cuts };
+  }
+
+  function historyBundle(rows) {
+    return { points: historyPoints(rows), stacks: historyStacks(rows) };
+  }
+
+  function historyNetworkColor(name, dark) {
+    const alias = { EverGo: "Evergo", Shell: "Shell Recharge", Petrobras: "Petropar" };
+    return operatorColor(alias[name] || name, dark);
+  }
+
   async function loadHistory(url) {
     const u = url || resolveHistoryUrl();
     const res = await fetch(u);
     if (!res.ok) throw new Error(PYEV.t("source_error") + " (" + res.status + ")");
-    return historyPoints(parseHistoryCSV(await res.text()));
+    return historyBundle(parseHistoryCSV(await res.text()));
   }
 
   function renderHistory(el, points) {
@@ -804,6 +848,85 @@
     Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
   }
 
+  function renderHistoryNetworks(el, stacks) {
+    if (!el) return;
+    if (!global.Plotly) {
+      el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
+      return;
+    }
+    const bundle = stacks || {};
+    const cuts = bundle.cuts || [];
+    const networks = bundle.networks || [];
+    if (!cuts.length || !networks.length) {
+      emptyChart(el);
+      return;
+    }
+    const th = chartTheme();
+    const phone = window.innerWidth < 640;
+    const labels = cuts.map((c) => historyMonthLabel(c.corte));
+    const traces = networks.map((name) => ({
+      type: "bar",
+      name: name,
+      x: labels,
+      y: cuts.map((c) => (c.byNet && c.byNet[name]) || 0),
+      marker: { color: historyNetworkColor(name, th.dark) },
+      hovertemplate: "<b>%{x}</b><br>" + name + ": %{y}<extra></extra>",
+    }));
+    const sums = cuts.map((c) => networks.reduce((s, name) => s + ((c.byNet && c.byNet[name]) || 0), 0));
+    const max = sums.reduce((m, v) => Math.max(m, v), 0);
+    const layout = {
+      height: phone ? 380 : 420,
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: {
+        family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif',
+        color: th.text,
+        size: 12,
+      },
+      barmode: "stack",
+      bargap: phone ? 0.28 : 0.35,
+      showlegend: true,
+      legend: {
+        orientation: "h",
+        yanchor: "top",
+        y: phone ? -0.38 : -0.22,
+        xanchor: "left",
+        x: 0,
+        font: { size: phone ? 10 : 11, color: th.muted },
+        bgcolor: "rgba(0,0,0,0)",
+        traceorder: "normal",
+      },
+      margin: phone ? { t: 8, r: 8, b: 118, l: 36 } : { t: 12, r: 16, b: 88, l: 48 },
+      xaxis: {
+        type: "category",
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: phone ? 10 : 12, color: th.muted },
+        tickangle: phone ? -40 : 0,
+        automargin: true,
+        fixedrange: true,
+      },
+      yaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: phone ? 10 : 11, color: th.muted },
+        title: phone ? "" : { text: PYEV.t("chargers_history_networks_axis"), font: { size: 11, color: th.muted } },
+        rangemode: "tozero",
+        range: [0, Math.ceil(max * 1.12) || 1],
+        fixedrange: true,
+      },
+      hoverlabel: {
+        bgcolor: th.dark ? "#1b1b19" : "#ffffff",
+        bordercolor: th.grid,
+        font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
+      },
+    };
+    el.style.minHeight = (phone ? 380 : 420) + "px";
+    Plotly.newPlot(el, traces, layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
+  }
+
   global.PYEVChargers = {
     loadChargers,
     renderKPIs,
@@ -814,7 +937,10 @@
     renderNetworkBars,
     loadHistory,
     renderHistory,
+    renderHistoryNetworks,
     historyPoints,
+    historyStacks,
+    historyBundle,
     networkStats,
     operatorLabel,
     countConnectors,

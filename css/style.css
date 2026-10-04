@@ -413,8 +413,10 @@ border-bottom: 1px solid var(--line);
 .chart-panel.chart-network-pie { min-height: 480px; }
 .chart-panel.chart-network-bars { min-height: 460px; }
 .chart-panel.chart-history { min-height: 280px; margin-top: 0.35rem; }
+.chart-panel.chart-history-networks { min-height: 380px; margin-top: 0.35rem; }
 @media (max-width: 640px) {
   .chart-panel.chart-history { min-height: 260px; padding-left: 0; padding-right: 0; }
+  .chart-panel.chart-history-networks { min-height: 360px; padding-left: 0; padding-right: 0; }
 }
 .chart-foot {
 margin: -0.5rem 0 1.5rem;
