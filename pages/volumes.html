@@ -141,13 +141,17 @@
             <button type="button" class="period-mode-btn" data-period-mode="year" data-i18n="vol_period_year">Año</button>
             <button type="button" class="period-mode-btn" data-period-mode="ytd" data-i18n="vol_period_ytd">YTD</button>
           </div>
+          <label class="variant-switcher" id="volMonthYearWrap">
+            <span class="variant-label" data-i18n="vol_year_label">Año</span>
+            <select id="volMonthYearToggle" data-i18n-attr="aria-label:vol_year_label" aria-label="Año"></select>
+          </label>
           <label class="variant-switcher" id="volMonthWrap">
-            <span class="variant-label" data-i18n="models_period">Mes</span>
-            <select id="volMonthToggle" aria-label="Mes"></select>
+            <span class="variant-label" data-i18n="vol_month_label">Mes</span>
+            <select id="volMonthToggle" data-i18n-attr="aria-label:vol_month_label" aria-label="Mes"></select>
           </label>
           <label class="variant-switcher" id="volYearWrap" hidden>
             <span class="variant-label" data-i18n="vol_year_label">Año</span>
-            <select id="volYearToggle" aria-label="Año"></select>
+            <select id="volYearToggle" data-i18n-attr="aria-label:vol_year_label" aria-label="Año"></select>
           </label>
           <div class="vol-pt-block">
             <div class="period-mode vol-pt-mode" role="group" aria-label="Motorización" data-i18n-attr="aria-label:models_col_pt">

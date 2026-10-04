@@ -80,8 +80,10 @@
     const condBtns = root.querySelectorAll("[data-cond-mode]");
     const condWrap = document.getElementById("volCondWrap");
     const monthSel = document.getElementById("volMonthToggle");
+    const monthYearSel = document.getElementById("volMonthYearToggle");
     const yearSel = document.getElementById("volYearToggle");
     const monthWrap = document.getElementById("volMonthWrap");
+    const monthYearWrap = document.getElementById("volMonthYearWrap");
     const yearWrap = document.getElementById("volYearWrap");
     const brandChart = document.getElementById("chart-top-brands");
     const modelChart = document.getElementById("chart-top-models");
@@ -229,12 +231,28 @@
     else if (condMode === "nuevo") condMode = "all";
     let condicionAvailable = false;
 
+    function selectedMonthPeriod() {
+      const year = monthYearSel && monthYearSel.value;
+      const month = monthSel && monthSel.value;
+      return year && month ? year + "-" + month : "";
+    }
+
+    function periodOptionRows() {
+      let rows = marketRows;
+      const pts = powertrainsForSet(ptSet);
+      if (pts) rows = PYEVModels.filterModels(rows, { powertrains: pts });
+      if (condicionAvailable && (condMode === "nuevo" || condMode === "usado")) {
+        rows = PYEVModels.filterModels(rows, { condicion: condMode });
+      }
+      return rows;
+    }
+
     function scopedRows() {
       // Re-assert LightVehicles·leve so YTD/year never mix Whole (HS 8703 double-count).
       const base = PYEVModels.marketSeriesRows(marketRows);
       const periodRows = PYEVModels.filterByPeriodScope(base, {
         mode,
-        month: monthSel && monthSel.value,
+        month: selectedMonthPeriod(),
         year: yearSel && yearSel.value,
       });
       const opts = {};
@@ -275,28 +293,62 @@
         btn.classList.toggle("active", btn.dataset.condMode === condMode);
       });
       if (condWrap) condWrap.hidden = !condicionAvailable;
+      if (monthYearWrap) monthYearWrap.hidden = mode !== "month";
       if (monthWrap) monthWrap.hidden = mode !== "month";
       if (yearWrap) yearWrap.hidden = mode === "month";
       if (yearWrap && mode === "ytd") yearWrap.hidden = false;
     }
 
-    function fillPeriodSelects() {
-      const periods = PYEVModels.periodsOf(marketRows);
+    function fillPeriodSelects(forceYear) {
+      const periods = PYEVModels.periodsOf(periodOptionRows());
       const years = [...new Set(periods.map((p) => p.slice(0, 4)))].sort();
       const latest = periods[periods.length - 1] || "";
       const savedMonth = lsGet(MONTH_KEY);
       const savedYear = lsGet(YEAR_KEY);
+      const oldMonthPeriod = selectedMonthPeriod();
+      let desiredPeriod;
+      if (forceYear) {
+        const forced = periods.filter((p) => p.startsWith(String(forceYear) + "-"));
+        desiredPeriod = forced[forced.length - 1] || latest;
+      } else {
+        desiredPeriod = periods.includes(savedMonth)
+          ? savedMonth
+          : periods.includes(oldMonthPeriod)
+            ? oldMonthPeriod
+            : latest;
+      }
+
+      if (monthYearSel) {
+        monthYearSel.innerHTML = "";
+        years.forEach((y) => {
+          const opt = document.createElement("option");
+          opt.value = y;
+          opt.textContent = y;
+          monthYearSel.appendChild(opt);
+        });
+        monthYearSel.value = desiredPeriod ? desiredPeriod.slice(0, 4) : "";
+      }
 
       if (monthSel) {
+        const selectedYear = monthYearSel && monthYearSel.value;
+        const monthPeriods = periods.filter((p) => p.startsWith(selectedYear + "-"));
+        const chosenPeriod = monthPeriods.includes(desiredPeriod)
+          ? desiredPeriod
+          : monthPeriods[monthPeriods.length - 1] || latest;
         monthSel.innerHTML = "";
-        periods.forEach((p) => {
+        monthPeriods.forEach((p) => {
           const opt = document.createElement("option");
-          opt.value = p;
-          opt.textContent = PYEV.periodLabel(p);
+          opt.value = p.slice(5, 7);
+          opt.textContent = PYEV.periodLabel(p).replace(/\s+\d{4}$/, "");
           monthSel.appendChild(opt);
         });
-        monthSel.value = periods.includes(savedMonth) ? savedMonth : latest;
+        monthSel.value = chosenPeriod ? chosenPeriod.slice(5, 7) : "";
+        if (chosenPeriod) {
+          if (monthYearSel) monthYearSel.value = chosenPeriod.slice(0, 4);
+          lsSet(MONTH_KEY, chosenPeriod);
+        }
       }
+
       if (yearSel) {
         yearSel.innerHTML = "";
         years.forEach((y) => {
@@ -313,7 +365,7 @@
     function scopeLabel() {
       const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
         mode,
-        month: monthSel && monthSel.value,
+        month: selectedMonthPeriod(),
         year: yearSel && yearSel.value,
       });
       const periods = PYEVModels.periodsOf(periodRows);
@@ -384,7 +436,7 @@
       syncModeUI();
       const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
         mode,
-        month: monthSel && monthSel.value,
+        month: selectedMonthPeriod(),
         year: yearSel && yearSel.value,
       });
       if (scopeHint) scopeHint.textContent = scopeLabel();
@@ -490,6 +542,7 @@
       btn.addEventListener("click", () => {
         mode = btn.dataset.periodMode;
         lsSet(MODE_KEY, mode);
+        syncModeUI();
         draw();
       });
     });
@@ -510,6 +563,7 @@
           else ptSet.add(mode);
         }
         savePtSet(ptSet);
+        fillPeriodSelects();
         draw();
       });
     });
@@ -524,12 +578,20 @@
         } else {
           lsSet(ALL_VEHICLES_KEY, condMode === "nuevo" ? "0" : "1");
         }
+        fillPeriodSelects();
         draw();
       });
     });
+    if (monthYearSel) {
+      monthYearSel.addEventListener("change", () => {
+        fillPeriodSelects(monthYearSel.value);
+        lsSet(MONTH_KEY, selectedMonthPeriod());
+        draw();
+      });
+    }
     if (monthSel) {
       monthSel.addEventListener("change", () => {
-        lsSet(MONTH_KEY, monthSel.value);
+        lsSet(MONTH_KEY, selectedMonthPeriod());
         draw();
       });
     }
@@ -588,6 +650,7 @@
       condMode = ev.detail ? "nuevo" : (lsGet(COND_KEY) === "usado" ? "usado" : "all");
       if (ev.detail) lsSet(COND_KEY, "nuevo");
       else if (lsGet(COND_KEY) === "nuevo") lsSet(COND_KEY, "all");
+      fillPeriodSelects();
       draw();
     });
     if (global.matchMedia) {
