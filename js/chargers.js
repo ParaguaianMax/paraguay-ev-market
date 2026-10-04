@@ -666,6 +666,144 @@
     el._pyevConnectorCounts = counts;
   }
 
+
+  function resolveHistoryUrl() {
+    const inPages =
+      /\/pages\//.test(location.pathname) ||
+      location.pathname.endsWith("/chargers.html");
+    return inPages ? "../data/historico/resumo_por_corte.csv" : "data/historico/resumo_por_corte.csv";
+  }
+
+  function parseHistoryCSV(text) {
+    const lines = String(text || "").trim().split(/\r?\n/);
+    if (lines.length < 2) return [];
+    const headers = splitCSVLine(lines[0]);
+    return lines.slice(1).filter(Boolean).map((line) => {
+      const cols = splitCSVLine(line);
+      const row = {};
+      headers.forEach((h, i) => (row[h] = cols[i] ?? ""));
+      return row;
+    });
+  }
+
+  // Site counts from the historical reports only.
+  // 2024-01 and 2024-02 have no location table (n_links_plugshare = 0):
+  // use n_grafico_soma and flag them as summary-only.
+  // Later cuts use n_links_plugshare (rows in that cut's location table).
+  // Never reads data/chargers-dc.csv. Skips any 2026+ cut.
+  function historyPoints(rows) {
+    return (rows || []).map((r) => {
+      const corte = String(r.corte || "").trim();
+      const links = Number(r.n_links_plugshare);
+      const graph = Number(r.n_grafico_soma);
+      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-01") return null;
+      const summaryOnly = !(links > 0);
+      const value = summaryOnly ? graph : links;
+      if (!Number.isFinite(value)) return null;
+      return { corte: corte, value: value, summaryOnly: summaryOnly };
+    }).filter(Boolean);
+  }
+
+  function historyMonthLabel(corte) {
+    const lang = PYEV.language ? PYEV.language() : "es";
+    const months = lang === "en"
+      ? { "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec" }
+      : lang === "pt"
+        ? { "01": "jan", "02": "fev", "03": "mar", "04": "abr", "05": "mai", "06": "jun", "07": "jul", "08": "ago", "09": "set", "10": "out", "11": "nov", "12": "dez" }
+        : { "01": "ene", "02": "feb", "03": "mar", "04": "abr", "05": "may", "06": "jun", "07": "jul", "08": "ago", "09": "sep", "10": "oct", "11": "nov", "12": "dic" };
+    const parts = String(corte).split("-");
+    const yy = parts[0] ? parts[0].slice(2) : "";
+    return (months[parts[1]] || parts[1]) + " " + yy;
+  }
+
+  async function loadHistory(url) {
+    const u = url || resolveHistoryUrl();
+    const res = await fetch(u);
+    if (!res.ok) throw new Error(PYEV.t("source_error") + " (" + res.status + ")");
+    return historyPoints(parseHistoryCSV(await res.text()));
+  }
+
+  function renderHistory(el, points) {
+    if (!el) return;
+    if (!global.Plotly) {
+      el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
+      return;
+    }
+    const rows = points || [];
+    if (!rows.length) {
+      emptyChart(el);
+      return;
+    }
+    const th = chartTheme();
+    const phone = window.innerWidth < 640;
+    const labels = rows.map((r) => historyMonthLabel(r.corte));
+    const values = rows.map((r) => r.value);
+    const summaryColor = th.muted;
+    const siteColor = th.CCS;
+    const max = values.reduce((m, v) => Math.max(m, v), 0);
+    const trace = {
+      type: "scatter",
+      mode: "lines+markers+text",
+      name: PYEV.t("chargers_history_series"),
+      x: labels,
+      y: values,
+      text: values.map(String),
+      textposition: "top center",
+      textfont: { size: phone ? 10 : 11, color: th.muted },
+      cliponaxis: false,
+      line: { color: siteColor, width: 2, shape: "linear" },
+      marker: {
+        size: rows.map((r) => (r.summaryOnly ? 11 : 9)),
+        symbol: rows.map((r) => (r.summaryOnly ? "circle-open" : "circle")),
+        color: rows.map((r) => (r.summaryOnly ? (th.dark ? "#141413" : "#fdfdfc") : siteColor)),
+        line: {
+          color: rows.map((r) => (r.summaryOnly ? summaryColor : siteColor)),
+          width: 2,
+        },
+      },
+      hovertemplate: "<b>%{x}</b><br>" + PYEV.t("chargers_history_series") + ": %{y}<extra></extra>",
+    };
+    const layout = {
+      height: phone ? 280 : 340,
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: {
+        family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif',
+        color: th.text,
+        size: 12,
+      },
+      showlegend: false,
+      margin: phone ? { t: 28, r: 10, b: 64, l: 36 } : { t: 32, r: 16, b: 48, l: 48 },
+      xaxis: {
+        type: "category",
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: phone ? 10 : 12, color: th.muted },
+        tickangle: phone ? -40 : 0,
+        automargin: true,
+        fixedrange: true,
+      },
+      yaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: phone ? 10 : 11, color: th.muted },
+        title: { text: PYEV.t("chargers_history_series"), font: { size: 11, color: th.muted } },
+        rangemode: "tozero",
+        range: [0, Math.ceil(max * 1.28)],
+        fixedrange: true,
+      },
+      hoverlabel: {
+        bgcolor: th.dark ? "#1b1b19" : "#ffffff",
+        bordercolor: th.grid,
+        font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
+      },
+    };
+    el.style.minHeight = (phone ? 280 : 340) + "px";
+    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
+  }
+
   global.PYEVChargers = {
     loadChargers,
     renderKPIs,
@@ -674,6 +812,9 @@
     renderConnectorChart,
     renderNetworkPie,
     renderNetworkBars,
+    loadHistory,
+    renderHistory,
+    historyPoints,
     networkStats,
     operatorLabel,
     countConnectors,

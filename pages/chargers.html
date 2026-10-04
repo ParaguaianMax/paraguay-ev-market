@@ -116,6 +116,13 @@
 
     <h2 data-i18n="table">Tabla</h2>
     <div id="table"></div>
+
+    <hr class="section-rule" />
+    <h2 data-i18n="chargers_history_title">Historial</h2>
+    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="chargers_history_lead">Cortes de los informes de 2024 y de principios de 2025. Esta serie no es el inventario actual del mapa.</p>
+    <div id="chart-history" class="chart-panel chart-bare chart-history"><div class="status" data-i18n="loading">Cargando…</div></div>
+    <p class="note" data-i18n="chargers_history_note">Enero y febrero de 2024 no tienen tabla de locales: el número es solo el total del gráfico de redes de cada informe. No son un inventario punto por punto (marcador vacío). Desde marzo de 2024 cada punto cuenta los locales de la tabla de ese corte. El inventario de octubre de 2026 no entra en esta serie.</p>
+    <p class="chart-foot" id="history-foot" data-i18n="chargers_history_foot">Informes de cargadores DC, cortes 2024-01 a 2025-03. Separado del inventario actual.</p>
   </main>
 
   <footer class="site">
@@ -144,9 +151,16 @@
       const networkBarFoot = document.getElementById("network-bar-foot");
       const fAccess = document.getElementById("f-access");
       const fBand = document.getElementById("f-band");
+      const historyEl = document.getElementById("chart-history");
 
       let all = [];
       let mapApi = null;
+      let historyRows = null;
+
+      function paintHistory() {
+        if (!historyEl || !historyRows || !PYEVChargers.renderHistory) return;
+        PYEVChargers.renderHistory(historyEl, historyRows);
+      }
 
       function refresh() {
         const filtered = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
@@ -235,6 +249,7 @@
           if (mapApi && mapApi.updateLanguage) mapApi.updateLanguage();
           Array.from(fBand.options).forEach((opt, i) => { if (i > 0 && PYEVChargers.localizeValue) opt.textContent = PYEVChargers.localizeValue(opt.value); });
           refresh();
+          paintHistory();
           if (mapApi && mapApi.invalidate) {
             setTimeout(() => mapApi.invalidate(), 50);
           }
@@ -249,8 +264,20 @@
               }
               if (networkPieEl && PYEVChargers.renderNetworkPie) PYEVChargers.renderNetworkPie(networkPieEl, filtered);
               if (networkBarsEl && PYEVChargers.renderNetworkBars) PYEVChargers.renderNetworkBars(networkBarsEl, filtered);
+              paintHistory();
             }, 60);
           });
+        }
+        try {
+          historyRows = await PYEVChargers.loadHistory();
+          paintHistory();
+          let historyTimer = 0;
+          window.addEventListener("resize", () => {
+            clearTimeout(historyTimer);
+            historyTimer = setTimeout(paintHistory, 150);
+          });
+        } catch (err) {
+          if (historyEl) historyEl.innerHTML = '<div class="status error">' + err.message + "</div>";
         }
       } catch (e) {
         kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
