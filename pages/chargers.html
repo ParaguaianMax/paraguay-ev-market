@@ -129,16 +129,12 @@
 
     <section id="panel-history" role="tabpanel" aria-labelledby="tab-history" data-charger-view="history" hidden>
     <h1 data-i18n="chargers_history_title">Historial</h1>
-    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="chargers_history_lead">Cortes de los informes de 2024 y de principios de 2025. Esta serie no es el inventario actual del mapa.</p>
     <div id="chart-history" class="chart-panel chart-bare chart-history"><div class="status" data-i18n="loading">Cargando…</div></div>
-    <p class="note" data-i18n="chargers_history_note">Enero y febrero de 2024 no tienen tabla de locales: el número es solo el total del gráfico de redes de cada informe. No son un inventario punto por punto (marcador vacío). Desde marzo de 2024 cada punto cuenta los locales de la tabla de ese corte. El inventario de octubre de 2026 no entra en esta serie.</p>
 
     <h2 data-i18n="chargers_history_networks_title">Por red</h2>
-    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="chargers_history_networks_lead">Los mismos cortes de la línea de arriba. Cada barra apila el gráfico de redes de ese informe.</p>
+    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="chargers_history_networks_lead">Los mismos cortes de la línea de arriba. Cada línea muestra el gráfico de redes de ese informe.</p>
     <div id="chart-history-networks" class="chart-panel chart-bare chart-history-networks"><div class="status" data-i18n="loading">Cargando…</div></div>
     <div id="history-networks-legend" class="history-network-legend" aria-label="Redes del gráfico"></div>
-    <p class="note" data-i18n="chargers_history_networks_note">La línea cuenta los locales de la tabla (o el total del informe cuando no hay tabla). El apilado es el gráfico de redes de cada informe. No tienen que sumar lo mismo: en mayo de 2024 la línea es 36 y las redes suman 34; en marzo de 2025 la línea es 42 y las redes suman 44.</p>
-    <p class="chart-foot" id="history-foot" data-i18n="chargers_history_foot">Informes de cargadores DC, cortes 2024-01 a 2025-03. Separado del inventario actual.</p>
     </section>
   </main>
 
@@ -190,7 +186,7 @@
       function paintHistory() {
         if (panelHistory && panelHistory.hidden) return;
         if (!historyBundle || !historyBundle.points || !PYEVChargers.renderHistory) return;
-        if (historyEl) PYEVChargers.renderHistory(historyEl, historyBundle.points);
+        if (historyEl) PYEVChargers.renderHistory(historyEl, historyBundle.points, historyBundle.connectors);
         if (historyNetEl && PYEVChargers.renderHistoryNetworks) {
           PYEVChargers.renderHistoryNetworks(historyNetEl, historyBundle.stacks);
           if (historyNetLegend && PYEVChargers.renderHistoryNetworkLegend) {

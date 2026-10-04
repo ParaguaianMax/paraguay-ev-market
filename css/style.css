@@ -450,10 +450,10 @@ border-bottom: 1px solid var(--line);
   gap: 0.35rem;
 }
 .history-network-legend .swatch {
-  width: 0.7rem;
-  height: 0.7rem;
-  flex: 0 0 0.7rem;
-  border-radius: 1px;
+  width: 1.2rem;
+  height: 0.2rem;
+  flex: 0 0 1.2rem;
+  border-radius: 99px;
 }
 @media (max-width: 640px) {
   .chart-panel.chart-history { min-height: 300px; padding-left: 0; padding-right: 0; }

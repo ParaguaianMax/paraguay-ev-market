@@ -682,6 +682,13 @@
     return inPages ? "../data/historico/resumo_por_corte.csv" : "data/historico/resumo_por_corte.csv";
   }
 
+  function resolveHistoryPointsUrl() {
+    const inPages =
+      /\/pages\//.test(location.pathname) ||
+      location.pathname.endsWith("/chargers.html");
+    return inPages ? "../data/historico/pontos_por_corte.csv" : "data/historico/pontos_por_corte.csv";
+  }
+
   function parseHistoryCSV(text) {
     const lines = String(text || "").trim().split(/\r?\n/);
     if (lines.length < 2) return [];
@@ -694,11 +701,8 @@
     });
   }
 
-  // Site counts from the historical reports only.
-  // 2024-01 and 2024-02 have no location table (n_links_plugshare = 0):
-  // use n_grafico_soma and flag them as summary-only.
-  // Later cuts use n_links_plugshare (rows in that cut's location table).
-  // Never reads data/chargers-dc.csv. Skips any 2026+ cut.
+  // Site counts from the historical reports only; skips any 2026+ cut.
+  // Never reads data/chargers-dc.csv.
   function historyPoints(rows) {
     return (rows || []).map((r) => {
       const corte = String(r.corte || "").trim();
@@ -740,9 +744,8 @@
     return out;
   }
 
-  // Stacked series from n_grafico_por_rede only.
+  // Network series from n_grafico_por_rede only.
   // Same cuts as the line (no 2026, never chargers-dc.csv).
-  // The stack is not forced to equal the line.
   function historyStacks(rows) {
     const cuts = (rows || []).map((r) => {
       const corte = String(r.corte || "").trim();
@@ -759,8 +762,40 @@
     return { networks: networks, cuts: cuts };
   }
 
-  function historyBundle(rows) {
-    return { points: historyPoints(rows), stacks: historyStacks(rows) };
+  // Connector counts come only from the historical location file. Cuts without
+  // location rows (Jan/Feb 2024) remain absent rather than being treated as zero.
+  function historyConnectors(rows) {
+    const fields = [
+      { key: "ccs", name: "CCS", color: "CCS" },
+      { key: "chademo", name: "CHAdeMO", color: "CHAdeMO" },
+      { key: "gbt", name: "GB/T", color: "GBT" },
+    ];
+    const cuts = {};
+    const present = {};
+    (rows || []).forEach((r) => {
+      const corte = String(r.corte || "").trim();
+      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-01") return;
+      if (!cuts[corte]) cuts[corte] = { ccs: 0, chademo: 0, gbt: 0 };
+      fields.forEach((f) => {
+        const raw = String(r[f.key] ?? "").trim();
+        if (!raw) return;
+        const n = Number(raw);
+        if (Number.isFinite(n)) {
+          cuts[corte][f.key] += n;
+          present[f.key] = true;
+        }
+      });
+    });
+    const available = fields.filter((f) => present[f.key]);
+    return { fields: available, cuts: cuts };
+  }
+
+  function historyBundle(rows, connectorRows) {
+    return {
+      points: historyPoints(rows),
+      stacks: historyStacks(rows),
+      connectors: historyConnectors(connectorRows),
+    };
   }
 
   function historyNetworkColor(name, dark) {
@@ -770,12 +805,15 @@
 
   async function loadHistory(url) {
     const u = url || resolveHistoryUrl();
-    const res = await fetch(u);
-    if (!res.ok) throw new Error(PYEV.t("source_error") + " (" + res.status + ")");
-    return historyBundle(parseHistoryCSV(await res.text()));
+    const connectorUrl = resolveHistoryPointsUrl();
+    const results = await Promise.all([fetch(u), fetch(connectorUrl)]);
+    if (!results[0].ok) throw new Error(PYEV.t("source_error") + " (" + results[0].status + ")");
+    if (!results[1].ok) throw new Error(PYEV.t("source_error") + " (" + results[1].status + ")");
+    const [summaryText, connectorText] = await Promise.all(results.map((res) => res.text()));
+    return historyBundle(parseHistoryCSV(summaryText), parseHistoryCSV(connectorText));
   }
 
-  function renderHistory(el, points) {
+  function renderHistory(el, points, connectors) {
     if (!el) return;
     if (!global.Plotly) {
       el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
@@ -815,6 +853,24 @@
       },
       hovertemplate: "<b>%{x}</b><br>" + PYEV.t("chargers_history_series") + ": %{y}<extra></extra>",
     };
+    const connectorTraces = ((connectors && connectors.fields) || []).map((field) => {
+      const values = rows.map((r) => {
+        const cut = connectors.cuts && connectors.cuts[r.corte];
+        return cut && Number.isFinite(cut[field.key]) ? cut[field.key] : null;
+      });
+      return {
+        type: "scatter",
+        mode: "lines+markers",
+        name: field.name,
+        x: labels,
+        y: values,
+        connectgaps: false,
+        line: { color: th[field.color], width: 2, dash: "dot" },
+        marker: { size: 6, color: th[field.color] },
+        hovertemplate: "<b>%{x}</b><br>" + field.name + ": %{y}<extra></extra>",
+      };
+    });
+    const traces = [trace].concat(connectorTraces);
     const layout = {
       height: phone ? 280 : 340,
       paper_bgcolor: "rgba(0,0,0,0)",
@@ -824,8 +880,16 @@
         color: th.text,
         size: 12,
       },
-      showlegend: false,
-      margin: phone ? { t: 28, r: 10, b: 82, l: 42 } : { t: 32, r: 16, b: 64, l: 52 },
+      showlegend: connectorTraces.length > 0,
+      legend: {
+        orientation: "h",
+        x: 0,
+        y: phone ? -0.38 : -0.28,
+        xanchor: "left",
+        yanchor: "top",
+        font: { size: phone ? 10 : 11, color: th.muted },
+      },
+      margin: phone ? { t: 28, r: 10, b: 112, l: 42 } : { t: 32, r: 16, b: 88, l: 52 },
       xaxis: {
         type: "category",
         gridcolor: th.grid,
@@ -852,9 +916,9 @@
         font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
       },
     };
-    el.style.minHeight = (phone ? 300 : 360) + "px";
+    el.style.minHeight = (phone ? 330 : 390) + "px";
     resetChart(el);
-    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
+    Plotly.newPlot(el, traces, layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
   }
 
   function renderHistoryNetworkLegend(el, stacks) {
@@ -888,15 +952,18 @@
     const phone = window.innerWidth < 640;
     const labels = cuts.map((c) => historyMonthLabel(c.corte));
     const traces = networks.map((name) => ({
-      type: "bar",
+      type: "scatter",
+      mode: "lines+markers",
       name: name,
       x: labels,
       y: cuts.map((c) => (c.byNet && c.byNet[name]) || 0),
-      marker: { color: historyNetworkColor(name, th.dark) },
+      line: { color: historyNetworkColor(name, th.dark), width: 2 },
+      marker: { color: historyNetworkColor(name, th.dark), size: 6 },
       hovertemplate: "<b>%{x}</b><br>" + name + ": %{y}<extra></extra>",
     }));
-    const sums = cuts.map((c) => networks.reduce((s, name) => s + ((c.byNet && c.byNet[name]) || 0), 0));
-    const max = sums.reduce((m, v) => Math.max(m, v), 0);
+    const max = traces.reduce((m, trace) =>
+      Math.max(m, ...trace.y.map((v) => Number(v) || 0)), 0
+    );
     const layout = {
       height: phone ? 380 : 420,
       paper_bgcolor: "rgba(0,0,0,0)",
@@ -906,10 +973,8 @@
         color: th.text,
         size: 12,
       },
-      barmode: "stack",
-      bargap: phone ? 0.28 : 0.35,
       // The legend is rendered as a normal-flow HTML row below the chart.
-      // Keeping it out of Plotly prevents it from covering the explanatory note.
+      // Keeping it out of Plotly leaves the legend in the normal flow below the chart.
       showlegend: false,
       margin: phone ? { t: 8, r: 8, b: 68, l: 36 } : { t: 12, r: 16, b: 58, l: 48 },
       xaxis: {
@@ -956,6 +1021,7 @@
     renderHistoryNetworks,
     renderHistoryNetworkLegend,
     historyPoints,
+    historyConnectors,
     historyStacks,
     historyBundle,
     networkStats,
