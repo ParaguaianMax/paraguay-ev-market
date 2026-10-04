@@ -645,7 +645,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-09,LightVehicles,leve,FORD,RANGER,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,FORD,RANGER RAPTOR 3,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,FOTON,BJ1040V8AB6-AB,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2026-09,LightVehicles,leve,GEELY,RIDDARA RD6,,ICE,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
+2026-09,LightVehicles,leve,GEELY,RIDDARA RD6,,PHEV,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
 2026-09,LightVehicles,leve,GMC,SIERRA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,HYUNDAI,NEW GRAND I10,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,HYUNDAI,NEW HB20 VISION,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
