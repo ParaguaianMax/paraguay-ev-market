@@ -1,10 +1,10 @@
 # Canonical marca aliases for Paraguay EV/imports Volume data
-# version: 2  updated: 2026-10-02
+# version: 3  updated: 2026-10-07
 # policy: UPPERCASE after basic cleanup. Prefer official Latin spelling; MERCEDES-BENZ with hyphen. Only high-confidence aliases auto-apply. Do not merge distinct brands (BYD≠BYTON, MITSUBISHI≠MITSUBISHI FUSO).
 # Machine source of truth: marca_aliases.json
 
-version: 2
-updated: "2026-10-02"
+version: 3
+updated: "2026-10-07"
 aliases:
   "MERCEDES BENZ": "MERCEDES-BENZ"
   "MERCEDES - BENZ": "MERCEDES-BENZ"
@@ -55,3 +55,5 @@ aliases:
   "S/N": "SIN MARCA"
   "CF MOTO": "CFMOTO"
   "CF-MOTO": "CFMOTO"
+  "AION": "GAC AION"
+  "VOYAH DREAMER": "VOYAH"

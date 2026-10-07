@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "updated": "2026-10-02",
+  "version": 3,
+  "updated": "2026-10-07",
   "canonical_policy": "UPPERCASE after basic cleanup. Prefer official Latin spelling; MERCEDES-BENZ with hyphen. Only high-confidence aliases auto-apply. Do not merge distinct brands (BYD≠BYTON, MITSUBISHI≠MITSUBISHI FUSO).",
   "aliases": {
     "MERCEDES BENZ": "MERCEDES-BENZ",
@@ -51,7 +51,9 @@
     "S/M": "SIN MARCA",
     "S/N": "SIN MARCA",
     "CF MOTO": "CFMOTO",
-    "CF-MOTO": "CFMOTO"
+    "CF-MOTO": "CFMOTO",
+    "AION": "GAC AION",
+    "VOYAH DREAMER": "VOYAH"
   },
   "proposed": [
     {
@@ -77,12 +79,6 @@
       "to": "KIA",
       "reason": "Model name used as marca (Kia Sportage). Prefer fixing modelo parser; brand merge is secondary.",
       "units_2026_ene_sep": 7
-    },
-    {
-      "from": "VOYAH DREAMER",
-      "to": "VOYAH",
-      "reason": "Model leaked into marca field.",
-      "units_2026_ene_sep": 8
     },
     {
       "from": "MITSUBISHI FUSO",
@@ -124,5 +120,22 @@
       "CUPRA",
       "SEAT"
     ]
+  ],
+  "approved_2026_10_07": [
+    {
+      "from": "AION",
+      "to": "GAC AION",
+      "note": "Max approved 2026-10-07. Also: rows with marca GAC and modelo AION ... move to GAC AION by model in the pipeline (GAC also sells ICE cars; other GAC stays GAC)."
+    },
+    {
+      "from": "VOYAH DREAMER",
+      "to": "VOYAH",
+      "note": "Max approved 2026-10-07 (model leaked into marca). Pipeline sets modelo DREAMER when the line had no model."
+    },
+    {
+      "from": "SIN MARCA",
+      "to": "LATAMMO",
+      "note": "Only when the Aduana description says MARCA LATAMMO (pipeline rule, not a blanket alias)."
+    }
   ]
 }
