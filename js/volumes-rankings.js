@@ -92,6 +92,32 @@
       : a.localeCompare(b, undefined, { sensitivity: "base", numeric: true });
   }
 
+  /** Lowercase, no accents, no spaces/hyphens/dots: "E-TRON" → "etron". */
+  function searchKey(s) {
+    return String(s || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[\s\-_.\/]+/g, "");
+  }
+
+  /** Every word of the query must appear somewhere in the label, any order. */
+  function searchTokens(q) {
+    return String(q || "")
+      .trim()
+      .split(/\s+/)
+      .map(searchKey)
+      .filter(Boolean);
+  }
+
+  function canAutofocus() {
+    try {
+      return !!(global.matchMedia && global.matchMedia("(hover: hover) and (pointer: fine)").matches);
+    } catch (e) {
+      return false;
+    }
+  }
+
   function init() {
     const root = document.getElementById("vol-rankings");
     if (!root || !global.PYEVModels) return;
@@ -119,7 +145,7 @@
     const scopeEmptyEl = document.getElementById("vol-scope-empty");
 
     let closePickers = function () {};
-    function setupPicker(ids, labelKey) {
+    function setupPicker(ids, labelKey, searchKeyName) {
       const btn = document.getElementById(ids.btn);
       const panel = document.getElementById(ids.panel);
       const list = document.getElementById(ids.list);
@@ -127,18 +153,77 @@
       const selected = new Set();
       let sig = "";
 
+      // Search box above Limpiar; it only hides options, never unchecks them.
+      let search = null;
+      let noResults = null;
+      if (panel && list) {
+        const head = document.createElement("div");
+        head.className = "vol-picker-head";
+        search = document.createElement("input");
+        search.type = "search";
+        search.className = "vol-picker-search";
+        search.autocomplete = "off";
+        search.spellcheck = false;
+        search.setAttribute("autocapitalize", "off");
+        search.setAttribute("enterkeyhint", "search");
+        head.appendChild(search);
+        if (clearBtn) head.appendChild(clearBtn);
+        panel.insertBefore(head, panel.firstChild);
+        noResults = document.createElement("p");
+        noResults.className = "vol-picker-empty";
+        noResults.hidden = true;
+        panel.appendChild(noResults);
+        search.addEventListener("input", applySearch);
+        search.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter") ev.preventDefault();
+        });
+      }
+
+      function applySearch() {
+        if (!list) return;
+        const tokens = search ? searchTokens(search.value) : [];
+        let shown = 0;
+        list.querySelectorAll(".vol-picker-item").forEach((lab) => {
+          const key = lab.dataset.searchKey || "";
+          const hit = !tokens.length || tokens.every((tok) => key.includes(tok));
+          lab.hidden = !hit;
+          if (hit) shown += 1;
+        });
+        if (noResults) noResults.hidden = shown > 0 || !list.children.length;
+      }
+
       function updateBtn() {
+        if (search) {
+          search.placeholder = t(searchKeyName);
+          search.setAttribute("aria-label", t(searchKeyName));
+        }
+        if (noResults) noResults.textContent = t("vol_picker_no_results");
         if (!btn) return;
         const base = t(labelKey);
         btn.textContent = selected.size ? base + " · " + selected.size : base;
       }
       function close() {
+        const wasOpen = !!(panel && !panel.hidden);
         if (panel) panel.hidden = true;
         if (btn) btn.setAttribute("aria-expanded", "false");
+        if (search && search.value) {
+          search.value = "";
+          applySearch();
+        }
+        if (wasOpen && search && document.activeElement === search) search.blur();
       }
       function open() {
         if (panel) panel.hidden = false;
         if (btn) btn.setAttribute("aria-expanded", "true");
+        applySearch();
+        // Desktop only: on phones focusing would pop the keyboard right away.
+        if (search && canAutofocus()) {
+          try {
+            search.focus({ preventScroll: true });
+          } catch (e) {
+            search.focus();
+          }
+        }
       }
       function sync(names) {
         if (!list) return;
@@ -163,6 +248,7 @@
           clean.forEach((name) => {
             const lab = document.createElement("label");
             lab.className = "vol-picker-item";
+            lab.dataset.searchKey = searchKey(name);
             const input = document.createElement("input");
             input.type = "checkbox";
             input.value = name;
@@ -180,6 +266,7 @@
             list.appendChild(lab);
           });
           list.scrollTop = scroll;
+          applySearch();
         } else {
           list.querySelectorAll('input[type="checkbox"]').forEach((input) => {
             input.checked = selected.has(input.value);
@@ -216,11 +303,13 @@
 
     const brandPicker = setupPicker(
       { btn: "volBrandPickerBtn", panel: "volBrandPickerPanel", list: "volBrandPickerList" },
-      "vol_picker_brands"
+      "vol_picker_brands",
+      "vol_picker_search_brands"
     );
     const modelPicker = setupPicker(
       { btn: "volModelPickerBtn", panel: "volModelPickerPanel", list: "volModelPickerList" },
-      "vol_picker_models"
+      "vol_picker_models",
+      "vol_picker_search_models"
     );
     closePickers = function () {
       brandPicker.close();
