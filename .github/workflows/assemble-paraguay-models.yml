@@ -21,7 +21,7 @@ jobs:
 
           fields = [
               "period", "variant", "segmento", "marca", "modelo",
-              "powertrain", "condicion", "units", "source", "notes",
+              "powertrain", "condicion", "units", "source", "notes", "edicion",
           ]
           out = Path("data/Paraguay_models.csv")
           rows = []
