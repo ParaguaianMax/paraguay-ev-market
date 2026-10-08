@@ -1016,10 +1016,10 @@
   function colors() {
     return (
       (global.PYEV && global.PYEV.colors && global.PYEV.colors()) || {
-        BEV: "#2f6b45",
-        PHEV: "#1d4f91",
-        HEV: "#8a6a12",
-        OTHERS: "#6b4f9a",
+        BEV: "#0f7a3a",
+        PHEV: "#82b02a",
+        HEV: "#c8650f",
+        OTHERS: "#dd9a2b",
         ICE: "#6b6860",
       }
     );

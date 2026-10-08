@@ -562,7 +562,11 @@
       const models = [...modelPicker.selected].sort();
       const cond = condicionAvailable ? condMode : "all";
       const active = !!(brands.length || models.length);
-      const sig = active ? brands.join("|") + "#" + models.join("|") + "#" + cond : "";
+      // Powertrain chips also drive the charts above (e.g. BEV only).
+      const pts = powertrainsForSet(ptSet);
+      const sig =
+        (active ? brands.join("|") + "#" + models.join("|") + "#" + cond : "") +
+        (pts ? "@" + pts.join(",") : "");
       if (sig === filterSig) return;
       filterSig = sig;
       global.PYEVVolFilter = {
@@ -570,6 +574,7 @@
         brands,
         models,
         cond,
+        pts,
         seriesRows() {
           let rows = marketRows;
           if (brands.length) {
@@ -607,9 +612,30 @@
     function clearItemFilter() {
       brandPicker.selected.clear();
       modelPicker.selected.clear();
+      ptSet.clear();
+      savePtSet(ptSet);
       brandPicker.updateBtn();
       modelPicker.updateBtn();
       draw();
+    }
+
+    /** Top-of-page headline: current period + condición (+ brand/model picks). */
+    function renderHeadline(periodRows) {
+      const el = document.getElementById("volHeadline");
+      if (!el || !global.PYEVCharts || !PYEVCharts.renderPowertrainHeadline) return;
+      if (!periodRows || !periodRows.length) {
+        el.innerHTML = "";
+        return;
+      }
+      let rows = periodRows;
+      const cond = condicionAvailable ? condMode : "all";
+      if (cond === "nuevo" || cond === "usado") rows = PYEVModels.filterModels(rows, { condicion: cond });
+      if (brandPicker.selected.size) rows = rows.filter((r) => brandPicker.selected.has(r.marca));
+      if (modelPicker.selected.size) rows = rows.filter((r) => modelPicker.selected.has(r.marca + " " + r.modelo));
+      PYEVCharts.renderPowertrainHeadline(el, PYEVCharts.sumPowertrains(rows), {
+        periods: PYEVModels.periodsOf(periodRows),
+        cond,
+      });
     }
 
     function draw() {
@@ -629,6 +655,7 @@
           scopeEmptyEl.textContent = t("vol_lv_empty");
         }
         setChartsEmpty(t("vol_lv_empty"));
+        renderHeadline(periodRows);
         return;
       }
       if (scopeEmptyEl) scopeEmptyEl.hidden = true;
@@ -636,6 +663,7 @@
       const rows = scopedRows();
       if (!rows.length) {
         setChartsEmpty(t("models_empty_filter"));
+        renderHeadline(periodRows);
         return;
       }
 
@@ -682,6 +710,7 @@
       lastModels = models;
       paintModelTable();
       bindModelChartClicks(models);
+      renderHeadline(periodRows);
     }
 
     function paintModelTable() {

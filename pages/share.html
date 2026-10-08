@@ -94,14 +94,20 @@
     <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
     <p class="lead" data-i18n="share_lead">Trayectoria mensual de la participación de cada motorización en el total importado (estilo Gallery). Eje izquierdo: electrificados; eje derecho: ICE. La tabla debajo muestra los % exactos.</p>
     <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo 0 km</div>
+    <div id="share-headline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
 
-
-<div class="legend-row">
+    <div class="view-toggle-row">
+      <div class="period-mode" role="group" aria-label="Líneas del gráfico" data-i18n-attr="aria-label:share_view_aria">
+        <button type="button" class="period-mode-btn active" data-share-view="all" aria-pressed="true" data-i18n="share_view_all">Todas</button>
+        <button type="button" class="period-mode-btn" data-share-view="bev" aria-pressed="false" data-i18n="share_view_bev">Solo BEV</button>
+      </div>
+    </div>
+    <div class="legend-row" id="share-legend">
       <span class="lg-bev">BEV</span>
-      <span class="lg-phev">PHEV</span>
-      <span class="lg-hev">HEV</span>
-      <span class="lg-others">OTHERS</span>
-      <span class="lg-ice">ICE</span>
+      <span class="lg-phev" data-share-cat="other">PHEV</span>
+      <span class="lg-hev" data-share-cat="other">HEV</span>
+      <span class="lg-others" data-share-cat="other">OTHERS</span>
+      <span class="lg-ice" data-share-cat="other">ICE</span>
     </div>
     <div id="chart" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
     <p class="chart-foot" data-i18n="ice_formula">ICE = total menos BEV, PHEV, HEV y OTHERS.</p>
@@ -155,6 +161,26 @@
     document.addEventListener("DOMContentLoaded", async () => {
       const el = document.getElementById("chart");
       const table = document.getElementById("share-table");
+      const headline = document.getElementById("share-headline");
+      const viewBtns = document.querySelectorAll("[data-share-view]");
+      let shareView = "all";
+      function syncView() {
+        viewBtns.forEach((btn) => {
+          const on = btn.dataset.shareView === shareView;
+          btn.classList.toggle("active", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        document.querySelectorAll("#share-legend [data-share-cat]").forEach((s) => {
+          s.hidden = shareView === "bev";
+        });
+      }
+      viewBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          shareView = btn.dataset.shareView === "bev" ? "bev" : "all";
+          syncView();
+          if (rows.length) PYEVCharts.shareChart(el, rows, shareView === "bev" ? { only: ["BEV"] } : {});
+        });
+      });
       const hint = document.getElementById("variantHint");
       let allRows = [];
       let rows = [];
@@ -188,9 +214,17 @@
           if (!rows.length) {
             el.innerHTML = '<div class="status">' + PYEV.t(resolved.note || "variant_empty") + "</div>";
             if (table) table.innerHTML = "";
+            if (headline) headline.innerHTML = "";
             return;
           }
-          PYEVCharts.shareChart(el, rows);
+          const ytdYear = String(rows[rows.length - 1].period).slice(0, 4);
+          const ytdRows = rows.filter((r) => String(r.period).slice(0, 4) === ytdYear);
+          PYEVCharts.renderPowertrainHeadline(headline, PYEVCharts.sumPowertrains(ytdRows), {
+            periods: ytdRows.map((r) => r.period),
+            cond: PYEV.isNuevosOnly && PYEV.isNuevosOnly() ? "nuevo" : "all",
+          });
+          syncView();
+          PYEVCharts.shareChart(el, rows, shareView === "bev" ? { only: ["BEV"] } : {});
           PYEVCharts.renderShareTable(table, rows);
         } catch (e) {
           el.innerHTML = '<div class="status error">' + e.message + "</div>";

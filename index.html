@@ -98,7 +98,7 @@
     <p class="lead" data-i18n="home_lead">Seguimiento mensual de las importaciones de vehículos en Paraguay: eléctricos de batería (BEV), híbridos enchufables (PHEV) e híbridos (HEV), comparados con el total y los vehículos de combustión (ICE).</p>
     <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo 0 km</div>
 
-<div id="kpis" class="kpi-grid">
+<div id="kpis" class="pt-headline">
       <div class="status" data-i18n="loading">Cargando…</div>
     </div>
 
@@ -229,7 +229,13 @@
           const latest = rows[rows.length - 1];
           const ytd = ytdRow(rows);
           const windowRows = rolling12(rows);
-          PYEVCharts.renderKPIs(kpis, ytd);
+          // Headline: YTD of the latest data year, same cut as the 0 km toggle.
+          const ytdYear = String(latest.period).slice(0, 4);
+          const ytdRows = rows.filter((r) => String(r.period).slice(0, 4) === ytdYear);
+          PYEVCharts.renderPowertrainHeadline(kpis, PYEVCharts.sumPowertrains(ytdRows), {
+            periods: ytdRows.map((r) => r.period),
+            cond: PYEV.isNuevosOnly && PYEV.isNuevosOnly() ? "nuevo" : "all",
+          });
           PYEVCharts.shareChart(mini, windowRows, { home: true });
           if (foot) {
             const first = windowRows[0] || latest;

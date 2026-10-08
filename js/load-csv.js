@@ -311,9 +311,10 @@
 
   function colors() {
     if (isDark()) {
-      return { BEV: "#6fb585", PHEV: "#86acdd", HEV: "#d4b45a", OTHERS: "#b39ddb", ICE: "#9a978e", TOTAL: "#a9c4e8" };
+      return { BEV: "#2fc46a", PHEV: "#cfe874", HEV: "#f0953c", OTHERS: "#f7c77e", ICE: "#9a978e", TOTAL: "#a9c4e8" };
     }
-    return { BEV: "#2f6b45", PHEV: "#1d4f91", HEV: "#8a6a12", OTHERS: "#6b4f9a", ICE: "#6b6860", TOTAL: "#1d4f91" };
+    // Plug-ins green (BEV strong, PHEV light), HEV/mild amber, ICE grey. Mirrors css vars.
+    return { BEV: "#0f7a3a", PHEV: "#82b02a", HEV: "#c8650f", OTHERS: "#dd9a2b", ICE: "#6b6860", TOTAL: "#1d4f91" };
   }
 
   global.PYEV = Object.assign(global.PYEV || {}, {

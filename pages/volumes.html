@@ -86,18 +86,19 @@
       <span class="pill pill-hev">HEV</span>
       <span class="pill pill-ice">ICE</span>
     </div>
-    <h1 data-i18n="volumes_title">Volúmenes: total, electrificados e ICE</h1>
-    <p class="lead" data-i18n="volumes_lead">Unidades importadas por mes, con una vista ampliada de los vehículos electrificados y otra con el total del mercado.</p>
+    <h1 data-i18n="volumes_title">Volúmenes: enchufables, híbridos y combustión</h1>
+    <p class="lead" data-i18n="volumes_lead">Unidades importadas por mes: 100% eléctricos (BEV), híbridos enchufables (PHEV), híbridos no enchufables y combustión.</p>
     <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo 0 km</div>
+    <div id="volHeadline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
     <div class="vol-series-filter" id="volSeriesFilter" hidden>
       <span id="volSeriesFilterText"></span>
       <button type="button" class="vol-series-filter-clear" id="volSeriesFilterClear" data-i18n="vol_filter_clear">Quitar filtro</button>
     </div>
 
 
-<h2 data-i18n="electrified">Electrificados (sin ICE)</h2>
+<h2 data-i18n="electrified">Enchufables e híbridos (sin ICE)</h2>
     <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.92rem">
-      <span data-i18n="electrified_lead">BEV, PHEV, HEV y OTHERS, sin ICE, para comparar mejor las categorías electrificadas. Cada etiqueta muestra unidades y porcentaje del total.</span>
+      <span data-i18n="electrified_lead">BEV, PHEV, HEV y mild (OTHERS), sin ICE. Cada etiqueta muestra unidades y % del total; la línea punteada suma los enchufables (BEV + PHEV).</span>
     </p>
     <div class="legend-row">
       <span class="lg-bev">BEV</span>
@@ -107,7 +108,7 @@
     </div>
     <div class="elec-chart-toolbar">
       <div class="period-mode" role="group" aria-label="Vista de electrificados" data-i18n-attr="aria-label:elec_view_aria">
-        <button type="button" class="period-mode-btn active" data-elec-mode="all" aria-pressed="true" data-i18n="elec_view_all">Todos los electrificados</button>
+        <button type="button" class="period-mode-btn active" data-elec-mode="all" aria-pressed="true" data-i18n="elec_view_all">Todos sin ICE</button>
         <button type="button" class="period-mode-btn" data-elec-mode="hev" aria-pressed="false" data-i18n="elec_view_hev">Híbridos autorrecargables</button>
       </div>
       <p id="elecHevBanner" class="elec-chart-banner" hidden data-i18n="elec_view_hev_banner">Híbridos que se recargan solos, sin enchufe (HEV).</p>
@@ -292,11 +293,13 @@
       }
       function syncFilterNote(vf) {
         if (!filterBox) return;
-        const on = !!(vf && vf.active);
+        const on = !!(vf && (vf.active || vf.pts));
         filterBox.hidden = !on;
         if (on && filterText) {
-          const items = vf.models.length ? vf.models : vf.brands;
-          filterText.textContent = PYEV.t("vol_filter_on", { items: items.join(", ") });
+          const parts = [];
+          if (vf.active) parts.push((vf.models.length ? vf.models : vf.brands).join(", "));
+          if (vf.pts) parts.push(vf.pts.join(" + "));
+          filterText.textContent = PYEV.t("vol_filter_on", { items: parts.join(" · ") });
         }
       }
       async function draw() {
@@ -320,14 +323,16 @@
             if (table) table.innerHTML = "";
             return;
           }
-          PYEVCharts.volumesElectrifiedChart(elElec, rows, { mode: electrifiedMode });
+          // Powertrain chips in the rankings (e.g. BEV) limit these charts too.
+          const cats = vf && vf.pts ? vf.pts : null;
+          PYEVCharts.volumesElectrifiedChart(elElec, rows, { mode: electrifiedMode, cats });
           elecModeBtns.forEach((btn) => {
             const on = btn.dataset.elecMode === electrifiedMode;
             btn.classList.toggle("active", on);
             btn.setAttribute("aria-pressed", on ? "true" : "false");
           });
           if (elecHevBanner) elecHevBanner.hidden = electrifiedMode !== "hev";
-          PYEVCharts.volumesChart(el, rows);
+          PYEVCharts.volumesChart(el, rows, { cats });
           PYEVCharts.renderShareTable(table, rows);
         } catch (e) {
           el.innerHTML = '<div class="status error">' + e.message + "</div>";
