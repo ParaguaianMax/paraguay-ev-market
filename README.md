@@ -38,6 +38,17 @@ El sitio filtra por variante (selector en Inicio / Participación / Volúmenes).
 
 Fuente: https://datosabiertos.aduana.gov.py (CSV Nivel Item mensuales).
 
+## Resumen de Inicio (`data/summary.json`)
+
+La página de Inicio lee solo `data/summary.json` (un único fetch). Las demás páginas siguen leyendo los CSV.
+Después de cualquier cambio en `data/models/`, `data/Paraguay.csv` o `data/chargers-dc.csv`, regenerarlo y commitearlo:
+
+```bash
+python3 scripts/build-summary.py
+```
+
+Contiene, para 0 km y para nuevos y usados: acumulado del año (BEV, PHEV, HEV, mild, ICE), los mismos meses del año anterior, la serie mensual BEV/PHEV de los últimos 12 meses, el Top 5 BEV y el Top 5 híbridos no enchufables; además los conteos de cargadores y el último mes con datos. Si no hay cambios en los datos, el archivo no se modifica.
+
 ## Activar GitHub Pages
 
 1. Repo → **Settings** → **Pages**

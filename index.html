@@ -60,9 +60,7 @@
   <script src="js/i18n-variant.js" defer></script>
 <script src="js/load-csv.js" defer></script>
   <script src="js/charts.js" defer></script>
-  <script src="js/models.js" defer></script>
   <script src="js/nuevos.js" defer></script>
-  <script src="js/chargers.js" defer></script>
 </head>
 <body>
   <header class="site">
@@ -103,22 +101,33 @@
 <div id="kpis" class="pt-headline">
       <div class="status" data-i18n="loading">Cargando…</div>
     </div>
+    <div class="home-meta" id="home-meta"></div>
 
-    <section class="home-yty" aria-labelledby="home-yty-title">
-      <div class="page-eyebrow">
-        <span class="badge" data-i18n="home_yty_badge">Últimos 12 meses</span>
-      </div>
-      <h2 id="home-yty-title" data-i18n="home_yty_title">Participación mensual, últimos 12 meses</h2>
-      <p class="lead" data-i18n="home_yty_lead">Participación de cada motorización en el total, mes a mes. Eje izquierdo: BEV, PHEV, HEV y mild; eje derecho: ICE.</p>
+    <section class="home-bp" aria-labelledby="home-bp-title">
+      <h2 id="home-bp-title" data-i18n="home_bp_title">Participación BEV y PHEV, últimos 12 meses</h2>
+      <p class="lead" data-i18n="home_bp_lead">Porcentaje de las unidades de cada mes.</p>
       <div class="legend-row">
         <span class="lg-bev">BEV</span>
         <span class="lg-phev">PHEV</span>
-        <span class="lg-hev">HEV</span>
-        <span class="lg-others" data-i18n="others_mild">OTHERS (mild)</span>
-        <span class="lg-ice">ICE</span>
       </div>
-      <div id="mini-share" class="chart-panel chart-bare chart-yty"></div>
-      <p class="chart-foot" id="chart-foot"></p>
+      <div id="home-bp-chart" class="chart-panel chart-bare chart-yty"></div>
+      <p class="chart-foot" id="home-bp-note"></p>
+      <p class="home-link"><a href="pages/share.html" data-i18n="home_share_link">Ver participación completa →</a></p>
+    </section>
+
+    <section class="home-tops" aria-label="Modelos más importados" data-i18n-attr="aria-label:home_top_aria">
+      <div class="home-top">
+        <h2 data-i18n="home_top_bev">Top 5 BEV</h2>
+        <p class="pt-cut" data-home-top-cut></p>
+        <ol class="top-bars bev" id="home-top-bev"></ol>
+        <p class="home-link"><a href="pages/volumes.html" data-rank-link="bev" data-i18n="home_top_link">Ver ranking completo →</a></p>
+      </div>
+      <div class="home-top">
+        <h2 data-i18n="home_top_nonplug">Top 5 híbridos no enchufables</h2>
+        <p class="pt-cut" data-home-top-cut></p>
+        <ol class="top-bars nonplug" id="home-top-nonplug"></ol>
+        <p class="home-link"><a href="pages/volumes.html" data-rank-link="hev" data-i18n="home_top_link">Ver ranking completo →</a></p>
+      </div>
     </section>
 
     <h2 data-i18n="explore">Explorar</h2>
@@ -149,131 +158,95 @@
   </footer>
 
   <script>
+    // Inicio reads only data/summary.json (built by scripts/build-summary.py).
     document.addEventListener("DOMContentLoaded", async () => {
       const kpis = document.getElementById("kpis");
-      const mini = document.getElementById("mini-share");
-      const foot = document.getElementById("chart-foot");
-      const hint = document.getElementById("variantHint");
-      let allRows = [];
-      function rolling12(rows) {
-        const latest = rows[rows.length - 1];
-        const parts = String(latest.period).split("-");
-        const y = Number(parts[0]);
-        const m = Number(parts[1]);
-        if (!y || !m) return rows.slice(-12);
-        const idx = y * 12 + (m - 1) - 11;
-        const sy = Math.floor(idx / 12);
-        const sm = (idx % 12) + 1;
-        const start = sy + "-" + String(sm).padStart(2, "0");
-        const end = String(latest.period).slice(0, 7);
-        return rows.filter((r) => {
-          const p = String(r.period).slice(0, 7);
-          return p >= start && p <= end;
-        });
-      }
-      function ytdRow(rows) {
-        const latest = rows[rows.length - 1];
-        const year = String(latest.period).slice(0, 4);
-        const ytd = rows.filter((r) => String(r.period).slice(0, 4) === year);
-        const totals = ["BEV", "PHEV", "HEV", "ICE", "OTHERS", "TOTAL"].reduce((out, key) => {
-          out[key] = ytd.reduce((sum, r) => sum + (Number(r[key]) || 0), 0);
-          return out;
-        }, {});
-        const row = Object.assign({}, latest, totals, { period: year + "-YTD" });
-        row.electrified = row.BEV + row.PHEV + row.HEV + row.OTHERS;
-        row.electrified_pct = row.TOTAL ? (100 * row.electrified) / row.TOTAL : 0;
-        const pct = (n) => row.TOTAL ? (100 * n) / row.TOTAL : 0;
-        row.share = {
-          BEV: pct(row.BEV), PHEV: pct(row.PHEV), HEV: pct(row.HEV),
-          OTHERS: pct(row.OTHERS), ICE: pct(row.ICE),
-        };
-        return row;
-      }
-      function updateHint() {
-        if (!hint) return;
-        const v = PYEV.getVariant(allRows);
-        const s = PYEV.getSegment(allRows);
-        const parts = [];
-        const vWrap = document.querySelector(".variant-switcher");
-        const sWrap = document.querySelector(".segment-switcher");
-        if (vWrap && !vWrap.hidden) {
-          parts.push(v === "LightVehicles" ? PYEV.t("variant_light_hint") : PYEV.t("variant_whole_hint"));
-        }
-        if (sWrap && !sWrap.hidden) {
-          parts.push(
-            s === "recreativo" ? PYEV.t("segment_recreativo_hint")
-            : s === "pesado" ? PYEV.t("segment_pesado_hint")
-            : PYEV.t("segment_leve_hint")
-          );
-        }
-        hint.textContent = parts.join(" · ");
-      }
-      async function draw() {
-        try {
-          if (!allRows.length) allRows = await PYEV.loadParaguay();
-          if (!allRows.length) throw new Error("CSV vacío");
-          updateHint();
-          const resolved = await PYEV.resolveVehicleRows(allRows);
-          const rows = resolved.rows || [];
-          if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
-          if (!rows.length) {
-            const msg = PYEV.t(resolved.note || "variant_empty");
-            kpis.innerHTML = '<div class="status">' + msg + "</div>";
-            mini.innerHTML = "";
-            if (foot) foot.textContent = "";
-            return;
-          }
-          const latest = rows[rows.length - 1];
-          const ytd = ytdRow(rows);
-          const windowRows = rolling12(rows);
-          // Headline: YTD of the latest data year, same cut as the 0 km toggle.
-          const ytdYear = String(latest.period).slice(0, 4);
-          const ytdRows = rows.filter((r) => String(r.period).slice(0, 4) === ytdYear);
-          PYEVCharts.renderPowertrainHeadline(kpis, PYEVCharts.sumPowertrains(ytdRows), {
-            periods: ytdRows.map((r) => r.period),
-            cond: PYEV.isNuevosOnly && PYEV.isNuevosOnly() ? "nuevo" : "all",
-          });
-          PYEVCharts.shareChart(mini, windowRows, { home: true });
-          if (foot) {
-            const first = windowRows[0] || latest;
-            const year = String(ytd.period).slice(0, 4);
-            foot.innerHTML =
-              "<b>" + PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(latest.period) + "</b>" +
-              " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows));
-          }
-        } catch (e) {
-          kpis.innerHTML = '<div class="status error">' + e.message + "</div>";
-          mini.innerHTML = "";
-          if (foot) foot.textContent = "";
-        }
-      }
-      // Charger card: counts come from data/chargers-dc.csv (same definitions as Cargadores).
+      const meta = document.getElementById("home-meta");
+      const chart = document.getElementById("home-bp-chart");
+      const note = document.getElementById("home-bp-note");
+      const topBev = document.getElementById("home-top-bev");
+      const topNon = document.getElementById("home-top-nonplug");
       const chargerDesc = document.getElementById("card-chargers-desc");
-      let chargerCounts = null;
-      function paintChargerCard() {
-        if (!chargerDesc || !chargerCounts) return;
-        chargerDesc.textContent = PYEV.t("card_chargers_counts", chargerCounts);
+      let S = null;
+      const esc = (v) => String(v == null ? "" : v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const pct = (n, d) => (d ? PYEV.fmtPct((100 * n) / d) : "—");
+
+      function condKey() {
+        return PYEV.isNuevosOnly && PYEV.isNuevosOnly() ? "nuevo" : "all";
       }
-      if (window.PYEVChargers && PYEVChargers.loadChargers) {
-        PYEVChargers.loadChargers()
-          .then((list) => { chargerCounts = PYEVChargers.chargerCounts(list); paintChargerCard(); })
-          .catch(() => {});
+
+      function topList(el, items) {
+        if (!el) return;
+        const max = items.reduce((m, it) => Math.max(m, it.units), 0) || 1;
+        el.innerHTML = items.map((it) =>
+          '<li><div class="top-name"><span>' + esc(it.label) + "</span>" +
+          (it.powertrain === "OTHERS" ? ' <span class="pill pill-others">mild</span>' : "") +
+          '<b>' + PYEV.fmtInt(it.units) + "</b></div>" +
+          '<div class="top-track"><div class="top-fill" style="width:' + ((100 * it.units) / max).toFixed(1) + '%"></div></div></li>'
+        ).join("");
       }
-      window.addEventListener("pyev-lang", paintChargerCard);
-      await draw();
+
+      function draw() {
+        if (!S) return;
+        const cond = condKey();
+        const d = S.conditions[cond];
+        if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
+        PYEVCharts.renderPowertrainHeadline(kpis, d.ytd, {
+          periods: d.ytd.months,
+          cond: cond,
+          prev: { sums: d.prev, periods: d.prev.months },
+          sentence: true,
+        });
+        const c = S.chargers;
+        meta.innerHTML =
+          "<span>" + PYEV.t("home_cutoff", { period: PYEV.periodLabel(S.cutoff) }) + "</span>" +
+          '<span class="home-meta-chargers"><b>⚡ ' + PYEV.t("home_chargers_stat", { plugs: c.plugs, sites: c.sites }) + "</b>" +
+          ' · <a href="pages/chargers.html">' + PYEV.t("home_chargers_link") + "</a></span>";
+        PYEVCharts.bevPhevChart(chart, d.monthly);
+        const w = d.last12, p = d.prev12;
+        note.innerHTML = PYEV.t("home_bp_note", {
+          period: "<b>" + PYEVCharts.monthsLabel(w.months) + "</b>",
+          bev: "<b>" + pct(w.BEV, w.TOTAL) + "</b>",
+          phev: "<b>" + pct(w.PHEV, w.TOTAL) + "</b>",
+          pbev: pct(p.BEV, p.TOTAL),
+          pphev: pct(p.PHEV, p.TOTAL),
+          prevPeriod: PYEVCharts.monthsLabel(p.months),
+        });
+        const cut = PYEVCharts.cutLabel(d.ytd.months, cond);
+        document.querySelectorAll("[data-home-top-cut]").forEach((el) => { el.textContent = cut; });
+        topList(topBev, d.top.BEV);
+        topList(topNon, d.top.NONPLUG);
+        if (chargerDesc) chargerDesc.textContent = PYEV.t("card_chargers_counts", c);
+      }
+
+      // "Ver ranking completo" opens Volúmenes on the same cut (year to date, chip).
+      document.querySelectorAll("[data-rank-link]").forEach((a) => {
+        a.addEventListener("click", () => {
+          if (!S) return;
+          try {
+            localStorage.setItem("pyev-vol-period-mode", "ytd");
+            localStorage.setItem("pyev-vol-period-year", String(S.cutoff).slice(0, 4));
+            localStorage.setItem("pyev-vol-pt-mode", a.dataset.rankLink);
+          } catch (e) {}
+        });
+      });
+
+      try {
+        const res = await fetch("data/summary.json", { cache: "no-cache" });
+        if (!res.ok) throw new Error(res.status);
+        S = await res.json();
+        draw();
+      } catch (e) {
+        kpis.innerHTML = '<div class="status error">' + PYEV.t("home_error") + "</div>";
+      }
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-nuevos", draw);
-      let ytyNarrow = window.innerWidth < 640;
+      let narrow = window.innerWidth < 640;
       window.addEventListener("resize", () => {
         const n = window.innerWidth < 640;
-        if (n !== ytyNarrow) {
-          ytyNarrow = n;
-          if (mini && mini._pyevRows) PYEVCharts.shareChart(mini, mini._pyevRows, { home: true });
-        }
+        if (n !== narrow) { narrow = n; if (S) PYEVCharts.bevPhevChart(chart, S.conditions[condKey()].monthly); }
       });
-      window.addEventListener("pyev-theme", () => {
-        if (mini && mini.data) PYEVCharts.restyleTheme(mini);
-      });
+      window.addEventListener("pyev-theme", () => { if (chart && chart._pyevRows) PYEVCharts.restyleTheme(chart); });
     });
   </script>
 </body>

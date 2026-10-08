@@ -1,0 +1,480 @@
+{
+ "generated": "2026-10-08T16:35:34-03:00",
+ "cutoff": "2026-09",
+ "conditions": {
+  "nuevo": {
+   "ytd": {
+    "BEV": 1297,
+    "PHEV": 2576,
+    "HEV": 3769,
+    "OTHERS": 51,
+    "ICE": 32724,
+    "TOTAL": 40417,
+    "months": [
+     "2026-01",
+     "2026-02",
+     "2026-03",
+     "2026-04",
+     "2026-05",
+     "2026-06",
+     "2026-07",
+     "2026-08",
+     "2026-09"
+    ]
+   },
+   "prev": {
+    "BEV": 525,
+    "PHEV": 735,
+    "HEV": 1376,
+    "OTHERS": 38,
+    "ICE": 25521,
+    "TOTAL": 28195,
+    "months": [
+     "2025-01",
+     "2025-02",
+     "2025-03",
+     "2025-04",
+     "2025-05",
+     "2025-06",
+     "2025-07",
+     "2025-08",
+     "2025-09"
+    ]
+   },
+   "last12": {
+    "BEV": 1564,
+    "PHEV": 3028,
+    "HEV": 4485,
+    "OTHERS": 51,
+    "ICE": 43167,
+    "TOTAL": 52295,
+    "months": [
+     "2025-10",
+     "2025-11",
+     "2025-12",
+     "2026-01",
+     "2026-02",
+     "2026-03",
+     "2026-04",
+     "2026-05",
+     "2026-06",
+     "2026-07",
+     "2026-08",
+     "2026-09"
+    ]
+   },
+   "prev12": {
+    "BEV": 816,
+    "PHEV": 940,
+    "HEV": 1952,
+    "OTHERS": 62,
+    "ICE": 36031,
+    "TOTAL": 39801,
+    "months": [
+     "2024-10",
+     "2024-11",
+     "2024-12",
+     "2025-01",
+     "2025-02",
+     "2025-03",
+     "2025-04",
+     "2025-05",
+     "2025-06",
+     "2025-07",
+     "2025-08",
+     "2025-09"
+    ]
+   },
+   "monthly": [
+    {
+     "period": "2025-10",
+     "BEV": 109,
+     "PHEV": 171,
+     "TOTAL": 4437
+    },
+    {
+     "period": "2025-11",
+     "BEV": 65,
+     "PHEV": 112,
+     "TOTAL": 3765
+    },
+    {
+     "period": "2025-12",
+     "BEV": 93,
+     "PHEV": 169,
+     "TOTAL": 3676
+    },
+    {
+     "period": "2026-01",
+     "BEV": 42,
+     "PHEV": 205,
+     "TOTAL": 3024
+    },
+    {
+     "period": "2026-02",
+     "BEV": 112,
+     "PHEV": 130,
+     "TOTAL": 3643
+    },
+    {
+     "period": "2026-03",
+     "BEV": 165,
+     "PHEV": 294,
+     "TOTAL": 4238
+    },
+    {
+     "period": "2026-04",
+     "BEV": 84,
+     "PHEV": 282,
+     "TOTAL": 4739
+    },
+    {
+     "period": "2026-05",
+     "BEV": 148,
+     "PHEV": 187,
+     "TOTAL": 4213
+    },
+    {
+     "period": "2026-06",
+     "BEV": 110,
+     "PHEV": 90,
+     "TOTAL": 4451
+    },
+    {
+     "period": "2026-07",
+     "BEV": 193,
+     "PHEV": 245,
+     "TOTAL": 5344
+    },
+    {
+     "period": "2026-08",
+     "BEV": 148,
+     "PHEV": 659,
+     "TOTAL": 5183
+    },
+    {
+     "period": "2026-09",
+     "BEV": 295,
+     "PHEV": 484,
+     "TOTAL": 5582
+    }
+   ],
+   "top": {
+    "BEV": [
+     {
+      "marca": "VOLVO",
+      "modelo": "EX30",
+      "powertrain": "BEV",
+      "label": "VOLVO EX30",
+      "units": 156
+     },
+     {
+      "marca": "CHEVROLET",
+      "modelo": "SPARK EUV",
+      "powertrain": "BEV",
+      "label": "CHEVROLET SPARK EUV",
+      "units": 152
+     },
+     {
+      "marca": "ICAUR",
+      "modelo": "V23",
+      "powertrain": "BEV",
+      "label": "ICAUR V23",
+      "units": 141
+     },
+     {
+      "marca": "CHEVROLET",
+      "modelo": "CAPTIVA EV",
+      "powertrain": "BEV",
+      "label": "CHEVROLET CAPTIVA EV",
+      "units": 96
+     },
+     {
+      "marca": "JMEV",
+      "modelo": "EV3",
+      "powertrain": "BEV",
+      "label": "JMEV EV3",
+      "units": 53
+     }
+    ],
+    "NONPLUG": [
+     {
+      "marca": "TOYOTA",
+      "modelo": "COROLLA CROSS",
+      "powertrain": "HEV",
+      "label": "TOYOTA COROLLA CROSS",
+      "units": 761
+     },
+     {
+      "marca": "KIA",
+      "modelo": "SPORTAGE",
+      "powertrain": "HEV",
+      "label": "KIA SPORTAGE",
+      "units": 569
+     },
+     {
+      "marca": "HYUNDAI",
+      "modelo": "ALL NEW TUCSON",
+      "powertrain": "HEV",
+      "label": "HYUNDAI ALL NEW TUCSON",
+      "units": 250
+     },
+     {
+      "marca": "GREATWALL",
+      "modelo": "JOLION PRO",
+      "powertrain": "HEV",
+      "label": "GREATWALL JOLION PRO",
+      "units": 235
+     },
+     {
+      "marca": "TOYOTA",
+      "modelo": "RAV4",
+      "powertrain": "HEV",
+      "label": "TOYOTA RAV4",
+      "units": 196
+     }
+    ]
+   }
+  },
+  "all": {
+   "ytd": {
+    "BEV": 1314,
+    "PHEV": 2581,
+    "HEV": 4076,
+    "OTHERS": 51,
+    "ICE": 79559,
+    "TOTAL": 87581,
+    "months": [
+     "2026-01",
+     "2026-02",
+     "2026-03",
+     "2026-04",
+     "2026-05",
+     "2026-06",
+     "2026-07",
+     "2026-08",
+     "2026-09"
+    ]
+   },
+   "prev": {
+    "BEV": 530,
+    "PHEV": 741,
+    "HEV": 1459,
+    "OTHERS": 38,
+    "ICE": 65014,
+    "TOTAL": 67782,
+    "months": [
+     "2025-01",
+     "2025-02",
+     "2025-03",
+     "2025-04",
+     "2025-05",
+     "2025-06",
+     "2025-07",
+     "2025-08",
+     "2025-09"
+    ]
+   },
+   "last12": {
+    "BEV": 1586,
+    "PHEV": 3038,
+    "HEV": 4864,
+    "OTHERS": 52,
+    "ICE": 107529,
+    "TOTAL": 117069,
+    "months": [
+     "2025-10",
+     "2025-11",
+     "2025-12",
+     "2026-01",
+     "2026-02",
+     "2026-03",
+     "2026-04",
+     "2026-05",
+     "2026-06",
+     "2026-07",
+     "2026-08",
+     "2026-09"
+    ]
+   },
+   "prev12": {
+    "BEV": 826,
+    "PHEV": 948,
+    "HEV": 2047,
+    "OTHERS": 62,
+    "ICE": 87673,
+    "TOTAL": 91556,
+    "months": [
+     "2024-10",
+     "2024-11",
+     "2024-12",
+     "2025-01",
+     "2025-02",
+     "2025-03",
+     "2025-04",
+     "2025-05",
+     "2025-06",
+     "2025-07",
+     "2025-08",
+     "2025-09"
+    ]
+   },
+   "monthly": [
+    {
+     "period": "2025-10",
+     "BEV": 111,
+     "PHEV": 172,
+     "TOTAL": 11197
+    },
+    {
+     "period": "2025-11",
+     "BEV": 67,
+     "PHEV": 115,
+     "TOTAL": 9016
+    },
+    {
+     "period": "2025-12",
+     "BEV": 94,
+     "PHEV": 170,
+     "TOTAL": 9275
+    },
+    {
+     "period": "2026-01",
+     "BEV": 42,
+     "PHEV": 205,
+     "TOTAL": 7716
+    },
+    {
+     "period": "2026-02",
+     "BEV": 112,
+     "PHEV": 131,
+     "TOTAL": 8358
+    },
+    {
+     "period": "2026-03",
+     "BEV": 165,
+     "PHEV": 295,
+     "TOTAL": 10502
+    },
+    {
+     "period": "2026-04",
+     "BEV": 84,
+     "PHEV": 283,
+     "TOTAL": 10264
+    },
+    {
+     "period": "2026-05",
+     "BEV": 153,
+     "PHEV": 187,
+     "TOTAL": 10112
+    },
+    {
+     "period": "2026-06",
+     "BEV": 110,
+     "PHEV": 91,
+     "TOTAL": 9997
+    },
+    {
+     "period": "2026-07",
+     "BEV": 193,
+     "PHEV": 245,
+     "TOTAL": 11186
+    },
+    {
+     "period": "2026-08",
+     "BEV": 156,
+     "PHEV": 659,
+     "TOTAL": 8639
+    },
+    {
+     "period": "2026-09",
+     "BEV": 299,
+     "PHEV": 485,
+     "TOTAL": 10807
+    }
+   ],
+   "top": {
+    "BEV": [
+     {
+      "marca": "VOLVO",
+      "modelo": "EX30",
+      "powertrain": "BEV",
+      "label": "VOLVO EX30",
+      "units": 156
+     },
+     {
+      "marca": "CHEVROLET",
+      "modelo": "SPARK EUV",
+      "powertrain": "BEV",
+      "label": "CHEVROLET SPARK EUV",
+      "units": 152
+     },
+     {
+      "marca": "ICAUR",
+      "modelo": "V23",
+      "powertrain": "BEV",
+      "label": "ICAUR V23",
+      "units": 141
+     },
+     {
+      "marca": "CHEVROLET",
+      "modelo": "CAPTIVA EV",
+      "powertrain": "BEV",
+      "label": "CHEVROLET CAPTIVA EV",
+      "units": 96
+     },
+     {
+      "marca": "JMEV",
+      "modelo": "EV3",
+      "powertrain": "BEV",
+      "label": "JMEV EV3",
+      "units": 53
+     }
+    ],
+    "NONPLUG": [
+     {
+      "marca": "TOYOTA",
+      "modelo": "COROLLA CROSS",
+      "powertrain": "HEV",
+      "label": "TOYOTA COROLLA CROSS",
+      "units": 761
+     },
+     {
+      "marca": "KIA",
+      "modelo": "SPORTAGE",
+      "powertrain": "HEV",
+      "label": "KIA SPORTAGE",
+      "units": 569
+     },
+     {
+      "marca": "HYUNDAI",
+      "modelo": "ALL NEW TUCSON",
+      "powertrain": "HEV",
+      "label": "HYUNDAI ALL NEW TUCSON",
+      "units": 250
+     },
+     {
+      "marca": "GREATWALL",
+      "modelo": "JOLION PRO",
+      "powertrain": "HEV",
+      "label": "GREATWALL JOLION PRO",
+      "units": 235
+     },
+     {
+      "marca": "TOYOTA",
+      "modelo": "RAV4",
+      "powertrain": "HEV",
+      "label": "TOYOTA RAV4",
+      "units": 197
+     }
+    ]
+   }
+  }
+ },
+ "chargers": {
+  "sites": 73,
+  "plugs": 143,
+  "pubSites": 68,
+  "pubPlugs": 135
+ }
+}

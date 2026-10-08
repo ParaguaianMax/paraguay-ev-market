@@ -404,19 +404,23 @@
     return out;
   }
 
+  /** "ene–sep 2026" (or "sep 2026", "oct 2025 – sep 2026") for a list of YYYY-MM. */
+  function monthsLabel(periods) {
+    const ps = [...new Set((periods || []).filter(Boolean))].sort();
+    if (!ps.length) return "";
+    const first = ps[0];
+    const last = ps[ps.length - 1];
+    if (first === last) return global.PYEV.periodLabel(first);
+    if (first.slice(0, 4) === last.slice(0, 4)) {
+      return global.PYEV.periodLabel(first).replace(/\s+\d{4}$/, "") + "–" + global.PYEV.periodLabel(last);
+    }
+    return global.PYEV.periodLabel(first) + " – " + global.PYEV.periodLabel(last);
+  }
+
   /** "0 km · ene–sep 2026" from the condition and the months covered. */
   function cutLabel(periods, cond) {
     const t = global.PYEV.t;
-    const ps = [...new Set((periods || []).filter(Boolean))].sort();
-    let months = "";
-    if (ps.length) {
-      const first = ps[0];
-      const last = ps[ps.length - 1];
-      if (first === last) months = global.PYEV.periodLabel(first);
-      else if (first.slice(0, 4) === last.slice(0, 4)) {
-        months = global.PYEV.periodLabel(first).replace(/\s+\d{4}$/, "") + "–" + global.PYEV.periodLabel(last);
-      } else months = global.PYEV.periodLabel(first) + " – " + global.PYEV.periodLabel(last);
-    }
+    const months = monthsLabel(periods);
     const c = cond === "nuevo" ? t("hl_cut_new") : cond === "usado" ? t("hl_cut_used") : t("hl_cut_all");
     return months ? c + " · " + months : c;
   }
@@ -425,6 +429,9 @@
    * Headline by powertrain group: BEV (emphasised) | PHEV under a plug-in
    * subtotal, then non-plug-in hybrids (HEV + mild/OTHERS) and combustion.
    * sums: { BEV, PHEV, HEV, OTHERS, ICE, TOTAL }; opts: { periods, cond }.
+   * opts.prev = { sums, periods } adds a delta line per card (share change in
+   * pp and unit change) against that window; opts.sentence adds one line
+   * derived from the plug-in numbers.
    */
   function renderPowertrainHeadline(container, sums, opts) {
     if (!container) return;
@@ -441,31 +448,119 @@
     const units = (n) => P.fmtInt(n) + " " + t("units");
     const plug = (s.BEV || 0) + (s.PHEV || 0);
     const nonPlug = (s.HEV || 0) + (s.OTHERS || 0);
-    const card = (cls, label, n, sub) =>
+    const prev = opts.prev && opts.prev.sums && opts.prev.sums.TOTAL ? opts.prev : null;
+    const ps = prev ? prev.sums : null;
+    const prevLabel = prev ? monthsLabel(prev.periods) : "";
+    const unitChange = (cur, old) => {
+      if (!old) return "";
+      const r = cur / old;
+      if (r >= 2) return "×" + r.toFixed(1);
+      const c = Math.round((r - 1) * 100);
+      return (c > 0 ? "+" : c < 0 ? "−" : "±") + Math.abs(c) + "%";
+    };
+    const ppChange = (cur, old) => {
+      // Difference of the shares as displayed (one decimal), so the numbers add up.
+      const r1 = (v) => Math.round(v * 10) / 10;
+      const d = r1(total ? (100 * cur) / total : 0) - r1(ps.TOTAL ? (100 * old) / ps.TOTAL : 0);
+      const arrow = d >= 0.05 ? "▲" : d <= -0.05 ? "▼" : "=";
+      return arrow + " " + Math.abs(d).toFixed(1) + " pp";
+    };
+    const delta = (cur, old) => {
+      if (!ps) return "";
+      const u = unitChange(cur, old);
+      return '<div class="pt-delta" title="' + t("hl_delta_title") + '">' + ppChange(cur, old) +
+        (u ? " · " + u : "") + " " + t("hl_vs") + " " + prevLabel + "</div>";
+    };
+    const card = (cls, label, n, sub, old) =>
       '<div class="pt-card ' + cls + '"><div class="label">' + label + '</div><div class="value">' + pct(n) +
-      '</div><div class="sub">' + (sub || units(n)) + "</div></div>";
+      '</div><div class="sub">' + (sub || units(n)) + "</div>" + (ps ? delta(n, old) : "") + "</div>";
+    const prevPlug = ps ? (ps.BEV || 0) + (ps.PHEV || 0) : 0;
+    const sentence = opts.sentence && ps
+      ? '<p class="pt-sentence">' + t("hl_sentence", {
+          pct: "<b>" + pct(plug) + "</b>",
+          scope: t(opts.cond === "nuevo" ? "hl_scope_new" : "hl_scope_all"),
+          period: monthsLabel(opts.periods),
+          prev: P.fmtPct((100 * prevPlug) / ps.TOTAL),
+          prevPeriod: prevLabel,
+        }) + "</p>"
+      : "";
     container.innerHTML =
-      '<div class="pt-cut">' + cutLabel(opts.periods, opts.cond) + " · <b>" + units(total) + "</b></div>" +
+      sentence +
+      '<div class="pt-cut">' + cutLabel(opts.periods, opts.cond) + " · <b>" + units(total) + "</b>" +
+      (ps ? ' <span class="pt-cut-delta">(' + unitChange(total, ps.TOTAL) + " " + t("hl_vs") + " " + prevLabel + ")</span>" : "") +
+      "</div>" +
       '<div class="pt-grid" role="group" aria-label="' + t("hl_aria") + '">' +
       '<div class="pt-group"><div class="pt-group-head"><span>' + t("hl_plug") + "</span><span>" +
-      P.fmtInt(plug) + " · " + pct(plug) + "</span></div>" +
+      P.fmtInt(plug) + " · " + pct(plug) + (ps ? ' · <span class="pt-head-delta">' + ppChange(plug, prevPlug) + "</span>" : "") + "</span></div>" +
       '<div class="pt-group-cards">' +
-      card("bev", t("hl_bev"), s.BEV || 0) +
-      card("phev", t("hl_phev"), s.PHEV || 0) +
+      card("bev", t("hl_bev"), s.BEV || 0, null, ps && ps.BEV) +
+      card("phev", t("hl_phev"), s.PHEV || 0, null, ps && ps.PHEV) +
       "</div></div>" +
       card(
         "nonplug",
         t("hl_nonplug"),
         nonPlug,
-        units(nonPlug) + '<span class="pt-split">HEV ' + P.fmtInt(s.HEV || 0) + " · mild " + P.fmtInt(s.OTHERS || 0) + "</span>"
+        units(nonPlug) + '<span class="pt-split">HEV ' + P.fmtInt(s.HEV || 0) + " · mild " + P.fmtInt(s.OTHERS || 0) + "</span>",
+        ps && (ps.HEV || 0) + (ps.OTHERS || 0)
       ) +
-      card("ice", t("hl_ice"), s.ICE || 0) +
+      card("ice", t("hl_ice"), s.ICE || 0, null, ps && ps.ICE) +
       "</div>";
+  }
+
+  /** Inicio: monthly BEV and PHEV share (% of each month's units), one axis. */
+  function bevPhevChart(el, monthly) {
+    if (!el || !monthly || !monthly.length) return;
+    const col = C();
+    const dark = isDark();
+    const narrow = typeof window !== "undefined" && window.innerWidth < 640;
+    const markerBorder = dark ? "#141413" : "#fdfdfc";
+    const x = monthly.map((m) => m.period);
+    const traces = ["BEV", "PHEV"].map((k) => ({
+      type: "scatter",
+      mode: "lines+markers",
+      name: k,
+      x: x,
+      y: monthly.map((m) => (m.TOTAL ? +((100 * m[k]) / m.TOTAL).toFixed(2) : 0)),
+      customdata: monthly.map((m) => m[k]),
+      line: { color: col[k], width: narrow ? 2 : 2.5 },
+      marker: { color: col[k], size: narrow ? 6 : 7, line: { width: 1, color: markerBorder } },
+      hovertemplate: "<b>" + k + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
+    }));
+    const maxY = traces.reduce((m, tr) => Math.max(m, ...tr.y), 0);
+    const base = plotlyLayout();
+    Plotly.newPlot(
+      el,
+      traces,
+      plotlyLayout({
+        showlegend: false,
+        height: narrow ? 280 : 340,
+        yaxis: Object.assign({}, base.yaxis, {
+          title: { text: global.PYEV.t("share_axis"), font: base.yaxis.title.font, standoff: 6 },
+          ticksuffix: "%",
+          rangemode: "tozero",
+          range: [0, Math.max(4, Math.ceil(maxY * 1.2))],
+          automargin: true,
+        }),
+        xaxis: Object.assign({}, base.xaxis, {
+          type: "date",
+          tickformat: narrow ? "%b %y" : "%b %Y",
+          hoverformat: "%b %Y",
+          nticks: narrow ? 5 : 7,
+          tickangle: 0,
+          automargin: true,
+        }),
+        margin: { t: 12, r: 12, b: 8, l: 8 },
+      }),
+      { responsive: true, displayModeBar: false }
+    );
+    el._pyevKind = "bevPhev";
+    el._pyevRows = monthly;
   }
 
   function restyleTheme(el) {
     if (!el || !el._pyevRows) return;
     if (el._pyevKind === "volumes") volumesChart(el, el._pyevRows, el._pyevOpts);
+    else if (el._pyevKind === "bevPhev") bevPhevChart(el, el._pyevRows);
     else if (el._pyevKind === "volumesElec") volumesElectrifiedChart(el, el._pyevRows, Object.assign({}, el._pyevOpts, { mode: el._pyevElecMode }));
     else shareChart(el, el._pyevRows, el._pyevOpts);
   }
@@ -479,6 +574,8 @@
     renderPowertrainHeadline,
     sumPowertrains,
     cutLabel,
+    monthsLabel,
+    bevPhevChart,
     plotlyLayout,
     restyleTheme,
   };
