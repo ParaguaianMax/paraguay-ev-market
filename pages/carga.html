@@ -105,10 +105,21 @@
     </section>
 
     <section id="redes" class="section-anchor">
-      <h2 data-i18n="carga_networks_title">Conectores por red</h2>
+      <h2 data-i18n="carga_sites_title">Ubicaciones de carga por red</h2>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_sites_lead">Cuántas ubicaciones con carga rápida (DC) tiene cada red.</p>
+      <div id="chart-network-sites" class="chart-panel chart-bare chart-network-hbars"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="chart-foot" id="network-sites-foot"></p>
+
+      <h2 id="conectores" data-i18n="carga_networks_title">Conectores por red</h2>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="network_bar_lead">Conectores CCS, CHAdeMO y GB/T apilados por red.</p>
       <div id="chart-network-bars" class="chart-panel chart-bare chart-network-hbars"><div class="status" data-i18n="loading">Cargando…</div></div>
       <p class="chart-foot" id="network-bar-foot"></p>
+    </section>
+
+    <section id="desglose" class="section-anchor">
+      <h2 data-i18n="breakdown">Desglose</h2>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_breakdown_lead">Ubicaciones por rango de potencia, por estado y por red, sobre todo el inventario.</p>
+      <div id="breakdown"></div>
     </section>
 
     <section id="historico" class="section-anchor">
@@ -144,6 +155,9 @@
       const foot = document.getElementById("map-foot");
       const networkBarsEl = document.getElementById("chart-network-bars");
       const networkBarFoot = document.getElementById("network-bar-foot");
+      const networkSitesEl = document.getElementById("chart-network-sites");
+      const networkSitesFoot = document.getElementById("network-sites-foot");
+      const breakdownEl = document.getElementById("breakdown");
       const fAccess = document.getElementById("f-access");
       const fBand = document.getElementById("f-band");
       const fQ = document.getElementById("f-q");
@@ -206,8 +220,13 @@
         const filterText = filterParts.length ? filterParts.join(" · ") : PYEV.t("map_no_filter");
         const allN = PYEVChargers.chargerCounts(all);
         const shownN = PYEVChargers.chargerCounts(mapRows);
+        PYEVChargers.renderNetworkSites(networkSitesEl, mapRows);
         PYEVChargers.renderNetworkBars(networkBarsEl, mapRows);
-        const cc = PYEVChargers.countConnectors(mapRows);
+        if (networkSitesFoot) {
+          networkSitesFoot.innerHTML = PYEV.t("carga_sites_foot", { sites: "<b>" + shownN.sites + "</b>", nets: shownN.networks.length }) +
+            " · " + esc(filterText);
+        }
+        const cc = shownN.types;
         networkBarFoot.innerHTML =
           "<b>CCS</b> " + cc.CCS + " · <b>CHAdeMO</b> " + cc.CHAdeMO + " · <b>GB/T</b> " + cc.GBT +
           " = " + PYEV.t("n_connectors", { n: shownN.plugs }) + " · " + esc(filterText);
@@ -231,6 +250,7 @@
       try {
         all = await PYEVChargers.loadChargers();
         PYEVChargers.renderKPIs(kpis, all);
+        PYEVChargers.renderBreakdown(breakdownEl, all);
         const bands = PYEVChargers.countByInOrder(all, "power_band", ["abaixo de 50 kW", "50–99 kW", "100–149 kW", "150+ kW", "desconhecida"]);
         bands.forEach(([b]) => {
           const opt = document.createElement("option");
@@ -246,6 +266,7 @@
         tableDetails.addEventListener("toggle", () => { if (mapApi && mapApi.invalidate) mapApi.invalidate(); });
         window.addEventListener("pyev-lang", () => {
           PYEVChargers.renderKPIs(kpis, all);
+          PYEVChargers.renderBreakdown(breakdownEl, all);
           if (mapApi && mapApi.updateLanguage) mapApi.updateLanguage();
           Array.from(fBand.options).forEach((opt, i) => { if (i > 0) opt.textContent = PYEVChargers.localizeValue(opt.value); });
           refresh();
@@ -253,6 +274,7 @@
         });
         window.addEventListener("pyev-theme", () => {
           setTimeout(() => {
+            PYEVChargers.renderNetworkSites(networkSitesEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
             PYEVChargers.renderNetworkBars(networkBarsEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
             paintHistory();
           }, 30);
@@ -268,7 +290,8 @@
             clearTimeout(timer);
             timer = setTimeout(() => {
               paintHistory();
-              PYEVChargers.renderNetworkBars(networkBarsEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
+              PYEVChargers.renderNetworkSites(networkSitesEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
+            PYEVChargers.renderNetworkBars(networkBarsEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
             }, 150);
           });
         } catch (err) {

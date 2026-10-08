@@ -90,24 +90,61 @@
     });
   }
 
+  // Operator values that are not a real network (unknown, none, private home).
+  const PLACEHOLDER_OPERATORS = ["não informado", "sem rede", "residencial / privado", "—", ""];
+
   // One set of definitions for every count on the site (Inicio card, KPIs,
-  // map footer): a location is one CSV row; connectors are n_dc_plugs summed;
-  // "public" means access === "público".
+  // map footer, network charts): a location is one CSV row; connectors are
+  // n_dc_plugs summed, split by type from connectors_dc; "public" means
+  // access === "público". The CSV has no per-charger (post) field, so
+  // locations are the finest charger unit available.
   function chargerCounts(rows) {
     const all = rows || [];
     const pub = all.filter((r) => r.access === "público");
     const plugs = (list) => list.reduce((s, r) => s + (Number(r.n_dc_plugs) || 0), 0);
-    return { sites: all.length, plugs: plugs(all), pubSites: pub.length, pubPlugs: plugs(pub) };
+    const types = { CCS: 0, CHAdeMO: 0, GBT: 0 };
+    const pubTypes = { CCS: 0, CHAdeMO: 0, GBT: 0 };
+    const net = {};
+    const opNames = {};
+    all.forEach((r) => {
+      const c = parseConnectorCounts(r.connectors_dc);
+      const isPub = r.access === "público";
+      ["CCS", "CHAdeMO", "GBT"].forEach((k) => {
+        types[k] += c[k];
+        if (isPub) pubTypes[k] += c[k];
+      });
+      opNames[r.operator || "—"] = true;
+      const key = operatorKey(r.operator);
+      if (!net[key]) net[key] = { key: key, sites: 0, plugs: 0, CCS: 0, CHAdeMO: 0, GBT: 0 };
+      net[key].sites += 1;
+      net[key].plugs += Number(r.n_dc_plugs) || 0;
+      net[key].CCS += c.CCS;
+      net[key].CHAdeMO += c.CHAdeMO;
+      net[key].GBT += c.GBT;
+    });
+    const ops = Object.keys(opNames);
+    return {
+      sites: all.length,
+      plugs: plugs(all),
+      pubSites: pub.length,
+      pubPlugs: plugs(pub),
+      types: types,
+      pubTypes: pubTypes,
+      // As the KPI always counted it: distinct operator values, placeholders included.
+      operators: ops.length,
+      realOperators: ops.filter((o) => PLACEHOLDER_OPERATORS.indexOf(o) < 0).length,
+      networks: Object.keys(net).map((k) => net[k]),
+    };
   }
 
   function renderKPIs(el, rows) {
     const n = chargerCounts(rows);
-    const ops = countBy(rows, "operator").length;
+    const typeLine = (tp) => "CCS " + tp.CCS + " · CHAdeMO " + tp.CHAdeMO + " · GB/T " + tp.GBT;
     const items = [
-      { cls: "", label: PYEV.t("locations_dc"), value: String(n.sites), sub: PYEV.t("chargers_dc") },
-      { cls: "elec", label: PYEV.t("plugs"), value: String(n.plugs), sub: PYEV.t("connector_types") },
-      { cls: "bev", label: PYEV.t("public_access_kpi"), value: String(n.pubSites), sub: PYEV.t("public_kpi_sub", { plugs: n.pubPlugs }) },
-      { cls: "phev", label: PYEV.t("operators"), value: String(ops), sub: PYEV.t("consolidated_labels") },
+      { cls: "", label: PYEV.t("locations_dc"), value: String(n.sites), sub: PYEV.t("kpi_sites_sub") },
+      { cls: "elec", label: PYEV.t("plugs"), value: String(n.plugs), sub: typeLine(n.types) },
+      { cls: "bev", label: PYEV.t("public_access_kpi"), value: String(n.pubSites), sub: PYEV.t("public_kpi_sub", { plugs: n.pubPlugs }) + "<br>" + typeLine(n.pubTypes) },
+      { cls: "phev", label: PYEV.t("operators"), value: String(n.operators), sub: PYEV.t("consolidated_labels") },
     ];
     el.innerHTML = items
       .map(
@@ -120,7 +157,7 @@
   function renderBreakdown(el, rows) {
     const bands = countByInOrder(rows, "power_band", POWER_BAND_ORDER);
     const statuses = countByInOrder(rows, "status", STATUS_ORDER);
-    const ops = countBy(rows, "operator").slice(0, 8);
+    const ops = networkStats(rows).slice(0, 8).map((n) => [n.key, n.sites]);
     function list(title, pairs) {
       return (
         `<div class="kpi" style="border-right:1px solid var(--line);min-width:0">` +
@@ -356,14 +393,7 @@
   }
 
   function countConnectors(rows) {
-    const tot = { CCS: 0, GBT: 0, CHAdeMO: 0 };
-    (rows || []).forEach((r) => {
-      const c = parseConnectorCounts(r.connectors_dc);
-      tot.CCS += c.CCS;
-      tot.GBT += c.GBT;
-      tot.CHAdeMO += c.CHAdeMO;
-    });
-    return tot;
+    return chargerCounts(rows).types;
   }
 
   function chartTheme() {
@@ -394,18 +424,7 @@
 
   /** Sites (one row = one DC charger location) and connector quantities, largest network first. */
   function networkStats(rows) {
-    const map = {};
-    (rows || []).forEach((r) => {
-      const key = operatorKey(r.operator);
-      if (!map[key]) map[key] = { key: key, sites: 0, CCS: 0, CHAdeMO: 0, GBT: 0 };
-      map[key].sites += 1;
-      const c = parseConnectorCounts(r.connectors_dc);
-      map[key].CCS += c.CCS;
-      map[key].CHAdeMO += c.CHAdeMO;
-      map[key].GBT += c.GBT;
-    });
-    return Object.keys(map)
-      .map((k) => map[k])
+    return chargerCounts(rows).networks
       .sort((a, b) => b.sites - a.sites || operatorLabel(a.key).localeCompare(operatorLabel(b.key)));
   }
 
@@ -531,8 +550,11 @@
       el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
       return;
     }
-    // Largest network on top (Plotly draws the first category at the bottom).
-    const stats = networkStats(rows).slice().reverse();
+    // Most connectors on top (Plotly draws the first category at the bottom).
+    const stats = chargerCounts(rows).networks
+      .sort((a, b) => (b.CCS + b.CHAdeMO + b.GBT) - (a.CCS + a.CHAdeMO + a.GBT) || b.sites - a.sites ||
+        operatorLabel(a.key).localeCompare(operatorLabel(b.key)))
+      .reverse();
     if (!stats.length) {
       emptyChart(el);
       return;
@@ -611,6 +633,75 @@
       layout,
       { responsive: true, displayModeBar: false }
     );
+  }
+
+  /** One bar per network: charging locations (not connectors), most on top. */
+  function renderNetworkSites(el, rows) {
+    if (!el) return;
+    if (!global.Plotly) {
+      el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
+      return;
+    }
+    const stats = networkStats(rows).slice().reverse();
+    if (!stats.length) {
+      emptyChart(el);
+      return;
+    }
+    const th = chartTheme();
+    const phone = window.innerWidth < 640;
+    const names = stats.map((s) => operatorLabel(s.key));
+    const vals = stats.map((s) => s.sites);
+    const maxV = vals.reduce((m, v) => Math.max(m, v), 0);
+    const n = stats.length;
+    const label = PYEV.t("carga_sites_axis");
+    const trace = {
+      type: "bar",
+      orientation: "h",
+      name: label,
+      y: names,
+      x: vals,
+      text: vals.map(String),
+      textposition: "outside",
+      cliponaxis: false,
+      textfont: { size: 11, color: th.muted },
+      marker: { color: th.dark ? "#2fc46a" : "#0f7a3a", line: { width: 0 } },
+      hovertemplate: "<b>%{y}</b><br>" + label + ": %{x}<extra></extra>",
+    };
+    const layout = {
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: { family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif', color: th.text, size: 12 },
+      bargap: 0.28,
+      showlegend: false,
+      height: Math.max(phone ? 260 : 300, n * (phone ? 28 : 32) + (phone ? 50 : 60)),
+      margin: { t: 12, r: phone ? 24 : 36, b: 36, l: phone ? 8 : 12 },
+      xaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: 11, color: th.muted },
+        title: { text: label, font: { size: 11, color: th.muted } },
+        rangemode: "tozero",
+        range: [0, Math.max(4, Math.ceil(maxV * 1.12))],
+        dtick: maxV > 20 ? 5 : maxV > 8 ? 2 : 1,
+        automargin: true,
+      },
+      yaxis: {
+        gridcolor: "rgba(0,0,0,0)",
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: phone ? 10 : 12, color: th.text },
+        automargin: true,
+      },
+      hovermode: "closest",
+      hoverlabel: {
+        bgcolor: th.dark ? "#1b1b19" : "#ffffff",
+        bordercolor: th.grid,
+        font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
+      },
+    };
+    resetChart(el);
+    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
   }
 
   function renderConnectorChart(el, rows) {
@@ -1024,6 +1115,7 @@
     renderConnectorChart,
     renderNetworkPie,
     renderNetworkBars,
+    renderNetworkSites,
     loadHistory,
     renderHistory,
     renderHistoryNetworks,
