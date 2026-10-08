@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - 'data/models/**'
+     - 'data/Paraguay.csv'
+      - 'data/chargers-dc.csv'
+      - 'scripts/build-summary.py'
       - '.github/workflows/assemble-paraguay-models.yml'
   workflow_dispatch:
 permissions:
@@ -38,11 +41,13 @@ jobs:
               writer.writerows(rows)
           print(f"assembled {len(rows)} rows into {out}")
           PYTHON
+      - name: Build summary.json for Inicio
+        run: python3 scripts/build-summary.py
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/Paraguay_models.csv
+          git add data/Paraguay_models.csv data/summary.json
           git diff --staged --quiet && echo "no change" && exit 0
           git commit -m "data: assemble Paraguay_models.csv from monthly parts"
           git push
