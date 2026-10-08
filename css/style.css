@@ -1319,3 +1319,12 @@ table.data th.pct-col { min-width: 3.4rem; font-size: 0.62rem; }
 @media (max-width: 640px) {
 table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padding-right: 0.25rem; }
 }
+/* Carga: "Conectores DC" card shows the split by type as its main figures. */
+.kpi .value.kpi-types { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; }
+.kpi .value.kpi-types span { display: inline-flex; flex-direction: column; min-width: 0; }
+.kpi .value.kpi-types b { font-weight: 700; }
+.kpi .value.kpi-types small { font-size: 0.72rem; font-weight: 600; letter-spacing: 0; color: var(--muted); margin-top: 0.1rem; }
+@media (max-width: 640px) {
+.kpi .value.kpi-types { gap: 0.15rem 0.55rem; font-size: 1.15rem; }
+.kpi .value.kpi-types small { font-size: 0.62rem; }
+}

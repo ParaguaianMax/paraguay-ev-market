@@ -142,14 +142,28 @@
     const typeLine = (tp) => "CCS " + tp.CCS + " · CHAdeMO " + tp.CHAdeMO + " · GB/T " + tp.GBT;
     const items = [
       { cls: "", label: PYEV.t("locations_dc"), value: String(n.sites), sub: PYEV.t("kpi_sites_sub") },
-      { cls: "elec", label: PYEV.t("plugs"), value: String(n.plugs), sub: typeLine(n.types) },
+      // Connectors card: the split by type is the main content (no single total).
+      {
+        cls: "elec kpi-types-card",
+        label: PYEV.t("plugs"),
+        valueHtml:
+          '<div class="value kpi-types">' +
+          [["CCS", n.types.CCS], ["CHAdeMO", n.types.CHAdeMO], ["GB/T", n.types.GBT]]
+            .map((p) => "<span><b>" + p[1] + "</b><small>" + p[0] + "</small></span>")
+            .join("") +
+          "</div>",
+        sub: "",
+      },
       { cls: "bev", label: PYEV.t("public_access_kpi"), value: String(n.pubSites), sub: PYEV.t("public_kpi_sub", { plugs: n.pubPlugs }) + "<br>" + typeLine(n.pubTypes) },
       { cls: "phev", label: PYEV.t("operators"), value: String(n.operators), sub: PYEV.t("consolidated_labels") },
     ];
     el.innerHTML = items
       .map(
         (it) =>
-          `<div class="kpi ${it.cls}"><div class="label">${it.label}</div><div class="value">${it.value}</div><div class="sub">${it.sub}</div></div>`
+          `<div class="kpi ${it.cls}"><div class="label">${it.label}</div>` +
+          (it.valueHtml || `<div class="value">${it.value}</div>`) +
+          (it.sub ? `<div class="sub">${it.sub}</div>` : "") +
+          `</div>`
       )
       .join("");
   }
@@ -570,11 +584,15 @@
         y: names,
         x: stats.map((s) => s[key]),
         marker: { color: color, line: { width: 0 } },
+        text: stats.map((s) => (s[key] ? String(s[key]) : "")),
+        textposition: "outside",
+        cliponaxis: false,
+        textfont: { size: phone ? 9 : 10, color: th.muted },
         hovertemplate: "<b>%{y}</b><br>" + label + ": %{x}<extra></extra>",
       };
     }
-    const totals = stats.map((s) => s.CCS + s.CHAdeMO + s.GBT);
-    const maxTot = totals.reduce((m, v) => Math.max(m, v), 0);
+    // Grouped, not stacked: each connector type is its own bar, never summed.
+    const maxOne = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT), 0);
     const n = stats.length;
     const layout = {
       paper_bgcolor: "rgba(0,0,0,0)",
@@ -584,16 +602,18 @@
         color: th.text,
         size: 12,
       },
-      barmode: "stack",
-      bargap: 0.28,
+      barmode: "group",
+      bargap: 0.22,
+      bargroupgap: 0.06,
       showlegend: true,
-      height: Math.max(phone ? 280 : 320, n * (phone ? 28 : 32) + (phone ? 70 : 80)),
+      // Three thin bars per network: give each network room (17 networks ≈ 830px on phone).
+      height: Math.max(phone ? 320 : 360, n * (phone ? 44 : 42) + (phone ? 80 : 90)),
       legend: {
         orientation: "h",
         y: 1.02,
         yanchor: "bottom",
         x: 0,
-        traceorder: "normal",
+        traceorder: "reversed",
         font: { size: 11, color: th.muted },
         bgcolor: "rgba(0,0,0,0)",
       },
@@ -605,7 +625,7 @@
         tickfont: { size: 11, color: th.muted },
         title: { text: PYEV.t("plugs_short"), font: { size: 11, color: th.muted } },
         rangemode: "tozero",
-        range: [0, Math.max(4, Math.ceil(maxTot * 1.08))],
+        range: [0, Math.max(4, Math.ceil(maxOne * 1.15))],
         automargin: true,
       },
       yaxis: {
@@ -616,6 +636,7 @@
         automargin: true,
       },
       hovermode: "y unified",
+      // Plotly lists grouped bars bottom-up; keep CCS on top within each network.
       hoverlabel: {
         bgcolor: th.dark ? "#1b1b19" : "#ffffff",
         bordercolor: th.grid,
@@ -626,9 +647,10 @@
     Plotly.newPlot(
       el,
       [
-        bar("CCS", "CCS", th.CCS),
-        bar("CHAdeMO", "CHAdeMO", th.CHAdeMO),
+        // Drawn bottom-up inside each group, so GB/T first puts CCS on top.
         bar("GBT", "GB/T", th.GBT),
+        bar("CHAdeMO", "CHAdeMO", th.CHAdeMO),
+        bar("CCS", "CCS", th.CCS),
       ],
       layout,
       { responsive: true, displayModeBar: false }
