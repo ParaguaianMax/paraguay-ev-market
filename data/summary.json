@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-08T16:35:34-03:00",
+ "generated": "2026-10-08T18:12:09-03:00",
  "cutoff": "2026-09",
  "conditions": {
   "nuevo": {
@@ -195,6 +195,43 @@
       "powertrain": "BEV",
       "label": "JMEV EV3",
       "units": 53
+     }
+    ],
+    "PHEV": [
+     {
+      "marca": "SOUEAST",
+      "modelo": "S06",
+      "powertrain": "PHEV",
+      "label": "SOUEAST S06",
+      "units": 186
+     },
+     {
+      "marca": "BYD",
+      "modelo": "SONG PLUS",
+      "powertrain": "PHEV",
+      "label": "BYD SONG PLUS",
+      "units": 180
+     },
+     {
+      "marca": "ICAUR",
+      "modelo": "V27",
+      "powertrain": "PHEV",
+      "label": "ICAUR V27",
+      "units": 136
+     },
+     {
+      "marca": "JETOUR",
+      "modelo": "T2",
+      "powertrain": "PHEV",
+      "label": "JETOUR T2",
+      "units": 124
+     },
+     {
+      "marca": "LYNK CO",
+      "modelo": "06",
+      "powertrain": "PHEV",
+      "label": "LYNK CO 06",
+      "units": 123
      }
     ],
     "NONPLUG": [
@@ -431,6 +468,43 @@
       "units": 53
      }
     ],
+    "PHEV": [
+     {
+      "marca": "SOUEAST",
+      "modelo": "S06",
+      "powertrain": "PHEV",
+      "label": "SOUEAST S06",
+      "units": 186
+     },
+     {
+      "marca": "BYD",
+      "modelo": "SONG PLUS",
+      "powertrain": "PHEV",
+      "label": "BYD SONG PLUS",
+      "units": 180
+     },
+     {
+      "marca": "ICAUR",
+      "modelo": "V27",
+      "powertrain": "PHEV",
+      "label": "ICAUR V27",
+      "units": 136
+     },
+     {
+      "marca": "JETOUR",
+      "modelo": "T2",
+      "powertrain": "PHEV",
+      "label": "JETOUR T2",
+      "units": 124
+     },
+     {
+      "marca": "LYNK CO",
+      "modelo": "06",
+      "powertrain": "PHEV",
+      "label": "LYNK CO 06",
+      "units": 123
+     }
+    ],
     "NONPLUG": [
      {
       "marca": "TOYOTA",
@@ -472,9 +546,14 @@
   }
  },
  "chargers": {
-  "sites": 73,
-  "plugs": 143,
-  "pubSites": 68,
-  "pubPlugs": 135
+  "public": {
+   "sites": 59,
+   "plugs": 118,
+   "types": {
+    "CCS": 73,
+    "CHAdeMO": 25,
+    "GBT": 20
+   }
+  }
  }
 }

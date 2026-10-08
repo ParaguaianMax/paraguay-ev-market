@@ -10,9 +10,12 @@ Inputs (same sources and rules as the other pages):
     data/Paraguay_models.csv) -> "0 km" figures (condicion = nuevo) and the
     Top 5 model lists. Only variant=LightVehicles, segmento=leve.
   * data/Paraguay.csv (LightVehicles, leve) -> "Nuevos y usados" figures.
-  * data/chargers-dc.csv -> charger counts. A location is one row, connectors
-    are n_dc_plugs summed, "public" is access == "público" (same definitions
-    as chargerCounts() in js/chargers.js).
+  * data/chargers-dc.csv -> charger counts for the Carga "Público" mode only:
+    access == "público" AND status == "ativo" (public and working; maintenance,
+    partial maintenance and "em breve" are left out). A location is one row,
+    connectors are n_dc_plugs summed, split by type from connectors_dc. Keep
+    this in sync with PUBLIC_STATUS / isPublicOpen() and parseConnectorCounts()
+    in js/chargers.js.
 
 Windows: "ytd" = January through the latest month of the latest year with
 data; "prev" = the same months one year earlier; "last12" = the 12 months up
@@ -153,17 +156,51 @@ def build_condition(market, model_rows, latest):
         "monthly": monthly,
         "top": {
             "BEV": top_models(model_rows, ytd_months, {"BEV"}),
+            "PHEV": top_models(model_rows, ytd_months, {"PHEV"}),
             "NONPLUG": top_models(model_rows, ytd_months, {"HEV", "OTHERS"}),
         },
     }
 
 
+# Same rule as js/chargers.js (PUBLIC_STATUS, isPublicOpen): only these statuses
+# of an access == "público" row count as "Público" on Carga.
+PUBLIC_STATUS = {"ativo": True, "em manutenção": False, "parcialmente em manutenção": False, "em breve": False}
+CONNECTOR_RE = re.compile(r"([^,×x]+)[×x](\d+)", re.I)
+
+
+def is_public_open(r):
+    return (r.get("access") or "").strip() == "público" and PUBLIC_STATUS.get((r.get("status") or "").strip()) is True
+
+
+def connector_types(rows):
+    """Same parsing as parseConnectorCounts() in js/chargers.js."""
+    out = {"CCS": 0, "CHAdeMO": 0, "GBT": 0}
+    for r in rows:
+        for m in CONNECTOR_RE.finditer(r.get("connectors_dc") or ""):
+            raw = re.sub(r"\s+", " ", m.group(1).strip().upper())
+            n = int(m.group(2) or 0)
+            if not n:
+                continue
+            if "CHADEMO" in raw:
+                out["CHAdeMO"] += n
+            elif "GB" in raw:
+                out["GBT"] += n
+            elif "CCS" in raw:
+                out["CCS"] += n
+    return out
+
+
 def charger_counts():
     rows = read_csv(DATA / "chargers-dc.csv")
     rows = [r for r in rows if num(r.get("lat")) and num(r.get("lon"))]
-    plugs = lambda lst: int(sum(num(r.get("n_dc_plugs")) for r in lst))
-    pub = [r for r in rows if (r.get("access") or "").strip() == "público"]
-    return {"sites": len(rows), "plugs": plugs(rows), "pubSites": len(pub), "pubPlugs": plugs(pub)}
+    pub = [r for r in rows if is_public_open(r)]
+    return {
+        "public": {
+            "sites": len(pub),
+            "plugs": int(sum(num(r.get("n_dc_plugs")) for r in pub)),
+            "types": connector_types(pub),
+        }
+    }
 
 
 def main():

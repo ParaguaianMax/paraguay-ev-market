@@ -120,6 +120,12 @@
         <p class="home-link"><a href="pages/marcas.html?periodo=ytd&amp;pt=bev#modelos" data-rank-link="bev" data-i18n="home_top_link">Ver ranking completo →</a></p>
       </div>
       <div class="home-top">
+        <h2 data-i18n="home_top_phev">Top 5 híbridos enchufables (PHEV)</h2>
+        <p class="pt-cut" data-home-top-cut></p>
+        <ol class="top-bars phev" id="home-top-phev"></ol>
+        <p class="home-link"><a href="pages/marcas.html?periodo=ytd&amp;pt=plugin#modelos" data-rank-link="plugin" data-i18n="home_top_link">Ver ranking completo →</a></p>
+      </div>
+      <div class="home-top">
         <h2 data-i18n="home_top_nonplug">Top 5 híbridos no enchufables</h2>
         <p class="pt-cut" data-home-top-cut></p>
         <ol class="top-bars nonplug" id="home-top-nonplug"></ol>
@@ -162,6 +168,7 @@
       const chart = document.getElementById("home-bp-chart");
       const note = document.getElementById("home-bp-note");
       const topBev = document.getElementById("home-top-bev");
+      const topPhev = document.getElementById("home-top-phev");
       const topNon = document.getElementById("home-top-nonplug");
       const chargerDesc = document.getElementById("card-chargers-desc");
       let S = null;
@@ -193,11 +200,12 @@
           cond: cond,
           prev: { sums: d.prev, periods: d.prev.months },
         });
-        const c = S.chargers;
+        // Carga "Público" mode (public and working), from build-summary.py.
+        const c = (S.chargers && S.chargers.public) || {};
         meta.innerHTML =
           "<span>" + PYEV.t("home_cutoff", { period: PYEV.periodLabel(S.cutoff) }) + "</span>" +
-          '<span class="home-meta-chargers"><b>⚡ ' + PYEV.t("home_chargers_stat", { plugs: c.plugs, sites: c.sites }) + "</b>" +
-          ' · <a href="pages/carga.html">' + PYEV.t("home_chargers_link") + "</a></span>";
+          '<span class="home-meta-chargers"><b>⚡ ' + PYEV.t("home_chargers_stat", { plugs: PYEV.fmtInt(c.plugs), sites: PYEV.fmtInt(c.sites) }) + "</b>" +
+          ' · <a href="pages/carga.html?acceso=publico">' + PYEV.t("home_chargers_link") + "</a></span>";
         PYEVCharts.bevPhevChart(chart, d.monthly);
         const w = d.last12, p = d.prev12;
         note.innerHTML = PYEV.t("home_bp_note", {
@@ -211,8 +219,9 @@
         const cut = PYEVCharts.cutLabel(d.ytd.months, cond);
         document.querySelectorAll("[data-home-top-cut]").forEach((el) => { el.textContent = cut; });
         topList(topBev, d.top.BEV);
+        topList(topPhev, d.top.PHEV || []);
         topList(topNon, d.top.NONPLUG);
-        if (chargerDesc) chargerDesc.textContent = PYEV.t("card_chargers_counts", c);
+        if (chargerDesc) chargerDesc.textContent = PYEV.t("card_chargers_counts", { plugs: PYEV.fmtInt(c.plugs), sites: PYEV.fmtInt(c.sites) });
       }
 
       // "Ver ranking completo" opens Marcas y modelos on the Top 5 cut: year to date

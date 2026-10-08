@@ -51,7 +51,7 @@ Después de cualquier cambio en `data/models/`, `data/Paraguay.csv` o `data/char
 python3 scripts/build-summary.py
 ```
 
-Contiene, para 0 km y para nuevos y usados: acumulado del año (BEV, PHEV, HEV, mild, ICE), los mismos meses del año anterior, la serie mensual BEV/PHEV de los últimos 12 meses, el Top 5 BEV y el Top 5 híbridos no enchufables; además los conteos de cargadores y el último mes con datos. Si no hay cambios en los datos, el archivo no se modifica.
+Contiene, para 0 km y para nuevos y usados: acumulado del año (BEV, PHEV, HEV, mild, ICE), los mismos meses del año anterior, la serie mensual BEV/PHEV de los últimos 12 meses, el Top 5 BEV, el Top 5 híbridos enchufables (PHEV) y el Top 5 híbridos no enchufables; además los cargadores del modo «Público» de Carga (acceso público y estado activo: ubicaciones, conectores y conectores por tipo, con la misma regla que `js/chargers.js`) y el último mes con datos. Si no hay cambios en los datos, el archivo no se modifica.
 
 ## Activar GitHub Pages
 

@@ -1098,7 +1098,7 @@ margin: 0 0 1.75rem;
 .home-link { font-size: 0.88rem; margin: 0.35rem 0 0; }
 .home-tops {
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: repeat(3, minmax(0, 1fr));
 gap: 1.25rem 2rem;
 margin: 2rem 0 2.25rem;
 }
@@ -1120,6 +1120,8 @@ line-height: 1.3;
 .top-bars.nonplug .top-fill { background: var(--hev); }
 .top-bars.nonplug .top-name b { color: var(--hev-ink); }
 .top-bars.bev .top-name b { color: var(--bev-ink); }
+.top-bars.phev .top-fill { background: var(--phev); }
+.top-bars.phev .top-name b { color: var(--phev-ink); }
 @media (max-width: 720px) {
 .home-tops { grid-template-columns: 1fr; margin: 1.5rem 0 1.75rem; }
 .home-bp h2 { font-size: 1.2rem; }
@@ -1344,8 +1346,8 @@ table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padd
 .access-toggle.is-all .access-opt-pub { color: var(--muted); }
 .access-toggle.is-all .access-opt-all { color: var(--bev); }
 /* Carga: connectors by network scroll sideways inside their own box on phones. */
-.chart-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; max-width: 100%; }
-.chart-scroll > .chart-panel { min-width: 0; }
+.chart-hscroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.chart-hscroll > .chart-panel { min-width: 0; }
 .chart-network-cols { min-height: 0; }
 .chart-scroll-hint { display: none; font-size: 0.75rem; color: var(--muted); margin: 0.2rem 0 0; }
-.chart-scroll.is-scrolling + .chart-scroll-hint { display: block; }
+.chart-hscroll.is-scrolling + .chart-scroll-hint { display: block; }

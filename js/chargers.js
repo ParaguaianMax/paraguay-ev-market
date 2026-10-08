@@ -650,7 +650,7 @@
       return;
     }
     const th = chartTheme();
-    const host = el.parentElement && el.parentElement.classList.contains("chart-scroll") ? el.parentElement : null;
+    const host = el.parentElement && el.parentElement.classList.contains("chart-hscroll") ? el.parentElement : null;
     const avail = (host || el).clientWidth || window.innerWidth;
     const phone = window.innerWidth < 640;
     const names = stats.map((s) => operatorLabel(s.key));
