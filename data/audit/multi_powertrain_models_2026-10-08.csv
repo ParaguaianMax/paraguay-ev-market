@@ -1,0 +1,136 @@
+marca,modelo,powertrains_all_years,units_by_powertrain_all_years,units_by_powertrain_2026_leve,edicion_filled_units_by_powertrain
+TOYOTA,VITZ,HEV/ICE/PHEV,"{""ICE"": 45000, ""HEV"": 13, ""PHEV"": 1}","{""ICE"": 10208, ""HEV"": 4, ""PHEV"": 1}",{}
+KIA,SPORTAGE,HEV/ICE,"{""ICE"": 20478, ""HEV"": 639}","{""ICE"": 4895, ""HEV"": 569}",{}
+TOYOTA,AURIS,HEV/ICE,"{""ICE"": 16761, ""HEV"": 62}","{""ICE"": 2844, ""HEV"": 31}",{}
+TOYOTA,SIENTA,HEV/ICE,"{""ICE"": 9083, ""HEV"": 47}","{""ICE"": 1841, ""HEV"": 32}",{}
+TOYOTA,NOAH,HEV/ICE,"{""ICE"": 5585, ""HEV"": 11}","{""ICE"": 1201, ""HEV"": 6}",{}
+TOYOTA,VOXY,HEV/ICE,"{""ICE"": 5205, ""HEV"": 9}","{""ICE"": 1823, ""HEV"": 4}",{}
+HYUNDAI,TUCSON,HEV/ICE,"{""ICE"": 4090, ""HEV"": 119}","{""ICE"": 747, ""HEV"": 1}",{}
+TOYOTA,COROLLA,HEV/ICE,"{""ICE"": 3697, ""HEV"": 372}","{""ICE"": 585, ""HEV"": 172}",{}
+HYUNDAI,SANTA FE,HEV/ICE,"{""ICE"": 3613, ""HEV"": 9}","{""ICE"": 755}",{}
+TOYOTA,COROLLA CROSS,HEV/ICE,"{""HEV"": 2613, ""ICE"": 569}","{""HEV"": 761, ""ICE"": 7}",{}
+KIA,SORENTO,HEV/ICE,"{""ICE"": 1851, ""HEV"": 166}","{""HEV"": 166, ""ICE"": 158}",{}
+TOYOTA,YARIS CROSS,HEV/ICE,"{""ICE"": 718, ""HEV"": 561}","{""ICE"": 219, ""HEV"": 164}",{}
+TOYOTA,COROLLA AXIO,HEV/ICE,"{""ICE"": 1116, ""HEV"": 6}","{""ICE"": 216, ""HEV"": 3}",{}
+TOYOTA,RAV4,HEV/ICE,"{""ICE"": 196, ""HEV"": 900}","{""HEV"": 197, ""ICE"": 10}",{}
+TOYOTA,LAND CRUISER,HEV/ICE,"{""ICE"": 1015, ""HEV"": 35}","{""ICE"": 182, ""HEV"": 31}",{}
+KIA,K5,HEV/ICE,"{""HEV"": 16, ""ICE"": 647}","{""ICE"": 312, ""HEV"": 3}",{}
+HYUNDAI,ALL NEW TUCSON,HEV/ICE,"{""ICE"": 366, ""HEV"": 297}","{""HEV"": 250, ""ICE"": 234}",{}
+NISSAN,FRONTIER,HEV/ICE,"{""ICE"": 660, ""HEV"": 1}","{""ICE"": 3}",{}
+CHERY,T7 PRO,ICE/PHEV,"{""ICE"": 486, ""PHEV"": 148}","{""ICE"": 246, ""PHEV"": 105}",{}
+KIA,CARNIVAL,HEV/ICE,"{""ICE"": 526, ""HEV"": 63}","{""HEV"": 57, ""ICE"": 75}",{}
+TOYOTA,LAND CRUISER PRADO,HEV/ICE,"{""ICE"": 559, ""HEV"": 24}","{""ICE"": 124, ""HEV"": 20}",{}
+JETOUR,T2,ICE/PHEV,"{""ICE"": 328, ""PHEV"": 218}","{""PHEV"": 124, ""ICE"": 86}",{}
+TOYOTA,CROWN ATHLETE,HEV/ICE,"{""ICE"": 532, ""HEV"": 2}","{""ICE"": 271, ""HEV"": 1}",{}
+CHERY,T4 PRO,HEV/ICE,"{""ICE"": 252, ""HEV"": 231}","{""ICE"": 183, ""HEV"": 126}",{}
+CHERY,T8 PRO,ICE/PHEV,"{""ICE"": 255, ""PHEV"": 187}","{""ICE"": 118, ""PHEV"": 96}",{}
+AUDI,Q5,HEV/ICE/PHEV,"{""ICE"": 402, ""PHEV"": 2, ""HEV"": 1}","{""ICE"": 95}",{}
+TOYOTA,AQUA,HEV/ICE,"{""ICE"": 78, ""HEV"": 312}","{""HEV"": 123, ""ICE"": 7}",{}
+BYD,SONG PLUS,BEV/PHEV,"{""BEV"": 4, ""PHEV"": 382}","{""BEV"": 3, ""PHEV"": 180}",{}
+SUZUKI,SWIFT,HEV/ICE,"{""ICE"": 354, ""HEV"": 1}","{""ICE"": 90, ""HEV"": 1}",{}
+AUDI,Q7,HEV/ICE,"{""HEV"": 1, ""ICE"": 319}","{""ICE"": 35}",{}
+HONDA,CR-V,HEV/ICE,"{""ICE"": 171, ""HEV"": 98}","{""ICE"": 7, ""HEV"": 21}",{}
+MERCEDES-BENZ,GLE 300 D 4MATIC,ICE/PHEV,"{""ICE"": 266, ""PHEV"": 2}","{""ICE"": 37}",{}
+FIAT,FASTBACK AUDACE MILD,ICE/OTHERS,"{""ICE"": 220, ""OTHERS"": 1}","{""ICE"": 120, ""OTHERS"": 1}",{}
+SOUEAST,S06,ICE/PHEV,"{""PHEV"": 195, ""ICE"": 17}","{""PHEV"": 186, ""ICE"": 10}",{}
+TOYOTA,CROWN,HEV/ICE/PHEV,"{""ICE"": 201, ""PHEV"": 1, ""HEV"": 4}","{""ICE"": 52, ""HEV"": 4}",{}
+HYUNDAI,NEW SANTA FE,HEV/ICE,"{""ICE"": 178, ""HEV"": 17}","{""HEV"": 10}",{}
+HYUNDAI,KONA,BEV/HEV/ICE,"{""HEV"": 178, ""ICE"": 10, ""BEV"": 5}","{""ICE"": 3, ""HEV"": 18}",{}
+NISSAN,X-TRAIL,ICE/PHEV,"{""ICE"": 190, ""PHEV"": 2}","{""ICE"": 8}",{}
+VOLVO,XC60,BEV/ICE/PHEV,"{""PHEV"": 182, ""ICE"": 2, ""BEV"": 2}","{""PHEV"": 58}",{}
+GREATWALL,JOLION,HEV/ICE,"{""ICE"": 148, ""HEV"": 28}",{},{}
+FORD,MUSTANG,BEV/ICE,"{""BEV"": 1, ""ICE"": 170}","{""ICE"": 73}",{}
+JEEP,WRANGLER,ICE/PHEV,"{""ICE"": 145, ""PHEV"": 3}","{""ICE"": 30}",{}
+VOLVO,XC90,ICE/PHEV,"{""PHEV"": 140, ""ICE"": 2}","{""PHEV"": 58, ""ICE"": 1}",{}
+LAND ROVER,DEFENDER,ICE/OTHERS/PHEV,"{""ICE"": 104, ""OTHERS"": 7, ""PHEV"": 22}","{""ICE"": 21, ""PHEV"": 12}",{}
+TOYOTA,4RUNNER,HEV/ICE,"{""ICE"": 42, ""HEV"": 81}","{""HEV"": 60, ""ICE"": 9}",{}
+PORSCHE,CAYENNE,ICE/PHEV,"{""ICE"": 22, ""PHEV"": 99}","{""PHEV"": 23, ""ICE"": 6}",{}
+TOYOTA,COROLLA FIELDER,HEV/ICE,"{""ICE"": 111, ""HEV"": 4}","{""ICE"": 35, ""HEV"": 3}",{}
+LAND ROVER,RANGE ROVER SPORT,ICE/OTHERS/PHEV,"{""ICE"": 54, ""OTHERS"": 9, ""PHEV"": 52}","{""ICE"": 18, ""PHEV"": 17}",{}
+RENAULT,KOLEOS,HEV/ICE,"{""ICE"": 1, ""HEV"": 110}","{""HEV"": 93}",{}
+TOYOTA,PRIUS,HEV/ICE,"{""ICE"": 15, ""HEV"": 92}","{""HEV"": 27}",{}
+AUDI,Q8,HEV/ICE,"{""ICE"": 93, ""HEV"": 1}","{""ICE"": 19}",{}
+CHANGAN,HUNTER,ICE/PHEV,"{""ICE"": 66, ""PHEV"": 26}","{""PHEV"": 18, ""ICE"": 2}",{}
+TOYOTA,TACOMA,HEV/ICE,"{""ICE"": 81, ""HEV"": 6}","{""ICE"": 27, ""HEV"": 5}",{}
+GEELY,OKAVANGO,HEV/ICE,"{""HEV"": 84, ""ICE"": 2}",{},{}
+SUBARU,FORESTER,HEV/ICE,"{""HEV"": 63, ""ICE"": 15}","{""HEV"": 3, ""ICE"": 2}",{}
+KIA,NIRO,HEV/ICE,"{""ICE"": 1, ""HEV"": 76}",{},{}
+VOLVO,XC40,BEV/HEV/PHEV,"{""PHEV"": 60, ""BEV"": 14, ""HEV"": 2}",{},{}
+BYD,SHARK,ICE/PHEV,"{""PHEV"": 61, ""ICE"": 14}",{},{}
+TOYOTA,CROWN ROYAL SALOON,HEV/ICE,"{""ICE"": 70, ""HEV"": 2}","{""ICE"": 53, ""HEV"": 2}",{}
+SUBARU,CROSSTREK,ICE/OTHERS,"{""ICE"": 4, ""OTHERS"": 65}","{""OTHERS"": 12}",{}
+TOYOTA,TUNDRA,HEV/ICE,"{""ICE"": 44, ""HEV"": 23}","{""HEV"": 9, ""ICE"": 10}",{}
+LAND ROVER,RANGE ROVER EVOQUE,ICE/OTHERS/PHEV,"{""ICE"": 47, ""OTHERS"": 12, ""PHEV"": 8}","{""ICE"": 8}",{}
+BAIC,BJ30E,ICE/OTHERS,"{""OTHERS"": 44, ""ICE"": 21}","{""OTHERS"": 33, ""ICE"": 17}",{}
+KGM,TORRES,HEV/ICE,"{""ICE"": 47, ""HEV"": 16}","{""HEV"": 16}",{}
+BMW,X5,ICE/PHEV,"{""ICE"": 52, ""PHEV"": 6}","{""ICE"": 13, ""PHEV"": 1}",{}
+LAND ROVER,RANGE ROVER,ICE/OTHERS/PHEV,"{""ICE"": 40, ""OTHERS"": 2, ""PHEV"": 14}","{""ICE"": 6, ""PHEV"": 4}",{}
+HONDA,ZR-V,HEV/ICE,"{""ICE"": 45, ""HEV"": 11}","{""HEV"": 11}",{}
+GREATWALL,HAVAL H6,HEV/PHEV,"{""HEV"": 49, ""PHEV"": 5}",{},{}
+TOYOTA,RAV 4,HEV/ICE,"{""ICE"": 10, ""HEV"": 40}","{""HEV"": 29, ""ICE"": 1}",{}
+CHEVROLET,CORVETTE,HEV/ICE,"{""ICE"": 43, ""HEV"": 1}","{""ICE"": 14, ""HEV"": 1}",{}
+FORD,MAVERICK LARIAT DC,HEV/ICE,"{""HEV"": 29, ""ICE"": 14}","{""HEV"": 21}",{}
+PORSCHE,MACAN,BEV/ICE,"{""ICE"": 33, ""BEV"": 9}","{""ICE"": 9, ""BEV"": 2}",{}
+LYNK CO,01,ICE/PHEV,"{""ICE"": 12, ""PHEV"": 29}","{""PHEV"": 29}",{}
+GREATWALL,H6,HEV/ICE/PHEV,"{""ICE"": 28, ""HEV"": 3, ""PHEV"": 9}",{},{}
+GAC,GS8,HEV/ICE,"{""ICE"": 35, ""HEV"": 4}","{""ICE"": 8, ""HEV"": 4}",{}
+FORD,EXPLORER,HEV/ICE,"{""ICE"": 36, ""HEV"": 2}","{""ICE"": 7}",{}
+TOYOTA,LEVIN,HEV/ICE,"{""ICE"": 2, ""HEV"": 36}","{""HEV"": 28, ""ICE"": 1}",{}
+HYUNDAI,TUCSON A O,HEV/ICE,"{""HEV"": 35, ""ICE"": 3}",{},{}
+BMW,X3,ICE/PHEV,"{""ICE"": 36, ""PHEV"": 1}","{""ICE"": 12}",{}
+GEELY,RIDDARA RD6,BEV/PHEV,"{""BEV"": 35, ""PHEV"": 2}","{""PHEV"": 2}","{""BEV"": 35}"
+LAND ROVER,RANGE ROVER VELAR,ICE/OTHERS/PHEV,"{""ICE"": 15, ""OTHERS"": 8, ""PHEV"": 13}","{""ICE"": 1, ""PHEV"": 1}",{}
+JEEP,WRANGLER RUBICON,ICE/PHEV,"{""ICE"": 30, ""PHEV"": 2}","{""ICE"": 9}",{}
+NISSAN,LEAF,BEV/ICE,"{""BEV"": 29, ""ICE"": 1}","{""BEV"": 1}",{}
+HONDA,FIT,HEV/ICE,"{""ICE"": 21, ""HEV"": 7}","{""HEV"": 4, ""ICE"": 2}",{}
+GAC,EMKOO GL,HEV/ICE,"{""ICE"": 13, ""HEV"": 14}","{""HEV"": 10}",{}
+TOYOTA,SEQUOIA,HEV/ICE,"{""HEV"": 24, ""ICE"": 1}","{""HEV"": 9}",{}
+TOYOTA,C-HR,HEV/ICE,"{""HEV"": 15, ""ICE"": 9}","{""HEV"": 1}",{}
+JEEP,GRAND CHEROKEE,BEV/HEV/ICE,"{""ICE"": 21, ""BEV"": 1, ""HEV"": 1}","{""ICE"": 3}",{}
+GAC,GS8 GX,HEV/ICE,"{""ICE"": 1, ""HEV"": 22}","{""HEV"": 22}",{}
+HYUNDAI,SONATA,HEV/ICE,"{""ICE"": 16, ""HEV"": 5}","{""ICE"": 4}",{}
+RENAULT,ARKANA E-TECH,HEV/ICE,"{""HEV"": 14, ""ICE"": 6}",{},{}
+TOYOTA,CAMRY,HEV/ICE,"{""ICE"": 15, ""HEV"": 4}","{""HEV"": 2, ""ICE"": 4}",{}
+BMW,X1,ICE/PHEV,"{""ICE"": 18, ""PHEV"": 1}","{""ICE"": 6}",{}
+SUBARU,XV,HEV/ICE/PHEV,"{""HEV"": 7, ""ICE"": 10, ""PHEV"": 1}","{""ICE"": 8}",{}
+JEEP,WRANGLER SAHARA,ICE/PHEV,"{""ICE"": 14, ""PHEV"": 3}","{""ICE"": 1}",{}
+TOYOTA,PRADO,HEV/ICE,"{""ICE"": 15, ""HEV"": 1}","{""ICE"": 7}",{}
+GAC,EMKOO GE,HEV/ICE,"{""ICE"": 10, ""HEV"": 4}","{""HEV"": 4}",{}
+PORSCHE,CAYENNE E3,ICE/PHEV,"{""PHEV"": 12, ""ICE"": 1}",{},{}
+TOYOTA,HIGHLANDER,HEV/ICE,"{""ICE"": 11, ""HEV"": 1}","{""ICE"": 4}",{}
+FORD,FOCUS,BEV/ICE,"{""ICE"": 10, ""BEV"": 1}","{""ICE"": 3}","{""ICE"": 1}"
+LAND ROVER,DISCOVERY,ICE/PHEV,"{""ICE"": 10, ""PHEV"": 1}","{""ICE"": 2}",{}
+MERCEDES-BENZ,EQE,BEV/ICE,"{""BEV"": 10, ""ICE"": 1}",{},{}
+PORSCHE,PANAMERA,ICE/PHEV,"{""PHEV"": 1, ""ICE"": 9}","{""ICE"": 2}",{}
+LAND ROVER,DISCOVERY SPORT,ICE/PHEV,"{""ICE"": 5, ""PHEV"": 5}","{""ICE"": 1}",{}
+TOYOTA,BZ3X,BEV/ICE,"{""BEV"": 6, ""ICE"": 3}","{""BEV"": 5}",{}
+TOYOTA,TACOMA TRD OFF ROAD,HEV/ICE,"{""ICE"": 4, ""HEV"": 4}","{""HEV"": 3, ""ICE"": 1}",{}
+RENAULT,CLIO,BEV/ICE,"{""ICE"": 6, ""BEV"": 1}","{""ICE"": 3}",{}
+BMW,335I,ICE/PHEV,"{""PHEV"": 1, ""ICE"": 6}","{""ICE"": 3}",{}
+MERCEDES-BENZ,AMG GLE 53,ICE/PHEV,"{""PHEV"": 6, ""ICE"": 1}","{""PHEV"": 2, ""ICE"": 1}",{}
+RENAULT,MEGANE,BEV/ICE,"{""ICE"": 4, ""BEV"": 2}",{},{}
+TOYOTA,LANDCRUISER,HEV/ICE,"{""ICE"": 4, ""HEV"": 2}","{""ICE"": 1}",{}
+TOYOTA,TACOMA TRD,HEV/ICE,"{""ICE"": 4, ""HEV"": 2}","{""ICE"": 3, ""HEV"": 2}",{}
+BMW,IX1,BEV/PHEV,"{""BEV"": 4, ""PHEV"": 2}","{""PHEV"": 2, ""BEV"": 2}",{}
+FORD,ESCAPE,HEV/ICE,"{""ICE"": 4, ""HEV"": 1}",{},{}
+TOYOTA,TACOMA TRD SPORT,HEV/ICE,"{""ICE"": 4, ""HEV"": 1}","{""HEV"": 1}",{}
+CHEVROLET,EQUINOX,ICE/PHEV,"{""ICE"": 4, ""PHEV"": 1}",{},{}
+CHEVROLET,SPARK,BEV/ICE,"{""BEV"": 1, ""ICE"": 4}",{},{}
+LAND ROVER,NEW RANGE ROVER SPORT,ICE/OTHERS/PHEV,"{""OTHERS"": 2, ""PHEV"": 2, ""ICE"": 1}",{},{}
+JEEP,WRANGLER UNLIMITED RUBICON,ICE/PHEV,"{""ICE"": 4, ""PHEV"": 1}","{""PHEV"": 1}",{}
+TOYOTA,TACOMA TRD PRO,BEV/HEV/ICE,"{""BEV"": 1, ""HEV"": 3, ""ICE"": 1}","{""HEV"": 1}",{}
+NISSAN,ROGUE,ICE/PHEV,"{""ICE"": 3, ""PHEV"": 1}","{""ICE"": 1}",{}
+GAC,EMKOO,HEV/ICE,"{""HEV"": 2, ""ICE"": 2}",{},{}
+MERCEDES-BENZ,GLE 450 4MATIC,ICE/PHEV,"{""PHEV"": 2, ""ICE"": 1}","{""ICE"": 1}",{}
+MERCEDES-BENZ,GLC 300 4MATIC,ICE/PHEV,"{""PHEV"": 1, ""ICE"": 2}",{},{}
+CHANGAN,CS55PLUS,ICE/PHEV,"{""PHEV"": 2, ""ICE"": 1}","{""PHEV"": 2, ""ICE"": 1}",{}
+FOTON,TUNLAND V7,HEV/ICE,"{""HEV"": 1, ""ICE"": 2}","{""HEV"": 1, ""ICE"": 2}","{""ICE"": 2}"
+LAND ROVER,RANGER ROVER EVOQUE,ICE/OTHERS,"{""OTHERS"": 1, ""ICE"": 1}",{},{}
+DACIA,SANDERO,BEV/ICE,"{""BEV"": 1, ""ICE"": 1}",{},{}
+TOYOTA,4 RUNNER,HEV/ICE,"{""ICE"": 1, ""HEV"": 1}","{""HEV"": 1}",{}
+MERCEDES-BENZ,S400,HEV/ICE,"{""HEV"": 1, ""ICE"": 1}","{""ICE"": 1}",{}
+LEXUS,RX400H,HEV/ICE,"{""ICE"": 1, ""HEV"": 1}","{""HEV"": 1}",{}
+PORSCHE,CAYENNE TURBO,BEV/PHEV,"{""PHEV"": 1, ""BEV"": 1}","{""BEV"": 1}",{}
+TOYOTA,CROSS,HEV/ICE,"{""ICE"": 1, ""HEV"": 1}",{},{}
+TOYOTA,CROWN ATHLETE S,HEV/ICE,"{""HEV"": 1, ""ICE"": 1}","{""HEV"": 1, ""ICE"": 1}",{}
+TOYOTA,TACOMA LIMITED,HEV/ICE,"{""HEV"": 1, ""ICE"": 1}","{""HEV"": 1, ""ICE"": 1}",{}

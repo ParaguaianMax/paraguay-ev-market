@@ -62,3 +62,57 @@ declarada en Aduana queda registrada en esta carpeta.
    iguales) se cuentan una vez; ver `duplicate_rows_removed.csv` (2 líneas, 2024-08 y 2024-09).
 10. **Overrides de motorización por línea:** RIDDARA RD6 'HIBRIDO PLUG-IN' de 2026-07 → PHEV
     (además del de 2026-09).
+
+## Tercera ronda — 2026-10-08
+La motorización (powertrain) no cambia en ninguna línea: la Aduana manda. Aprobado por Max el
+2026-10-08.
+
+9. **Marcas** (`data/marca_aliases.json` v5):
+   - SSANGYONG/SSANGYOUNG/SSANG YONG → **KGM**. Es la misma marca (KG Mobility es el nuevo nombre
+     de SsangYong). Se usa KGM porque es el nombre más frecuente en los datos: 735 unidades
+     contra 146, 2022-01..2026-09.
+   - SAMSUNG → RENAULT SAMSUNG.
+   - LI XIANG → LI AUTO.
+   - Se mantienen separadas: GEELY RADAR/RIDDARA, HUMMER/GMC, KAIYUN/PICKMAN.
+10. **Modelos `(sin modelo)` y años como modelo:** el modelo se toma de MERCADERIA solo cuando el
+    texto lo nombra; nunca se adivina. Se busca en este orden: `MODELO`/`MOD.`, `TIPO`,
+    `MARCA <marca> <modelo>` y `<marca> <modelo>`. Después pasa por la división
+    modelo base/edición. Ver `model_cleanup_2026-10-08.csv`.
+11. **Dígito final sobrante:** `TERA 1` → `TERA`, `RANGER 2` → `RANGER`, etc. Solo se quita cuando
+    el texto muestra que el dígito es la cilindrada (`TERA 1.0`). Los números reales de modelo
+    (SEALION 7, CX 5, RAV 4…) se mantienen.
+12. **Segmentos:**
+    - Mitsubishi / Mitsubishi Fuso CANTER → `pesado`.
+    - FOTON BJ10xx/BJ11xx (camiones, incluida la línea Aumark) → `pesado`.
+    - FOTON BJ5039/BJ5048 (furgones de carga) → `pesado`, salvo que el texto diga liviano.
+    - La Tunland sigue en `leve`.
+    - Cuadriciclos/cuatrimotos/triciclos/motocarros/go-karts (8703) y UTV/ATV (8704) →
+      `recreativo`. Incluye los 601 KENTON 0 km de 2026 (todos CUACICLON; ningún kit).
+
+    Ver `segment_moves_2026-10-08.csv`.
+13. **FOTON:**
+    - Los códigos se unifican: BJ1128VGJED-A TIPO = BJ1128VGJED A TIPO = BJ1128VGJED-A.
+    - Las 70 líneas BEV se revisaron en `foton_bev_check_2026-10-08.csv`.
+    - BJ1108EVJA2 (2025-01, 8704.60, el texto dice "MOTOR DIESEL") sigue BEV y queda listado
+      para Max.
+14. **Audi e-tron y Tesla** (solo BEV; un Q6/Q7 que no sea BEV no se renombra):
+    - Audi: E-TRON/ETRON → un modelo base (`Q6 E-TRON`, `Q8 E-TRON`, `E-TRON`, `Q4 E-TRON`),
+      con la versión en `edicion`.
+    - Las líneas "Q6 PERFORMANCE"/"Q6 QUATTRO" BEV con VIN WAUZZZGF (código del Q6 e-tron) pasan
+      a `Q6 E-TRON`.
+    - Q6L (versión china) y E-TRON vs Q8 E-TRON quedan separados.
+    - Tesla: `Model 3/Y/X/S` + versión del texto.
+15. **Ediciones estándar** (`data/edicion_aliases.json`, versionado):
+    - abreviaturas y typos de la misma versión (SB → SPORTBACK, SLINE → S LINE, LUX → LUXURY,
+      SR/LR/PAWD de Tesla, X-Trail e-POWER 4X4 = E-4ORCE);
+    - los pares dudosos están en `doubtful` y no se unen;
+    - después, las filas con la misma clave (period, variant, segmento, marca, modelo, edicion,
+      powertrain, condicion) se suman. **La motorización es parte de la clave**: nunca se suman
+      motorizaciones distintas.
+
+    Ver `edicion_aliases_applied_2026-10-08.csv`.
+16. **Control:**
+    - `multi_powertrain_models_2026-10-08.csv` lista los marca+modelo con más de una motorización
+      (el sitio debe rankear por marca+modelo+powertrain).
+    - `suspicious_powertrain_2026-10-08.csv` lista combinaciones 2026 dudosas (Vitz PHEV,
+      etc.). No se corrigen; son para Max.
