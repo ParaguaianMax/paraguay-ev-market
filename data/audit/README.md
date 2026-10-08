@@ -140,3 +140,29 @@ La motorización (powertrain) no cambia en ninguna línea: la Aduana manda. Apro
     cambian.
 
 Ver `model_cleanup_2026-10-08b.csv`.
+
+## Ronda 5 — 2026-10-08 11:07 (Max)
+La motorización no cambia. Solo cambian los nombres de modelo y 10 marcas.
+
+22. **Marca de los Canter:** 10 líneas 8704 declaradas TOYOTA o NISSAN, con modelo CANTER, cuyo
+    texto dice MARCA MITSUBISHI → **MITSUBISHI**. Incluye la 2024-06 que dice "MITSUBISHI TOYOTA".
+    - Siguen en `pesado`.
+    - Son pines por línea en `manual_marca_overrides.json` (no se pierden al reconstruir).
+    - No se tocan: NISSAN CANTER 2024-05 (24DA000000190101; el texto dice marca NISSAN) y la
+      station wagon TOYOTA CANTER 2026-07 (26DA000000387160; 8703, `leve`).
+23. **Combustible y accesorios en el nombre del modelo** (172 nombres, 3.563 unidades): se eliminan
+    estas palabras:
+    - combustible: NAFT, NAFTA, NAFTERO, DIESEL, GASOLINA, FLEX, "MOVIDO A …";
+    - accesorios: "CON SUS ACCESORIOS …";
+    - caja: AUT, AT, MT, CVT, DCT;
+    - cilindrada: 16, 10, 16CC;
+    - typos obvios (COORAY → COOLRAY, BLETA → BELTA, …).
+
+    Los nombres "<año> DIESEL" toman el modelo del texto (MODELO L200 TRITON SPORT GLX, etc.).
+    - NEW KICKS (220T): las versiones van a `edicion`. También se limpian las variantes "- FLEX"
+      (mismo patrón).
+    - El modelo se confirma en la MERCADERIA. Si el texto no lo nombra, el nombre queda igual y se
+      marca como `flagged`.
+    - La motorización sigue siendo parte de la clave.
+
+    Ver `model_cleanup_2026-10-08c.csv` (antes/después por nombre y la lista `flagged`).
