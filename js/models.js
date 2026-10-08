@@ -1,6 +1,7 @@
 /**
  * Brand/model detail for Volume/Marcas page.
- * Prefers data/models/YYYY-MM.csv (or manifest.json); falls back to Paraguay_models.csv.
+ * Prefers data/models/YYYY-MM.csv (or manifest.json); falls back to Paraguay_models.csv
+ * (assembled by .github/workflows/assemble-paraguay-models.yml, edicion as last column).
  * Header: period,variant,segmento,marca,modelo,powertrain,units[,condicion][,edicion],source,notes
  * Optional condicion: nuevo|usado|desconocido (when absent, UI hides the new/used filter).
  * Optional edicion: trim; blank means no edition. Absent column → ranking unchanged.
@@ -132,8 +133,10 @@
   }
 
   /**
-   * Assembled Paraguay_models.csv drops `edicion` (and sometimes folds the
-   * edition into `modelo`). Copy edicion from monthly rows that match
+   * Paraguay_models.csv now carries `edicion` as its last column (columns
+   * are read by header name), so the fallback uses it directly. This join
+   * only runs for an older assembled file without that column, which
+   * dropped `edicion` (and sometimes folded the edition into `modelo`). Copy edicion from monthly rows that match
    * period, variant, segmento, marca, powertrain, condicion and units.
    * Exact modelo wins; otherwise a single monthly base-name prefix match.
    * Rows that already have the column are left untouched.
