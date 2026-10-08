@@ -151,6 +151,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-09,LightVehicles,leve,CHANGAN,DEEPAL S07,,PHEV,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHERY,T7 PRO,,PHEV,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-09,LightVehicles,leve,CHEVROLET,CAPTIVA EV,PREMIER RWD,BEV,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHEVROLET,ONIX ACTIV HATCHBACK FLEX AT TURBO,,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,FIAT,MOBI LIKE,,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,FORD,MUSTANG,,ICE,usado,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -233,8 +234,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-09,LightVehicles,leve,CHANGAN,MS 201 DOBLE CABINA,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,CHANGAN,MS201 DOBLE CABINA,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,CHANGAN,UNI-K,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-09,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-09,LightVehicles,leve,CHEVROLET,CAPTIVA PREMIER EV AT,,BEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHEVROLET,ONIX LT HATCHBACK FLEX MT,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-09,LightVehicles,leve,CHEVROLET,S10 CD,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-09,LightVehicles,leve,CHEVROLET,S10 HIGH COUNTRY,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

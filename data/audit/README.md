@@ -166,3 +166,14 @@ La motorización no cambia. Solo cambian los nombres de modelo y 10 marcas.
     - La motorización sigue siendo parte de la clave.
 
     Ver `model_cleanup_2026-10-08c.csv` (antes/después por nombre y la lista `flagged`).
+
+## Ronda 6 — 2026-10-08 15:23 (Max + Gerente): Chevrolet Captiva EV
+24. "CAPTIVA EV PREMIER RWD T" (en 2026 son 72 líneas; en 2025-09 y 2025-12, otras 7) y
+    "CAPTIVA PREMIER EV AT" (24 líneas en 2026) son el mismo auto: BEV, 8703.80, 0 km. Se unen como
+    modelo **CAPTIVA EV**, edicion **PREMIER RWD**.
+    - Solo se cambian las líneas BEV cuya MERCADERIA dice "CAPTIVA EV PREMIER" o "CAPTIVA PREMIER EV".
+      Las demás líneas BEV de Captiva quedan como están y se listan; hoy no hay ninguna.
+    - La Captiva usada (ICE/diésel) no se toca.
+    - La regla está en `display_modelo` y `modelo_base` y el alias en `edicion_aliases.json`, así
+      que sobrevive a las reconstrucciones.
+    - Detalle por línea en `captiva_ev_merge_2026-10-08.csv`.

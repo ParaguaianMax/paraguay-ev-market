@@ -74,7 +74,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-08,LightVehicles,leve,TOYOTA,RUSH,,ICE,usado,26,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,CHEVROLET,S10 CD Z71,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-08,LightVehicles,leve,CHEVROLET,TRAILBLAZER HC,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-08,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-08,LightVehicles,leve,CHEVROLET,CAPTIVA EV,PREMIER RWD,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,CHEVROLET,SPARK EUV,,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,HYUNDAI,CRETA,PLATINUM,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,TOYOTA,COROLLA,,HEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

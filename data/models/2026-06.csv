@@ -126,7 +126,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,CHEVROLET,S10 HIGH COUNTRY,,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,HYUNDAI,PORTER II,,ICE,usado,13,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 815,,ICE,usado,13,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
-2026-06,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-06,LightVehicles,leve,CHEVROLET,CAPTIVA EV,PREMIER RWD,BEV,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,GAC,EMZOOM GL,,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,GEELY,EX5,,PHEV,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,GREATWALL,(sin modelo),,BEV,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

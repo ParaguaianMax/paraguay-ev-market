@@ -90,6 +90,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-07,LightVehicles,leve,HYUNDAI,VENUE,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,JETOUR,X70PLUS,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,NISSAN,KAIT SENSE CVT - FLEX,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-07,LightVehicles,leve,CHEVROLET,CAPTIVA EV,PREMIER RWD,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,CHEVROLET,S10 HIGH COUNTRY,,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-07,LightVehicles,leve,FORD,RANGER,,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-07,LightVehicles,leve,GREATWALL,NEW H6 PHEV,,PHEV,nuevo,23,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -115,7 +116,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-07,LightVehicles,leve,KGM,TIVOLI,,ICE,nuevo,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,TOYOTA,BELTA,,ICE,usado,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,CHERY,T4 PRO,,HEV,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-07,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,CHEVROLET,SONIC PREMIER,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,HYUNDAI,NEW GRAND I10 HATCHBACK,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,JEEP,COMPASS SPORT,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -229,7 +229,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-07,LightVehicles,leve,CHANGAN,MS201 DOBLE CABINA,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-07,LightVehicles,leve,CHANGAN,UNI-T,ELITE,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,CHEVROLET,CAMARO,,ICE,usado,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-07,LightVehicles,leve,CHEVROLET,CAPTIVA PREMIER EV AT,,BEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,CHEVROLET,MONTANA RS,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-07,LightVehicles,leve,CHEVROLET,ONIX HB LT,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-07,LightVehicles,leve,CHEVROLET,S10 CABINA DOBLE LTZ,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

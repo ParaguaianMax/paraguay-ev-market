@@ -187,7 +187,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-12,LightVehicles,leve,TOYOTA,GRAND HIACE,,ICE,usado,7,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2025-12,LightVehicles,pesado,HYUNDAI,EX8 FURGON REFRIGERADO,,ICE,nuevo,7,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2025-12,LightVehicles,leve,CHANGAN,MD201 CABINA SIMPLE,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
-2025-12,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-12,LightVehicles,leve,CHEVROLET,CAPTIVA EV,PREMIER RWD,BEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,CHEVROLET,S10 CD WORK,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-12,LightVehicles,leve,FIAT,STRADA RANCH D/C,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-12,LightVehicles,leve,FORD,BRONCO SPORT,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

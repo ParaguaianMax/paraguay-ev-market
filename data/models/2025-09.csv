@@ -415,7 +415,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-09,LightVehicles,leve,CHANGAN,DEEPAL S05,,PHEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,CHANGAN,HUNTER K50,,HEV,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
 2025-09,LightVehicles,leve,CHEVROLET,CAMARO SS,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-09,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-09,LightVehicles,leve,CHEVROLET,CAPTIVA EV,PREMIER RWD,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,CHEVROLET,CRUZE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,CHEVROLET,MONTANA CD LTZ,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-09,LightVehicles,leve,CHEVROLET,ONIX HB RS,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
