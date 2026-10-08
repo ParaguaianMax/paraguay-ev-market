@@ -38,3 +38,27 @@ declarada en Aduana queda registrada en esta carpeta.
 - `hs8704_60_lines.csv`: todas las líneas HS 8704.60, con la motorización antes y después.
   `not_a_pickup_hint = 1` marca descripciones de camión, triciclo o carrito que hoy cuentan como
   `leve`.
+
+## Segunda ronda — 2026-10-07 (noche)
+6. **Limpieza de marcas** (`data/marca_aliases.json` v4). Se corrigieron:
+   - errores de tipeo y puntuación/números pegados a la marca (`MITSUBISHI21.496,52` es el FOB
+     cargado en el campo MARCA ITEM de la Aduana; el resto de la línea está bien);
+   - modelos pegados a la marca (VITZ → TOYOTA/VITZ, HYUNDAI I 20 → HYUNDAI/I20, etc.);
+   - sufijos de carroceros (IVECO FACCHINI → IVECO; MERCEDES BENZ TRIELHT → MERCEDES-BENZ).
+
+   Valores basura (`*`, colores, números, palabras genéricas) toman la marca de la descripción
+   solo si la nombra; si no, quedan como SIN MARCA. Todos los cambios están en
+   `marca_cleanup_2026-10-07.csv`.
+7. **Kits para ensamble excluidos:** 18 líneas, 1.350 unidades, 2022–2025 (TAIGA/KENTON triciclos,
+   JMC kits incompletos); ver `excluded_kit_lines.csv`.
+8. **HS 8704.60:** si la descripción dice REEV/PHEV/plug-in pasa a PHEV, y si dice híbrido/HEV
+   pasa a HEV; sin palabra clave sigue siendo BEV. 75 líneas de camiones, triciclos y carritos
+   salen de `leve`:
+   - 65 van a `pesado`;
+   - 10 van a `recreativo`.
+
+   Ver `hs8704_60_lines.csv`: `segmento_after` y `segment_doubtful` (casos dudosos).
+9. **Filas duplicadas exactas en el archivo de Aduana** (mismo despacho+ítem, todos los campos
+   iguales) se cuentan una vez; ver `duplicate_rows_removed.csv` (2 líneas, 2024-08 y 2024-09).
+10. **Overrides de motorización por línea:** RIDDARA RD6 'HIBRIDO PLUG-IN' de 2026-07 → PHEV
+    (además del de 2026-09).

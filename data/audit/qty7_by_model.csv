@@ -232,10 +232,10 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-01,LightVehicles,leve,MITSUBISHI,CANTER GUTS,,ICE,usado,qty7_as_1,21,147,21
 2026-01,LightVehicles,leve,NISSAN,(sin modelo),,ICE,usado,qty7_as_1,21,147,21
 2026-01,LightVehicles,leve,KIA,K5,,ICE,usado,qty7_as_1,18,126,18
+2026-01,LightVehicles,leve,DAIHATSU,MOVE,,ICE,usado,qty7_as_1,17,119,17
 2026-01,LightVehicles,leve,KIA,SORENTO,,ICE,usado,qty7_as_1,17,119,17
 2026-01,LightVehicles,leve,SUBARU,IMPREZA,,ICE,usado,qty7_as_1,17,119,17
 2026-01,LightVehicles,leve,TOYOTA,CROWN ATHLETE,,ICE,usado,qty7_as_1,17,119,17
-2026-01,LightVehicles,leve,DAIHATSU,MOVE,,ICE,usado,qty7_as_1,16,112,16
 2026-01,LightVehicles,leve,DAIHATSU,MOVE CUSTOM,,ICE,usado,qty7_as_1,16,112,16
 2026-01,LightVehicles,leve,KIA,(sin modelo),,ICE,usado,qty7_as_1,16,112,16
 2026-01,LightVehicles,leve,NISSAN,ATLAS,,ICE,usado,qty7_as_1,15,105,15
@@ -300,6 +300,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-01,LightVehicles,leve,HYUNDAI,GRAND STAREX,,ICE,usado,qty7_as_1,2,14,2
 2026-01,LightVehicles,leve,HYUNDAI,TUCSON IX,,ICE,usado,qty7_as_1,2,14,2
 2026-01,LightVehicles,leve,KIA,BONGO III,,ICE,usado,qty7_as_1,2,14,2
+2026-01,LightVehicles,leve,MAZDA,(sin modelo),,ICE,usado,qty7_as_1,2,14,2
 2026-01,LightVehicles,leve,MAZDA,BONGO,,ICE,usado,qty7_as_1,2,14,2
 2026-01,LightVehicles,leve,MERCEDES-BENZ,814,,ICE,usado,qty7_as_1,2,14,2
 2026-01,LightVehicles,leve,MERCEDES-BENZ,ATEGO 817,,ICE,usado,qty7_as_1,2,14,2
@@ -323,7 +324,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-01,LightVehicles,leve,TOYOTA,PREMIO NAFTERO,,ICE,usado,qty7_as_1,2,14,2
 2026-01,LightVehicles,leve,TOYOTA,RUSH NAFTERO,,ICE,usado,qty7_as_1,2,14,2
 2026-01,LightVehicles,leve,VOLKSWAGEN,(sin modelo),,ICE,usado,qty7_as_1,2,14,2
-2026-01,LightVehicles,leve,2000,MOVE,,ICE,usado,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,ARGO,750 HDI,,ICE,usado,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,AUDI,(sin modelo),,BEV,nuevo,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,AUDI,Q5 2,,ICE,usado,qty7_as_1,1,7,1
@@ -387,8 +387,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-01,LightVehicles,leve,LAMBORGHINI,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,LANCIA,DELTA HF EVOLUZIONE,,ICE,usado,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,LINCOLN,TOWN CAR,,ICE,usado,qty7_as_1,1,7,1
-2026-01,LightVehicles,leve,MADZA,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
-2026-01,LightVehicles,leve,MAZDA,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,MAZDA,CX-3,,ICE,usado,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,MAZDA,DELO CX-5,,ICE,usado,qty7_as_1,1,7,1
 2026-01,LightVehicles,leve,MAZDA,MAZDA3 2,,ICE,usado,qty7_as_1,1,7,1
@@ -698,7 +696,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-02,LightVehicles,leve,DODGE,CHALLENGER SRT HELLCAT,,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,DODGE,CHALLENGER SRT HELLCAT WIDEBODY,,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,DODGE,CHALLENGER USADO,,ICE,usado,qty7_as_1,1,7,1
-2026-02,LightVehicles,leve,DODGE RAM,1500,,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,FERRARI,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,FERRARI,458 ITALIA,,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,FORD,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
@@ -780,6 +777,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-02,LightVehicles,leve,PEUGEOT,406,,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,PONTIAC,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,PORSCHE,CAYMAN,,ICE,usado,qty7_as_1,1,7,1
+2026-02,LightVehicles,leve,RAM,1500,,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,RENAULT,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,RENAULT,KANGOO,,ICE,usado,qty7_as_1,1,7,1
 2026-02,LightVehicles,leve,SCANIA,P94,,ICE,usado,qty7_as_1,1,7,1
@@ -1261,7 +1259,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-04,LightVehicles,leve,TOYOTA,WISH,,ICE,usado,qty7_as_1,193,1351,193
 2026-04,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,qty7_as_1,127,889,127
 2026-04,LightVehicles,leve,TOYOTA,IST,,ICE,usado,qty7_as_1,105,735,105
-2026-04,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,qty7_as_1,92,644,92
+2026-04,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,qty7_as_1,93,651,93
 2026-04,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,usado,qty7_as_1,81,567,81
 2026-04,LightVehicles,leve,HYUNDAI,SANTA FE,,ICE,usado,qty7_as_1,64,448,64
 2026-04,LightVehicles,leve,TOYOTA,COROLLA,,ICE,usado,qty7_as_1,59,413,59
@@ -1465,7 +1463,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-04,LightVehicles,leve,MITSUBISHI,FUSO,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,leve,MITSUBISHI,FUSO CANTER,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,leve,MITSUBISHI,TRITON,,ICE,usado,qty7_as_1,1,7,1
-2026-04,LightVehicles,leve,MITSUBISIHI,CANTER,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,leve,NISSAN,ATLAS 100,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,leve,NISSAN,CONDOR,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,leve,NISSAN,DATSUN,,ICE,usado,qty7_as_1,1,7,1
@@ -1560,7 +1557,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-04,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 816,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,pesado,MERCEDES-BENZ,ATEGO A/O,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,pesado,MERCEDES-BENZ,SPRINTER,,ICE,usado,qty7_as_1,1,7,1
-2026-04,LightVehicles,pesado,MERCESDES BENZ,SPRINTER 311,,ICE,usado,qty7_as_1,1,7,1
+2026-04,LightVehicles,pesado,MERCEDES-BENZ,SPRINTER 311,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,pesado,RANDON,RK-430B,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,pesado,SCANIA,114 L - 380,,ICE,usado,qty7_as_1,1,7,1
 2026-04,LightVehicles,pesado,SCANIA,124 - 420,,ICE,usado,qty7_as_1,1,7,1
@@ -1580,7 +1577,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-05,LightVehicles,leve,TOYOTA,SIENTA,,ICE,usado,qty7_as_1,244,1708,244
 2026-05,LightVehicles,leve,TOYOTA,(sin modelo),,ICE,usado,qty7_as_1,236,1652,236
 2026-05,LightVehicles,leve,TOYOTA,WISH,,ICE,usado,qty7_as_1,231,1617,231
-2026-05,LightVehicles,leve,TOYOTA,VOXY,,ICE,usado,qty7_as_1,220,1540,220
+2026-05,LightVehicles,leve,TOYOTA,VOXY,,ICE,usado,qty7_as_1,221,1547,221
 2026-05,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,qty7_as_1,161,1127,161
 2026-05,LightVehicles,leve,TOYOTA,IST,,ICE,usado,qty7_as_1,131,917,131
 2026-05,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,qty7_as_1,93,651,93
@@ -1667,6 +1664,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-05,LightVehicles,leve,TOYOTA,AVENSIS,,ICE,usado,qty7_as_1,3,21,3
 2026-05,LightVehicles,leve,TOYOTA,DYNA,,ICE,usado,qty7_as_1,3,21,3
 2026-05,LightVehicles,leve,TOYOTA,ISIS PLATANA,,ICE,usado,qty7_as_1,3,21,3
+2026-05,LightVehicles,leve,TOYOTA,LAND CRUISER,,ICE,usado,qty7_as_1,3,21,3
 2026-05,LightVehicles,leve,TOYOTA,PREMIO NAFTERO,,ICE,usado,qty7_as_1,3,21,3
 2026-05,LightVehicles,leve,TOYOTA,SAI A/O,,ICE,usado,qty7_as_1,3,21,3
 2026-05,LightVehicles,leve,TOYOTA,SIENTA,,HEV,usado,qty7_as_1,3,21,3
@@ -1706,7 +1704,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-05,LightVehicles,leve,TOYOTA,FIELDER,,ICE,usado,qty7_as_1,2,14,2
 2026-05,LightVehicles,leve,TOYOTA,GRANVIA,,ICE,usado,qty7_as_1,2,14,2
 2026-05,LightVehicles,leve,TOYOTA,GT 86,,ICE,usado,qty7_as_1,2,14,2
-2026-05,LightVehicles,leve,TOYOTA,LAND CRUISER,,ICE,usado,qty7_as_1,2,14,2
 2026-05,LightVehicles,leve,TOYOTA,LAND CRUISER,,HEV,nuevo,qty7_as_1,2,14,2
 2026-05,LightVehicles,leve,ACURA,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,AUDI,A3,,ICE,usado,qty7_as_1,1,7,1
@@ -1774,7 +1771,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-05,LightVehicles,leve,LAND ROVER,LAND ROVER,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,LAND ROVER,LR4,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,LEXUS,LS,,ICE,usado,qty7_as_1,1,7,1
-2026-05,LightVehicles,leve,LIBRE,VOXY,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,MAZDA,ATENZA,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,MAZDA,AXELA,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,MAZDA,AXELA SPORT,,ICE,usado,qty7_as_1,1,7,1
@@ -1895,7 +1891,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-05,LightVehicles,leve,TOYOTA,TOURING HIACE,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,TOYOTA,TOWNACE VAN,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,TOYOTA,TRD SPORT,,ICE,usado,qty7_as_1,1,7,1
-2026-05,LightVehicles,leve,TOYOTA LAND CRUISER,LAND CRUISER,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,VOLKSWAGEN,ARTEON,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,VOLKSWAGEN,GOLF GTI,,ICE,usado,qty7_as_1,1,7,1
 2026-05,LightVehicles,leve,VOLKSWAGEN,PASSAT,,ICE,usado,qty7_as_1,1,7,1
@@ -1965,11 +1960,11 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-06,LightVehicles,leve,TOYOTA,IST,,ICE,usado,qty7_as_1,122,854,122
 2026-06,LightVehicles,leve,HYUNDAI,SANTA FE,,ICE,usado,qty7_as_1,103,721,103
 2026-06,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,usado,qty7_as_1,102,714,102
-2026-06,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,qty7_as_1,83,581,83
+2026-06,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,qty7_as_1,84,588,84
 2026-06,LightVehicles,leve,TOYOTA,COROLLA,,ICE,usado,qty7_as_1,67,469,67
 2026-06,LightVehicles,leve,TOYOTA,FUNCARGO,,ICE,usado,qty7_as_1,45,315,45
 2026-06,LightVehicles,leve,HYUNDAI,(sin modelo),,ICE,usado,qty7_as_1,44,308,44
-2026-06,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,usado,qty7_as_1,39,273,39
+2026-06,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,usado,qty7_as_1,40,280,40
 2026-06,LightVehicles,leve,KIA,K5,,ICE,usado,qty7_as_1,36,252,36
 2026-06,LightVehicles,leve,NISSAN,ATLAS,,ICE,usado,qty7_as_1,34,238,34
 2026-06,LightVehicles,leve,TOYOTA,COROLLA AXIO,,ICE,usado,qty7_as_1,30,210,30
@@ -2241,7 +2236,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-06,LightVehicles,leve,MERCEDES-BENZ,SPTINTER 310 CDI,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,MERCEDES-BENZ,VARIOS 815D,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,MINI,COOPER,,ICE,usado,qty7_as_1,1,7,1
-2026-06,LightVehicles,leve,MITSUBICHI,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,MITSUBISHI,CANTER CUSTOMANIO,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,MITSUBISHI,CANTER GUTSANIO,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,MITSUBISHI,FUSO,,ICE,usado,qty7_as_1,1,7,1
@@ -2251,7 +2245,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-06,LightVehicles,leve,MITSUBISHI,PAJERO IO,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,MITSUBISHI,PAJERO MINI,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,MITSUBISHI,PAJERO OI,,ICE,usado,qty7_as_1,1,7,1
-2026-06,LightVehicles,leve,MITUSBISHI,CANTER,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,NISSAN,ATLAS ELF 100,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,NISSAN,CARAVAN,,ICE,usado,qty7_as_1,1,7,1
 2026-06,LightVehicles,leve,NISSAN,DAYS,,ICE,usado,qty7_as_1,1,7,1
@@ -2397,7 +2390,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-07,LightVehicles,leve,TOYOTA,SIENTA,,ICE,usado,qty7_as_1,211,1477,211
 2026-07,LightVehicles,leve,TOYOTA,WISH,,ICE,usado,qty7_as_1,189,1323,189
 2026-07,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,qty7_as_1,156,1092,156
-2026-07,LightVehicles,leve,KENTON,(sin modelo),,ICE,nuevo,qty7_as_1,145,1015,145
+2026-07,LightVehicles,leve,KENTON,(sin modelo),,ICE,nuevo,qty7_as_1,146,1022,146
 2026-07,LightVehicles,leve,TOYOTA,IST,,ICE,usado,qty7_as_1,127,889,127
 2026-07,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,qty7_as_1,102,714,102
 2026-07,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,usado,qty7_as_1,84,588,84
@@ -2530,7 +2523,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-07,LightVehicles,leve,AUDI,Q5,,ICE,usado,qty7_as_1,1,7,1
 2026-07,LightVehicles,leve,AUDI,Q7,,ICE,usado,qty7_as_1,1,7,1
 2026-07,LightVehicles,leve,AUDI,TT,,ICE,usado,qty7_as_1,1,7,1
-2026-07,LightVehicles,leve,BLANCO,(sin modelo),,ICE,nuevo,qty7_as_1,1,7,1
 2026-07,LightVehicles,leve,BMW,116I,,ICE,usado,qty7_as_1,1,7,1
 2026-07,LightVehicles,leve,BMW,128I,,ICE,usado,qty7_as_1,1,7,1
 2026-07,LightVehicles,leve,BMW,318 D,,ICE,usado,qty7_as_1,1,7,1
@@ -2998,13 +2990,13 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-08,LightVehicles,leve,MERCEDES-BENZ,SPRINTER 316,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,MERCEDES-BENZ,VITO 115 CDI A/O,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,MINI,COOPER S,,ICE,usado,qty7_as_1,1,7,1
-2026-08,LightVehicles,leve,MISTUBISHI FUSO,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
-2026-08,LightVehicles,leve,MISTUBISHI FUSO,CANTER,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,MITSUBISHI,CANTER GUTS CUSTOM,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,MITSUBISHI,COLT,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,MITSUBISHI,LANCER,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,MITSUBISHI,OUTLANDER,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,MITSUBISHI,PAJERO MINI,,ICE,usado,qty7_as_1,1,7,1
+2026-08,LightVehicles,leve,MITSUBISHI FUSO,(sin modelo),,ICE,usado,qty7_as_1,1,7,1
+2026-08,LightVehicles,leve,MITSUBISHI FUSO,CANTER,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,NISSAN,300ZX,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,NISSAN,DATSUN,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,leve,NISSAN,FAIRLAZDY Z,,ICE,usado,qty7_as_1,1,7,1
@@ -3050,7 +3042,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-08,LightVehicles,pesado,MERCEDES-BENZ,814,,ICE,usado,qty7_as_1,6,42,6
 2026-08,LightVehicles,pesado,SCANIA,P94,,ICE,usado,qty7_as_1,6,42,6
 2026-08,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 815,,ICE,usado,qty7_as_1,5,35,5
-2026-08,LightVehicles,pesado,MERCEDES-BENZ,ATEGO,,ICE,usado,qty7_as_1,3,21,3
+2026-08,LightVehicles,pesado,MERCEDES-BENZ,ATEGO,,ICE,usado,qty7_as_1,4,28,4
 2026-08,LightVehicles,pesado,SCANIA,(sin modelo),,ICE,usado,qty7_as_1,3,21,3
 2026-08,LightVehicles,pesado,MERCEDES-BENZ,1117,,ICE,usado,qty7_as_1,2,14,2
 2026-08,LightVehicles,pesado,NISSAN,CABSTAR,,ICE,usado,qty7_as_1,2,14,2
@@ -3064,7 +3056,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,rule,lines,uni
 2026-08,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 812 A/O,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 814,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 818 A/O,,ICE,usado,qty7_as_1,1,7,1
-2026-08,LightVehicles,pesado,MERDEDES BENZ,ATEGO,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,pesado,NISSAN,TRADE,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,pesado,SCANIA,124,,ICE,usado,qty7_as_1,1,7,1
 2026-08,LightVehicles,pesado,SCANIA,G420 6X4,,ICE,usado,qty7_as_1,1,7,1
