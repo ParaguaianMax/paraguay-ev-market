@@ -64,7 +64,9 @@
     "AUDI": "Q6 E-TRON / Q8 E-TRON / E-TRON: SB = Sportback, SLINE = S line, ADVANCED and PERFOMANCE/PERMORMANCE are typos. Numbers 50/55 are the power level, kept.",
     "TESLA": "SR = Standard Range, LR = Long Range, PAWD = Premium AWD; Performance stays Performance.",
     "HYUNDAI|CRETA": "Base CRETA for CRETA / NEW CRETA (NEW = same model, Max 2026-10-08). Trims COMFORT, PLATINUM, ACTION, GLS; fuel/engine words (NAFTERO, NAFT, NAFTA, FLEX, 15CC, AT) are dropped, never kept in edicion. No spelling aliases needed.",
-    "CHEVROLET|CORVETTE E-RAY": "HEV Corvette = E-Ray (the only hybrid Corvette); ERAY → E-RAY; edicion = CONVERTIBLE/COUPE where stated. ICE Corvettes unchanged."
+    "CHEVROLET|CORVETTE E-RAY": "HEV Corvette = E-Ray (the only hybrid Corvette); ERAY → E-RAY; edicion = CONVERTIBLE/COUPE where stated. ICE Corvettes unchanged.",
+    "NISSAN|NEW KICKS": "2nd-gen Kicks (220T). Base NEW KICKS; edicion SENSE / ADVANCE / ADVANCE PLUS / EXCLUSIVE; engine/gearbox/fuel words (220T, 6 DCT, FLEX) dropped (Max 2026-10-08 round 5).",
+    "fuel_words": "Fuel/accessory/gearbox words (NAFT, NAFTA, NAFTERO, DIESEL, GASOLINA, FLEX, MOVIDO A …, CON SUS ACCESORIOS …, AUT/AT/MT/CVT/DCT, 16CC) never go into modelo or edicion (Max 2026-10-08 round 5)."
   },
   "doubtful": [
     {

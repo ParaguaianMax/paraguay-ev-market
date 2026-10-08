@@ -1,7 +1,7 @@
 period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,notes
 2024-01,LightVehicles,leve,TOYOTA,VITZ,,ICE,usado,580,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,RACTIS,,ICE,usado,324,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,TOYOTA,ALLION,,ICE,usado,301,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,TOYOTA,ALLION,,ICE,usado,305,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,recreativo,KENTON,(sin modelo),,ICE,nuevo,287,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart
 2024-01,LightVehicles,leve,TOYOTA,AURIS,,ICE,usado,270,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,KIA,SPORTAGE,,ICE,usado,264,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -25,13 +25,13 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,MAXUS,T90 D20 LUXURY,,ICE,nuevo,52,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,pesado,MITSUBISHI,CANTER,,ICE,usado,52,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2024-01,LightVehicles,leve,TOYOTA,COROLLA,,ICE,usado,51,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,usado,45,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,usado,49,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MAZDA,CX-30,,ICE,nuevo,43,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,KIA,K3,,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MAZDA,CX-5,,ICE,nuevo,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,TOYOTA,RUSH,,ICE,usado,34,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,nuevo,33,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,32,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,TOYOTA,RUSH,,ICE,usado,32,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,FORTUNER,,ICE,nuevo,31,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,KIA,SPORTAGE,,ICE,nuevo,30,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,LAND CRUISER,,ICE,nuevo,29,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -47,11 +47,11 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,MAZDA,BT50 DOBLE CABINA,,ICE,nuevo,21,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,TOYOTA,RAV4,,HEV,nuevo,21,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,GEELY,EMGRAND GX3 PRO,,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,TOYOTA,BELTA,,ICE,usado,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,COROLLA CROSS,,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,YARIS CROSS,,HEV,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,FORD,RANGER DC,,ICE,nuevo,19,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,NISSAN,X-TRAIL E-POWER,,HEV,nuevo,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,TOYOTA,BELTA,,ICE,usado,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,CITROEN,BERLINGO HDI 69,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLC 220 D 4MATIC,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,PEUGEOT,2008 STYLE,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -69,6 +69,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,CITROEN,C4 CACTUS FEEL,,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLE 300 D 4MATIC,,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLE 450 D 4MATIC,,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,pesado,MITSUBISHI,CANTER GUTS,,ICE,usado,12,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2024-01,LightVehicles,leve,HONDA,HONDA CIVIC FHEV,,HEV,nuevo,11,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,PEUGEOT,2008 ALLURE,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,CHEVROLET,MONTANA PREMIER II,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
@@ -86,12 +87,12 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,JEEP,GRAND CHEROKEE LIMITED,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,PORSCHE,CAYENNE,,PHEV,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,SUZUKI,SWIFT,,ICE,usado,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,pesado,MITSUBISHI,CANTER GUTS,,ICE,usado,9,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2024-01,LightVehicles,leve,CHEVROLET,NOVA MONTANA PREMIER II,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,CHEVROLET,TRAILBLAZER PREMIER,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,ISUZU,QMR77L-HH5AYN,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,LEXUS,NX350H,,HEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,RENAULT,KWID INTENS,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,TOYOTA,GRANVIA,,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,pesado,MERCEDES-BENZ,ATEGO,,ICE,usado,8,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-01,LightVehicles,recreativo,CFMOTO,CF110,,ICE,nuevo,8,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart
 2024-01,LightVehicles,recreativo,KYMCO,MXU 450I,,ICE,nuevo,8,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart
@@ -103,7 +104,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,RAM,2500,LARAMIE DOBLE CABINA,ICE,nuevo,7,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,RENAULT,NUEVA KANGOO EXPRESS,,ICE,nuevo,7,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,TOYOTA,CALDINA,,ICE,usado,7,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,TOYOTA,GRANVIA,,ICE,usado,7,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,REGIUS,,ICE,usado,7,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,VOLKSWAGEN,AMAROK,,ICE,nuevo,7,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,pesado,MERCEDES-BENZ,815,,ICE,usado,7,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
@@ -137,7 +137,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,CITROEN,C3,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,HINO,(sin modelo),,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,HYUNDAI,PORTER II,,ICE,usado,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2024-01,LightVehicles,leve,HYUNDAI,TUCSON DIESEL,,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,JEEP,WRANGLER,,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLA 200 D,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,PEUGEOT,2008 GT LINE,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -146,7 +145,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,RENAULT,ARKANA INTENS,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,RENAULT,OROCH INT OUT,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,SEGWAY,SNARLER AT5 L PREMIUM,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,TOYOTA,ALLION NAFTERO,,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,COROLLA,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,VOLKSWAGEN,TERAMONT,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,VOLKSWAGEN,TIGUAN RLINE,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -187,7 +185,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,pesado,FUSO,FIV1PHX2LNJA,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-01,LightVehicles,pesado,MERCEDES-BENZ,1517,,ICE,usado,3,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-01,LightVehicles,pesado,MERCEDES-BENZ,814,,ICE,usado,3,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
-2024-01,LightVehicles,pesado,MITSUBISHI,CANTER GUTS DIESEL,,ICE,usado,3,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2024-01,LightVehicles,pesado,SCANIA,124,,ICE,usado,3,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-01,LightVehicles,recreativo,CFMOTO,CF400AZ-3L,,ICE,nuevo,3,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart
 2024-01,LightVehicles,recreativo,VENTURA,400,,ICE,nuevo,3,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
@@ -237,7 +234,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,TOYOTA,ISIS,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,LAND CRUISER,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,PRIUS,,HEV,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,TOYOTA,RUSH NAFTERO,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,pesado,FOTON,BJ1128VEJED-FA,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-01,LightVehicles,pesado,ISUZU,FRR90SL-NAN,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-01,LightVehicles,pesado,ISUZU,NQR71L-LN5VAY,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
@@ -272,9 +268,9 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,BMW,M3,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,BMW,X1,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,BMW,X1 M35I XDRIVE,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,BMW,X2 SDRIVE2 NAFTERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,BMW,X2 SDRIVE2,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,BMW,X3 SDRIVE20I,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,BMW,X4 DIESEL,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,BMW,X4,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,BMW,X5 XDR 40 E,,PHEV,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,BMW,X5 XDRIVE30D,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,BMW,X6,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -334,7 +330,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,MERCEDES-BENZ,ATEGO 818,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,MERCEDES-BENZ,C220 CDI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,C250,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,MERCEDES-BENZ,C300 4MAT NAFTERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,MERCEDES-BENZ,C300 4MAT,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,CLA 200 CDI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,CLASS 200,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,E200,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -347,7 +343,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLK250,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLS 450 D 4MATIC,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,ML250 BLUETEC,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,MERCEDES-BENZ,SLK 350 NAFTERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-01,LightVehicles,leve,MERCEDES-BENZ,SLK 350,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,SPRINTER 317 CDI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,MERCEDES-BENZ,SPRINTER WOHNMOBIL LA STRADA NOVA TEILINTEGRIERT,,ICE,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2024-01,LightVehicles,leve,MITSUBISHI,COLT,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -384,14 +380,12 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,SUZUKI,VITARA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,TOYOTA,BB,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,TOYOTA,BELTA NAFTERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,BZ4X,,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,CELICA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,COROLLA FIELDER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,CROWN,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,FIELDER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,GRAN HIACE,,ICE,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
-2024-01,LightVehicles,leve,TOYOTA,GRANVIA DIESEL,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,TOYOTA,HIACE GRAND CABIN,,ICE,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2024-01,LightVehicles,leve,TOYOTA,HIACE SUPER CUSTOM,,ICE,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2024-01,LightVehicles,leve,TOYOTA,HULUX SURF,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
