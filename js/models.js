@@ -773,8 +773,9 @@
     el.innerHTML = html;
   }
 
+  /** Key lives in a data-* attribute: HTML turns NUL into U+FFFD, so use U+241F. */
   function modelEditionKey(m) {
-    return m.marca + "\0" + m.modelo;
+    return m.marca + "\u241F" + m.modelo;
   }
 
   function renderTopModelTable(el, models, opts) {
@@ -969,6 +970,7 @@
     parseModelsCSV,
     resolveModelsUrl,
     resolveModelsDir,
+    modelEditionKey,
     periodsOf: function (rows) {
       return [...new Set((rows || []).map((r) => r.period).filter(Boolean))].sort();
     },

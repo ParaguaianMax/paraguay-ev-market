@@ -89,6 +89,10 @@
     <h1 data-i18n="volumes_title">Volúmenes: total, electrificados e ICE</h1>
     <p class="lead" data-i18n="volumes_lead">Unidades importadas por mes, con una vista ampliada de los vehículos electrificados y otra con el total del mercado.</p>
     <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo 0 km</div>
+    <div class="vol-series-filter" id="volSeriesFilter" hidden>
+      <span id="volSeriesFilterText"></span>
+      <button type="button" class="vol-series-filter-clear" id="volSeriesFilterClear" data-i18n="vol_filter_clear">Quitar filtro</button>
+    </div>
 
 
 <h2 data-i18n="electrified">Electrificados (sin ICE)</h2>
@@ -190,7 +194,7 @@
           </div>
         </div>
         <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_brands_lead">
-          Unidades por marca con desglose de motorización. Elegí una o más marcas para filtrar el ranking.
+          Unidades por marca con desglose de motorización. Elegí una o más marcas para filtrar la página.
         </p>
         <div class="vol-search-row">
           <div class="vol-picker" id="volBrandPicker">
@@ -213,7 +217,7 @@
           </div>
         </div>
         <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_models_lead">
-          Unidades por modelo (marca + nombre). Cada segmento de la barra es un powertrain. Elegí uno o más modelos para filtrar.
+          Unidades por modelo (marca + nombre). Tocá un modelo para ver las ediciones. Con una marca elegida, la lista muestra solo sus modelos.
         </p>
         <div class="vol-search-row">
           <div class="vol-picker" id="volModelPicker">
@@ -277,11 +281,34 @@
         }
         hint.textContent = parts.join(" · ");
       }
+      const filterBox = document.getElementById("volSeriesFilter");
+      const filterText = document.getElementById("volSeriesFilterText");
+      const filterClear = document.getElementById("volSeriesFilterClear");
+      if (filterClear) {
+        filterClear.addEventListener("click", () => {
+          const vf = window.PYEVVolFilter;
+          if (vf && vf.clear) vf.clear();
+        });
+      }
+      function syncFilterNote(vf) {
+        if (!filterBox) return;
+        const on = !!(vf && vf.active);
+        filterBox.hidden = !on;
+        if (on && filterText) {
+          const items = vf.models.length ? vf.models : vf.brands;
+          filterText.textContent = PYEV.t("vol_filter_on", { items: items.join(", ") });
+        }
+      }
       async function draw() {
         try {
           if (!allRows.length) allRows = await PYEV.loadParaguay();
           updateHint();
-          const resolved = await PYEV.resolveVehicleRows(allRows);
+          // Brand/model picked in the rankings below: series + table follow it.
+          const vf = window.PYEVVolFilter;
+          syncFilterNote(vf);
+          const resolved = vf && vf.active
+            ? { rows: vf.seriesRows(), note: "models_empty_filter" }
+            : await PYEV.resolveVehicleRows(allRows);
           rows = resolved.rows || [];
           if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
           el.innerHTML = "";
@@ -316,6 +343,7 @@
       await draw();
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-nuevos", draw);
+      window.addEventListener("pyev-vol-filter", draw);
       window.addEventListener("pyev-theme", () => {
         if (el && el.data) PYEVCharts.restyleTheme(el);
         if (elElec && elElec.data) PYEVCharts.restyleTheme(elElec);

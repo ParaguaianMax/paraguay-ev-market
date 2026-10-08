@@ -321,6 +321,32 @@
   font-size: 0.78rem;
   line-height: 1.35;
 }
+.vol-series-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+  margin: 0.5rem 0 0.85rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.85rem;
+}
+.vol-series-filter[hidden] { display: none; }
+.vol-series-filter span { min-width: 0; overflow-wrap: anywhere; }
+.vol-series-filter-clear {
+  appearance: none;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--accent, var(--text));
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 .vol-pt-mode,
 .vol-cond-mode {
   margin-left: 0;

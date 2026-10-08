@@ -13,6 +13,9 @@
  * Expanded lines show trim, units, and that edition's share of the model.
  * Ranking charts default to Top 20; "Todas" shows the full brand list
  * and all models. Bar labels include the rank number.
+ * Brand selection scopes the model ranking and the model picker to those
+ * brands. Brand/model selection is published as PYEVVolFilter (event
+ * "pyev-vol-filter") so the page series and units table can follow it.
  */
 (function (global) {
   const TOP_DEFAULT = 20;
@@ -436,6 +439,64 @@
       if (modelMeta) modelMeta.textContent = t("vol_showing_n", { n: "0" });
       if (brandPicker) brandPicker.sync([]);
       if (modelPicker) modelPicker.sync([]);
+      publishFilter();
+    }
+
+    let filterSig = "";
+    /** Share brand/model selection with the page series + units table. */
+    function publishFilter() {
+      const brands = [...brandPicker.selected].sort();
+      const models = [...modelPicker.selected].sort();
+      const cond = condicionAvailable ? condMode : "all";
+      const active = !!(brands.length || models.length);
+      const sig = active ? brands.join("|") + "#" + models.join("|") + "#" + cond : "";
+      if (sig === filterSig) return;
+      filterSig = sig;
+      global.PYEVVolFilter = {
+        active,
+        brands,
+        models,
+        cond,
+        seriesRows() {
+          let rows = marketRows;
+          if (brands.length) {
+            const bs = new Set(brands);
+            rows = rows.filter((r) => bs.has(r.marca));
+          }
+          if (models.length) {
+            const ms = new Set(models);
+            rows = rows.filter((r) => ms.has(r.marca + " " + r.modelo));
+          }
+          if (cond === "nuevo" || cond === "usado") {
+            rows = PYEVModels.filterModels(rows, { condicion: cond });
+          }
+          const out = PYEVModels.aggregateToMarketRows(rows);
+          if (!out.length) return out;
+          // Fill months without units with zeros so the series has no gaps.
+          const have = new Set(out.map((r) => r.period));
+          const proto = out[0];
+          PYEVModels.periodsOf(marketRows)
+            .filter((p) => p >= proto.period && !have.has(p))
+            .forEach((p) => {
+              out.push(Object.assign({}, proto, {
+                period: p, BEV: 0, PHEV: 0, HEV: 0, ICE: 0, OTHERS: 0, TOTAL: 0,
+                electrified: 0, electrified_pct: 0,
+                share: { BEV: 0, PHEV: 0, HEV: 0, OTHERS: 0, ICE: 0 },
+              }));
+            });
+          return out.sort((x, y) => (x.period < y.period ? -1 : x.period > y.period ? 1 : 0));
+        },
+        clear: clearItemFilter,
+      };
+      global.dispatchEvent(new CustomEvent("pyev-vol-filter"));
+    }
+
+    function clearItemFilter() {
+      brandPicker.selected.clear();
+      modelPicker.selected.clear();
+      brandPicker.updateBtn();
+      modelPicker.updateBtn();
+      draw();
     }
 
     function draw() {
@@ -466,15 +527,20 @@
       }
 
       const allBrands = PYEVModels.rankBrands(rows, { topN: 0 });
-      const allModels = PYEVModels.rankModels(rows, { topN: 0 });
       allBrands.forEach((b, i) => {
         b.rank = i + 1;
       });
+      brandPicker.sync(allBrands.map((b) => b.marca));
+      // With brands chosen, the model ranking and picker only cover those brands.
+      const modelRows = brandPicker.selected.size
+        ? rows.filter((r) => brandPicker.selected.has(r.marca))
+        : rows;
+      const allModels = PYEVModels.rankModels(modelRows, { topN: 0 });
       allModels.forEach((m, i) => {
         m.rank = i + 1;
       });
-      brandPicker.sync(allBrands.map((b) => b.marca));
       modelPicker.sync(allModels.map((m) => m.label));
+      publishFilter();
       const cap = topLimit === "all" ? Infinity : TOP_DEFAULT;
       const brands = brandPicker.selected.size
         ? allBrands.filter((b) => brandPicker.selected.has(b.marca))
@@ -540,7 +606,7 @@
           const label = raw.replace(/^\d+\.\s+/, "");
           const hit = models.find((m) => (m.label === label || m.label === raw) && m.editions);
           if (!hit) return;
-          toggleModelEdition(hit.marca + "\0" + hit.modelo);
+          toggleModelEdition(PYEVModels.modelEditionKey(hit));
         };
         node.on("plotly_click", modelClickBound);
       });
