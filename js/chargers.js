@@ -145,17 +145,42 @@
   }
 
   /**
-   * Carga top cards: public locations, public connectors (CCS large, CHAdeMO and
-   * GB/T small, no total) and real operators among public locations. A growth card
-   * is held back: chargers-dc.csv has no dates, so there is no like-for-like
-   * figure for one year earlier.
+   * Growth baseline: the most recent cut of the published-report history (the
+   * same value the history chart draws for that cut). Read from
+   * data/historico/, so a newer survey row there replaces it automatically.
    */
-  function renderKPIs(el, rows) {
+  function growthBaseline(points) {
+    const pts = (points || []).filter((p) => p && Number(p.value) > 0);
+    if (!pts.length) return null;
+    const last = pts[pts.length - 1];
+    return { corte: last.corte, sites: Number(last.value) };
+  }
+
+  function signed(n) {
+    return (n > 0 ? "+" : n < 0 ? "\u2212" : "\u00b1") + Math.abs(n);
+  }
+
+  /**
+   * Carga top cards: public locations, growth of public locations against the
+   * history baseline, public connectors (CCS large, CHAdeMO and GB/T small, no
+   * total) and real operators among public locations. `baseline` comes from
+   * growthBaseline(); until the history file loads the growth card shows a dash.
+   */
+  function renderKPIs(el, rows, baseline) {
     const n = chargerCounts(rows);
-    el.classList.add("kpi-3");
+    el.classList.add("kpi-4");
+    let growth = '<div class="value">\u2014</div>';
+    if (baseline && baseline.sites > 0) {
+      const diff = n.pubSites - baseline.sites;
+      const pct = Math.round((diff / baseline.sites) * 100);
+      growth =
+        '<div class="value">' + signed(diff) + ' <small>(' + signed(pct) + "%)</small></div>" +
+        '<div class="sub">' + PYEV.t("kpi_growth_sub", { period: historyMonthLabel(baseline.corte, true) }) + "</div>";
+    }
     el.innerHTML =
       '<div class="kpi bev"><div class="label">' + PYEV.t("kpi_pub_points") + '</div><div class="value">' + n.pubSites +
       '</div><div class="sub">' + PYEV.t("kpi_pub_points_sub") + "</div></div>" +
+      '<div class="kpi kpi-growth"><div class="label">' + PYEV.t("kpi_growth") + "</div>" + growth + "</div>" +
       '<div class="kpi bev kpi-conn"><div class="label">' + PYEV.t("kpi_connectors") + '</div><div class="value">' + n.pubTypes.CCS +
       ' <small>CCS</small></div><div class="kpi-minor"><span>CHAdeMO <b>' + n.pubTypes.CHAdeMO + "</b></span><span>GB/T <b>" + n.pubTypes.GBT +
       "</b></span></div></div>" +
@@ -826,7 +851,7 @@
     }).filter(Boolean);
   }
 
-  function historyMonthLabel(corte) {
+  function historyMonthLabel(corte, fullYear) {
     const lang = PYEV.language ? PYEV.language() : "es";
     const months = lang === "en"
       ? { "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec" }
@@ -834,7 +859,7 @@
         ? { "01": "jan", "02": "fev", "03": "mar", "04": "abr", "05": "mai", "06": "jun", "07": "jul", "08": "ago", "09": "set", "10": "out", "11": "nov", "12": "dez" }
         : { "01": "ene", "02": "feb", "03": "mar", "04": "abr", "05": "may", "06": "jun", "07": "jul", "08": "ago", "09": "sep", "10": "oct", "11": "nov", "12": "dic" };
     const parts = String(corte).split("-");
-    const yy = parts[0] ? parts[0].slice(2) : "";
+    const yy = parts[0] ? (fullYear ? parts[0] : parts[0].slice(2)) : "";
     return (months[parts[1]] || parts[1]) + " " + yy;
   }
 
@@ -1122,6 +1147,7 @@
     loadChargers,
     chargerCounts,
     renderKPIs,
+    growthBaseline,
     renderBreakdown,
     renderTable,
     renderConnectorChart,

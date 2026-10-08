@@ -1319,18 +1319,24 @@ table.data th.pct-col { min-width: 3.4rem; font-size: 0.62rem; }
 @media (max-width: 640px) {
 table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padding-right: 0.25rem; }
 }
-/* Carga top cards: three across at every width. */
-.kpi-grid.kpi-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.kpi-grid.kpi-3 .kpi { border-bottom: 0; border-right: 1px solid var(--line); }
-.kpi-grid.kpi-3 .kpi:last-child { border-right: 0; }
+/* Carga top cards: four across on desktop, two by two on phones. */
+.kpi-grid.kpi-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.kpi-grid.kpi-4 .kpi { border-bottom: 0; border-right: 1px solid var(--line); }
+.kpi-grid.kpi-4 .kpi:last-child { border-right: 0; }
+.kpi.kpi-growth .value small { font-size: 0.6em; font-weight: 600; color: var(--muted); }
+@media (max-width: 720px) {
+.kpi-grid.kpi-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.kpi-grid.kpi-4 .kpi { border-right: 0; border-bottom: 1px solid var(--line); }
+.kpi-grid.kpi-4 .kpi:nth-child(odd) { border-right: 1px solid var(--line); }
+.kpi-grid.kpi-4 .kpi:nth-last-child(-n+2) { border-bottom: 0; }
+}
 .kpi.kpi-conn .value small { font-size: 0.66em; font-weight: 700; letter-spacing: 0; }
 .kpi-minor { display: flex; flex-wrap: wrap; gap: 0.1rem 0.75rem; margin-top: 0.3rem; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .kpi-minor b { font-weight: 600; color: var(--muted); }
 @media (max-width: 560px) {
-.kpi-grid.kpi-3 .kpi { padding: 0.85rem 0.55rem 0.95rem; }
-.kpi-grid.kpi-3 .label { font-size: 0.6rem; letter-spacing: 0.03em; }
-.kpi-grid.kpi-3 .sub, .kpi-minor { font-size: 0.72rem; }
-.kpi-minor { flex-direction: column; }
+.kpi-grid.kpi-4 .kpi { padding: 0.85rem 0.6rem 0.95rem; }
+.kpi-grid.kpi-4 .label { font-size: 0.62rem; letter-spacing: 0.03em; }
+.kpi-grid.kpi-4 .sub, .kpi-minor { font-size: 0.72rem; }
 }
 /* Carga: connectors by network scroll sideways inside their own box on phones. */
 .chart-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; max-width: 100%; }

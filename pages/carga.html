@@ -176,6 +176,8 @@
       // Locations table starts folded on phones.
       if (tableDetails && window.matchMedia && window.matchMedia("(max-width: 719px)").matches) tableDetails.open = false;
 
+      const baseline = () => PYEVChargers.growthBaseline(historyBundle && historyBundle.points);
+
       function paintHistory() {
         if (!historyBundle || !historyBundle.points) return;
         PYEVChargers.renderHistory(historyEl, historyBundle.points, historyBundle.connectors);
@@ -250,7 +252,7 @@
     };
       try {
         all = await PYEVChargers.loadChargers();
-        PYEVChargers.renderKPIs(kpis, all);
+        PYEVChargers.renderKPIs(kpis, all, baseline());
         PYEVChargers.renderBreakdown(breakdownEl, all);
         const bands = PYEVChargers.countByInOrder(all, "power_band", ["abaixo de 50 kW", "50–99 kW", "100–149 kW", "150+ kW", "desconhecida"]);
         bands.forEach(([b]) => {
@@ -266,7 +268,7 @@
         refresh();
         tableDetails.addEventListener("toggle", () => { if (mapApi && mapApi.invalidate) mapApi.invalidate(); });
         window.addEventListener("pyev-lang", () => {
-          PYEVChargers.renderKPIs(kpis, all);
+          PYEVChargers.renderKPIs(kpis, all, baseline());
           PYEVChargers.renderBreakdown(breakdownEl, all);
           if (mapApi && mapApi.updateLanguage) mapApi.updateLanguage();
           Array.from(fBand.options).forEach((opt, i) => { if (i > 0) opt.textContent = PYEVChargers.localizeValue(opt.value); });
@@ -282,6 +284,7 @@
         });
         try {
           historyBundle = await PYEVChargers.loadHistory();
+          PYEVChargers.renderKPIs(kpis, all, baseline());
           paintHistory();
           let timer = 0;
           let lastW = window.innerWidth;
