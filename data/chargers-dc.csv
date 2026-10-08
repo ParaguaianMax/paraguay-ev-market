@@ -1,5 +1,5 @@
 id,name,url,status,access,departamento,ciudad,lat,lon,operator,n_dc_plugs,connectors_dc,kw_max,power_band,kw_source
-623158,Audi - Prestigio Group S.A.,https://www.plugshare.com/location/623158,em manutenção,público,Alto Paraná,CDE,-25.497200,-54.634167,Audi,1,CCS2×1,25,abaixo de 50 kW,abaixo de 50 kW
+623158,Audi - Prestigio Group S.A.,https://www.plugshare.com/location/623158,em manutenção,público,Alto Paraná,CDE,-25.497200,-54.634167,Audi,1,CCS2×1,25,abaixo de 50 kW,inferido (nome/desc)
 1913002,BYD Solfrio SA Clientes (Coming Soon),https://www.plugshare.com/location/1913002,em breve,público,Alto Paraná,CDE,-25.504129,-54.637637,BYD,2,"CCS2×1, GB/T DC×1",60,50–99 kW,estimado (check-ins)
 582737,Diesa Ciudad Del Este,https://www.plugshare.com/location/582737,ativo,público,Alto Paraná,CDE,-25.500028,-54.663049,Diesa,3,"CCS2×1, GB/T DC×2",60,50–99 kW,PlugShare (outlet)
 1757000,Evergo Biggie San Jose,https://www.plugshare.com/location/1757000,em manutenção,público,Alto Paraná,CDE,-25.511043,-54.658117,Evergo,2,CCS2×2,21,abaixo de 50 kW,estimado (check-ins)
