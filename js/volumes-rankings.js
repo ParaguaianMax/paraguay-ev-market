@@ -73,6 +73,25 @@
     return pts;
   }
 
+  /** "(sin modelo)", "SIN MARCA" and similar placeholders sort last. */
+  function isPlaceholderOption(name) {
+    return /\(sin [^)]*\)|\bSIN (MARCA|MODELO)\b/i.test(name);
+  }
+
+  const optionCollator =
+    typeof Intl !== "undefined" && Intl.Collator
+      ? new Intl.Collator(undefined, { sensitivity: "base", numeric: true })
+      : null;
+
+  function compareOptions(a, b) {
+    const pa = isPlaceholderOption(a);
+    const pb = isPlaceholderOption(b);
+    if (pa !== pb) return pa ? 1 : -1;
+    return optionCollator
+      ? optionCollator.compare(a, b)
+      : a.localeCompare(b, undefined, { sensitivity: "base", numeric: true });
+  }
+
   function init() {
     const root = document.getElementById("vol-rankings");
     if (!root || !global.PYEVModels) return;
@@ -131,6 +150,8 @@
           seen.add(value);
           clean.push(value);
         });
+        // Checklist options are alphabetical; rankings keep volume order.
+        clean.sort(compareOptions);
         selected.forEach((name) => {
           if (!seen.has(name)) selected.delete(name);
         });
