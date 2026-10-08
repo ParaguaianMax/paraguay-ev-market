@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-i18n="page_home"></title>
   <meta name="description" content="Mercado de híbridos y eléctricos en Paraguay vs total e ICE. Datos abiertos Aduana PY." />
@@ -61,6 +62,7 @@
   <script src="js/charts.js" defer></script>
   <script src="js/models.js" defer></script>
   <script src="js/nuevos.js" defer></script>
+  <script src="js/chargers.js" defer></script>
 </head>
 <body>
   <header class="site">
@@ -104,10 +106,10 @@
 
     <section class="home-yty" aria-labelledby="home-yty-title">
       <div class="page-eyebrow">
-        <span class="badge" data-i18n="home_yty_badge">YtY · 12 meses</span>
+        <span class="badge" data-i18n="home_yty_badge">Últimos 12 meses</span>
       </div>
-      <h2 id="home-yty-title" data-i18n="home_yty_title">YtY — trayectoria de participación</h2>
-      <p class="lead" data-i18n="home_yty_lead">Últimos 12 meses (ventana móvil hasta el mes más reciente). Eje izquierdo: BEV, PHEV, HEV y OTHERS. Eje derecho: ICE.</p>
+      <h2 id="home-yty-title" data-i18n="home_yty_title">Participación mensual, últimos 12 meses</h2>
+      <p class="lead" data-i18n="home_yty_lead">Participación de cada motorización en el total, mes a mes. Eje izquierdo: BEV, PHEV, HEV y mild; eje derecho: ICE.</p>
       <div class="legend-row">
         <span class="lg-bev">BEV</span>
         <span class="lg-phev">PHEV</span>
@@ -131,7 +133,7 @@
       </a>
       <a class="card" href="pages/chargers.html">
         <h3 data-i18n="card_chargers">Cargadores DC <span class="arrow" aria-hidden="true">→</span></h3>
-        <p data-i18n="card_chargers_desc">Mapa y tabla de 73 ubicaciones y 147 conectores DC. Potencia orientativa · PlugShare, 2 oct 2026.</p>
+        <p id="card-chargers-desc" data-i18n="card_chargers_desc">Mapa y tabla de la red de carga rápida (DC). PlugShare, 2 oct 2026.</p>
       </a>
     </div>
 
@@ -142,11 +144,6 @@
       <div>
         <span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay.</span>
         <a href="https://github.com/ParaguaianMax/paraguay-ev-market">ParaguaianMax/paraguay-ev-market</a>.
-      </div>
-      <div>
-        <span data-i18n="inspired">Inspirado en el espíritu de</span>
-        <a href="https://leraffl.github.io/LeRaffl-Gallery/" target="_blank" rel="noopener">LeRaffl Gallery</a>
-        <span data-i18n="not_clone">— no es un clon.</span>
       </div>
     </div>
   </footer>
@@ -241,10 +238,7 @@
             const first = windowRows[0] || latest;
             const year = String(ytd.period).slice(0, 4);
             foot.innerHTML =
-              "<b>" + PYEV.t("home_yty_title") + "</b> " +
-              PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(latest.period) +
-              " · <b>" + PYEV.t("ytd_total") + "</b> " + year +
-              " · " + PYEV.fmtInt(ytd.TOTAL) + " " + PYEV.t("units_hs") +
+              "<b>" + PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(latest.period) + "</b>" +
               " · " + PYEV.variantLabel(latest.variant || PYEV.getVariant(allRows));
           }
         } catch (e) {
@@ -253,6 +247,19 @@
           if (foot) foot.textContent = "";
         }
       }
+      // Charger card: counts come from data/chargers-dc.csv (same definitions as Cargadores).
+      const chargerDesc = document.getElementById("card-chargers-desc");
+      let chargerCounts = null;
+      function paintChargerCard() {
+        if (!chargerDesc || !chargerCounts) return;
+        chargerDesc.textContent = PYEV.t("card_chargers_counts", chargerCounts);
+      }
+      if (window.PYEVChargers && PYEVChargers.loadChargers) {
+        PYEVChargers.loadChargers()
+          .then((list) => { chargerCounts = PYEVChargers.chargerCounts(list); paintChargerCard(); })
+          .catch(() => {});
+      }
+      window.addEventListener("pyev-lang", paintChargerCard);
       await draw();
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-nuevos", draw);

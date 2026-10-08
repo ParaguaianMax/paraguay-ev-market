@@ -335,7 +335,8 @@
   color: var(--muted);
 }
 .chart-scroll {
-  max-height: min(70vh, 920px);
+  /* Fixed cap: Top 20 always fits; only the long "Todas" list scrolls. */
+  max-height: 920px;
   overflow: auto;
 }
 

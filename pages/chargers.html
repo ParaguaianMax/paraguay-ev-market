@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-i18n="page_chargers"></title>
   <meta name="description" content="Red de cargadores DC en Paraguay (CCS2, CHAdeMO y GB/T). Inventario basado en PlugShare." data-i18n-attr="content:chargers_desc" />
@@ -104,7 +105,7 @@
     <p class="chart-foot" id="map-foot"></p>
 
     <h2 data-i18n="connector_chart_title">Conectores CCS vs GB/T</h2>
-    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="connector_chart_lead">Cantidad de conectores DC por estándar, según el inventario filtrado (mismo criterio del mapa y la tabla).</p>
+    <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="connector_chart_lead">Conectores DC por estándar, con el mismo filtro del mapa.</p>
     <div id="chart-connectors" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
     <p class="chart-foot" id="connector-foot"></p>
 
@@ -241,6 +242,13 @@
           setTimeout(() => { if (mapApi.invalidate) mapApi.invalidate(); }, 120);
         }
         PYEVChargers.renderTable(table, filtered);
+        // Plain description of the active map filter, reused in the footers.
+        const filterParts = [];
+        if (fAccess.value !== "all") filterParts.push(PYEV.t("access") + ": " + fAccess.options[fAccess.selectedIndex].text);
+        if (fBand.value !== "all") filterParts.push(PYEV.t("power_band") + ": " + fBand.options[fBand.selectedIndex].text);
+        const filterText = filterParts.length ? filterParts.join(" · ") : PYEV.t("map_no_filter");
+        const allN = PYEVChargers.chargerCounts(all);
+        const shownN = PYEVChargers.chargerCounts(filtered);
         if (connectorEl && PYEVChargers.renderConnectorChart) {
           PYEVChargers.renderConnectorChart(connectorEl, filtered);
           const cc = PYEVChargers.countConnectors(filtered);
@@ -249,7 +257,8 @@
               "<b>CCS</b> " + cc.CCS +
               " · <b>GB/T</b> " + cc.GBT +
               (cc.CHAdeMO ? " · <b>CHAdeMO</b> " + cc.CHAdeMO : "") +
-              " · " + PYEV.t("connector_chart_foot");
+              " = " + PYEV.t("n_connectors", { n: shownN.plugs }) +
+              " · " + filterText;
           }
         }
         if (networkPieEl && PYEVChargers.renderNetworkPie) {
@@ -264,18 +273,17 @@
             const name = PYEVChargers.operatorLabel ? PYEVChargers.operatorLabel(s.key) : s.key;
             return "<b>" + String(name).replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</b> " + s.sites;
           }).join(" · ");
-          networkPieFoot.innerHTML = (top ? top + " · " : "") + PYEV.t("network_chart_foot");
+          networkPieFoot.innerHTML = (top ? top + " · " : "") + PYEV.t("network_chart_foot") + " (" + filterText + ")";
         }
         if (networkBarFoot) {
-          networkBarFoot.innerHTML = PYEV.t("network_chart_foot");
+          networkBarFoot.innerHTML = PYEV.t("network_chart_foot") + " (" + filterText + ")";
         }
-        const plugs = filtered.reduce((s, r) => s + r.n_dc_plugs, 0);
         foot.innerHTML =
-          "<b>" + PYEV.t("showing") + "</b> " +
-          filtered.length +
-          " " + PYEV.t("locations") + " / " +
-          plugs +
-          " " + PYEV.t("plugs") + " · " + PYEV.t("power_estimated");
+          PYEV.t("map_foot", {
+            sites: "<b>" + shownN.sites + "</b>", allSites: allN.sites,
+            plugs: "<b>" + shownN.plugs + "</b>", allPlugs: allN.plugs,
+          }) +
+          " · " + filterText + " · " + PYEV.t("power_estimated");
       }
 
       try {

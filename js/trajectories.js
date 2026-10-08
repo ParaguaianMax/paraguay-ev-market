@@ -166,13 +166,17 @@
       const periodLabel = global.PYEV && global.PYEV.periodLabel
         ? global.PYEV.periodLabel(threshold.crossing.period)
         : threshold.crossing.period;
+      // Label sits just under the 50% line, left of the dashed crossing line:
+      // ICE is still above 50% there and the other lines are far below, so it
+      // never covers observed points or projections.
       annotations.push({
         xref: "x", yref: "y", x: threshold.crossing.period, y: threshold.value,
+        xanchor: "right", yanchor: "top", xshift: -4, yshift: -3,
         text: t(threshold.annotation, { period: periodLabel }),
-        showarrow: true, arrowhead: 2, ax: 46, ay: -42,
-        align: "left", bgcolor: dark ? "rgba(20,20,19,0.9)" : "rgba(253,253,252,0.92)",
-        bordercolor: threshold.color, borderwidth: 1,
-        font: { size: 11, color: threshold.color }
+        showarrow: false,
+        align: "right", bgcolor: dark ? "rgba(20,20,19,0.9)" : "rgba(253,253,252,0.92)",
+        bordercolor: threshold.color, borderwidth: 1, borderpad: 2,
+        font: { size: 10, color: threshold.color }
       });
       shapes.push({
         type: "line", xref: "x", x0: threshold.crossing.period, x1: threshold.crossing.period,
@@ -189,21 +193,20 @@
       const s = fitted.at(p);
       return global.PYEV.periodLabel(p) + ": ICE " + s.ICE.toFixed(1) + "% · BEV " + s.BEV.toFixed(1) + "%";
     });
-    if (iceNotes.length) {
-      annotations.push({ xref: "paper", yref: "paper", x: 0.01, y: 0.02, xanchor: "left", yanchor: "bottom", text: iceNotes.slice(0, 4).join("<br>"), showarrow: false, align: "left", font: { size: 10, color: muted }, bgcolor: dark ? "rgba(20,20,19,0.65)" : "rgba(253,253,252,0.75)" });
-    }
+    // Milestone values go in the caption under the chart (el._pyevMeta.notes), not over the dots.
     const base = layoutBase();
     Plotly.newPlot(el, traces, layoutBase({
       yaxis: Object.assign({}, base.yaxis || {}, { title: { text: t("traj_axis_share"), font: (base.yaxis && base.yaxis.title && base.yaxis.title.font) || { size: 11, color: muted } }, range: [0, 105], ticksuffix: "%", dtick: 20 }),
-      xaxis: Object.assign({}, base.xaxis || {}, { title: { text: t("month"), font: (base.xaxis && base.xaxis.title && base.xaxis.title.font) || { size: 11, color: muted } }, type: "date", tickformat: "%b %Y" }),
+      xaxis: Object.assign({}, base.xaxis || {}, { title: { text: t("month"), font: (base.xaxis && base.xaxis.title && base.xaxis.title.font) || { size: 11, color: muted } }, type: "date", tickformat: "%b %Y", hoverformat: "%b %Y" }),
       annotations: annotations,
       shapes: shapes,
-      margin: { t: 36, r: 24, b: 52, l: 52 },
-      legend: Object.assign({}, base.legend || {}, { orientation: "h", y: 1.14, x: 0 })
+      // The HTML legend row above the chart names the series; no Plotly legend over the plot.
+      showlegend: false,
+      margin: { t: 16, r: 24, b: 52, l: 52 }
     }), { responsive: true, displayModeBar: false });
     el._pyevKind = "trajExtra";
     el._pyevRows = rows;
-    el._pyevMeta = { iceBelow50: iceBelow50 };
+    el._pyevMeta = { iceBelow50: iceBelow50, notes: iceNotes.slice(0, 4) };
   }
   function trailingSplitChart(el, rows) {
     if (!el || !rows || !rows.length) return;
@@ -255,10 +258,13 @@
       }), { responsive: true, displayModeBar: false });
     } else {
       const base = layoutBase();
+      const narrow = global.innerWidth < 640;
       Plotly.newPlot(el, traces, layoutBase({
         yaxis: Object.assign({}, base.yaxis || {}, { title: { text: incomplete ? t("traj_ttm_axis_partial") : t("traj_ttm_axis"), font: (base.yaxis && base.yaxis.title && base.yaxis.title.font) || { size: 11 } }, range: [0, 100], ticksuffix: "%", dtick: 20 }),
-        xaxis: Object.assign({}, base.xaxis || {}, { title: { text: t("month"), font: (base.xaxis && base.xaxis.title && base.xaxis.title.font) || { size: 11 } }, type: "date", tickformat: "%b %Y" }),
-        margin: { t: 36, r: 24, b: 48, l: 56 }
+        xaxis: Object.assign({}, base.xaxis || {}, { title: { text: t("month"), font: (base.xaxis && base.xaxis.title && base.xaxis.title.font) || { size: 11 } }, type: "date", tickformat: narrow ? "%b %y" : "%b %Y", hoverformat: "%b %Y", nticks: narrow ? 5 : 9 }),
+        // Legend above the plot area, never over the 100% line.
+        legend: Object.assign({}, base.legend || {}, { orientation: "h", x: 0, y: 1.02, yanchor: "bottom" }),
+        margin: { t: narrow ? 60 : 40, r: 24, b: 48, l: 56 }
       }), { responsive: true, displayModeBar: false });
     }
     el._pyevKind = "trajTtm";

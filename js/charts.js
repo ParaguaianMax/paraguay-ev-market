@@ -159,10 +159,25 @@
     el._pyevOpts = opts;
   }
 
+  /** Monthly date x-axis shared by the volume charts: ticks follow the UI
+   * language (Plotly locale), never cut, never rotated. */
+  function monthAxis(base, narrow) {
+    return Object.assign({}, base.xaxis, {
+      title: { text: global.PYEV.t("month"), font: base.xaxis.title.font, standoff: 8 },
+      type: "date",
+      tickformat: narrow ? "%b %y" : "%b %Y",
+      hoverformat: "%b %Y",
+      nticks: narrow ? 5 : 9,
+      tickangle: 0,
+      automargin: true,
+    });
+  }
+
   /** Full volumes with ICE — secondary; hover shows units + %. */
   function volumesChart(el, rows, opts) {
     opts = opts || {};
-    const labels = rows.map((r) => global.PYEV.periodLabel(r.period));
+    const narrow = typeof window !== "undefined" && window.innerWidth < 640;
+    const labels = rows.map((r) => r.period);
     const all = ["BEV", "PHEV", "HEV", "OTHERS", "ICE"];
     // opts.cats limits the bars (Volúmenes powertrain chips).
     const cats = Array.isArray(opts.cats) && opts.cats.length ? all.filter((k) => opts.cats.includes(k)) : all;
@@ -173,6 +188,8 @@
       type: "bar",
       name: k,
       x: labels,
+      xperiod: "M1",
+      xperiodalignment: "middle",
       y: rows.map((r) => r[k]),
       customdata: rows.map((r) => r.share[k]),
       marker: { color: col[k], line: { width: 0 } },
@@ -183,6 +200,8 @@
       mode: "lines+markers",
       name: "TOTAL",
       x: labels,
+      xperiod: "M1",
+      xperiodalignment: "middle",
       y: rows.map((r) => r.TOTAL),
       line: { color: col.TOTAL, width: 2.25 },
       marker: { size: 7, color: col.TOTAL },
@@ -199,19 +218,19 @@
         bargroupgap: 0.08,
         yaxis: Object.assign({}, base.yaxis, {
           title: { text: global.PYEV.t("units_categories"), font: base.yaxis.title.font },
+          automargin: true,
         }),
         yaxis2: {
           title: { text: "TOTAL", font: { size: 11, color: muted } },
+          automargin: true,
           overlaying: "y",
           side: "right",
           showgrid: false,
           zeroline: false,
           tickfont: { size: 11, color: muted },
         },
-        xaxis: Object.assign({}, base.xaxis, {
-          title: { text: global.PYEV.t("month"), font: base.xaxis.title.font },
-        }),
-        margin: { t: 36, r: 56, b: 48, l: 56 },
+        xaxis: monthAxis(base, narrow),
+        margin: narrow ? { t: 36, r: 8, b: 8, l: 8 } : { t: 36, r: 16, b: 8, l: 16 },
       }),
       { responsive: true, displayModeBar: false }
     );
@@ -224,7 +243,10 @@
   function volumesElectrifiedChart(el, rows, opts) {
     opts = opts || {};
     const mode = opts.mode === "hev" ? "hev" : "all";
-    const labels = rows.map((r) => global.PYEV.periodLabel(r.period));
+    const narrow = typeof window !== "undefined" && window.innerWidth < 640;
+    const labels = rows.map((r) => r.period);
+    // Value labels only when they fit; otherwise the hover / tap readout carries them.
+    const labelAll = rows.length <= (narrow ? 4 : 12);
     const limit = Array.isArray(opts.cats) && opts.cats.length ? opts.cats : null;
     const cats = (mode === "hev" ? ["HEV"] : ["BEV", "PHEV", "HEV", "OTHERS"]).filter(
       (k) => !limit || limit.includes(k)
@@ -240,9 +262,11 @@
       type: "bar",
       name: k,
       x: labels,
+      xperiod: "M1",
+      xperiodalignment: "middle",
       y: rows.map((r) => r[k]),
       customdata: rows.map((r) => r.share[k]),
-      text: rows.map((r) => r[k] + " (" + r.share[k].toFixed(1) + "%)"),
+      text: labelAll ? rows.map((r) => r[k] + " (" + r.share[k].toFixed(1) + "%)") : rows.map(() => ""),
       textposition: "outside",
       textfont: { size: 10 },
       cliponaxis: false,
@@ -257,13 +281,21 @@
         mode: "lines+markers+text",
         name: global.PYEV.t("plug_short"),
         x: labels,
+        xperiod: "M1",
+        xperiodalignment: "middle",
         y: rows.map((r) => (r.BEV || 0) + (r.PHEV || 0)),
-        text: rows.map((r) => (r.TOTAL ? (100 * ((r.BEV || 0) + (r.PHEV || 0))) / r.TOTAL : 0).toFixed(1) + "%"),
-        textposition: "top center",
+        customdata: rows.map((r) => (r.TOTAL ? (100 * ((r.BEV || 0) + (r.PHEV || 0))) / r.TOTAL : 0).toFixed(1) + "%"),
+        // Label every point only when few months are shown; otherwise just the latest.
+        text: rows.map((r, i) => (labelAll || i === rows.length - 1)
+          ? (r.TOTAL ? (100 * ((r.BEV || 0) + (r.PHEV || 0))) / r.TOTAL : 0).toFixed(1) + "%"
+          : ""),
+        // With many months only the latest point is labelled, to its right (clear of the previous point).
+        textposition: labelAll ? "top center" : "middle right",
         textfont: { size: 11, color: lineCol },
+        cliponaxis: false,
         line: { color: lineCol, width: 2, dash: "dot" },
         marker: { size: 7, color: lineCol },
-        hovertemplate: "<b>" + global.PYEV.t("plug_short") + "</b>: %{y:,} " + global.PYEV.t("units") + " (%{text} " + global.PYEV.t("share_of_total") + ")<extra></extra>",
+        hovertemplate: "<b>" + global.PYEV.t("plug_short") + "</b>: %{y:,} " + global.PYEV.t("units") + " (%{customdata} " + global.PYEV.t("share_of_total") + ")<extra></extra>",
       });
     }
     const base = plotlyLayout();
@@ -277,11 +309,10 @@
         yaxis: Object.assign({}, base.yaxis, {
           title: { text: global.PYEV.t("units_no_ice"), font: base.yaxis.title.font },
           rangemode: "tozero",
+          automargin: true,
         }),
-        xaxis: Object.assign({}, base.xaxis, {
-          title: { text: global.PYEV.t("month"), font: base.xaxis.title.font },
-        }),
-        margin: { t: 40, r: 24, b: 48, l: 56 },
+        xaxis: monthAxis(base, narrow),
+        margin: narrow ? { t: 40, r: 40, b: 8, l: 8 } : { t: 40, r: 48, b: 8, l: 16 },
       }),
       { responsive: true, displayModeBar: false }
     );

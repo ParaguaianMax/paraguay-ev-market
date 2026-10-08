@@ -90,14 +90,23 @@
     });
   }
 
+  // One set of definitions for every count on the site (Inicio card, KPIs,
+  // map footer): a location is one CSV row; connectors are n_dc_plugs summed;
+  // "public" means access === "público".
+  function chargerCounts(rows) {
+    const all = rows || [];
+    const pub = all.filter((r) => r.access === "público");
+    const plugs = (list) => list.reduce((s, r) => s + (Number(r.n_dc_plugs) || 0), 0);
+    return { sites: all.length, plugs: plugs(all), pubSites: pub.length, pubPlugs: plugs(pub) };
+  }
+
   function renderKPIs(el, rows) {
-    const plugs = rows.reduce((s, r) => s + r.n_dc_plugs, 0);
-    const pub = rows.filter((r) => r.access === "público").length;
+    const n = chargerCounts(rows);
     const ops = countBy(rows, "operator").length;
     const items = [
-      { cls: "", label: PYEV.t("locations_dc"), value: String(rows.length), sub: PYEV.t("chargers_dc") },
-      { cls: "elec", label: PYEV.t("plugs"), value: String(plugs), sub: PYEV.t("connector_types") },
-      { cls: "bev", label: PYEV.t("public"), value: String(pub), sub: PYEV.t("from_locations", {n: rows.length}) },
+      { cls: "", label: PYEV.t("locations_dc"), value: String(n.sites), sub: PYEV.t("chargers_dc") },
+      { cls: "elec", label: PYEV.t("plugs"), value: String(n.plugs), sub: PYEV.t("connector_types") },
+      { cls: "bev", label: PYEV.t("public_access_kpi"), value: String(n.pubSites), sub: PYEV.t("public_kpi_sub", { plugs: n.pubPlugs }) },
       { cls: "phev", label: PYEV.t("operators"), value: String(ops), sub: PYEV.t("consolidated_labels") },
     ];
     el.innerHTML = items
@@ -147,33 +156,35 @@
     return "#6b6860";
   }
 
+  // CSV values are Portuguese; show them in the UI language via i18n keys.
+  const CSV_VALUE_KEYS = {
+    "abaixo de 50 kW": "cv_band_lt50",
+    "desconhecida": "cv_unknown",
+    "ativo": "cv_active",
+    "ativo (residencial/privado)": "cv_active_private",
+    "ativo (restrito)": "cv_active_restricted",
+    "em breve": "cv_soon",
+    "em breve (restrito)": "cv_soon_restricted",
+    "em manutenção": "cv_maint",
+    "parcialmente em manutenção": "cv_partial_maint",
+    "público": "public",
+    "restrito": "restricted",
+    "residencial/privado": "private",
+    "residencial / privado": "private",
+    "não informado": "unknown_operator",
+    "sem rede": "no_network",
+  };
+
   function localizeValue(value) {
     const v = String(value || "");
-    const map = {
-      "abaixo de 50 kW": { es: "menos de 50 kW", pt: "abaixo de 50 kW", en: "under 50 kW" },
-      "50–99 kW": { es: "50–99 kW", pt: "50–99 kW", en: "50–99 kW" },
-      "100–149 kW": { es: "100–149 kW", pt: "100–149 kW", en: "100–149 kW" },
-      "150+ kW": { es: "150+ kW", pt: "150+ kW", en: "150+ kW" },
-      "desconhecida": { es: "desconocida", pt: "desconhecida", en: "unknown" },
-      "ativo": { es: "activo", pt: "ativo", en: "active" },
-      "ativo (residencial/privado)": { es: "activo (residencial/privado)", pt: "ativo (residencial/privado)", en: "active (residential/private)" },
-      "ativo (restrito)": { es: "activo (restringido)", pt: "ativo (restrito)", en: "active (restricted)" },
-      "em breve": { es: "próximamente", pt: "em breve", en: "coming soon" },
-      "em breve (restrito)": { es: "próximamente (restringido)", pt: "em breve (restrito)", en: "coming soon (restricted)" },
-      "em manutenção": { es: "en mantenimiento", pt: "em manutenção", en: "under maintenance" },
-      "parcialmente em manutenção": { es: "parcialmente en mantenimiento", pt: "parcialmente em manutenção", en: "partially under maintenance" },
-      "inferido (nome/desc)": { es: "inferido (nombre/desc.)", pt: "inferido (nome/desc.)", en: "inferred (name/description)" },
-      "estimado (check-ins)": { es: "estimado (check-ins)", pt: "estimado (check-ins)", en: "estimated (check-ins)" },
-      "PlugShare (outlet)": { es: "PlugShare (punto)", pt: "PlugShare (outlet)", en: "PlugShare (outlet)" },
-      "est.": { es: "est.", pt: "est.", en: "est." }
-    };
-    return map[v] ? (map[v][PYEV.language()] || v) : v;
+    const key = CSV_VALUE_KEYS[v];
+    return key ? PYEV.t(key) : v;
   }
 
   function renderTable(el, rows) {
     const head =
       "<thead><tr>" +
-      [PYEV.t("name"), PYEV.t("city"), PYEV.t("dept"), PYEV.t("operators"), PYEV.t("plugs_short"), PYEV.t("max_kw"), PYEV.t("band"), PYEV.t("kw_source"), PYEV.t("status"), PYEV.t("access_col")]
+      [PYEV.t("name"), PYEV.t("city"), PYEV.t("dept"), PYEV.t("operators"), PYEV.t("plugs_short"), PYEV.t("max_kw"), PYEV.t("band"), PYEV.t("status"), PYEV.t("access_col")]
         .map((h) => "<th>" + h + "</th>")
         .join("") +
       "</tr></thead>";
@@ -189,11 +200,10 @@
           `<td>${name}</td>` +
           `<td>${escapeHtml(r.ciudad)}</td>` +
           `<td class="muted-cell">${escapeHtml(r.departamento)}</td>` +
-          `<td>${escapeHtml(r.operator)}</td>` +
+          `<td>${escapeHtml(operatorLabel(r.operator))}</td>` +
           `<td class="num">${r.n_dc_plugs}</td>` +
           `<td class="num">${kw}</td>` +
           `<td>${escapeHtml(localizeValue(r.power_band))}</td>` +
-          `<td class="muted-cell">${escapeHtml(localizeValue(r.kw_source || PYEV.t("no_value")))}</td>` +
           `<td>${escapeHtml(localizeValue(r.status))}</td>` +
           `<td><span class="tag-access ${accessClass(r.access)}">${escapeHtml(localizeValue(r.access))}</span></td>` +
           "</tr>"
@@ -370,9 +380,7 @@
 
   function operatorLabel(op) {
     const v = operatorKey(op);
-    if (v === "não informado") return PYEV.t("unknown_operator");
-    if (v === "sem rede") return PYEV.t("no_network");
-    return v;
+    return localizeValue(v);
   }
 
   /** Sites (one row = one DC charger location) and connector quantities, largest network first. */
@@ -504,6 +512,7 @@
         font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
       },
     };
+    resetChart(el);
     Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
   }
 
@@ -591,6 +600,7 @@
         font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
       },
     };
+    resetChart(el);
     Plotly.newPlot(
       el,
       [
@@ -666,6 +676,7 @@
         font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
       },
     };
+    resetChart(el);
     Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
     el._pyevConnectorTotal = total;
     el._pyevConnectorCounts = counts;
@@ -1007,6 +1018,7 @@
 
   global.PYEVChargers = {
     loadChargers,
+    chargerCounts,
     renderKPIs,
     renderBreakdown,
     renderTable,

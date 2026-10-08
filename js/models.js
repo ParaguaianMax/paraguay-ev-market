@@ -717,41 +717,80 @@
       marker: { color: c[pt] },
       hovertemplate: "%{customdata} · " + pt + ": %{x:,}<extra></extra>",
     })).filter((tr) => tr.x.some((v) => v > 0));
-    const rowH = narrow ? 28 : n > 40 ? 20 : n > 20 ? 22 : 26;
-    const longest = full.reduce((m, f) => Math.max(m, (narrow ? f.short : f.tick).length), 0);
-    const left = narrow
-      ? Math.min(128, Math.max(84, Math.round(longest * 6.8)))
-      : Math.min(220, Math.max(128, Math.round(longest * 7)));
-    const chrome = narrow ? 36 : 78;
-    const height = narrow ? rowH * n + chrome : Math.max(420, rowH * n + chrome);
+    const muted = global.PYEV && global.PYEV.isDark && global.PYEV.isDark() ? "#aeaba2" : "#55534c";
+    const ink = global.PYEV && global.PYEV.isDark && global.PYEV.isDark() ? "#ecebe6" : "#1a1a18";
+    if (narrow) {
+      // Phone: full name on its own line above each bar (no truncated ticks).
+      const rowH = 40;
+      const tickNames = full.map((f) => f.tick).reverse();
+      const annotations = yLabels.map((y, i) => ({
+        xref: "paper", x: 0, yref: "y", y: y,
+        xanchor: "left", yanchor: "bottom", yshift: 8,
+        text: tickNames[i].replace(/&/g, "&amp;").replace(/</g, "&lt;"),
+        showarrow: false, align: "left",
+        font: { size: 11, color: ink },
+      }));
+      return Plotly.newPlot(
+        el,
+        traces,
+        chartLayout({
+          barmode: "stack",
+          bargap: 0.5,
+          height: rowH * n + 30,
+          showlegend: false,
+          annotations: annotations,
+          margin: { t: 18, r: 8, b: 22, l: 4 },
+          xaxis: Object.assign({}, chartLayout().xaxis, {
+            title: "",
+            rangemode: "tozero",
+            automargin: false,
+            tickfont: { size: 10 },
+          }),
+          yaxis: Object.assign({}, chartLayout().yaxis, {
+            title: "",
+            showticklabels: false,
+            showgrid: false,
+            automargin: false,
+          }),
+        }),
+        { responsive: true, displayModeBar: false }
+      );
+    }
+    const rowH = n > 40 ? 20 : n > 20 ? 22 : 26;
+    const longest = full.reduce((m, f) => Math.max(m, f.tick.length), 0);
+    const left = Math.min(220, Math.max(128, Math.round(longest * 7)));
+    const chrome = 92;
+    const height = Math.max(420, rowH * n + chrome);
     return Plotly.newPlot(
       el,
       traces,
       chartLayout({
         barmode: "stack",
-        bargap: narrow ? 0.22 : 0.28,
+        bargap: 0.28,
         height,
-        showlegend: !narrow,
-        margin: narrow
-          ? { t: 6, r: 8, b: 22, l: left }
-          : { t: 32, r: 16, b: 36, l: left },
+        showlegend: true,
+        // Legend sits above the plot area so it never covers the first bar.
+        margin: { t: 44, r: 16, b: 40, l: left },
         legend: {
           orientation: "h",
-          y: 1.02,
+          y: 1,
+          yanchor: "bottom",
+          yref: "paper",
           x: 0,
-          font: { size: 11 },
+          traceorder: "normal",
+          font: { size: 11, color: muted },
           bgcolor: "rgba(0,0,0,0)",
         },
         xaxis: Object.assign({}, chartLayout().xaxis, {
-          title: narrow ? "" : { text: t("units") },
+          title: { text: t("units") },
           rangemode: "tozero",
           automargin: false,
-          tickfont: { size: narrow ? 10 : 12 },
+          tickfont: { size: 12 },
         }),
         yaxis: Object.assign({}, chartLayout().yaxis, {
           title: "",
-          automargin: !narrow,
-          tickfont: { size: narrow ? 11 : n > 40 ? 10 : 12 },
+          automargin: true,
+          tickfont: { size: n > 40 ? 10 : 12 },
         }),
       }),
       { responsive: true, displayModeBar: false }

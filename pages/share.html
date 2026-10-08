@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-i18n="page_share"></title>
   <meta name="description" content="Participación % BEV, PHEV, HEV, OTHERS e ICE en importaciones de vehículos Paraguay." />
@@ -92,7 +93,7 @@
       <span class="pill pill-ice">ICE</span>
     </div>
     <h1 data-i18n="share_title">Participación por tipo de motorización</h1>
-    <p class="lead" data-i18n="share_lead">Trayectoria mensual de la participación de cada motorización en el total importado (estilo Gallery). Eje izquierdo: electrificados; eje derecho: ICE. La tabla debajo muestra los % exactos.</p>
+    <p class="lead" data-i18n="share_lead">Participación mensual de cada motorización en el total importado. Eje izquierdo: BEV, PHEV, HEV y mild; eje derecho: ICE. La tabla de abajo muestra los % exactos.</p>
     <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo 0 km</div>
     <div id="share-headline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
 
@@ -114,32 +115,33 @@
 
     <section class="trajectory-section" aria-labelledby="traj-section-title">
       <div class="page-eyebrow">
-        <span class="badge" data-i18n="traj_badge">S-curve · TTM</span>
+        <span class="badge" data-i18n="traj_badge">Tendencia</span>
         <span class="pill pill-bev">BEV</span>
         <span class="pill pill-phev">PHEV</span>
         <span class="pill pill-hev">HEV</span>
         <span class="pill pill-ice">ICE</span>
       </div>
       <h2 id="traj-section-title" data-i18n="traj_title">Trayectorias de adopción</h2>
-      <p class="lead" data-i18n="traj_lead">Curva ajustada (estilo Gallery) sobre la participación mensual observada, más el desglose acumulado en ventana móvil. Con una serie corta la proyección es ilustrativa — no un pronóstico firme.</p>
-      <div class="note" data-i18n="traj_disclaimer">Serie corta · el ajuste logístico (logit-lineal) usa solo los meses publicados; la línea punteada es una extrapolación ilustrativa, no un pronóstico firme.</div>
+      <p class="lead" data-i18n="traj_lead">Curva ajustada a la participación mensual observada y participación acumulada de 12 meses. Con una serie corta, la proyección es ilustrativa.</p>
+      <div class="note" data-i18n="traj_disclaimer">La línea punteada extiende la tendencia observada. Es ilustrativa, no un pronóstico.</div>
 
-      <h3 data-i18n="traj_extra_title">Extrapolación — participación BEV / PHEV / HEV / ICE</h3>
-      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste sobre lo observado. Línea punteada = proyección si la tendencia logit se mantuviera.</p>
+      <h3 data-i18n="traj_extra_title">Proyección: participación BEV / PHEV / HEV / ICE</h3>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste. Línea punteada = proyección si la tendencia se mantuviera.</p>
       <div class="legend-row">
         <span class="lg-bev">BEV</span>
         <span class="lg-phev">PHEV</span>
         <span class="lg-hev">HEV</span>
+        <span class="lg-others" data-i18n="others_mild">OTHERS (mild)</span>
         <span class="lg-ice">ICE</span>
       </div>
       <div id="chart-extra" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
       <p class="chart-foot" id="extra-foot"></p>
 
-      <h3 data-i18n="traj_ttm_title">Participación acumulada (ventana móvil)</h3>
-      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_ttm_lead">Cuando hay menos de 12 meses, cada barra/área usa todos los meses disponibles hasta esa fecha (ventana incompleta). Con 12+ meses pasa a TTM de 12 meses.</p>
+      <h3 data-i18n="traj_ttm_title">Participación acumulada 12 meses</h3>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="traj_ttm_lead">Cada punto suma los últimos 12 meses (o los disponibles, si son menos).</p>
       <div id="chart-ttm" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
       <p class="chart-foot" id="ttm-foot"></p>
-      <div class="note" data-i18n="traj_note">No se inventan meses históricos. Los totales vienen de <code>data/Paraguay.csv</code> (Aduana PY). ICE = total − BEV − PHEV − HEV − OTHERS.</div>
+      <div class="note" data-i18n="traj_note">ICE = total − BEV − PHEV − HEV − mild.</div>
     </section>
 
     <h2 data-i18n="exact_pct">Tabla — porcentajes exactos</h2>
@@ -302,7 +304,10 @@
               " · " + rows.length + " " + PYEV.t("traj_months_short") +
               " · " + PYEV.variantLabel(last.variant || PYEV.getVariant(allRows)) +
               "<br><b>" + crossingCaption + "</b>" +
-              " · <em>" + PYEV.t("traj_not_forecast") + "</em>";
+              " · <em>" + PYEV.t("traj_not_forecast") + "</em>" +
+              (elExtra._pyevMeta && elExtra._pyevMeta.notes && elExtra._pyevMeta.notes.length
+                ? "<br>" + elExtra._pyevMeta.notes.join(" · ")
+                : "");
           }
           if (footTtm) {
             const incomplete = rows.length < 12;
