@@ -61,7 +61,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-11,LightVehicles,leve,ISUZU,D-MAX,,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-11,LightVehicles,leve,BMW,X5 XDRIVE25D,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,BYD,YUAN PLUS,,BEV,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-11,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-11,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,ISUZU,MU-X,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,TOYOTA,COROLLA AXIO,,ICE,usado,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,VOLKSWAGEN,POLO HIGHLINE,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -210,9 +210,9 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-11,LightVehicles,leve,FORD,F150,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-11,LightVehicles,leve,FORD,MUSTANG,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,HONDA,CR-V,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-11,LightVehicles,leve,HYUNDAI,CRETA,ACTION,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,HYUNDAI,GRAND STAREX,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,HYUNDAI,IONIQ5,,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-11,LightVehicles,leve,HYUNDAI,NEW CRETA ACTION FLEX,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,JEEP,GLADIATOR RUBICON DOBLE CABINA,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-11,LightVehicles,leve,JEEP,WRANGLER SPORT,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-11,LightVehicles,leve,KIA,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

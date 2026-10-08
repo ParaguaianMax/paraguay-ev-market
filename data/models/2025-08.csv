@@ -17,7 +17,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-08,LightVehicles,pesado,MITSUBISHI,CANTER,,ICE,usado,76,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2025-08,LightVehicles,leve,FIAT,FIORINO ENDURANCE,,ICE,nuevo,65,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-08,LightVehicles,leve,TOYOTA,FUNCARGO,,ICE,usado,65,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-08,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,63,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-08,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,63,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,TOYOTA,COROLLA,,ICE,usado,58,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,FORD,RANGER,,ICE,nuevo,57,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-08,LightVehicles,leve,FIAT,PULSE DRIVE,,ICE,nuevo,56,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -111,6 +111,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-08,LightVehicles,recreativo,RUIDI,R6S,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703.10
 2025-08,LightVehicles,leve,FIAT,STRADA FREEDOM D/C,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-08,LightVehicles,leve,FORD,RANGER RAPTOR DC,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
+2025-08,LightVehicles,leve,HYUNDAI,CRETA,PLATINUM,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,MAXUS,T60 D20,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-08,LightVehicles,leve,MITSUBISHI,2026 DIESEL,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-08,LightVehicles,leve,NISSAN,MARCH,,ICE,usado,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -124,7 +125,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-08,LightVehicles,leve,GEELY,RIDDARA RD6,86KWH LUXURY,BEV,nuevo,8,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
 2025-08,LightVehicles,leve,HONDA,(sin modelo),,BEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,HONDA,CR-V,,HEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-08,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM NAFTERO,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,KIA,SELTOS,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,KIA,SORENTO,,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,MAZDA,CX-5,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -378,7 +378,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-08,LightVehicles,leve,HYUNDAI,I30,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,HYUNDAI,MAXCRUZ,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,HYUNDAI,MIGHTY,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2025-08,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,HYUNDAI,SANATA FE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,HYUNDAI,SANNTA FE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-08,LightVehicles,leve,HYUNDAI,SANTA FE,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

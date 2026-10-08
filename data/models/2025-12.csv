@@ -23,7 +23,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-12,LightVehicles,leve,CHEVROLET,S10 Z71,,ICE,nuevo,80,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-12,LightVehicles,leve,VOLKSWAGEN,T-CROSS,,ICE,nuevo,73,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,CHEVROLET,ONIX LT HB,,ICE,nuevo,72,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-12,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT NAFTERO,,ICE,nuevo,72,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-12,LightVehicles,leve,HYUNDAI,CRETA,COMFORT,ICE,nuevo,72,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,GEELY,EMGRAND GX3 PRO A O,,ICE,nuevo,55,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,CHERY,T4 PRO,,HEV,nuevo,54,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,KIA,SONET,,ICE,nuevo,54,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -163,7 +163,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-12,LightVehicles,leve,GREATWALL,(sin modelo),,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,GREATWALL,JOLION PRO,,HEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,HONDA,WR-V EXL,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-12,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM NAFTERO,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-12,LightVehicles,leve,HYUNDAI,CRETA,PLATINUM,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,MAHINDRA,XUV3XO MX3,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,NISSAN,FAIRLADY Z,,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-12,LightVehicles,leve,RENAULT,KARDIAN,PREMIERE EDITION,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

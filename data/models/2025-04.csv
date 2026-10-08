@@ -29,7 +29,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-04,LightVehicles,leve,ISUZU,D-MAX,,ICE,nuevo,49,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-04,LightVehicles,leve,NISSAN,ATLAS,,ICE,usado,49,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-04,LightVehicles,leve,HYUNDAI,NEW HB20 HATCH,,ICE,nuevo,44,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-04,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT NAFTERO,,ICE,nuevo,43,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-04,LightVehicles,leve,HYUNDAI,CRETA,COMFORT,ICE,nuevo,43,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,TOYOTA,COROLLA,,ICE,usado,41,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,VOLKSWAGEN,POLO TRACK,,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,NISSAN,KICKS PLAY SENSE CVT,,ICE,nuevo,39,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -138,7 +138,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-04,LightVehicles,leve,CHANGAN,M201 FURGON CARGO,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-04,LightVehicles,leve,CHEVROLET,S10 Z71,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-04,LightVehicles,leve,HYUNDAI,ACCENT,,ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-04,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM NAFTERO,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-04,LightVehicles,leve,HYUNDAI,CRETA,PLATINUM,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,KIA,SORENTO,,ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-04,LightVehicles,leve,MAXUS,T90 D20,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-04,LightVehicles,leve,MAXUS,T90 LUXURY,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

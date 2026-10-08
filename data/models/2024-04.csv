@@ -11,10 +11,10 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-04,LightVehicles,leve,KIA,SOLUTO,,ICE,nuevo,238,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,TOYOTA,IST,,ICE,usado,223,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,TOYOTA,SIENTA,,ICE,usado,175,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-04,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,167,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,KIA,SPORTAGE,,ICE,nuevo,139,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,TOYOTA,VOXY,,ICE,usado,135,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2024-04,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,133,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
-2024-04,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,128,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,NISSAN,FRONTIER DOBLE CABINA,,ICE,nuevo,101,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-04,LightVehicles,leve,KIA,PICANTO,,ICE,nuevo,92,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,TOYOTA,FUNCARGO,,ICE,usado,87,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -33,7 +33,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-04,LightVehicles,leve,TOYOTA,RUSH,,ICE,nuevo,41,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,MAZDA,CX-5,,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,DFSK,SERES 500,,ICE,nuevo,39,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-04,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,39,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,KIA,SONET,,ICE,nuevo,38,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-04,LightVehicles,leve,FORD,RANGER RAPTOR DC,,ICE,nuevo,37,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2024-04,LightVehicles,leve,KIA,K2700,,ICE,nuevo,36,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

@@ -22,7 +22,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-11,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,67,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2022-11,LightVehicles,leve,CHEVROLET,S10 LS,,ICE,nuevo,63,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2022-11,LightVehicles,leve,HYUNDAI,SANTA FE,,ICE,usado,58,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2022-11,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,56,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2022-11,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,56,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-11,LightVehicles,leve,JEEP,COMPASS SPORT,,ICE,nuevo,51,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-11,LightVehicles,leve,TOYOTA,RUSH,,ICE,nuevo,50,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-11,LightVehicles,leve,KIA,SOLUTO,,ICE,nuevo,49,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

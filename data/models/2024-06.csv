@@ -412,7 +412,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-06,LightVehicles,leve,TOYOTA,AQUA,,HEV,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-06,LightVehicles,leve,TOYOTA,ARISTO V300,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-06,LightVehicles,leve,TOYOTA,BELTA NAFTERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-06,LightVehicles,leve,TOYOTA,CANTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-06,LightVehicles,leve,TOYOTA,CARINA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-06,LightVehicles,leve,TOYOTA,COROLLA,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-06,LightVehicles,leve,TOYOTA,COROLLA FIELDER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -482,6 +481,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-06,LightVehicles,pesado,SCANIA,R 340,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-06,LightVehicles,pesado,SCANIA,R400,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2024-06,LightVehicles,pesado,SCANIA,R480,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-06,LightVehicles,pesado,TOYOTA,CANTER,,ICE,usado,1,Aduana PY datos abiertos,Canter (camión; marca declarada distinta de Mitsubishi) → pesado
 2024-06,LightVehicles,recreativo,AGM PRC,BUGGY 150,,ICE,usado,1,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart
 2024-06,LightVehicles,recreativo,BARMON,LT,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10
 2024-06,LightVehicles,recreativo,BARMON,LT A827,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10

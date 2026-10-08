@@ -13,6 +13,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-07,LightVehicles,leve,TOYOTA,SIENTA,,ICE,usado,150,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,FORD,RANGER,,ICE,nuevo,142,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-07,LightVehicles,leve,KIA,CARENS,,ICE,nuevo,142,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,128,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,119,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2024-07,LightVehicles,leve,SUZUKI,IGNIS GL,,ICE,nuevo,100,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,TOYOTA,VOXY,,ICE,usado,94,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
@@ -26,8 +27,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-07,LightVehicles,leve,HYUNDAI,NEW HB20 HATCH,,ICE,nuevo,70,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,SANTA FE,,ICE,usado,70,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,CHEVROLET,ONIX LS,,ICE,nuevo,68,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-07,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,64,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-07,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,64,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,FORD,TERRITORY,,ICE,nuevo,60,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,TOYOTA,COROLLA,,ICE,usado,60,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,CHEVROLET,TRACKER LITE,,ICE,nuevo,55,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -344,10 +343,10 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-07,LightVehicles,leve,HONDA,HR-V EXL CVT,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,AVANTE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-07,LightVehicles,leve,HYUNDAI,CRETA,GLS,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,DIESEL,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,I30,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,KONA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-07,LightVehicles,leve,HYUNDAI,NEW CRETA GLS,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,PALISADE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-07,LightVehicles,leve,HYUNDAI,PORTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-07,LightVehicles,leve,HYUNDAI,PORTER II,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

@@ -11,13 +11,13 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-05,LightVehicles,leve,TOYOTA,WISH,,ICE,usado,137,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,KIA,PICANTO,,ICE,nuevo,120,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,NISSAN,KICKS,,ICE,nuevo,99,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-05,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,96,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,TOYOTA,FORTUNER,,ICE,nuevo,85,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,TOYOTA,SIENTA,,ICE,usado,83,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,MITSUBISHI,2023 DIESEL,,ICE,nuevo,79,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-05,LightVehicles,leve,NISSAN,FRONTIER,,ICE,nuevo,79,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-05,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,74,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2023-05,LightVehicles,leve,TOYOTA,FUNCARGO,,ICE,usado,67,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-05,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,64,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,CHEVROLET,S10 LT,,ICE,nuevo,63,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-05,LightVehicles,leve,TOYOTA,COROLLA,,ICE,usado,61,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,FIAT,STRADA ENDURANCE CP,,ICE,nuevo,60,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
@@ -38,7 +38,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-05,LightVehicles,leve,NISSAN,ATLAS,,ICE,usado,39,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-05,LightVehicles,leve,FIAT,STRADA ENDURANCE,,ICE,nuevo,35,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-05,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,nuevo,35,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-05,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,32,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,HYUNDAI,HB20 HATCH,,ICE,nuevo,30,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,FIAT,STRADA VOLCANO,,ICE,nuevo,29,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-05,LightVehicles,leve,FORD,RANGER DC,,ICE,nuevo,28,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -404,7 +403,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-05,LightVehicles,leve,TOYOTA,4RUNNER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,TOYOTA,AXIO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,TOYOTA,BELTA NAFTERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2023-05,LightVehicles,leve,TOYOTA,CANTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-05,LightVehicles,leve,TOYOTA,CELICA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,TOYOTA,COROLA RUNX,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-05,LightVehicles,leve,TOYOTA,COROLLA FIELDER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -456,6 +454,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-05,LightVehicles,pesado,SCANIA,P114G-340,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-05,LightVehicles,pesado,SCANIA,P380,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-05,LightVehicles,pesado,SHACMAN,SX5185GYY8J451C - L3000,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
+2023-05,LightVehicles,pesado,TOYOTA,CANTER,,ICE,usado,1,Aduana PY datos abiertos,Canter (camión; marca declarada distinta de Mitsubishi) → pesado
 2023-05,LightVehicles,pesado,VOLVO,FM7,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-05,LightVehicles,recreativo,HDK,DEL3023G2Z,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10
 2023-05,LightVehicles,recreativo,HDK,DEL3062G2Z,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10

@@ -13,7 +13,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-03,LightVehicles,leve,TOYOTA,HILUX,,ICE,nuevo,125,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-03,LightVehicles,leve,TOYOTA,NOAH,,ICE,usado,121,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2025-03,LightVehicles,leve,FIAT,STRADA ENDURANCE C/P,,ICE,nuevo,116,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
-2025-03,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT NAFTERO,,ICE,nuevo,109,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-03,LightVehicles,leve,HYUNDAI,CRETA,COMFORT,ICE,nuevo,109,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-03,LightVehicles,leve,GEELY,EMGRAND GX3 PRO,,ICE,nuevo,104,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-03,LightVehicles,leve,FORD,RANGER,,ICE,nuevo,102,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-03,LightVehicles,pesado,MITSUBISHI,CANTER,,ICE,usado,96,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
@@ -54,7 +54,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-03,LightVehicles,leve,KGM,TIVOLI,,ICE,nuevo,30,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-03,LightVehicles,leve,TOYOTA,RAIZE AUT,,ICE,nuevo,30,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-03,LightVehicles,leve,TOYOTA,YARIS CROSS,,HEV,nuevo,30,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-03,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM NAFTERO,,ICE,nuevo,27,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-03,LightVehicles,leve,HYUNDAI,CRETA,PLATINUM,ICE,nuevo,27,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-03,LightVehicles,leve,TOYOTA,COROLLA CROSS,,HEV,nuevo,27,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-03,LightVehicles,leve,HYUNDAI,H-100,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-03,LightVehicles,leve,KIA,K3,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

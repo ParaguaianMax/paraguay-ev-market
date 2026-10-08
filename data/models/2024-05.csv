@@ -16,7 +16,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-05,LightVehicles,leve,FIAT,FIORINO ENDURANCE,,ICE,nuevo,94,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2024-05,LightVehicles,leve,CHEVROLET,TRACKER LTZ,,ICE,nuevo,92,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,TOYOTA,FUNCARGO,,ICE,usado,92,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-05,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,88,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-05,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,88,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,pesado,MITSUBISHI,CANTER,,ICE,usado,81,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2024-05,LightVehicles,leve,ISUZU,D-MAX,,ICE,nuevo,72,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-05,LightVehicles,leve,VOLKSWAGEN,AMAROK,,ICE,nuevo,69,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -369,7 +369,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-05,LightVehicles,leve,MERCEDES-BENZ,SLK 250,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,MERCEDES-BENZ,SPRINTER 311CDI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-05,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2024-05,LightVehicles,leve,NISSAN,CANTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-05,LightVehicles,leve,NISSAN,SKYLINE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,NISSAN,SUNNY,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,NISSAN,SYLPHY,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -451,6 +450,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-05,LightVehicles,pesado,MITSUBISHI,FUSO CANTER,,ICE,usado,1,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2024-05,LightVehicles,pesado,MITSUBISHI,FUSO CANTER GUTS,,ICE,usado,1,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
 2024-05,LightVehicles,pesado,NISSAN,CABSTAR E,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-05,LightVehicles,pesado,NISSAN,CANTER,,ICE,usado,1,Aduana PY datos abiertos,Canter (camión; marca declarada distinta de Mitsubishi) → pesado
 2024-05,LightVehicles,pesado,NISSAN,CONDOR,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-05,LightVehicles,pesado,NISSAN,EBRO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-05,LightVehicles,pesado,SCANIA,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t

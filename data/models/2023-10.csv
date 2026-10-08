@@ -20,11 +20,11 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-10,LightVehicles,leve,TOYOTA,RAIZE,,ICE,nuevo,62,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,HYUNDAI,NEW HB20 HATCH,,ICE,nuevo,60,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,HYUNDAI,SANTA FE,,ICE,usado,59,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2023-10,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,56,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,TOYOTA,FUNCARGO,,ICE,usado,56,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,NISSAN,ATLAS,,ICE,usado,49,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,TOYOTA,VOXY,,ICE,usado,49,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2023-10,LightVehicles,pesado,MITSUBISHI,CANTER,,ICE,usado,49,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado
-2023-10,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,48,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHEVROLET,ONIX LS,,ICE,nuevo,44,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHEVROLET,SILVERADO LTZ Z71,,ICE,nuevo,44,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,usado,43,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -100,7 +100,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-10,LightVehicles,leve,CHERY,T8 PRO,,PHEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHEVROLET,MONTANA CD LTZ,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,CHEVROLET,S10 LT,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2023-10,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,MAXUS,T90 D20 LUXURY,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,MITSUBISHI,L200 TRITON SPORT GLX,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,VOLKSWAGEN,POLO TRACK,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -212,7 +211,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-10,LightVehicles,leve,CHEVROLET,MONTANA CD LS,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,CHEVROLET,ONIX PLUS PREMIER FLEX AT TURBO,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,CHEVROLET,S10 Z71,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2023-10,LightVehicles,leve,FOTON,BJ6609U2DDA-E3,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-10,LightVehicles,leve,GREATWALL,(sin modelo),,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,HONDA,CITY EXL,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,leve,HONDA,ENP1,,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -246,6 +244,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-10,LightVehicles,leve,VOLKSWAGEN,POLO COMFORTLINE,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-10,LightVehicles,pesado,FOTON,BJ1040V8AB6-AB,,ICE,nuevo,2,Aduana PY datos abiertos,FOTON BJ10xx/BJ11xx (camión) → pesado
 2023-10,LightVehicles,pesado,FOTON,BJ5039XXY-K2,,ICE,nuevo,2,Aduana PY datos abiertos,FOTON BJ5039/BJ5048 (furgón de carga) → pesado
+2023-10,LightVehicles,pesado,FOTON,BJ6609U2DDA-E3,,ICE,nuevo,2,Aduana PY datos abiertos,FOTON BJ6609 (furgón de carga) → pesado
 2023-10,LightVehicles,pesado,MERCEDES-BENZ,917,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-10,LightVehicles,pesado,MERCEDES-BENZ,ATEGO 1222,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-10,LightVehicles,pesado,MITSUBISHI,FUSO CANTER GUTS,,ICE,usado,2,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado

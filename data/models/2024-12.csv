@@ -501,7 +501,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-12,LightVehicles,leve,TOYOTA,AXIO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-12,LightVehicles,leve,TOYOTA,BB,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-12,LightVehicles,leve,TOYOTA,CAMRY,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-12,LightVehicles,leve,TOYOTA,CANTER DIESEL,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-12,LightVehicles,leve,TOYOTA,DYNA TRUCK,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-12,LightVehicles,leve,TOYOTA,ESTIMA,,HEV,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-12,LightVehicles,leve,TOYOTA,ESTIMA AERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -570,6 +569,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-12,LightVehicles,pesado,SCANIA,P94/260,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-12,LightVehicles,pesado,SCANIA,R124-360,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-12,LightVehicles,pesado,SCANIA,R270,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2024-12,LightVehicles,pesado,TOYOTA,CANTER DIESEL,,ICE,usado,1,Aduana PY datos abiertos,Canter (camión; marca declarada distinta de Mitsubishi) → pesado
 2024-12,LightVehicles,pesado,VOLKSWAGEN,11,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-12,LightVehicles,recreativo,BLUHAN,(sin modelo),,BEV,nuevo,1,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart
 2024-12,LightVehicles,recreativo,BLUHAN,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10

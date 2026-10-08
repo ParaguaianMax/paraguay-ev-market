@@ -18,8 +18,8 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-08,LightVehicles,leve,KIA,SPORTAGE,,HEV,nuevo,103,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,TOYOTA,COROLLA CROSS,,HEV,nuevo,103,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,KIA,SOLUTO,,ICE,nuevo,98,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-08,LightVehicles,leve,HYUNDAI,CRETA,COMFORT,ICE,nuevo,96,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,BYD,SONG PLUS,,PHEV,nuevo,89,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-08,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT NAFTERO,,ICE,nuevo,82,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,TOYOTA,AGYA AUT,,ICE,nuevo,80,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,TOYOTA,RUSH AUT,,ICE,nuevo,80,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,NISSAN,FRONTIER DOBLE CABINA,,ICE,nuevo,77,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -77,9 +77,9 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-08,LightVehicles,leve,CHEVROLET,TRAILBLAZER HC,,ICE,nuevo,25,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,CHEVROLET,CAPTIVA EV,,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,CHEVROLET,SPARK EUV,,BEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-08,LightVehicles,leve,HYUNDAI,CRETA,PLATINUM,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,TOYOTA,COROLLA,,HEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,CHEVROLET,TRACKER LTZ,,ICE,nuevo,22,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-08,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM NAFTERO,,ICE,nuevo,22,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,CHEVROLET,SONIC PREMIER,,ICE,nuevo,21,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,JIM,(sin modelo),,ICE,nuevo,21,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-08,LightVehicles,leve,RENAULT,KOLEOS,,HEV,nuevo,21,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -116,7 +116,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-08,LightVehicles,leve,FORD,RANGER RAPTOR DC,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-08,LightVehicles,leve,GREATWALL,POER,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-08,LightVehicles,leve,GREATWALL,TANK 700,,PHEV,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-08,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,RAM,DAKOTA BIGHORN,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-08,LightVehicles,leve,RAM,RAMPAGE R/T,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2026-08,LightVehicles,leve,SUBARU,IMPREZA,,ICE,usado,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -340,7 +339,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-08,LightVehicles,leve,HONDA,SXS1000S4XDS,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,HYUNDAI,GRAND STAREX,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,HYUNDAI,I40,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-08,LightVehicles,leve,HYUNDAI,NEW CRETA PLATINUM,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,HYUNDAI,NEW GRAND I10 HATCHBACK NAFT,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,JEEP,GRAND CHEROKEE,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-08,LightVehicles,leve,KGM,KORANDO SPORTS,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

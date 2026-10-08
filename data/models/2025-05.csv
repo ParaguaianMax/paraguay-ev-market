@@ -54,7 +54,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-05,LightVehicles,leve,FIAT,FASTBACK AUDACE MILD,,ICE,nuevo,26,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,TOYOTA,YARIS CROSS,,HEV,nuevo,26,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,TOYOTA,RAV4,,HEV,nuevo,25,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-05,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT NAFTERO,,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-05,LightVehicles,leve,HYUNDAI,CRETA,COMFORT,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,NISSAN,FRONTIER DOBLE CABINA,,ICE,nuevo,24,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-05,LightVehicles,leve,TOYOTA,COROLLA CROSS,,HEV,nuevo,24,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -133,7 +133,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-05,LightVehicles,leve,FIAT,STRADA ENDURANCE C/P,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-05,LightVehicles,leve,FIAT,STRADA ULTRA D/C,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-05,LightVehicles,leve,GAC,EMZOOM GL,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-05,LightVehicles,leve,HYUNDAI,NEW CRETA,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-05,LightVehicles,leve,HYUNDAI,CRETA,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,LEXUS,LBX H,,HEV,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,RENAULT,KWID INTENS,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,TOYOTA,CALDINA,,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -518,7 +518,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-05,LightVehicles,leve,TOYOTA,AVENSIS,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,TOYOTA,AXIO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,TOYOTA,CAMRY,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-05,LightVehicles,leve,TOYOTA,CANTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-05,LightVehicles,leve,TOYOTA,COROLLA,,HEV,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,TOYOTA,CROSS,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-05,LightVehicles,leve,TOYOTA,CROWN ROYAL SALOON,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -602,6 +601,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-05,LightVehicles,pesado,SCANIA,R420,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2025-05,LightVehicles,pesado,SCANIA,R480,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2025-05,LightVehicles,pesado,STERLING,TRUCKS A/O,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2025-05,LightVehicles,pesado,TOYOTA,CANTER,,ICE,usado,1,Aduana PY datos abiertos,Canter (camión; marca declarada distinta de Mitsubishi) → pesado
 2025-05,LightVehicles,recreativo,CAN-AM,MAVERICK X,,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2025-05,LightVehicles,recreativo,COLEMAN,GCEV48T,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10
 2025-05,LightVehicles,recreativo,D5 RANGER,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10
