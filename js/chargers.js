@@ -247,6 +247,8 @@
     );
   }
 
+  const PY_BOUNDS = [[-27.6, -62.65], [-19.3, -54.25]];
+
   function invalidateMap(map) {
     if (!map) return;
     try {
@@ -258,6 +260,9 @@
     const map = L.map(mapEl, {
       scrollWheelZoom: false,
       preferCanvas: false,
+      minZoom: 5,
+      maxBounds: [[-28.4, -63.6], [-18.6, -53.6]],
+      maxBoundsViscosity: 0.85,
     });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
@@ -281,8 +286,11 @@
       group.addLayer(m);
     });
     group.addTo(map);
-    if (rows.length) map.fitBounds(group.getBounds().pad(0.12));
-    else map.setView([-25.3, -57.6], 7);
+    // Whole country in view, not just the cluster around Asunción.
+    const fitParaguay = () => {
+      try { map.fitBounds(PY_BOUNDS, { padding: [6, 6] }); } catch (e) {}
+    };
+    fitParaguay();
 
     const scheduleInvalidate = () => {
       invalidateMap(map);
@@ -309,6 +317,7 @@
       group,
       markers,
       invalidate: () => invalidateMap(map),
+      fitParaguay,
       updateLanguage: () => updateLanguage({ markers }),
     };
   }
@@ -522,40 +531,29 @@
       el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
       return;
     }
-    const stats = networkStats(rows);
+    // Largest network on top (Plotly draws the first category at the bottom).
+    const stats = networkStats(rows).slice().reverse();
     if (!stats.length) {
       emptyChart(el);
       return;
     }
     const th = chartTheme();
+    const phone = window.innerWidth < 640;
     const names = stats.map((s) => operatorLabel(s.key));
     function bar(key, label, color) {
-      const y = stats.map((s) => s[key]);
       return {
         type: "bar",
+        orientation: "h",
         name: label,
-        x: names,
-        y: y,
+        y: names,
+        x: stats.map((s) => s[key]),
         marker: { color: color, line: { width: 0 } },
-        text: y.map((v) => (v ? String(v) : "")),
-        textposition: "outside",
-        textfont: { size: 10, color: th.muted },
-        hovertemplate: "<b>%{x}</b><br>" + label + ": %{y}<extra></extra>",
-        cliponaxis: false,
+        hovertemplate: "<b>%{y}</b><br>" + label + ": %{x}<extra></extra>",
       };
     }
-    const sites = stats.map((s) => s.sites);
-    const line = {
-      type: "scatter",
-      mode: "lines+markers",
-      name: PYEV.t("n_chargers"),
-      x: names,
-      y: sites,
-      line: { color: th.text, width: 2 },
-      marker: { color: th.dark ? "#141413" : "#fdfdfc", size: 8, line: { color: th.text, width: 2 } },
-      hovertemplate: "<b>%{x}</b><br>" + PYEV.t("n_chargers") + ": %{y}<extra></extra>",
-    };
-    const maxConn = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT), 0);
+    const totals = stats.map((s) => s.CCS + s.CHAdeMO + s.GBT);
+    const maxTot = totals.reduce((m, v) => Math.max(m, v), 0);
+    const n = stats.length;
     const layout = {
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
@@ -564,36 +562,38 @@
         color: th.text,
         size: 12,
       },
-      barmode: "group",
+      barmode: "stack",
       bargap: 0.28,
-      bargroupgap: 0.08,
       showlegend: true,
+      height: Math.max(phone ? 280 : 320, n * (phone ? 28 : 32) + (phone ? 70 : 80)),
       legend: {
         orientation: "h",
-        y: 1.14,
+        y: 1.02,
+        yanchor: "bottom",
         x: 0,
+        traceorder: "normal",
         font: { size: 11, color: th.muted },
         bgcolor: "rgba(0,0,0,0)",
       },
-      margin: { t: 48, r: 20, b: 108, l: 48 },
+      margin: { t: 36, r: phone ? 12 : 24, b: 36, l: phone ? 8 : 12 },
       xaxis: {
         gridcolor: th.grid,
         zeroline: false,
         linecolor: th.grid,
         tickfont: { size: 11, color: th.muted },
-        tickangle: names.length > 8 ? -32 : 0,
+        title: { text: PYEV.t("plugs_short"), font: { size: 11, color: th.muted } },
+        rangemode: "tozero",
+        range: [0, Math.max(4, Math.ceil(maxTot * 1.08))],
         automargin: true,
       },
       yaxis: {
-        gridcolor: th.grid,
+        gridcolor: "rgba(0,0,0,0)",
         zeroline: false,
         linecolor: th.grid,
-        tickfont: { size: 11, color: th.muted },
-        title: { text: PYEV.t("units"), font: { size: 11, color: th.muted } },
-        rangemode: "tozero",
-        range: [0, Math.max(4, Math.ceil(Math.max(maxConn, Math.max.apply(null, sites)) * 1.35))],
+        tickfont: { size: phone ? 10 : 12, color: th.text },
+        automargin: true,
       },
-      hovermode: "x unified",
+      hovermode: "y unified",
       hoverlabel: {
         bgcolor: th.dark ? "#1b1b19" : "#ffffff",
         bordercolor: th.grid,
@@ -607,7 +607,6 @@
         bar("CCS", "CCS", th.CCS),
         bar("CHAdeMO", "CHAdeMO", th.CHAdeMO),
         bar("GBT", "GB/T", th.GBT),
-        line,
       ],
       layout,
       { responsive: true, displayModeBar: false }

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page_chargers">Carga — Paraguay EV Market</title>
+  <meta name="description" content="Red de cargadores DC en Paraguay (CCS2, CHAdeMO y GB/T). Inventario basado en PlugShare." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      root.setAttribute("data-theme-pref", p);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/variant.css" />
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="../js/chart-click.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/chargers.js" defer></script>
+</head><body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <nav class="nav-tabs" aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+        <a href="../index.html" data-i18n="nav_home">Inicio</a>
+        <a href="mercado.html" data-i18n="nav_mercado">Mercado</a>
+        <a href="marcas.html" data-i18n="nav_marcas">Marcas y modelos</a>
+        <a href="carga.html" data-i18n="nav_carga" class="active" aria-current="page">Carga</a>
+        <a href="datos.html" data-i18n="nav_datos">Datos y método</a>
+      </nav>
+      <div class="header-actions">
+        <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-eyebrow">
+      <span class="badge" data-i18n="chargers_badge">PlugShare · actualización 2 oct 2026</span>
+      <span class="pill pill-bev" data-i18n="dc_only">Solo DC</span>
+      <span class="pill pill-phev">CCS2</span>
+      <span class="pill pill-hev">CHAdeMO</span>
+      <span class="pill pill-others">GB/T</span>
+    </div>
+    <h1 data-i18n="chargers_title">Cargadores DC en Paraguay</h1>
+    <p class="lead" data-i18n="chargers_desc">Red de cargadores DC en Paraguay (CCS2, CHAdeMO y GB/T).</p>
+
+    <div id="kpis" class="kpi-grid"><div class="status" data-i18n="loading">Cargando…</div></div>
+
+    <section id="mapa" class="section-anchor">
+      <h2 data-i18n="map">Mapa</h2>
+      <div class="map-filters">
+        <label for="f-access" data-i18n="access">Acceso</label>
+        <select id="f-access">
+          <option value="all" data-i18n="all">Todos</option>
+          <option value="público" selected data-i18n="public">Público</option>
+          <option value="restrito" data-i18n="restricted">Restringido</option>
+          <option value="residencial/privado" data-i18n="private">Residencial/privado</option>
+        </select>
+        <label for="f-band" data-i18n="power_band">Rango kW</label>
+        <select id="f-band">
+          <option value="all" data-i18n="all_bands">Todas</option>
+        </select>
+      </div>
+      <div class="map-wrap"><div id="chargers-map" role="img" aria-label="Mapa de cargadores DC" data-i18n-attr="aria-label:map_aria"></div></div>
+      <p class="chart-foot" id="map-foot"></p>
+    </section>
+
+    <section id="redes" class="section-anchor">
+      <h2 data-i18n="carga_networks_title">Conectores por red</h2>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="network_bar_lead">Conectores CCS, CHAdeMO y GB/T apilados por red.</p>
+      <div id="chart-network-bars" class="chart-panel chart-bare chart-network-hbars"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="chart-foot" id="network-bar-foot"></p>
+    </section>
+
+    <section id="historico" class="section-anchor">
+      <h2 data-i18n="chargers_history_title">Historial</h2>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_history_lead">Ubicaciones DC en cada informe publicado.</p>
+      <div id="chart-history" class="chart-panel chart-bare chart-history"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="note" id="history-cutoff"></p>
+      <h3 data-i18n="chargers_history_networks_title">Por red</h3>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="chargers_history_networks_lead">Los mismos cortes de la línea de arriba.</p>
+      <div id="chart-history-networks" class="chart-panel chart-bare chart-history-networks"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <div id="history-networks-legend" class="history-network-legend"></div>
+    </section>
+
+    <details class="fold section-anchor" id="tabla" open>
+      <summary><span data-i18n="carga_table_toggle">Ubicaciones</span> <span class="fold-sub" id="table-count"></span></summary>
+      <div class="table-search">
+        <input type="search" id="f-q" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:carga_search" placeholder="Buscar nombre, ciudad o red" />
+      </div>
+      <div id="table"></div>
+    </details>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      <div><span data-i18n="source_plugshare">Datos: PlugShare · actualización 2 oct 2026.</span> · <a href="datos.html#fuente" data-i18n="nav_datos">Datos y método</a> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const kpis = document.getElementById("kpis");
+      const table = document.getElementById("table");
+      const mapEl = document.getElementById("chargers-map");
+      const foot = document.getElementById("map-foot");
+      const networkBarsEl = document.getElementById("chart-network-bars");
+      const networkBarFoot = document.getElementById("network-bar-foot");
+      const fAccess = document.getElementById("f-access");
+      const fBand = document.getElementById("f-band");
+      const fQ = document.getElementById("f-q");
+      const tableCount = document.getElementById("table-count");
+      const tableDetails = document.getElementById("tabla");
+      const historyEl = document.getElementById("chart-history");
+      const historyNetEl = document.getElementById("chart-history-networks");
+      const historyNetLegend = document.getElementById("history-networks-legend");
+      const historyNote = document.getElementById("history-cutoff");
+      let all = [];
+      let mapApi = null;
+      let historyBundle = null;
+      const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+      // Locations table starts folded on phones.
+      if (tableDetails && window.matchMedia && window.matchMedia("(max-width: 719px)").matches) tableDetails.open = false;
+
+      function paintHistory() {
+        if (!historyBundle || !historyBundle.points) return;
+        PYEVChargers.renderHistory(historyEl, historyBundle.points, historyBundle.connectors);
+        PYEVChargers.renderHistoryNetworks(historyNetEl, historyBundle.stacks);
+        PYEVChargers.renderHistoryNetworkLegend(historyNetLegend, historyBundle.stacks);
+        const pts = historyBundle.points;
+        if (historyNote && pts.length) {
+          historyNote.textContent = PYEV.t("carga_history_note", {
+            period: PYEV.periodLabel(pts[pts.length - 1].corte),
+            sites: PYEVChargers.chargerCounts(all).sites,
+          });
+        }
+      }
+
+      function filteredRows() {
+        let rows = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
+        const q = (fQ.value || "").trim().toLowerCase();
+        if (q) {
+          rows = rows.filter((r) =>
+            [r.name, r.ciudad, r.departamento, PYEVChargers.operatorLabel(r.operator)].join(" ").toLowerCase().indexOf(q) >= 0
+          );
+        }
+        return rows;
+      }
+
+      function refresh() {
+        const mapRows = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
+        if (mapApi) {
+          mapApi.group.clearLayers();
+          mapRows.forEach((r) => {
+            const m = mapApi.markers.find((x) => x._pyev.id === r.id);
+            if (m) mapApi.group.addLayer(m);
+          });
+          if (mapApi.invalidate) mapApi.invalidate();
+        }
+        const tableRows = filteredRows();
+        PYEVChargers.renderTable(table, tableRows);
+        const tc = PYEVChargers.chargerCounts(tableRows);
+        if (tableCount) tableCount.textContent = tc.sites + " · " + tc.plugs;
+        const filterParts = [];
+        if (fAccess.value !== "all") filterParts.push(PYEV.t("access") + ": " + fAccess.options[fAccess.selectedIndex].text);
+        if (fBand.value !== "all") filterParts.push(PYEV.t("power_band") + ": " + fBand.options[fBand.selectedIndex].text);
+        const filterText = filterParts.length ? filterParts.join(" · ") : PYEV.t("map_no_filter");
+        const allN = PYEVChargers.chargerCounts(all);
+        const shownN = PYEVChargers.chargerCounts(mapRows);
+        PYEVChargers.renderNetworkBars(networkBarsEl, mapRows);
+        const cc = PYEVChargers.countConnectors(mapRows);
+        networkBarFoot.innerHTML =
+          "<b>CCS</b> " + cc.CCS + " · <b>CHAdeMO</b> " + cc.CHAdeMO + " · <b>GB/T</b> " + cc.GBT +
+          " = " + PYEV.t("n_connectors", { n: shownN.plugs }) + " · " + esc(filterText);
+        foot.innerHTML =
+          PYEV.t("map_foot", {
+            sites: "<b>" + shownN.sites + "</b>", allSites: allN.sites,
+            plugs: "<b>" + shownN.plugs + "</b>", allPlugs: allN.plugs,
+          }) + " · " + esc(filterText) + " · " + PYEV.t("power_estimated");
+      }
+
+    // Content renders after load, so re-apply the #anchor once it has height.
+    window.__pyevScrollHash = function () {
+      if (window.__pyevHashDone) return;
+      const id = decodeURIComponent((location.hash || "").slice(1));
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      window.__pyevHashDone = true;
+      if (el.tagName === "DETAILS") el.open = true;
+      requestAnimationFrame(() => el.scrollIntoView());
+    };
+      try {
+        all = await PYEVChargers.loadChargers();
+        PYEVChargers.renderKPIs(kpis, all);
+        const bands = PYEVChargers.countByInOrder(all, "power_band", ["abaixo de 50 kW", "50–99 kW", "100–149 kW", "150+ kW", "desconhecida"]);
+        bands.forEach(([b]) => {
+          const opt = document.createElement("option");
+          opt.value = b;
+          opt.textContent = PYEVChargers.localizeValue(b);
+          fBand.appendChild(opt);
+        });
+        mapApi = PYEVChargers.initMap(mapEl, all);
+        fAccess.addEventListener("change", refresh);
+        fBand.addEventListener("change", refresh);
+        fQ.addEventListener("input", refresh);
+        refresh();
+        tableDetails.addEventListener("toggle", () => { if (mapApi && mapApi.invalidate) mapApi.invalidate(); });
+        window.addEventListener("pyev-lang", () => {
+          PYEVChargers.renderKPIs(kpis, all);
+          if (mapApi && mapApi.updateLanguage) mapApi.updateLanguage();
+          Array.from(fBand.options).forEach((opt, i) => { if (i > 0) opt.textContent = PYEVChargers.localizeValue(opt.value); });
+          refresh();
+          paintHistory();
+        });
+        window.addEventListener("pyev-theme", () => {
+          setTimeout(() => {
+            PYEVChargers.renderNetworkBars(networkBarsEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
+            paintHistory();
+          }, 30);
+        });
+        try {
+          historyBundle = await PYEVChargers.loadHistory();
+          paintHistory();
+          let timer = 0;
+          let lastW = window.innerWidth;
+          window.addEventListener("resize", () => {
+            if (window.innerWidth === lastW) return;
+            lastW = window.innerWidth;
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+              paintHistory();
+              PYEVChargers.renderNetworkBars(networkBarsEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
+            }, 150);
+          });
+        } catch (err) {
+          historyEl.innerHTML = '<div class="status error">' + esc(err.message) + "</div>";
+          historyNetEl.innerHTML = "";
+        }
+        window.__pyevScrollHash();
+      } catch (e) {
+        kpis.innerHTML = '<div class="status error">' + esc(e.message) + "</div>";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -140,6 +140,9 @@
     const modelChart = document.getElementById("chart-top-models");
     const brandTable = document.getElementById("table-top-brands");
     const modelTable = document.getElementById("table-top-models");
+    const bevChart = document.getElementById("chart-bev-rank");
+    const bevTable = document.getElementById("table-bev-rank");
+    const searchInput = document.getElementById("mmSearch");
     const brandMeta = document.getElementById("volBrandMeta");
     const modelMeta = document.getElementById("volModelMeta");
     const scopeHint = document.getElementById("volScopeHint");
@@ -319,12 +322,18 @@
       modelPicker.close();
     };
     document.addEventListener("click", closePickers);
-    if (modelTable) {
-      modelTable.addEventListener("click", (ev) => {
+    function bindEditionClicks(table, which) {
+      if (!table) return;
+      table.addEventListener("click", (ev) => {
         const row = ev.target.closest("tr[data-edition-key]");
         if (!row || row.classList.contains("rank-editions")) return;
-        toggleModelEdition(row.getAttribute("data-edition-key"));
+        toggleModelEdition(row.getAttribute("data-edition-key"), which);
       });
+    }
+    bindEditionClicks(modelTable, "main");
+    bindEditionClicks(bevTable, "bev");
+    if (searchInput) {
+      searchInput.addEventListener("input", () => draw());
     }
     document.addEventListener("keydown", (ev) => {
       if (ev.key === "Escape") closePickers();
@@ -333,7 +342,9 @@
     let allModelRows = [];
     let marketRows = [];
     let lastModels = [];
+    let lastBevModels = [];
     const expandedModels = new Set();
+    const expandedBev = new Set();
     let plotGen = 0;
     let modelClickBound = null;
     let topLimit = lsGet(TOP_KEY) === "all" ? "all" : "20";
@@ -548,6 +559,7 @@
       if (modelChart) modelChart.innerHTML = html;
       if (brandTable) brandTable.innerHTML = "";
       if (modelTable) modelTable.innerHTML = "";
+      if (bevTable) bevTable.innerHTML = "";
       if (brandMeta) brandMeta.textContent = t("vol_showing_n", { n: "0" });
       if (modelMeta) modelMeta.textContent = t("vol_showing_n", { n: "0" });
       if (brandPicker) brandPicker.sync([]);
@@ -667,22 +679,28 @@
         return;
       }
 
-      const allBrands = PYEVModels.rankBrands(rows, { topN: 0 });
-      allBrands.forEach((b, i) => {
+      const qOn = queryTokens().length > 0;
+      const rankedBrands = PYEVModels.rankBrands(rows, { topN: 0 });
+      rankedBrands.forEach((b, i) => {
         b.rank = i + 1;
       });
-      brandPicker.sync(allBrands.map((b) => b.marca));
+      brandPicker.sync(rankedBrands.map((b) => b.marca));
+      // The search box only narrows what is shown; ranks stay those of the full list.
+      const allBrands = qOn ? rankedBrands.filter((b) => matchesQuery(b.marca)) : rankedBrands;
       // With brands chosen, the model ranking and picker only cover those brands.
       const modelRows = brandPicker.selected.size
         ? rows.filter((r) => brandPicker.selected.has(r.marca))
         : rows;
-      const allModels = PYEVModels.rankModels(modelRows, { topN: 0 });
-      allModels.forEach((m, i) => {
+      const rankedModels = PYEVModels.rankModels(modelRows, { topN: 0 });
+      rankedModels.forEach((m, i) => {
         m.rank = i + 1;
       });
-      modelPicker.sync(allModels.map((m) => m.label));
+      modelPicker.sync(rankedModels.map((m) => m.label));
+      const allModels = qOn
+        ? rankedModels.filter((m) => matchesQuery(m.marca + " " + m.modelo + " " + m.label))
+        : rankedModels;
       publishFilter();
-      const cap = topLimit === "all" ? Infinity : TOP_DEFAULT;
+      const cap = topLimit === "all" || qOn ? Infinity : TOP_DEFAULT;
       const brands = brandPicker.selected.size
         ? allBrands.filter((b) => brandPicker.selected.has(b.marca))
         : allBrands.slice(0, cap);
@@ -705,12 +723,36 @@
         modelChart.innerHTML = "";
         modelChart._pyevPlotPromise = PYEVModels.renderTopModelChart(modelChart, models);
       }
-      const tableOpts = { showGroupTotals: ptSet.size >= 2 };
+      const tableOpts = {
+        showGroupTotals: ptSet.size >= 2,
+        columns: !!(brandTable && brandTable.dataset.columns === "1"),
+      };
       PYEVModels.renderTopBrandTable(brandTable, brands, tableOpts);
       lastModels = models;
       paintModelTable();
       bindModelChartClicks(models);
+      paintBevRanking(periodRows, qOn);
       renderHeadline(periodRows);
+    }
+
+    function paintBevRanking(periodRows, qOn) {
+      if (!bevChart && !bevTable) return;
+      let base = periodRows;
+      const cond = condicionAvailable ? condMode : "all";
+      if (cond === "nuevo" || cond === "usado") base = PYEVModels.filterModels(base, { condicion: cond });
+      if (brandPicker.selected.size) base = base.filter((r) => brandPicker.selected.has(r.marca));
+      base = base.filter((r) => r.powertrain === "BEV");
+      let ranked = PYEVModels.rankModels(base, { topN: 0 });
+      ranked.forEach((m, i) => { m.rank = i + 1; });
+      if (qOn) ranked = ranked.filter((m) => matchesQuery(m.marca + " " + m.modelo + " " + m.label));
+      const cap = topLimit === "all" || qOn ? Infinity : TOP_DEFAULT;
+      const shown = ranked.slice(0, cap);
+      if (bevChart) {
+        bevChart.innerHTML = "";
+        PYEVModels.renderTopModelChart(bevChart, shown);
+      }
+      lastBevModels = shown;
+      paintBevTable();
     }
 
     function paintModelTable() {
@@ -720,12 +762,30 @@
         expandedModels,
       });
     }
+    function paintBevTable() {
+      if (!bevTable) return;
+      PYEVModels.renderTopModelTable(bevTable, lastBevModels, {
+        showGroupTotals: false,
+        expandedModels: expandedBev,
+      });
+    }
+    function queryTokens() {
+      return searchInput ? searchTokens(searchInput.value) : [];
+    }
+    function matchesQuery(label) {
+      const tokens = queryTokens();
+      if (!tokens.length) return true;
+      const key = searchKey(label);
+      return tokens.every((tok) => key.includes(tok));
+    }
 
-    function toggleModelEdition(key) {
+    function toggleModelEdition(key, which) {
       if (!key) return;
-      if (expandedModels.has(key)) expandedModels.delete(key);
-      else expandedModels.add(key);
-      paintModelTable();
+      const set = which === "bev" ? expandedBev : expandedModels;
+      if (set.has(key)) set.delete(key);
+      else set.add(key);
+      if (which === "bev") paintBevTable();
+      else paintModelTable();
     }
 
     function bindModelChartClicks(models) {
@@ -859,6 +919,10 @@
     global.addEventListener("pyev-lang", () => {
       if (brandPicker) brandPicker.updateBtn();
       if (modelPicker) modelPicker.updateBtn();
+      if (searchInput) {
+        searchInput.placeholder = t("mm_search");
+        searchInput.setAttribute("aria-label", t("mm_search_aria"));
+      }
       if (!marketRows.length) return;
       fillPeriodSelects();
       draw();

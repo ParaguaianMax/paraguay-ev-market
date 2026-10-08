@@ -52,8 +52,8 @@
     return Object.assign(base, extra || {});
   }
 
-  /** Gallery-style share trajectory — monthly % lines by powertrain (observed).
-   * Dual axis: electrified (left) and ICE (right). opts.home tightens the homepage chart.
+  /** Monthly % lines by powertrain, one y axis only (never a second ICE axis).
+   * opts.only: e.g. ["BEV"]; opts.withIce: add ICE on the same 0–100% axis.
    */
   function shareChart(el, rows, opts) {
     if (!el || !rows || !rows.length) return;
@@ -64,99 +64,85 @@
     const markerBorder = dark ? "#141413" : "#fdfdfc";
     const narrow = typeof window !== "undefined" && window.innerWidth < 640;
     const periods = rows.map((r) => r.period);
-    const displayCats = ["BEV", "PHEV", "HEV", "OTHERS", "ICE"];
-    // opts.only: e.g. ["BEV"] draws just those lines on one axis.
     const only = Array.isArray(opts.only) && opts.only.length ? opts.only : null;
-    const elecCats = displayCats.filter((k) => k !== "ICE" && (!only || only.includes(k)));
-    const showIce = !only || only.includes("ICE");
-    let maxElec = 0;
-    elecCats.forEach((k) => {
+    const cats = only
+      ? ["BEV", "PHEV", "HEV", "OTHERS", "ICE"].filter((k) => only.includes(k))
+      : opts.withIce
+        ? ["BEV", "PHEV", "HEV", "OTHERS", "ICE"]
+        : ["BEV", "PHEV", "HEV", "OTHERS"];
+    let maxY = 0;
+    cats.forEach((k) => {
       rows.forEach((r) => {
-        if ((r.share[k] || 0) > maxElec) maxElec = r.share[k] || 0;
+        if ((r.share[k] || 0) > maxY) maxY = r.share[k] || 0;
       });
     });
-    const leftTop = Math.max(4, Math.ceil((maxElec * 1.35) * 2) / 2);
-    let iceMin = 100;
-    let iceMax = 0;
-    rows.forEach((r) => {
-      const v = r.share.ICE || 0;
-      if (v < iceMin) iceMin = v;
-      if (v > iceMax) iceMax = v;
-    });
-    const icePad = Math.max(1, (iceMax - iceMin) * 0.35);
-    const iceLo = Math.max(0, Math.floor(iceMin - icePad));
-    const iceHi = Math.min(100, Math.ceil(iceMax + icePad));
-
-    const traces = [];
-    elecCats.forEach((k) => {
-      traces.push({
-        type: "scatter",
-        mode: "lines+markers",
-        name: k,
-        x: periods,
-        y: rows.map((r) => +((r.share[k] || 0).toFixed(4))),
-        line: { color: col[k], width: narrow ? 1.75 : 2.25 },
-        marker: { color: col[k], size: narrow ? 5 : 7, line: { width: 1, color: markerBorder } },
-        hovertemplate: "<b>" + k + "</b>: %{y:.2f}%<extra></extra>",
-      });
-    });
-    if (showIce) traces.push({
+    const top = cats.includes("ICE") ? 100 : Math.max(4, Math.ceil((maxY * 1.2) * 2) / 2);
+    const traces = cats.map((k) => ({
       type: "scatter",
       mode: "lines+markers",
-      name: "ICE",
+      name: k === "OTHERS" ? "mild" : k,
       x: periods,
-      y: rows.map((r) => +((r.share.ICE || 0).toFixed(4))),
-      yaxis: "y2",
-      line: { color: col.ICE, width: narrow ? 1.75 : 2.25 },
-      marker: { color: col.ICE, size: narrow ? 5 : 7, line: { width: 1, color: markerBorder } },
-      hovertemplate: "<b>ICE</b>: %{y:.2f}%<extra></extra>",
-    });
-
+      y: rows.map((r) => +((r.share[k] || 0).toFixed(4))),
+      customdata: rows.map((r) => r[k] || 0),
+      line: { color: col[k], width: narrow ? 1.75 : 2.25 },
+      marker: { color: col[k], size: narrow ? 4 : 6, line: { width: 1, color: markerBorder } },
+      hovertemplate: "<b>" + (k === "OTHERS" ? "mild" : k) + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
+    }));
     const base = plotlyLayout();
     const titleFont = { size: narrow ? 10 : 11, color: muted };
     const tickFont = { size: narrow ? 10 : 11, color: muted };
-    const elecTitle = only && elecCats.length === 1
-      ? "% " + elecCats[0]
-      : narrow ? global.PYEV.t("share_axis_elec_short") : global.PYEV.t("share_axis_elec");
-    const iceTitle = narrow ? global.PYEV.t("share_axis_ice_short") : global.PYEV.t("share_axis_ice");
     const layout = plotlyLayout({
-        showlegend: false,
-        height: narrow ? 320 : 420,
-        yaxis: Object.assign({}, base.yaxis, {
-          title: { text: elecTitle, font: titleFont, standoff: 6 },
-          range: [0, leftTop],
-          ticksuffix: "%",
-          rangemode: "tozero",
-          automargin: true,
-          tickfont: tickFont,
-        }),
-        yaxis2: {
-          title: { text: iceTitle, font: titleFont, standoff: 6 },
-          overlaying: "y",
-          side: "right",
-          range: [iceLo, iceHi],
-          ticksuffix: "%",
-          showgrid: false,
-          zeroline: false,
-          automargin: true,
-          tickfont: tickFont,
-        },
-        xaxis: Object.assign({}, base.xaxis, {
-          title: { text: global.PYEV.t("month"), font: titleFont, standoff: 8 },
-          type: "date",
-          tickformat: narrow ? "%b %y" : "%b %Y",
-          nticks: narrow ? 5 : 8,
-          automargin: true,
-          tickfont: tickFont,
-          tickangle: 0,
-        }),
-        margin: narrow ? { t: 8, r: 8, b: 8, l: 8 } : { t: 12, r: 8, b: 8, l: 8 },
-      });
-    if (!showIce) delete layout.yaxis2;
+      showlegend: false,
+      height: narrow ? 320 : 420,
+      yaxis: Object.assign({}, base.yaxis, {
+        title: { text: global.PYEV.t("share_axis"), font: titleFont, standoff: 6 },
+        range: [0, top],
+        ticksuffix: "%",
+        rangemode: "tozero",
+        automargin: true,
+        tickfont: tickFont,
+      }),
+      xaxis: Object.assign({}, base.xaxis, {
+        type: "date",
+        tickformat: narrow ? "%b %y" : "%b %Y",
+        hoverformat: "%b %Y",
+        nticks: narrow ? 5 : 8,
+        automargin: true,
+        tickfont: tickFont,
+        tickangle: 0,
+      }),
+      margin: narrow ? { t: 8, r: 8, b: 8, l: 8 } : { t: 12, r: 12, b: 8, l: 8 },
+    });
     Plotly.newPlot(el, traces, layout, { responsive: true, displayModeBar: false });
     el._pyevKind = "share";
     el._pyevRows = rows;
     el._pyevOpts = opts;
+  }
+
+  /** Calendar-year totals: units and % per powertrain; partial years name their months. */
+  function renderAnnualTable(container, rows) {
+    if (!container || !rows || !rows.length) return;
+    const P = global.PYEV;
+    const years = {};
+    rows.forEach((r) => {
+      const y = String(r.period).slice(0, 4);
+      if (!years[y]) years[y] = { months: [], BEV: 0, PHEV: 0, HEV: 0, OTHERS: 0, ICE: 0, TOTAL: 0 };
+      years[y].months.push(r.period);
+      ["BEV", "PHEV", "HEV", "OTHERS", "ICE", "TOTAL"].forEach((k) => { years[y][k] += Number(r[k]) || 0; });
+    });
+    const cats = [["BEV", "BEV"], ["PHEV", "PHEV"], ["HEV", "HEV"], ["OTHERS", "mild"], ["ICE", "ICE"]];
+    const head = "<thead><tr><th>" + P.t("vol_year_label") + "</th><th class='num'>" + P.t("total") + "</th>" +
+      cats.map((c) => "<th class='num'>" + c[1] + "</th>").join("") + "</tr></thead>";
+    const body = Object.keys(years).sort().reverse().map((y) => {
+      const d = years[y];
+      const partial = d.months.length < 12 ? "<small>" + monthsLabel(d.months) + "</small>" : "";
+      const cells = cats.map((c) => {
+        const pct = d.TOTAL ? (100 * d[c[0]]) / d.TOTAL : 0;
+        return "<td class='num'><b>" + P.fmtPct(pct) + "</b><small>" + P.fmtInt(d[c[0]]) + "</small></td>";
+      }).join("");
+      return "<tr><td><b>" + y + "</b>" + partial + "</td><td class='num'>" + P.fmtInt(d.TOTAL) + "</td>" + cells + "</tr>";
+    }).join("");
+    container.innerHTML = '<div class="data-table-wrap"><table class="data annual-table">' + head + "<tbody>" + body + "</tbody></table></div>";
   }
 
   /** Monthly date x-axis shared by the volume charts: ticks follow the UI
@@ -260,7 +246,7 @@
     const col = C();
     const traces = cats.map((k) => ({
       type: "bar",
-      name: k,
+      name: k === "OTHERS" ? "mild" : k,
       x: labels,
       xperiod: "M1",
       xperiodalignment: "middle",
@@ -342,7 +328,7 @@
     // Simpler: units + % side by side per category
     head =
       "<thead><tr><th>" + global.PYEV.t("month") + "</th><th class='num'>" + global.PYEV.t("total") + "</th>" +
-      ["BEV", "PHEV", "HEV", "OTHERS", "ICE", global.PYEV.t("plug_short")].map((c) => "<th class='num'>" + c + "</th><th class='num'>%</th>").join("") +
+      ["BEV", "PHEV", "HEV", global.PYEV.t("mild_col"), "ICE", global.PYEV.t("plug_short")].map((c) => "<th class='num'>" + c + "</th><th class='num'>%</th>").join("") +
       "</tr></thead>";
     const body = rows
       .map((r) => {
@@ -570,6 +556,7 @@
     volumesChart,
     volumesElectrifiedChart,
     renderShareTable,
+    renderAnnualTable,
     renderKPIs,
     renderPowertrainHeadline,
     sumPowertrains,

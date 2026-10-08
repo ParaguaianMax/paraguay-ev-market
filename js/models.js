@@ -816,6 +816,37 @@
     );
   }
 
+
+  /** One row per brand: BEV / PHEV / HEV / mild / ICE columns. */
+  function renderBrandColumnTable(el, brands) {
+    const cols = [
+      ["BEV", "BEV", "c-bev"],
+      ["PHEV", "PHEV", "c-phev"],
+      ["HEV", "HEV", "c-hev"],
+      ["OTHERS", t("mild_col"), "c-others"],
+      ["ICE", "ICE", "c-ice"],
+    ];
+    const grand = brands.reduce((a, b) => a + b.total, 0);
+    let html =
+      '<div class="data-table-wrap"><table class="data brand-cols"><thead><tr><th>#</th><th>' +
+      t("models_col_brand") + "</th>" +
+      cols.map((c) => "<th class='num " + c[2] + "'>" + esc(c[1]) + "</th>").join("") +
+      "<th class='num'>" + t("total") + "</th><th class='num hide-phone'>%</th></tr></thead><tbody>";
+    brands.forEach((b, i) => {
+      const cells = cols.map((c) => {
+        const u = b.byPt[c[0]] || 0;
+        return "<td class='num " + c[2] + (u ? "" : " zero") + "'>" + (u ? fmt(u) : "—") + "</td>";
+      }).join("");
+      const pct = grand ? ((100 * b.total) / grand).toFixed(1) + "%" : "—";
+      html +=
+        "<tr><td class='num'>" + (b.rank || i + 1) + "</td><td>" + esc(b.marca) + "</td>" +
+        cells +
+        "<td class='num tot'>" + fmt(b.total) + "</td><td class='num hide-phone'>" + pct + "</td></tr>";
+    });
+    html += "</tbody></table></div>";
+    el.innerHTML = html;
+  }
+
   function renderTopBrandTable(el, brands, opts) {
     if (!el) return;
     if (!brands || !brands.length) {
@@ -823,6 +854,10 @@
       return;
     }
     opts = opts || {};
+    if (opts.columns) {
+      renderBrandColumnTable(el, brands);
+      return;
+    }
     const showGroupTotals = !!opts.showGroupTotals;
     let html =
       '<div class="data-table-wrap table-fit"><table class="data rank-brands"><thead><tr><th>#</th><th>' +

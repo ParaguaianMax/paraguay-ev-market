@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page_mercado">Mercado — Paraguay EV Market</title>
+  <meta name="description" content="Participación y unidades del mercado de vehículos livianos en Paraguay." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      root.setAttribute("data-theme-pref", p);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/variant.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="../js/chart-click.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/i18n-variant.js" defer></script>
+  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/charts.js" defer></script>
+  <script src="../js/models.js" defer></script>
+  <script src="../js/nuevos.js" defer></script>
+  <script src="../js/trajectories.js" defer></script>
+</head><body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <nav class="nav-tabs" aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+        <a href="../index.html" data-i18n="nav_home">Inicio</a>
+        <a href="mercado.html" data-i18n="nav_mercado" class="active" aria-current="page">Mercado</a>
+        <a href="marcas.html" data-i18n="nav_marcas">Marcas y modelos</a>
+        <a href="carga.html" data-i18n="nav_carga">Carga</a>
+        <a href="datos.html" data-i18n="nav_datos">Datos y método</a>
+      </nav>
+      <div class="header-actions">
+        <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
+    </div>
+  </header>
+  <div class="subnav-bar scope-bar">
+    <div class="wrap"></div>
+  </div>
+
+  <main class="wrap">
+    <div class="page-eyebrow">
+      <span class="badge" data-i18n="data_badge">Aduana PY · datos abiertos</span>
+      <span class="pill pill-bev">BEV</span>
+      <span class="pill pill-phev">PHEV</span>
+      <span class="pill pill-hev">HEV</span>
+      <span class="pill pill-ice">ICE</span>
+    </div>
+    <h1 data-i18n="mercado_title">Mercado</h1>
+    <p class="lead" data-i18n="mercado_lead">Participación y unidades importadas, mes a mes.</p>
+    <div class="nuevos-banner" data-nuevos-note hidden></div>
+    <div id="headline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
+
+    <section id="participacion" class="section-anchor">
+      <h2 data-i18n="mercado_share_title">Participación mensual</h2>
+      <p class="lead" data-i18n="mercado_share_lead">Porcentaje de cada mes.</p>
+      <div class="view-toggle-row">
+        <div class="period-mode" role="group" data-i18n-attr="aria-label:share_view_aria" aria-label="Líneas del gráfico">
+          <button type="button" class="period-mode-btn active" data-share-view="elec" aria-pressed="true" data-i18n="share_view_elec">Sin combustión</button>
+          <button type="button" class="period-mode-btn" data-share-view="ice" aria-pressed="false" data-i18n="share_view_ice">Con combustión</button>
+          <button type="button" class="period-mode-btn" data-share-view="bev" aria-pressed="false" data-i18n="share_view_bev">Solo BEV</button>
+        </div>
+      </div>
+      <div class="legend-row" id="share-legend">
+        <span class="lg-bev">BEV</span>
+        <span class="lg-phev" data-share-cat="other">PHEV</span>
+        <span class="lg-hev" data-share-cat="other">HEV</span>
+        <span class="lg-others" data-share-cat="other" data-i18n="mild_col">mild</span>
+        <span class="lg-ice" data-share-cat="ice">ICE</span>
+      </div>
+      <div id="chart" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+    </section>
+
+    <section id="anual" class="section-anchor">
+      <h2 data-i18n="mercado_annual_title">Comparación por año</h2>
+      <p class="lead" data-i18n="mercado_annual_lead">Cada año cerrado suma sus 12 meses.</p>
+      <div id="annual-table"></div>
+    </section>
+
+    <section id="volumenes" class="section-anchor">
+      <h2 data-i18n="mercado_vol_title">Unidades por mes</h2>
+      <p class="lead" data-i18n="mercado_vol_lead">Unidades de enchufables e híbridos.</p>
+      <div class="elec-chart-toolbar">
+        <div class="period-mode" role="group" data-i18n-attr="aria-label:elec_view_aria" aria-label="Vista de electrificados">
+          <button type="button" class="period-mode-btn active" data-elec-mode="all" aria-pressed="true" data-i18n="elec_view_all">Todos sin ICE</button>
+          <button type="button" class="period-mode-btn" data-elec-mode="hev" aria-pressed="false" data-i18n="elec_view_hev">Híbridos autorrecargables</button>
+        </div>
+        <p id="elecHevBanner" class="elec-chart-banner" hidden data-i18n="elec_view_hev_banner">Híbridos que se recargan solos, sin enchufe (HEV).</p>
+      </div>
+      <div id="chart-elec" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+    </section>
+
+    <details id="trayectorias" class="fold section-anchor">
+      <summary><span data-i18n="traj_title">Trayectorias de adopción</span> <span class="fold-sub" data-i18n="mercado_proj_sub">ilustrativa</span></summary>
+      <p class="lead" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste. Línea punteada = proyección si la tendencia se mantuviera.</p>
+      <div class="note" data-i18n="traj_disclaimer">La línea punteada extiende la tendencia observada. Es ilustrativa, no un pronóstico.</div>
+      <div class="legend-row">
+        <span class="lg-bev">BEV</span>
+        <span class="lg-phev">PHEV</span>
+        <span class="lg-hev">HEV</span>
+        <span class="lg-ice">ICE</span>
+      </div>
+      <div id="chart-extra" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="chart-foot" id="extra-foot"></p>
+      <p class="chart-foot" data-i18n="ice_formula">ICE = total menos BEV, PHEV, HEV y mild.</p>
+    </details>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      <div><span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay.</span> · <a href="datos.html#fuente" data-i18n="nav_datos">Datos y método</a> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const el = document.getElementById("chart");
+      const elElec = document.getElementById("chart-elec");
+      const headline = document.getElementById("headline");
+      const annual = document.getElementById("annual-table");
+      const elExtra = document.getElementById("chart-extra");
+      const footExtra = document.getElementById("extra-foot");
+      const viewBtns = document.querySelectorAll("[data-share-view]");
+      const elecModeBtns = document.querySelectorAll("[data-elec-mode]");
+      const elecHevBanner = document.getElementById("elecHevBanner");
+      let shareView = "elec";
+      let electrifiedMode = "all";
+      let allRows = [];
+      let rows = [];
+      function syncView() {
+        viewBtns.forEach((btn) => {
+          const on = btn.dataset.shareView === shareView;
+          btn.classList.toggle("active", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        document.querySelectorAll("#share-legend [data-share-cat='other']").forEach((s) => { s.hidden = shareView === "bev"; });
+        document.querySelectorAll("#share-legend [data-share-cat='ice']").forEach((s) => { s.hidden = shareView !== "ice"; });
+      }
+      function shareOpts() {
+        if (shareView === "bev") return { only: ["BEV"] };
+        if (shareView === "ice") return { withIce: true };
+        return {};
+      }
+      viewBtns.forEach((btn) => btn.addEventListener("click", () => {
+        shareView = btn.dataset.shareView;
+        syncView();
+        if (rows.length) PYEVCharts.shareChart(el, rows, shareOpts());
+      }));
+      elecModeBtns.forEach((btn) => btn.addEventListener("click", () => {
+        electrifiedMode = btn.dataset.elecMode === "hev" ? "hev" : "all";
+        draw();
+      }));
+      async function draw() {
+        try {
+          if (!allRows.length) allRows = await PYEV.loadParaguay();
+          const resolved = await PYEV.resolveVehicleRows(allRows);
+          rows = resolved.rows || [];
+          if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
+          if (!rows.length) {
+            const msg = '<div class="status">' + PYEV.t(resolved.note || "variant_empty") + "</div>";
+            el.innerHTML = msg; elElec.innerHTML = msg; elExtra.innerHTML = msg;
+            if (headline) headline.innerHTML = "";
+            if (annual) annual.innerHTML = "";
+            return;
+          }
+          const ytdYear = String(rows[rows.length - 1].period).slice(0, 4);
+          const ytdRows = rows.filter((r) => String(r.period).slice(0, 4) === ytdYear);
+          PYEVCharts.renderPowertrainHeadline(headline, PYEVCharts.sumPowertrains(ytdRows), {
+            periods: ytdRows.map((r) => r.period),
+            cond: PYEV.isNuevosOnly && PYEV.isNuevosOnly() ? "nuevo" : "all",
+          });
+          syncView();
+          // Plotly does not clear the "Cargando…" placeholder by itself.
+          [el, elElec].forEach((n) => { if (!n.data) n.innerHTML = ""; });
+          PYEVCharts.shareChart(el, rows, shareOpts());
+          PYEVCharts.renderAnnualTable(annual, rows);
+          elecModeBtns.forEach((btn) => {
+            const on = btn.dataset.elecMode === electrifiedMode;
+            btn.classList.toggle("active", on);
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          if (elecHevBanner) elecHevBanner.hidden = electrifiedMode !== "hev";
+          PYEVCharts.volumesElectrifiedChart(elElec, rows, { mode: electrifiedMode });
+          const open = document.getElementById("trayectorias").open;
+          if (open || elExtra._pyevRows) {
+            if (!elExtra.data) elExtra.innerHTML = "";
+            PYEVTrajectories.extrapolationChart(elExtra, rows);
+            const first = rows[0], last = rows[rows.length - 1];
+            const crossing = elExtra._pyevMeta && elExtra._pyevMeta.iceBelow50;
+            const crossingCaption = crossing
+              ? PYEV.t("traj_ice_below50_caption", { period: PYEV.periodLabel(crossing.period) })
+              : PYEV.t("traj_ice_below50_unreached");
+            footExtra.innerHTML = "<b>" + PYEV.t("traj_observed") + "</b> " +
+              PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
+              " · " + rows.length + " " + PYEV.t("traj_months_short") +
+              "<br><b>" + crossingCaption + "</b> · <em>" + PYEV.t("traj_not_forecast") + "</em>";
+          }
+          if (window.__pyevScrollHash) window.__pyevScrollHash();
+        } catch (e) {
+          el.innerHTML = '<div class="status error">' + e.message + "</div>";
+        }
+      }
+      document.getElementById("trayectorias").addEventListener("toggle", () => {
+        if (document.getElementById("trayectorias").open && rows.length && !elExtra._pyevRows) draw();
+      });
+
+    // Content renders after load, so re-apply the #anchor once it has height.
+    window.__pyevScrollHash = function () {
+      if (window.__pyevHashDone) return;
+      const id = decodeURIComponent((location.hash || "").slice(1));
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      window.__pyevHashDone = true;
+      if (el.tagName === "DETAILS") el.open = true;
+      requestAnimationFrame(() => el.scrollIntoView());
+    };
+      if ((location.hash || "").indexOf("trayectorias") >= 0) document.getElementById("trayectorias").open = true;
+      await draw();
+      window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-nuevos", draw);
+      window.addEventListener("pyev-theme", () => {
+        if (el && el._pyevRows) PYEVCharts.restyleTheme(el);
+        if (elElec && elElec.data) PYEVCharts.restyleTheme(elElec);
+        if (elExtra && elExtra._pyevRows) PYEVTrajectories.restyleTheme(elExtra);
+      });
+    });
+  </script>
+</body>
+</html>

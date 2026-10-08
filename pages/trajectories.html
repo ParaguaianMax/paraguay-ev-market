@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="noindex">
-  <meta http-equiv="refresh" content="0; url=share.html#traj-section-title">
-  <link rel="canonical" href="share.html#traj-section-title">
+  <meta http-equiv="refresh" content="0; url=mercado.html#trayectorias">
+  <link rel="canonical" href="mercado.html#trayectorias">
   <link rel="icon" href="data:,">
-  <title>Participación — Paraguay EV Market</title>
-  <script>location.replace("share.html" + (location.hash || "#traj-section-title"));</script>
+  <title>Mercado — Paraguay EV Market</title>
+  <script>
+    (function () {
+      var map = {};
+      var h = (location.hash || "").toLowerCase();
+      location.replace(map[h] || "mercado.html#trayectorias");
+    })();
+  </script>
 </head>
 <body>
-  <p><a href="share.html#traj-section-title">Participación →</a></p>
+  <p><a href="mercado.html#trayectorias">Mercado →</a></p>
 </body>
 </html>

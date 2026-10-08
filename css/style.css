@@ -1133,3 +1133,124 @@ line-height: 1.3;
 .home-bp .legend-row { gap: 0.4rem 0.75rem; margin-bottom: 0.35rem; font-size: 0.75rem; }
 }
 .view-toggle-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.35rem 0 0.4rem; }
+
+/* Etapa 3: one level of tabs (Inicio · Mercado · Marcas y modelos · Carga · Datos y método) */
+header.site .wrap { flex-wrap: wrap; }
+.nav-tabs {
+display: flex;
+flex-wrap: nowrap;
+gap: 0.1rem;
+order: 2;
+flex: 1 1 auto;
+min-width: 0;
+justify-content: center;
+}
+.header-actions { order: 3; }
+.nav-tabs a {
+padding: 0.4rem 0.7rem;
+font-size: 0.9rem;
+font-weight: 600;
+white-space: nowrap;
+color: var(--muted);
+border-bottom: 2px solid transparent;
+border-radius: var(--radius) var(--radius) 0 0;
+}
+.nav-tabs a.active {
+color: var(--text);
+border-bottom-color: var(--text);
+background: transparent;
+}
+@media (max-width: 1000px) {
+header.site .wrap { row-gap: 0.35rem; padding-bottom: 0; }
+.nav-tabs {
+order: 4;
+flex: 1 1 100%;
+justify-content: flex-start;
+overflow-x: auto;
+scrollbar-width: none;
+-webkit-overflow-scrolling: touch;
+margin: 0 -0.25rem;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.nav-tabs a { padding: 0.45rem 0.6rem 0.5rem; font-size: 0.86rem; }
+}
+@media (max-width: 420px) {
+.nav-tabs { gap: 0; margin: 0 -0.4rem; }
+.nav-tabs a { padding: 0.45rem 0.3rem 0.5rem; font-size: 0.75rem; letter-spacing: -0.01em; }
+}
+@media (max-width: 640px) {
+.annual-table { font-size: 0.74rem; }
+.annual-table th, .annual-table td { padding-left: 0.22rem; padding-right: 0.22rem; }
+.annual-table td small { font-size: 0.85em; }
+}
+/* Slim bar with the site-wide "Nuevos y usados" switch on vehicle pages. */
+.subnav-bar.scope-bar .wrap { justify-content: flex-end; padding-top: 0.3rem; padding-bottom: 0.3rem; }
+.scope-bar .scope-note { font-size: 0.78rem; color: var(--muted); margin-right: auto; }
+
+.section-anchor { scroll-margin-top: 7rem; }
+.mm-search {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+margin: 0.6rem 0 0.9rem;
+}
+.mm-search input {
+flex: 1 1 auto;
+max-width: 28rem;
+min-width: 0;
+font: inherit;
+font-size: 0.95rem;
+padding: 0.5rem 0.7rem;
+border: 1px solid var(--line-3, var(--line));
+border-radius: var(--radius);
+background: var(--surface);
+color: var(--text);
+}
+.mm-search input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+table.data.brand-cols td.pt-num { font-variant-numeric: tabular-nums; }
+table.data.brand-cols th.c-bev, table.data.brand-cols td.c-bev { color: var(--bev-ink); }
+table.data.brand-cols th.c-phev, table.data.brand-cols td.c-phev { color: var(--phev-ink); }
+table.data.brand-cols th.c-hev, table.data.brand-cols td.c-hev { color: var(--hev-ink); }
+table.data.brand-cols th.c-others, table.data.brand-cols td.c-others { color: var(--others-ink, var(--hev-ink)); }
+table.data.brand-cols th.c-ice, table.data.brand-cols td.c-ice { color: var(--ice-ink); }
+table.data.brand-cols td.zero { color: var(--muted-2, var(--muted)); }
+table.data.brand-cols td.tot { font-weight: 700; }
+@media (max-width: 640px) {
+table.data.brand-cols { font-size: 0.78rem; }
+table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.3rem; padding-right: 0.3rem; }
+table.data.brand-cols .hide-phone { display: none; }
+}
+details.fold {
+border-top: 1px solid var(--line);
+border-bottom: 1px solid var(--line);
+margin: 1.25rem 0;
+padding: 0.15rem 0;
+}
+details.fold > summary {
+cursor: pointer;
+font-family: var(--font-display);
+font-size: 1.2rem;
+font-weight: 600;
+padding: 0.6rem 0;
+list-style-position: inside;
+}
+details.fold > summary .fold-sub { font-family: var(--font-ui); font-size: 0.82rem; font-weight: 500; color: var(--muted); margin-left: 0.4rem; }
+.table-search { margin: 0.25rem 0 0.6rem; }
+.table-search input {
+width: 100%;
+max-width: 22rem;
+font: inherit;
+font-size: 0.9rem;
+padding: 0.4rem 0.6rem;
+border: 1px solid var(--line-3, var(--line));
+border-radius: var(--radius);
+background: var(--surface);
+color: var(--text);
+}
+.annual-table td small { display: block; color: var(--muted); font-size: 0.75em; font-weight: 400; }
+.downloads { list-style: none; padding: 0; margin: 0.5rem 0 1rem; border-top: 1px solid var(--text); }
+.downloads li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
+.downloads li span { color: var(--muted); font-size: 0.85rem; }
+.defs { margin: 0.5rem 0 1rem; padding-left: 1.1rem; }
+.defs li { margin: 0.3rem 0; line-height: 1.45; }
+.chart-network-hbars { min-height: 0; }

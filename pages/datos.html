@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page_datos">Datos y método — Paraguay EV Market</title>
+  <meta name="description" content="Archivos, definiciones, fuente y fecha de corte de los datos del sitio." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      root.setAttribute("data-theme-pref", p);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/variant.css" />
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/i18n-variant.js" defer></script>
+  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/charts.js" defer></script>
+  <script src="../js/models.js" defer></script>
+  <script src="../js/nuevos.js" defer></script>
+</head><body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <nav class="nav-tabs" aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+        <a href="../index.html" data-i18n="nav_home">Inicio</a>
+        <a href="mercado.html" data-i18n="nav_mercado">Mercado</a>
+        <a href="marcas.html" data-i18n="nav_marcas">Marcas y modelos</a>
+        <a href="carga.html" data-i18n="nav_carga">Carga</a>
+        <a href="datos.html" data-i18n="nav_datos" class="active" aria-current="page">Datos y método</a>
+      </nav>
+      <div class="header-actions">
+        <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
+    </div>
+  </header>
+  <div class="subnav-bar scope-bar">
+    <div class="wrap"></div>
+  </div>
+
+  <main class="wrap">
+    <h1 data-i18n="datos_title">Datos y método</h1>
+    <p class="lead" data-i18n="datos_lead">De dónde salen los números, qué significa cada sigla y la tabla mensual completa.</p>
+
+    <section id="fuente" class="section-anchor">
+      <h2 data-i18n="datos_source_title">Fuente y corte</h2>
+      <ul class="defs">
+        <li><span data-i18n="datos_src_aduana">Vehículos: importaciones registradas por la Aduana Nacional del Paraguay.</span> <a href="https://datosabiertos.aduana.gov.py" rel="noopener">datosabiertos.aduana.gov.py</a></li>
+        <li><b id="cutoff-text"></b></li>
+        <li data-i18n="datos_chargers_src">Cargadores: PlugShare, actualización 2 oct 2026.</li>
+        <li data-i18n="datos_src_hist">Historial de cargadores: informes periódicos publicados entre ene 2024 y mar 2025.</li>
+      </ul>
+    </section>
+
+    <section id="definiciones" class="section-anchor">
+      <h2 data-i18n="datos_defs">Definiciones</h2>
+      <ul class="defs">
+        <li data-i18n="datos_def_bev">BEV</li>
+        <li data-i18n="datos_def_phev">PHEV</li>
+        <li data-i18n="datos_def_plug">Enchufable</li>
+        <li data-i18n="datos_def_hev">HEV</li>
+        <li data-i18n="datos_def_mild">Mild</li>
+        <li data-i18n="datos_def_ice">ICE</li>
+        <li data-i18n="datos_def_0km">0 km</li>
+        <li data-i18n="datos_def_light">Vehículos livianos</li>
+        <li data-i18n="datos_def_share">Participación</li>
+        <li data-i18n="datos_def_model">Modelo</li>
+        <li data-i18n="datos_proj">Proyección</li>
+      </ul>
+    </section>
+
+    <section id="descargas" class="section-anchor">
+      <h2 data-i18n="datos_files">Archivos</h2>
+      <ul class="downloads">
+        <li><a href="../data/Paraguay.csv" download data-i18n="datos_file_market">Totales mensuales (CSV)</a><span>data/Paraguay.csv</span></li>
+        <li><a href="../data/Paraguay_models.csv" download data-i18n="datos_file_models">Marcas y modelos (CSV)</a><span>data/Paraguay_models.csv</span></li>
+        <li><a href="../data/summary.json" download data-i18n="datos_file_summary">Resumen de Inicio (JSON)</a><span>data/summary.json</span></li>
+        <li><a href="../data/chargers-dc.csv" download data-i18n="datos_file_chargers">Cargadores DC (CSV)</a><span>data/chargers-dc.csv</span></li>
+        <li><a href="../data/historico/resumo_por_corte.csv" download data-i18n="datos_file_hist_summary">Historial de cargadores por informe (CSV)</a><span>data/historico/resumo_por_corte.csv</span></li>
+        <li><a href="../data/historico/pontos_por_corte.csv" download data-i18n="datos_file_hist_points">Historial de cargadores por ubicación (CSV)</a><span>data/historico/pontos_por_corte.csv</span></li>
+      </ul>
+      <p class="note" data-i18n="datos_files_note">El archivo de totales trae más de una serie.</p>
+    </section>
+
+    <section id="tabla-mensual" class="section-anchor">
+      <h2 data-i18n="datos_table">Tabla mensual — unidades y porcentajes</h2>
+      <div class="nuevos-banner" data-nuevos-note hidden></div>
+      <p class="pt-cut" id="table-cut"></p>
+      <div id="share-table"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <div class="note" data-i18n="volumes_note">Los porcentajes representan la participación de cada categoría en el total mensual.</div>
+    </section>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      <div><span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay.</span> · <a href="datos.html#fuente" data-i18n="nav_datos">Datos y método</a> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const table = document.getElementById("share-table");
+      const cut = document.getElementById("table-cut");
+      const cutoff = document.getElementById("cutoff-text");
+      let allRows = [];
+      let summary = null;
+
+    // Content renders after load, so re-apply the #anchor once it has height.
+    window.__pyevScrollHash = function () {
+      if (window.__pyevHashDone) return;
+      const id = decodeURIComponent((location.hash || "").slice(1));
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      window.__pyevHashDone = true;
+      if (el.tagName === "DETAILS") el.open = true;
+      requestAnimationFrame(() => el.scrollIntoView());
+    };
+      async function draw() {
+        try {
+          if (!summary) {
+            try {
+              const res = await fetch("../data/summary.json", { cache: "no-cache" });
+              if (res.ok) summary = await res.json();
+            } catch (e) {}
+          }
+          if (allRows.length === 0) allRows = await PYEV.loadParaguay();
+          const resolved = await PYEV.resolveVehicleRows(allRows);
+          const rows = resolved.rows || [];
+          if (PYEV.syncNuevosUI) PYEV.syncNuevosUI();
+          const last = rows.length ? rows[rows.length - 1].period : (summary && summary.cutoff);
+          if (cutoff && last) cutoff.textContent = PYEV.t("datos_cutoff", { period: PYEV.periodLabel(summary && summary.cutoff ? summary.cutoff : last) });
+          if (!rows.length) {
+            table.innerHTML = '<div class="status">' + PYEV.t(resolved.note || "variant_empty") + "</div>";
+            return;
+          }
+          cut.textContent = PYEVCharts.cutLabel(rows.map((r) => r.period), PYEV.isNuevosOnly && PYEV.isNuevosOnly() ? "nuevo" : "all");
+          // Newest month first.
+          PYEVCharts.renderShareTable(table, rows.slice().reverse());
+          window.__pyevScrollHash();
+        } catch (e) {
+          table.innerHTML = '<div class="status error">' + e.message + "</div>";
+        }
+      }
+      await draw();
+      window.addEventListener("pyev-lang", draw);
+      window.addEventListener("pyev-nuevos", draw);
+    });
+  </script>
+</body>
+</html>

@@ -66,24 +66,21 @@
   <header class="site">
     <div class="wrap">
       <a class="brand" href="index.html">Paraguay <span>EV Market</span></a>
+      <nav class="nav-tabs" aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+        <a href="index.html" data-i18n="nav_home" class="active" aria-current="page">Inicio</a>
+        <a href="pages/mercado.html" data-i18n="nav_mercado">Mercado</a>
+        <a href="pages/marcas.html" data-i18n="nav_marcas">Marcas y modelos</a>
+        <a href="pages/carga.html" data-i18n="nav_carga">Carga</a>
+        <a href="pages/datos.html" data-i18n="nav_datos">Datos y método</a>
+      </nav>
       <div class="header-actions">
-        <nav class="nav-primary" aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
-          <a class="active" href="index.html" data-i18n="nav_vehicles">Vehículos</a>
-          <a href="pages/chargers.html" data-i18n="nav_chargers">Cargadores</a>
-        </nav>
         <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
         <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
       </div>
     </div>
   </header>
-  <div class="subnav-bar">
-    <div class="wrap">
-      <nav class="nav-sub" aria-label="Vehículos" data-i18n-attr="aria-label:nav_vehicles">
-          <a class="active" href="index.html" data-i18n="nav_home">Inicio</a>
-          <a href="pages/share.html" data-i18n="nav_share">Participación</a>
-          <a href="pages/volumes.html" data-i18n="nav_volumes">Volúmenes</a>
-      </nav>
-    </div>
+  <div class="subnav-bar scope-bar">
+    <div class="wrap"></div>
   </div>
 
   <main class="wrap">
@@ -112,7 +109,7 @@
       </div>
       <div id="home-bp-chart" class="chart-panel chart-bare chart-yty"></div>
       <p class="chart-foot" id="home-bp-note"></p>
-      <p class="home-link"><a href="pages/share.html" data-i18n="home_share_link">Ver participación completa →</a></p>
+      <p class="home-link"><a href="pages/mercado.html#participacion" data-i18n="home_share_link">Ver participación completa →</a></p>
     </section>
 
     <section class="home-tops" aria-label="Modelos más importados" data-i18n-attr="aria-label:home_top_aria">
@@ -120,27 +117,27 @@
         <h2 data-i18n="home_top_bev">Top 5 BEV</h2>
         <p class="pt-cut" data-home-top-cut></p>
         <ol class="top-bars bev" id="home-top-bev"></ol>
-        <p class="home-link"><a href="pages/volumes.html" data-rank-link="bev" data-i18n="home_top_link">Ver ranking completo →</a></p>
+        <p class="home-link"><a href="pages/marcas.html#modelos" data-rank-link="bev" data-i18n="home_top_link">Ver ranking completo →</a></p>
       </div>
       <div class="home-top">
         <h2 data-i18n="home_top_nonplug">Top 5 híbridos no enchufables</h2>
         <p class="pt-cut" data-home-top-cut></p>
         <ol class="top-bars nonplug" id="home-top-nonplug"></ol>
-        <p class="home-link"><a href="pages/volumes.html" data-rank-link="hev" data-i18n="home_top_link">Ver ranking completo →</a></p>
+        <p class="home-link"><a href="pages/marcas.html#modelos" data-rank-link="hev" data-i18n="home_top_link">Ver ranking completo →</a></p>
       </div>
     </section>
 
     <h2 data-i18n="explore">Explorar</h2>
     <div class="cards">
-      <a class="card" href="pages/share.html">
-        <h3 data-i18n="card_share">Participación (%) <span class="arrow" aria-hidden="true">→</span></h3>
-        <p data-i18n="card_share_desc">Cuota de BEV, PHEV, HEV, OTHERS e ICE dentro del total de vehículos importados.</p>
+      <a class="card" href="pages/mercado.html">
+        <h3><span data-i18n="card_mercado">Mercado</span> <span class="arrow" aria-hidden="true">→</span></h3>
+        <p data-i18n="card_mercado_desc">Participación mensual, trayectorias y unidades de enchufables e híbridos.</p>
       </a>
-      <a class="card" href="pages/volumes.html">
-        <h3 data-i18n="card_volumes">Volúmenes (unidades) <span class="arrow" aria-hidden="true">→</span></h3>
-        <p data-i18n="card_volumes_desc">Unidades por categoría y total del mercado para comparar electrificados y combustión.</p>
+      <a class="card" href="pages/marcas.html">
+        <h3><span data-i18n="card_marcas">Marcas y modelos</span> <span class="arrow" aria-hidden="true">→</span></h3>
+        <p data-i18n="card_marcas_desc">Ranking por marca y un ranking solo de eléctricos.</p>
       </a>
-      <a class="card" href="pages/chargers.html">
+      <a class="card" href="pages/carga.html">
         <h3 data-i18n="card_chargers">Cargadores DC <span class="arrow" aria-hidden="true">→</span></h3>
         <p id="card-chargers-desc" data-i18n="card_chargers_desc">Mapa y tabla de la red de carga rápida (DC). PlugShare, 2 oct 2026.</p>
       </a>
@@ -201,7 +198,7 @@
         meta.innerHTML =
           "<span>" + PYEV.t("home_cutoff", { period: PYEV.periodLabel(S.cutoff) }) + "</span>" +
           '<span class="home-meta-chargers"><b>⚡ ' + PYEV.t("home_chargers_stat", { plugs: c.plugs, sites: c.sites }) + "</b>" +
-          ' · <a href="pages/chargers.html">' + PYEV.t("home_chargers_link") + "</a></span>";
+          ' · <a href="pages/carga.html">' + PYEV.t("home_chargers_link") + "</a></span>";
         PYEVCharts.bevPhevChart(chart, d.monthly);
         const w = d.last12, p = d.prev12;
         note.innerHTML = PYEV.t("home_bp_note", {
@@ -219,7 +216,7 @@
         if (chargerDesc) chargerDesc.textContent = PYEV.t("card_chargers_counts", c);
       }
 
-      // "Ver ranking completo" opens Volúmenes on the same cut (year to date, chip).
+      // "Ver ranking completo" opens Marcas y modelos on the same cut (year to date, chip).
       document.querySelectorAll("[data-rank-link]").forEach((a) => {
         a.addEventListener("click", () => {
           if (!S) return;

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page_marcas">Marcas y modelos — Paraguay EV Market</title>
+  <meta name="description" content="Ranking de marcas y modelos de vehículos livianos importados en Paraguay, por motorización." />
+  <meta name="theme-color" content="#fdfdfc" />
+  <script>
+  (function () {
+    var KEY = "pyev-theme";
+    var root = document.documentElement;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function pref() {
+      try {
+        var v = localStorage.getItem(KEY);
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) { return "auto"; }
+    }
+    function apply() {
+      var p = pref();
+      var t = p === "auto" ? (mq && mq.matches ? "dark" : "light") : p;
+      root.setAttribute("data-theme", t);
+      root.setAttribute("data-theme-pref", p);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#141413" : "#fdfdfc");
+      var btn = document.getElementById("themeToggle");
+      if (btn) btn.textContent = t === "dark" ? "Claro" : "Oscuro";
+    }
+    window.__setThemePref = function (p) {
+      try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+      apply();
+      window.dispatchEvent(new Event("pyev-theme"));
+    };
+    window.__cycleTheme = function () {
+      var cur = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      window.__setThemePref(cur === "dark" ? "light" : "dark");
+    };
+    if (mq) { try { mq.addEventListener("change", apply); } catch (e) { mq.addListener && mq.addListener(apply); } }
+    apply();
+  })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/variant.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="../js/chart-click.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/i18n-variant.js" defer></script>
+  <script src="../js/load-csv.js" defer></script>
+  <script src="../js/charts.js" defer></script>
+  <script src="../js/models.js" defer></script>
+  <script src="../js/nuevos.js" defer></script>
+  <script src="../js/volumes-rankings.js" defer></script>
+</head><body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Paraguay <span>EV Market</span></a>
+      <nav class="nav-tabs" aria-label="Principal" data-i18n-attr="aria-label:primary_nav">
+        <a href="../index.html" data-i18n="nav_home">Inicio</a>
+        <a href="mercado.html" data-i18n="nav_mercado">Mercado</a>
+        <a href="marcas.html" data-i18n="nav_marcas" class="active" aria-current="page">Marcas y modelos</a>
+        <a href="carga.html" data-i18n="nav_carga">Carga</a>
+        <a href="datos.html" data-i18n="nav_datos">Datos y método</a>
+      </nav>
+      <div class="header-actions">
+        <label class="language-switcher"><span class="sr-only" data-i18n="language">Idioma</span><select id="languageToggle" aria-label="Idioma"><option value="es" data-i18n="spanish">Español</option><option value="pt" data-i18n="portuguese">Português</option><option value="en" data-i18n="english">English</option></select></label>
+        <button type="button" class="theme-toggle" id="themeToggle" onclick="window.__cycleTheme()" aria-label="Cambiar tema">Oscuro</button>
+      </div>
+    </div>
+  </header>
+  <div class="subnav-bar scope-bar">
+    <div class="wrap"></div>
+  </div>
+
+  <main class="wrap">
+    <div class="page-eyebrow">
+      <span class="badge" data-i18n="data_badge">Aduana PY · datos abiertos</span>
+      <span class="pill pill-bev">BEV</span>
+      <span class="pill pill-phev">PHEV</span>
+      <span class="pill pill-hev">HEV</span>
+      <span class="pill pill-ice">ICE</span>
+    </div>
+    <h1 data-i18n="mm_title">Marcas y modelos</h1>
+    <p class="lead" data-i18n="mm_lead">Unidades por marca y por modelo.</p>
+    <div class="nuevos-banner" data-nuevos-note hidden></div>
+    <div id="volHeadline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
+    <div class="vol-series-filter" id="volSeriesFilter" hidden>
+      <span id="volSeriesFilterText"></span>
+      <button type="button" class="vol-series-filter-clear" id="volSeriesFilterClear" data-i18n="vol_filter_clear">Quitar filtro</button>
+    </div>
+
+    <section id="vol-rankings" class="vol-rankings">
+
+      <div id="vol-rankings-empty" class="note" hidden data-i18n="models_empty">
+        Todavía no hay el detalle por marca/modelo.
+      </div>
+
+      <div id="vol-rankings-ui" hidden>
+        <div class="series-toolbar models-toolbar vol-period-toolbar">
+          <div class="period-mode" role="group" aria-label="Período" data-i18n-attr="aria-label:vol_period_month">
+            <button type="button" class="period-mode-btn active" data-period-mode="month" data-i18n="vol_period_month">Mes</button>
+            <button type="button" class="period-mode-btn" data-period-mode="year" data-i18n="vol_period_year">Año</button>
+            <button type="button" class="period-mode-btn" data-period-mode="ytd" data-i18n="vol_period_ytd">YTD</button>
+          </div>
+          <label class="variant-switcher" id="volMonthYearWrap">
+            <span class="variant-label" data-i18n="vol_year_label">Año</span>
+            <select id="volMonthYearToggle" data-i18n-attr="aria-label:vol_year_label" aria-label="Año"></select>
+          </label>
+          <label class="variant-switcher" id="volMonthWrap">
+            <span class="variant-label" data-i18n="vol_month_label">Mes</span>
+            <select id="volMonthToggle" data-i18n-attr="aria-label:vol_month_label" aria-label="Mes"></select>
+          </label>
+          <label class="variant-switcher" id="volYearWrap" hidden>
+            <span class="variant-label" data-i18n="vol_year_label">Año</span>
+            <select id="volYearToggle" data-i18n-attr="aria-label:vol_year_label" aria-label="Año"></select>
+          </label>
+          <div class="vol-pt-block">
+            <div class="period-mode vol-pt-mode" role="group" aria-label="Motorización" data-i18n-attr="aria-label:models_col_pt">
+              <button type="button" class="period-mode-btn active" data-pt-mode="all" aria-pressed="true" data-i18n="vol_pt_all">Todos</button>
+              <button type="button" class="period-mode-btn" data-pt-mode="bev" aria-pressed="false">BEV</button>
+              <button type="button" class="period-mode-btn" data-pt-mode="plugin" aria-pressed="false" data-i18n="vol_pt_plugin">Híbridos plug-in</button>
+              <button type="button" class="period-mode-btn" data-pt-mode="hev" aria-pressed="false" data-i18n="vol_pt_hev">Híbridos autorrecargables</button>
+            </div>
+            <div id="volPtBanners" class="vol-pt-banners" hidden></div>
+          </div>
+          <div class="period-mode vol-cond-mode" id="volCondWrap" hidden role="group" aria-label="Condición" data-i18n-attr="aria-label:vol_cond_aria">
+            <button type="button" class="period-mode-btn active" data-cond-mode="all" data-i18n="vol_cond_all">Todos</button>
+            <button type="button" class="period-mode-btn" data-cond-mode="nuevo" data-i18n="vol_cond_nuevo">Nuevo</button>
+            <button type="button" class="period-mode-btn" data-cond-mode="usado" data-i18n="vol_cond_usado">Usado</button>
+          </div>
+          <span class="variant-hint" id="volScopeHint"></span>
+        </div>
+
+        <div class="mm-search">
+          <input type="search" id="mmSearch" autocomplete="off" spellcheck="false" enterkeyhint="search" data-i18n-attr="placeholder:mm_search" placeholder="Buscar marca o modelo" aria-label="Buscar en marcas y modelos" />
+        </div>
+
+        <p id="vol-scope-empty" class="note" hidden data-i18n="vol_lv_empty">
+          Sin detalle por marca y modelo para este período.
+        </p>
+
+        <div class="legend-row">
+          <span class="lg-bev">BEV</span>
+          <span class="lg-phev">PHEV</span>
+          <span class="lg-hev">HEV</span>
+          <span class="lg-ice">ICE</span>
+          <span class="lg-others" data-i18n="mild_col">mild</span>
+        </div>
+
+        <div class="vol-ranking-heading section-anchor" id="marcas">
+          <h3 id="volBrandsTitle" data-i18n="vol_top_brands_20">Top 20 marcas</h3>
+          <div class="period-mode vol-top-limit" role="group" aria-label="Ranking de marcas" data-i18n-attr="aria-label:vol_top_limit_brands_aria">
+            <button type="button" class="period-mode-btn active" data-top-limit="20" aria-pressed="true" data-i18n="vol_top_20">Top 20</button>
+            <button type="button" class="period-mode-btn" data-top-limit="all" aria-pressed="false" data-i18n="vol_top_all">Todas</button>
+          </div>
+        </div>
+        <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_brands_lead">
+          Unidades por marca con desglose de motorización. Elegí una o más marcas para filtrar la página.
+        </p>
+        <div class="vol-search-row">
+          <div class="vol-picker" id="volBrandPicker">
+            <button type="button" class="vol-picker-btn" id="volBrandPickerBtn" aria-expanded="false" aria-controls="volBrandPickerPanel" data-i18n-attr="aria-label:vol_picker_brands_aria">Marcas</button>
+            <div class="vol-picker-panel" id="volBrandPickerPanel" hidden>
+              <button type="button" class="vol-picker-clear" data-i18n="vol_picker_clear">Limpiar</button>
+              <div class="vol-picker-list" id="volBrandPickerList" role="group" aria-labelledby="volBrandPickerBtn"></div>
+            </div>
+          </div>
+          <span class="vol-meta" id="volBrandMeta"></span>
+        </div>
+        <div id="table-top-brands" data-columns="1"></div>
+
+        <div class="vol-ranking-heading section-anchor" id="modelos">
+          <h3 id="volModelsTitle" data-i18n="vol_top_models_20">Top 20 modelos</h3>
+          <div class="period-mode vol-top-limit" role="group" aria-label="Ranking de modelos" data-i18n-attr="aria-label:vol_top_limit_models_aria">
+            <button type="button" class="period-mode-btn active" data-top-limit="20" aria-pressed="true" data-i18n="vol_top_20">Top 20</button>
+            <button type="button" class="period-mode-btn" data-top-limit="all" aria-pressed="false" data-i18n="vol_top_all">Todas</button>
+          </div>
+        </div>
+        <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="vol_top_models_lead">
+          Unidades por modelo (marca + nombre). Tocá un modelo para ver las ediciones. Con una marca elegida, la lista muestra solo sus modelos.
+        </p>
+        <div class="vol-search-row">
+          <div class="vol-picker" id="volModelPicker">
+            <button type="button" class="vol-picker-btn" id="volModelPickerBtn" aria-expanded="false" aria-controls="volModelPickerPanel" data-i18n-attr="aria-label:vol_picker_models_aria">Modelos</button>
+            <div class="vol-picker-panel" id="volModelPickerPanel" hidden>
+              <button type="button" class="vol-picker-clear" data-i18n="vol_picker_clear">Limpiar</button>
+              <div class="vol-picker-list" id="volModelPickerList" role="group" aria-labelledby="volModelPickerBtn"></div>
+            </div>
+          </div>
+          <span class="vol-meta" id="volModelMeta"></span>
+        </div>
+        <div id="chart-top-models" class="chart-panel chart-bare chart-scroll"><div class="status" data-i18n="loading">Cargando…</div></div>
+        <div id="table-top-models"></div>
+
+        <div class="vol-ranking-heading section-anchor" id="ranking-bev">
+          <h3 data-i18n="mm_bev_title">Ranking solo BEV</h3>
+        </div>
+        <p class="lead" style="margin-top:-0.25rem;margin-bottom:0.5rem;font-size:0.88rem" data-i18n="mm_bev_lead">Modelos 100% eléctricos del mismo período.</p>
+        <div id="table-bev-rank"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site">
+    <div class="wrap">
+      <div><span data-i18n="source_aduana">Datos: Aduana Nacional del Paraguay.</span> · <a href="datos.html#fuente" data-i18n="nav_datos">Datos y método</a> · <a href="https://github.com/ParaguaianMax/paraguay-ev-market">GitHub</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterBox = document.getElementById("volSeriesFilter");
+      const filterText = document.getElementById("volSeriesFilterText");
+      const filterClear = document.getElementById("volSeriesFilterClear");
+      if (filterClear) {
+        filterClear.addEventListener("click", () => {
+          const vf = window.PYEVVolFilter;
+          if (vf && vf.clear) vf.clear();
+        });
+      }
+      function syncFilterNote() {
+        const vf = window.PYEVVolFilter;
+        if (!filterBox) return;
+        const on = !!(vf && vf.active);
+        filterBox.hidden = !on;
+        if (on && filterText) {
+          filterText.textContent = PYEV.t("vol_filter_on", { items: (vf.models.length ? vf.models : vf.brands).join(", ") });
+        }
+      }
+
+    // Content renders after load, so re-apply the #anchor once it has height.
+    window.__pyevScrollHash = function () {
+      if (window.__pyevHashDone) return;
+      const id = decodeURIComponent((location.hash || "").slice(1));
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      window.__pyevHashDone = true;
+      if (el.tagName === "DETAILS") el.open = true;
+      requestAnimationFrame(() => el.scrollIntoView());
+    };
+      window.addEventListener("pyev-vol-filter", syncFilterNote);
+      window.addEventListener("pyev-lang", syncFilterNote);
+      // First paint of the rankings: honour #marcas / #modelos / #ranking-bev.
+      let tries = 0;
+      const wait = setInterval(() => {
+        const t = document.getElementById("table-top-models");
+        if ((t && t.children.length) || ++tries > 60) {
+          clearInterval(wait);
+          if (window.__pyevScrollHash) window.__pyevScrollHash();
+        }
+      }, 150);
+    });
+  </script>
+</body>
+</html>

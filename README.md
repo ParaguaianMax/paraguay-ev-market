@@ -14,9 +14,13 @@ index.html          # KPIs + enlaces
 css/style.css
 js/load-csv.js      # parsea data/Paraguay.csv
 js/charts.js        # Plotly: share + volumes
-pages/share.html    # participación % apilada
-pages/volumes.html  # volúmenes + TOTAL
-pages/chargers.html # mapa + tabla cargadores DC
+pages/mercado.html   # participación, comparación anual, unidades
+pages/marcas.html    # marcas, modelos y ranking BEV
+pages/carga.html     # mapa, barras por red, historial
+pages/datos.html     # archivos, definiciones, tabla mensual
+pages/share.html     # redirige a mercado
+pages/volumes.html   # redirige a mercado
+pages/chargers.html  # redirige a carga
 data/Paraguay.csv
 data/chargers-dc.csv
 sources/paraguay.md

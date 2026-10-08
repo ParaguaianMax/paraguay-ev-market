@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="noindex">
-  <meta http-equiv="refresh" content="0; url=volumes.html">
-  <link rel="canonical" href="volumes.html">
+  <meta http-equiv="refresh" content="0; url=marcas.html">
+  <link rel="canonical" href="marcas.html">
   <link rel="icon" href="data:,">
-  <title>Volúmenes — Paraguay EV Market</title>
-  <script>location.replace("volumes.html" + (location.hash || ""));</script>
+  <title>Marcas y modelos — Paraguay EV Market</title>
+  <script>
+    (function () {
+      var map = {};
+      var h = (location.hash || "").toLowerCase();
+      location.replace(map[h] || "marcas.html");
+    })();
+  </script>
 </head>
 <body>
-  <p><a href="volumes.html">Volúmenes →</a></p>
+  <p><a href="marcas.html">Marcas y modelos →</a></p>
 </body>
 </html>
