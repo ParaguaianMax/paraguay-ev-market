@@ -1338,6 +1338,11 @@ table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padd
 .kpi-grid.kpi-4 .label { font-size: 0.62rem; letter-spacing: 0.03em; }
 .kpi-grid.kpi-4 .sub, .kpi-minor { font-size: 0.72rem; }
 }
+/* Carga: page-level access switch (Público | Público y restringido). */
+.access-toggle .access-opt { color: var(--muted); transition: color 0.15s; }
+.access-toggle .access-opt-pub { color: var(--bev); }
+.access-toggle.is-all .access-opt-pub { color: var(--muted); }
+.access-toggle.is-all .access-opt-all { color: var(--bev); }
 /* Carga: connectors by network scroll sideways inside their own box on phones. */
 .chart-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; max-width: 100%; }
 .chart-scroll > .chart-panel { min-width: 0; }

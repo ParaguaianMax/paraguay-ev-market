@@ -93,13 +93,43 @@
   // Operator values that are not a real network (unknown, none, private home).
   const PLACEHOLDER_OPERATORS = ["não informado", "sem rede", "residencial / privado", "—", ""];
 
+  // Carga page-level access mode. "public" = access "público" AND status
+  // "ativo" (open and working); "all" = the whole inventory. Every status value
+  // a público row can carry is mapped explicitly; anything else (restrito,
+  // residencial/privado, unknown values) only appears in "all".
+  const ACCESS_MODE_KEY = "pyev-chargers-access";
+  const PUBLIC_STATUS = {
+    "ativo": true,
+    "em manutenção": false,
+    "parcialmente em manutenção": false,
+    "em breve": false,
+  };
+  function isPublicOpen(r) {
+    return String(r.access || "").trim() === "público" && PUBLIC_STATUS[String(r.status || "").trim()] === true;
+  }
+  function normMode(m) {
+    return m === "all" ? "all" : "public";
+  }
+  function rowsForMode(rows, mode) {
+    const list = rows || [];
+    if (!mode || normMode(mode) === "all") return list;
+    return list.filter(isPublicOpen);
+  }
+  function getAccessMode() {
+    try { return normMode(localStorage.getItem(ACCESS_MODE_KEY)); } catch (e) { return "public"; }
+  }
+  function setAccessMode(m) {
+    try { localStorage.setItem(ACCESS_MODE_KEY, normMode(m)); } catch (e) {}
+  }
+
   // One set of definitions for every count on the site (Inicio card, KPIs,
   // map footer, network charts): a location is one CSV row; connectors are
-  // n_dc_plugs summed, split by type from connectors_dc; "public" means
-  // access === "público". The CSV has no per-charger (post) field, so
+  // n_dc_plugs summed, split by type from connectors_dc; pub* fields mean
+  // access === "público". With `mode` ("public" | "all") the rows are first
+  // cut to that Carga access mode. The CSV has no per-charger (post) field, so
   // locations are the finest charger unit available.
-  function chargerCounts(rows) {
-    const all = rows || [];
+  function chargerCounts(rows, mode) {
+    const all = rowsForMode(rows, mode);
     const pub = all.filter((r) => r.access === "público");
     const plugs = (list) => list.reduce((s, r) => s + (Number(r.n_dc_plugs) || 0), 0);
     const types = { CCS: 0, CHAdeMO: 0, GBT: 0 };
@@ -141,19 +171,36 @@
       // Real networks (no placeholders) among public locations only.
       pubRealOperators: Object.keys(pubOps).length,
       networks: Object.keys(net).map((k) => net[k]),
+      mode: mode ? normMode(mode) : "all",
     };
   }
 
   /**
-   * Growth baseline: the most recent cut of the published-report history (the
-   * same value the history chart draws for that cut). Read from
-   * data/historico/, so a newer survey row there replaces it automatically.
+   * Growth baselines from data/historico/ (latest report cut that lists its
+   * locations), so a newer survey row there replaces them automatically.
+   * - public: locations printed as "En Funcionamiento" (same rule as today's
+   *   Público side: open and working).
+   * - all: every location the report listed (the value the history chart draws).
    */
-  function growthBaseline(points) {
-    const pts = (points || []).filter((p) => p && Number(p.value) > 0);
-    if (!pts.length) return null;
-    const last = pts[pts.length - 1];
-    return { corte: last.corte, sites: Number(last.value) };
+  function historyBaselines(pointRows) {
+    const byCut = {};
+    (pointRows || []).forEach((r) => {
+      const c = String(r.corte || "").trim();
+      if (!/^\d{4}-\d{2}$/.test(c) || c >= "2026-01") return;
+      if (!byCut[c]) byCut[c] = { corte: c, all: 0, public: 0 };
+      byCut[c].all += 1;
+      if (String(r.estado || "").trim().toLowerCase() === "en funcionamiento") byCut[c].public += 1;
+    });
+    const cuts = Object.keys(byCut).sort();
+    if (!cuts.length) return null;
+    return byCut[cuts[cuts.length - 1]];
+  }
+
+  function growthBaseline(bundle, mode) {
+    const b = bundle && bundle.baselines;
+    if (!b) return null;
+    const sites = b[normMode(mode)];
+    return sites > 0 ? { corte: b.corte, sites: sites } : null;
   }
 
   function signed(n) {
@@ -161,31 +208,35 @@
   }
 
   /**
-   * Carga top cards: public locations, growth of public locations against the
-   * history baseline, public connectors (CCS large, CHAdeMO and GB/T small, no
-   * total) and real operators among public locations. `baseline` comes from
-   * growthBaseline(); until the history file loads the growth card shows a dash.
+   * Carga top cards for the selected access mode: locations, growth against the
+   * history baseline, connectors (CCS large, CHAdeMO and GB/T small, no total)
+   * and real operators. Labels follow the mode. `baseline` comes from
+   * growthBaseline(); without it the growth card shows a dash.
    */
-  function renderKPIs(el, rows, baseline) {
-    const n = chargerCounts(rows);
+  function renderKPIs(el, rows, baseline, mode) {
+    const m = normMode(mode);
+    const n = chargerCounts(rows, m);
+    const pub = m === "public";
     el.classList.add("kpi-4");
     let growth = '<div class="value">\u2014</div>';
     if (baseline && baseline.sites > 0) {
-      const diff = n.pubSites - baseline.sites;
+      const diff = n.sites - baseline.sites;
       const pct = Math.round((diff / baseline.sites) * 100);
       growth =
         '<div class="value">' + signed(diff) + ' <small>(' + signed(pct) + "%)</small></div>" +
-        '<div class="sub">' + PYEV.t("kpi_growth_sub", { period: historyMonthLabel(baseline.corte, true) }) + "</div>";
+        '<div class="sub">' + PYEV.t(pub ? "kpi_growth_sub" : "kpi_growth_sub_all", { period: historyMonthLabel(baseline.corte, true) }) + "</div>";
+    } else if (baseline === false) {
+      growth = '<div class="value">\u2014</div><div class="sub">' + PYEV.t("kpi_growth_na") + "</div>";
     }
     el.innerHTML =
-      '<div class="kpi bev"><div class="label">' + PYEV.t("kpi_pub_points") + '</div><div class="value">' + n.pubSites +
-      '</div><div class="sub">' + PYEV.t("kpi_pub_points_sub") + "</div></div>" +
+      '<div class="kpi bev"><div class="label">' + PYEV.t(pub ? "kpi_pub_points" : "kpi_points") + '</div><div class="value">' + n.sites +
+      '</div><div class="sub">' + PYEV.t(pub ? "kpi_pub_points_sub" : "kpi_points_sub_all") + "</div></div>" +
       '<div class="kpi kpi-growth"><div class="label">' + PYEV.t("kpi_growth") + "</div>" + growth + "</div>" +
-      '<div class="kpi bev kpi-conn"><div class="label">' + PYEV.t("kpi_connectors") + '</div><div class="value">' + n.pubTypes.CCS +
-      ' <small>CCS</small></div><div class="kpi-minor"><span>CHAdeMO <b>' + n.pubTypes.CHAdeMO + "</b></span><span>GB/T <b>" + n.pubTypes.GBT +
+      '<div class="kpi bev kpi-conn"><div class="label">' + PYEV.t("kpi_connectors") + '</div><div class="value">' + n.types.CCS +
+      ' <small>CCS</small></div><div class="kpi-minor"><span>CHAdeMO <b>' + n.types.CHAdeMO + "</b></span><span>GB/T <b>" + n.types.GBT +
       "</b></span></div></div>" +
-      '<div class="kpi"><div class="label">' + PYEV.t("operators") + '</div><div class="value">' + n.pubRealOperators +
-      '</div><div class="sub">' + PYEV.t("kpi_ops_sub") + "</div></div>";
+      '<div class="kpi"><div class="label">' + PYEV.t("operators") + '</div><div class="value">' + n.realOperators +
+      '</div><div class="sub">' + PYEV.t(pub ? "kpi_ops_sub" : "kpi_ops_sub_all") + "</div></div>";
   }
 
   function renderBreakdown(el, rows) {
@@ -930,6 +981,7 @@
       points: historyPoints(rows),
       stacks: historyStacks(rows),
       connectors: historyConnectors(connectorRows),
+      baselines: historyBaselines(connectorRows),
     };
   }
 
@@ -1148,6 +1200,9 @@
     chargerCounts,
     renderKPIs,
     growthBaseline,
+    rowsForMode,
+    getAccessMode,
+    setAccessMode,
     renderBreakdown,
     renderTable,
     renderConnectorChart,

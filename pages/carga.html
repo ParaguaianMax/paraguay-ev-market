@@ -71,6 +71,16 @@
       </div>
     </div>
   </header>
+  <div class="subnav-bar scope-bar">
+    <div class="wrap">
+      <label class="nuevos-toggle access-toggle" id="accessToggleLabel">
+        <span class="access-opt access-opt-pub" data-i18n="access_mode_public">Público</span>
+        <input type="checkbox" id="accessToggle" aria-label="Público y restringido" data-i18n-attr="aria-label:access_mode_all" />
+        <span class="nuevos-toggle-ui" aria-hidden="true"></span>
+        <span class="access-opt access-opt-all" data-i18n="access_mode_all">Público y restringido</span>
+      </label>
+    </div>
+  </div>
 
   <main class="wrap">
     <div class="page-eyebrow">
@@ -88,13 +98,6 @@
     <section id="mapa" class="section-anchor">
       <h2 data-i18n="map">Mapa</h2>
       <div class="map-filters">
-        <label for="f-access" data-i18n="access">Acceso</label>
-        <select id="f-access">
-          <option value="all" data-i18n="all">Todos</option>
-          <option value="público" selected data-i18n="public">Público</option>
-          <option value="restrito" data-i18n="restricted">Restringido</option>
-          <option value="residencial/privado" data-i18n="private">Residencial/privado</option>
-        </select>
         <label for="f-band" data-i18n="power_band">Rango kW</label>
         <select id="f-band">
           <option value="all" data-i18n="all_bands">Todas</option>
@@ -119,7 +122,7 @@
 
     <section id="desglose" class="section-anchor">
       <h2 data-i18n="breakdown">Desglose</h2>
-      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_breakdown_lead">Ubicaciones por rango de potencia, por estado y por red, sobre todo el inventario.</p>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_breakdown_lead">Ubicaciones por rango de potencia, por estado y por red, con la selección de acceso de arriba.</p>
       <div id="breakdown"></div>
     </section>
 
@@ -159,7 +162,9 @@
       const networkSitesEl = document.getElementById("chart-network-sites");
       const networkSitesFoot = document.getElementById("network-sites-foot");
       const breakdownEl = document.getElementById("breakdown");
-      const fAccess = document.getElementById("f-access");
+      const accessToggle = document.getElementById("accessToggle");
+      const accessLabel = document.getElementById("accessToggleLabel");
+      let mode = PYEVChargers.getAccessMode();
       const fBand = document.getElementById("f-band");
       const fQ = document.getElementById("f-q");
       const tableCount = document.getElementById("table-count");
@@ -176,7 +181,15 @@
       // Locations table starts folded on phones.
       if (tableDetails && window.matchMedia && window.matchMedia("(max-width: 719px)").matches) tableDetails.open = false;
 
-      const baseline = () => PYEVChargers.growthBaseline(historyBundle && historyBundle.points);
+      // Every element on the page reads its rows through the access mode.
+      const modeRows = () => PYEVChargers.rowsForMode(all, mode);
+      const bandRows = () => PYEVChargers.filterRows(modeRows(), "all", fBand.value);
+      const baseline = () => historyBundle ? (PYEVChargers.growthBaseline(historyBundle, mode) || false) : null;
+      function syncAccessUI() {
+        accessToggle.checked = mode === "all";
+        accessLabel.classList.toggle("is-all", mode === "all");
+      }
+      syncAccessUI();
 
       function paintHistory() {
         if (!historyBundle || !historyBundle.points) return;
@@ -187,13 +200,13 @@
         if (historyNote && pts.length) {
           historyNote.textContent = PYEV.t("carga_history_note", {
             period: PYEV.periodLabel(pts[pts.length - 1].corte),
-            sites: PYEVChargers.chargerCounts(all).sites,
-          });
+            sites: PYEVChargers.chargerCounts(all, mode).sites,
+          }) + (mode === "all" ? " " + PYEV.t("carga_history_note_all") : "");
         }
       }
 
       function filteredRows() {
-        let rows = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
+        let rows = bandRows();
         const q = (fQ.value || "").trim().toLowerCase();
         if (q) {
           rows = rows.filter((r) =>
@@ -204,7 +217,7 @@
       }
 
       function refresh() {
-        const mapRows = PYEVChargers.filterRows(all, fAccess.value, fBand.value);
+        const mapRows = bandRows();
         if (mapApi) {
           mapApi.group.clearLayers();
           mapRows.forEach((r) => {
@@ -217,11 +230,10 @@
         PYEVChargers.renderTable(table, tableRows);
         const tc = PYEVChargers.chargerCounts(tableRows);
         if (tableCount) tableCount.textContent = tc.sites + " · " + tc.plugs;
-        const filterParts = [];
-        if (fAccess.value !== "all") filterParts.push(PYEV.t("access") + ": " + fAccess.options[fAccess.selectedIndex].text);
+        const filterParts = [PYEV.t(mode === "all" ? "access_mode_all" : "access_mode_public")];
         if (fBand.value !== "all") filterParts.push(PYEV.t("power_band") + ": " + fBand.options[fBand.selectedIndex].text);
-        const filterText = filterParts.length ? filterParts.join(" · ") : PYEV.t("map_no_filter");
-        const allN = PYEVChargers.chargerCounts(all);
+        const filterText = filterParts.join(" · ");
+        const allN = PYEVChargers.chargerCounts(all, mode);
         const shownN = PYEVChargers.chargerCounts(mapRows);
         PYEVChargers.renderNetworkSites(networkSitesEl, mapRows);
         PYEVChargers.renderNetworkBars(networkBarsEl, mapRows);
@@ -252,8 +264,8 @@
     };
       try {
         all = await PYEVChargers.loadChargers();
-        PYEVChargers.renderKPIs(kpis, all, baseline());
-        PYEVChargers.renderBreakdown(breakdownEl, all);
+        PYEVChargers.renderKPIs(kpis, all, baseline(), mode);
+        PYEVChargers.renderBreakdown(breakdownEl, modeRows());
         const bands = PYEVChargers.countByInOrder(all, "power_band", ["abaixo de 50 kW", "50–99 kW", "100–149 kW", "150+ kW", "desconhecida"]);
         bands.forEach(([b]) => {
           const opt = document.createElement("option");
@@ -262,14 +274,22 @@
           fBand.appendChild(opt);
         });
         mapApi = PYEVChargers.initMap(mapEl, all);
-        fAccess.addEventListener("change", refresh);
+        accessToggle.addEventListener("change", () => {
+          mode = accessToggle.checked ? "all" : "public";
+          PYEVChargers.setAccessMode(mode);
+          syncAccessUI();
+          PYEVChargers.renderKPIs(kpis, all, baseline(), mode);
+          PYEVChargers.renderBreakdown(breakdownEl, modeRows());
+          refresh();
+          paintHistory();
+        });
         fBand.addEventListener("change", refresh);
         fQ.addEventListener("input", refresh);
         refresh();
         tableDetails.addEventListener("toggle", () => { if (mapApi && mapApi.invalidate) mapApi.invalidate(); });
         window.addEventListener("pyev-lang", () => {
-          PYEVChargers.renderKPIs(kpis, all, baseline());
-          PYEVChargers.renderBreakdown(breakdownEl, all);
+          PYEVChargers.renderKPIs(kpis, all, baseline(), mode);
+          PYEVChargers.renderBreakdown(breakdownEl, modeRows());
           if (mapApi && mapApi.updateLanguage) mapApi.updateLanguage();
           Array.from(fBand.options).forEach((opt, i) => { if (i > 0) opt.textContent = PYEVChargers.localizeValue(opt.value); });
           refresh();
@@ -277,14 +297,14 @@
         });
         window.addEventListener("pyev-theme", () => {
           setTimeout(() => {
-            PYEVChargers.renderNetworkSites(networkSitesEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
-            PYEVChargers.renderNetworkBars(networkBarsEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
+            PYEVChargers.renderNetworkSites(networkSitesEl, bandRows());
+            PYEVChargers.renderNetworkBars(networkBarsEl, bandRows());
             paintHistory();
           }, 30);
         });
         try {
           historyBundle = await PYEVChargers.loadHistory();
-          PYEVChargers.renderKPIs(kpis, all, baseline());
+          PYEVChargers.renderKPIs(kpis, all, baseline(), mode);
           paintHistory();
           let timer = 0;
           let lastW = window.innerWidth;
@@ -294,8 +314,8 @@
             clearTimeout(timer);
             timer = setTimeout(() => {
               paintHistory();
-              PYEVChargers.renderNetworkSites(networkSitesEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
-            PYEVChargers.renderNetworkBars(networkBarsEl, PYEVChargers.filterRows(all, fAccess.value, fBand.value));
+              PYEVChargers.renderNetworkSites(networkSitesEl, bandRows());
+            PYEVChargers.renderNetworkBars(networkBarsEl, bandRows());
             }, 150);
           });
         } catch (err) {
