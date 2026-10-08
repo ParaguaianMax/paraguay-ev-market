@@ -553,67 +553,72 @@
     Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
   }
 
+  /**
+   * Connectors by network: vertical grouped columns, one per connector type
+   * (CCS, CHAdeMO, GB/T) for each network, value on top, never summed. Networks
+   * run largest to smallest by total connectors. On phones the plot keeps a
+   * readable width and scrolls sideways inside its own container.
+   */
   function renderNetworkBars(el, rows) {
     if (!el) return;
     if (!global.Plotly) {
       el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
       return;
     }
-    // Most connectors on top (Plotly draws the first category at the bottom).
     const stats = chargerCounts(rows).networks
+      .filter((s) => s.CCS + s.CHAdeMO + s.GBT > 0)
       .sort((a, b) => (b.CCS + b.CHAdeMO + b.GBT) - (a.CCS + a.CHAdeMO + a.GBT) || b.sites - a.sites ||
-        operatorLabel(a.key).localeCompare(operatorLabel(b.key)))
-      .reverse();
+        operatorLabel(a.key).localeCompare(operatorLabel(b.key)));
     if (!stats.length) {
       emptyChart(el);
       return;
     }
     const th = chartTheme();
+    const host = el.parentElement && el.parentElement.classList.contains("chart-scroll") ? el.parentElement : null;
+    const avail = (host || el).clientWidth || window.innerWidth;
     const phone = window.innerWidth < 640;
     const names = stats.map((s) => operatorLabel(s.key));
-    function bar(key, label, color) {
+    const n = stats.length;
+    // About 3 columns of ~13px per network on phones; wider than the screen scrolls in the container.
+    const need = n * (phone ? 46 : 54) + 70;
+    const width = need > avail ? need : null;
+    function col(key, label, color) {
+      const y = stats.map((s) => s[key]);
       return {
         type: "bar",
-        orientation: "h",
         name: label,
-        y: names,
-        x: stats.map((s) => s[key]),
+        x: names,
+        y: y,
         marker: { color: color, line: { width: 0 } },
-        text: stats.map((s) => (s[key] ? String(s[key]) : "")),
+        text: y.map((v) => (v ? String(v) : "")),
         textposition: "outside",
+        textangle: 0,
         cliponaxis: false,
         textfont: { size: phone ? 9 : 10, color: th.muted },
-        hovertemplate: "<b>%{y}</b><br>" + label + ": %{x}<extra></extra>",
+        hovertemplate: "<b>%{x}</b><br>" + label + ": %{y}<extra></extra>",
       };
     }
-    // Grouped, not stacked: each connector type is its own bar, never summed.
     const maxOne = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT), 0);
-    const n = stats.length;
     const layout = {
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
-      font: {
-        family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif',
-        color: th.text,
-        size: 12,
-      },
+      font: { family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif', color: th.text, size: 12 },
       barmode: "group",
-      bargap: 0.22,
+      bargap: 0.25,
       bargroupgap: 0.06,
       showlegend: true,
-      // Three thin bars per network: give each network room (17 networks ≈ 830px on phone).
-      height: Math.max(phone ? 320 : 360, n * (phone ? 44 : 42) + (phone ? 80 : 90)),
-      legend: {
-        orientation: "h",
-        y: 1.02,
-        yanchor: "bottom",
-        x: 0,
-        traceorder: "reversed",
-        font: { size: 11, color: th.muted },
-        bgcolor: "rgba(0,0,0,0)",
-      },
-      margin: { t: 36, r: phone ? 12 : 24, b: 36, l: phone ? 8 : 12 },
+      height: phone ? 380 : 420,
+      legend: { orientation: "h", y: 1.08, yanchor: "bottom", x: 0, font: { size: 11, color: th.muted }, bgcolor: "rgba(0,0,0,0)" },
+      margin: { t: 40, r: 12, b: 20, l: 40 },
       xaxis: {
+        gridcolor: "rgba(0,0,0,0)",
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: phone ? 10 : 11, color: th.text },
+        tickangle: phone || n > 10 ? -40 : 0,
+        automargin: true,
+      },
+      yaxis: {
         gridcolor: th.grid,
         zeroline: false,
         linecolor: th.grid,
@@ -623,32 +628,22 @@
         range: [0, Math.max(4, Math.ceil(maxOne * 1.15))],
         automargin: true,
       },
-      yaxis: {
-        gridcolor: "rgba(0,0,0,0)",
-        zeroline: false,
-        linecolor: th.grid,
-        tickfont: { size: phone ? 10 : 12, color: th.text },
-        automargin: true,
-      },
-      hovermode: "y unified",
-      // Plotly lists grouped bars bottom-up; keep CCS on top within each network.
+      hovermode: "x unified",
       hoverlabel: {
         bgcolor: th.dark ? "#1b1b19" : "#ffffff",
         bordercolor: th.grid,
         font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
       },
     };
+    if (width) layout.width = width;
     resetChart(el);
+    el.style.width = width ? width + "px" : "";
+    if (host) host.classList.toggle("is-scrolling", !!width);
     Plotly.newPlot(
       el,
-      [
-        // Drawn bottom-up inside each group, so GB/T first puts CCS on top.
-        bar("GBT", "GB/T", th.GBT),
-        bar("CHAdeMO", "CHAdeMO", th.CHAdeMO),
-        bar("CCS", "CCS", th.CCS),
-      ],
+      [col("CCS", "CCS", th.CCS), col("CHAdeMO", "CHAdeMO", th.CHAdeMO), col("GBT", "GB/T", th.GBT)],
       layout,
-      { responsive: true, displayModeBar: false }
+      { responsive: !width, displayModeBar: false }
     );
   }
 

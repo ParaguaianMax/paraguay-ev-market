@@ -1332,3 +1332,9 @@ table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padd
 .kpi-grid.kpi-3 .sub, .kpi-minor { font-size: 0.72rem; }
 .kpi-minor { flex-direction: column; }
 }
+/* Carga: connectors by network scroll sideways inside their own box on phones. */
+.chart-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.chart-scroll > .chart-panel { min-width: 0; }
+.chart-network-cols { min-height: 0; }
+.chart-scroll-hint { display: none; font-size: 0.75rem; color: var(--muted); margin: 0.2rem 0 0; }
+.chart-scroll.is-scrolling + .chart-scroll-hint { display: block; }
