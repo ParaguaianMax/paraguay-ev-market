@@ -1,7 +1,7 @@
 {
-  "version": 4,
-  "updated": "2026-10-07",
-  "canonical_policy": "UPPERCASE after basic cleanup. Prefer official Latin spelling; MERCEDES-BENZ with hyphen. Only high-confidence aliases auto-apply. Do not merge distinct brands (BYD≠BYTON, MITSUBISHI≠MITSUBISHI FUSO). Trailing punctuation and money-like numbers glued to a brand (e.g. MITSUBISHI21.496,52 = FOB typed into MARCA) are stripped in canonical_marca.",
+  "version": 5,
+  "updated": "2026-10-08",
+  "canonical_policy": "UPPERCASE after basic cleanup. Prefer official Latin spelling; MERCEDES-BENZ with hyphen. Only high-confidence aliases auto-apply. Do not merge distinct brands (BYD≠BYTON, MITSUBISHI≠MITSUBISHI FUSO). Trailing punctuation and money-like numbers glued to a brand (e.g. MITSUBISHI21.496,52 = FOB typed into MARCA) are stripped in canonical_marca. SSANGYONG and KGM (KG Mobility, the renamed SsangYong) are one brand: canonical KGM, the more common name in the data (735 vs 146 units, 2022-01..2026-09; Max 2026-10-08).",
   "aliases": {
     "MERCEDES BENZ": "MERCEDES-BENZ",
     "MERCEDES - BENZ": "MERCEDES-BENZ",
@@ -176,9 +176,9 @@
     "CAR CLUB": "CLUB CAR",
     "CLUB CAR TEMPO": "CLUB CAR",
     "KAYO.": "KAYO",
-    "SSANGYOUNG": "SSANGYONG",
-    "SSANG YONG": "SSANGYONG",
-    "SSANGYON": "SSANGYONG",
+    "SSANGYOUNG": "KGM",
+    "SSANG YONG": "KGM",
+    "SSANGYON": "KGM",
     "EZ GO": "EZGO",
     "EZCO": "EZGO",
     "EZGO ELIT": "EZGO",
@@ -212,7 +212,10 @@
     "HKD": "HDK",
     "GUANGDONG LVTONG": "LVTONG",
     "ZHEJIAN YOCHUANG": "ZHEJIANG YOCHUANG",
-    "NASH METROPOLITAN": "NASH"
+    "NASH METROPOLITAN": "NASH",
+    "SSANGYONG": "KGM",
+    "SAMSUNG": "RENAULT SAMSUNG",
+    "LI XIANG": "LI AUTO"
   },
   "proposed": [
     {
@@ -278,6 +281,22 @@
     [
       "CUPRA",
       "SEAT"
+    ],
+    [
+      "GEELY RADAR",
+      "RIDDARA"
+    ],
+    [
+      "GEELY RADAR",
+      "GEELY"
+    ],
+    [
+      "HUMMER",
+      "GMC"
+    ],
+    [
+      "KAIYUN",
+      "PICKMAN"
     ]
   ],
   "approved_2026_10_07": [
@@ -299,7 +318,7 @@
     {
       "from": "(159 typo/punctuation/glued-model aliases, v4)",
       "to": "see aliases",
-      "note": "Brand cleanup requested by Roberval/Max 2026-10-07: typos, trailing numbers/punctuation, model glued to brand (modelo_from_marca fills modelo when the description has none), body-maker suffixes (IVECO FACCHINI, MERCEDES BENZ TRIELHT). Junk values in resolve_from_description take the brand from MERCADERIA only when it names a known brand, else SIN MARCA. Still NOT merged: RANGE ROVER/ROVER->LAND ROVER, FUSO->MITSUBISHI, SPORTAGE->KIA, BYD/BYTON, SSANGYONG/KGM, LI XIANG (no LI AUTO in data)."
+      "note": "Brand cleanup requested by Roberval/Max 2026-10-07: typos, trailing numbers/punctuation, model glued to brand (modelo_from_marca fills modelo when the description has none), body-maker suffixes (IVECO FACCHINI, MERCEDES BENZ TRIELHT). Junk values in resolve_from_description take the brand from MERCADERIA only when it names a known brand, else SIN MARCA. Still NOT merged: RANGE ROVER/ROVER->LAND ROVER, FUSO->MITSUBISHI, SPORTAGE->KIA, BYD/BYTON. SSANGYONG/KGM and LI XIANG/LI AUTO were merged on 2026-10-08 (see approved_2026_10_08)."
     }
   ],
   "modelo_from_marca": {
@@ -420,6 +439,7 @@
     "LAND ROVER",
     "LEAPMOTOR",
     "LEXUS",
+    "LI AUTO",
     "LONCIN",
     "LVTONG",
     "LYNK CO",
@@ -443,6 +463,7 @@
     "RAM",
     "RANGE ROVER",
     "RENAULT",
+    "RENAULT SAMSUNG",
     "SCANIA",
     "SEGWAY",
     "SHACMAN",
@@ -451,7 +472,6 @@
     "SKODA",
     "SMART",
     "SOUEAST",
-    "SSANGYONG",
     "STAR",
     "SUBARU",
     "SUZUKI",
@@ -468,5 +488,27 @@
     "YAMAHA",
     "ZEEKR",
     "ZHEJIANG YOCHUANG"
+  ],
+  "approved_2026_10_08": [
+    {
+      "from": "SSANGYONG (and SSANGYOUNG, SSANG YONG, SSANGYON)",
+      "to": "KGM",
+      "note": "Max approved 2026-10-08: same brand (KG Mobility = renamed SsangYong). Canonical = KGM, the more common name in the data (KGM 735 units vs SSANGYONG 146, 2022-01..2026-09)."
+    },
+    {
+      "from": "SAMSUNG",
+      "to": "RENAULT SAMSUNG",
+      "note": "Max approved 2026-10-08."
+    },
+    {
+      "from": "LI XIANG",
+      "to": "LI AUTO",
+      "note": "Max approved 2026-10-08 (Li Xiang = Li Auto)."
+    },
+    {
+      "from": "GEELY RADAR / RADAR / RIDDARA, HUMMER, KAIYUN / PICKMAN",
+      "to": null,
+      "note": "Kept separate on purpose (Max 2026-10-08)."
+    }
   ]
 }

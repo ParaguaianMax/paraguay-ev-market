@@ -1,10 +1,12 @@
 # Canonical marca aliases for Paraguay EV/imports Volume data
-# version: 4  updated: 2026-10-07
+# version: 5  updated: 2026-10-08
 # policy: UPPERCASE after basic cleanup. Prefer official Latin spelling; MERCEDES-BENZ with hyphen. Only high-confidence aliases auto-apply. Do not merge distinct brands (BYD≠BYTON, MITSUBISHI≠MITSUBISHI FUSO).
 # Machine source of truth: marca_aliases.json
+# 2026-10-08: SSANGYONG = KGM (canonical KGM, more common in the data); SAMSUNG -> RENAULT SAMSUNG; LI XIANG -> LI AUTO.
+# Kept separate: GEELY RADAR / RADAR / RIDDARA, HUMMER, KAIYUN / PICKMAN.
 
-version: 4
-updated: "2026-10-07"
+version: 5
+updated: "2026-10-08"
 aliases:
   "MERCEDES BENZ": "MERCEDES-BENZ"
   "MERCEDES - BENZ": "MERCEDES-BENZ"
@@ -179,9 +181,9 @@ aliases:
   "CAR CLUB": "CLUB CAR"
   "CLUB CAR TEMPO": "CLUB CAR"
   "KAYO.": "KAYO"
-  "SSANGYOUNG": "SSANGYONG"
-  "SSANG YONG": "SSANGYONG"
-  "SSANGYON": "SSANGYONG"
+  "SSANGYOUNG": "KGM"
+  "SSANG YONG": "KGM"
+  "SSANGYON": "KGM"
   "EZ GO": "EZGO"
   "EZCO": "EZGO"
   "EZGO ELIT": "EZGO"
@@ -216,3 +218,6 @@ aliases:
   "GUANGDONG LVTONG": "LVTONG"
   "ZHEJIAN YOCHUANG": "ZHEJIANG YOCHUANG"
   "NASH METROPOLITAN": "NASH"
+  "SSANGYONG": "KGM"
+  "SAMSUNG": "RENAULT SAMSUNG"
+  "LI XIANG": "LI AUTO"

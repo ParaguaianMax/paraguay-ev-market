@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "updated": "2026-10-08",
+  "policy": "Standard spelling of edicion (trim) so the same trim counts on one row (Max 2026-10-08). Only high-confidence abbreviations and typos of the SAME trim of the SAME brand+model. Powertrain is part of the row key: nothing here merges rows of different powertrains. Distinct trims are never merged; doubtful pairs are listed in 'doubtful' and left as they are. Applied after the base-model/edicion split (modelo_base.py); rows that end up with the same (period, variant, segmento, marca, modelo, edicion, powertrain, condicion) are summed.",
+  "token_aliases": {
+    "*": {
+      "LUX": "LUXURY"
+    },
+    "AUDI": {
+      "SB": "SPORTBACK",
+      "SLINE": "S LINE",
+      "S-LINE": "S LINE",
+      "ADVANCED": "ADVANCE",
+      "PERFOMANCE": "PERFORMANCE",
+      "PERMORMANCE": "PERFORMANCE"
+    },
+    "TESLA": {
+      "SR": "STANDARD RANGE",
+      "LR": "LONG RANGE",
+      "PAWD": "PREMIUM AWD",
+      "ALL-WHEEL DRIVE": "AWD",
+      "DUAL MOTOR": "AWD"
+    }
+  },
+  "edicion_aliases": {
+    "NISSAN|X-TRAIL E-POWER": {
+      "ADVANCE 4X4": "ADVANCE E-4ORCE",
+      "ADVANCE 4X4 E-4ORCE": "ADVANCE E-4ORCE",
+      "EXCLUSIVE 4X4": "EXCLUSIVE E-4ORCE",
+      "EXCLUSIVE 4X4 E-4ORCE": "EXCLUSIVE E-4ORCE"
+    }
+  },
+  "token_order": {
+    "AUDI": [
+      "40",
+      "45",
+      "50",
+      "55",
+      "60",
+      "SPORTBACK",
+      "ENTRY",
+      "ADVANCE",
+      "PREMIUM",
+      "PERFORMANCE",
+      "PLUS",
+      "QUATTRO",
+      "S LINE",
+      "SP",
+      "BP",
+      "CHUANGXING"
+    ],
+    "TESLA": [
+      "STANDARD RANGE",
+      "LONG RANGE",
+      "PREMIUM",
+      "PERFORMANCE",
+      "PLAID",
+      "AWD",
+      "RWD"
+    ]
+  },
+  "notes": {
+    "NISSAN|X-TRAIL E-POWER": "Nissan Paraguay sells the X-Trail e-POWER only as Advance e-4ORCE and Exclusive e-4ORCE (nissan.com.py); e-4ORCE is the 4x4 system, so '4X4' and 'E-4ORCE' are the same trim.",
+    "AUDI": "Q6 E-TRON / Q8 E-TRON / E-TRON: SB = Sportback, SLINE = S line, ADVANCED and PERFOMANCE/PERMORMANCE are typos. Numbers 50/55 are the power level, kept.",
+    "TESLA": "SR = Standard Range, LR = Long Range, PAWD = Premium AWD; Performance stays Performance."
+  },
+  "doubtful": [
+    {
+      "marca": "GEELY",
+      "modelo": "RIDDARA RD6",
+      "powertrain": "BEV",
+      "pair": [
+        "63KWH",
+        "63KWH ESTANDAR"
+      ],
+      "why": "ESTANDAR may be the base 63 kWh trim, but the declarations do not prove it"
+    },
+    {
+      "marca": "BYD",
+      "modelo": "SEAGULL",
+      "powertrain": "BEV",
+      "pair": [
+        "INTELLIGENT DRIVE",
+        "INTELLIGENT DRIVING VERSION 405KM"
+      ],
+      "why": "405KM is a battery spec that the other line does not name"
+    },
+    {
+      "marca": "BYD",
+      "modelo": "YUAN UP",
+      "powertrain": "BEV",
+      "pair": [
+        "SMART DRIVING EDITION",
+        "SMART DRIVING EDITION VITALITY EDITION"
+      ],
+      "why": "VITALITY is a separate trim level"
+    },
+    {
+      "marca": "NISSAN",
+      "modelo": "X-TRAIL E-POWER",
+      "powertrain": "HEV",
+      "pair": [
+        "ADVANCE",
+        "ADVANCE E-4ORCE"
+      ],
+      "why": "the ADVANCE lines do not say 4X4/e-4ORCE"
+    },
+    {
+      "marca": "RAM",
+      "modelo": "1500",
+      "powertrain": "ICE",
+      "pair": [
+        "REBEL CREW CAB",
+        "REBEL DOBLE CABINA"
+      ],
+      "why": "likely the same cab in two languages; not an abbreviation, left for Max"
+    },
+    {
+      "marca": "RAM",
+      "modelo": "1500",
+      "powertrain": "ICE",
+      "pair": [
+        "TRX",
+        "TRX DOBLE CABINA"
+      ],
+      "why": "cab not stated on one line"
+    },
+    {
+      "marca": "RAM",
+      "modelo": "2500",
+      "powertrain": "ICE",
+      "pair": [
+        "LARAMIE",
+        "LARAMIE DOBLE CABINA"
+      ],
+      "why": "cab not stated on one line"
+    },
+    {
+      "marca": "RAM",
+      "modelo": "3500",
+      "powertrain": "ICE",
+      "pair": [
+        "LONGHORN",
+        "LIMITED LONGHORN EDITION"
+      ],
+      "why": "Limited Longhorn is a separate edition"
+    },
+    {
+      "marca": "TESLA",
+      "modelo": "Model Y",
+      "powertrain": "BEV",
+      "pair": [
+        "LONG RANGE",
+        "LONG RANGE AWD"
+      ],
+      "why": "drive not stated on the LONG RANGE lines"
+    },
+    {
+      "marca": "TESLA",
+      "modelo": "Model Y",
+      "powertrain": "BEV",
+      "pair": [
+        "AWD",
+        "LONG RANGE AWD"
+      ],
+      "why": "range not stated"
+    },
+    {
+      "marca": "AUDI",
+      "modelo": "Q6 E-TRON",
+      "powertrain": "BEV",
+      "pair": [
+        "PERFORMANCE S LINE SP BP",
+        "SPORTBACK PERFORMANCE S LINE BP"
+      ],
+      "why": "SP probably = Sportback but not proven"
+    },
+    {
+      "marca": "AUDI",
+      "modelo": "E-TRON / Q8 E-TRON",
+      "powertrain": "BEV",
+      "pair": [
+        "E-TRON",
+        "Q8 E-TRON"
+      ],
+      "why": "Audi renamed the e-tron to Q8 e-tron in 2023 (same VIN code GE); the declarations name different models, so kept separate"
+    },
+    {
+      "marca": "AUDI",
+      "modelo": "Q6L",
+      "powertrain": "BEV",
+      "pair": [
+        "Q6L",
+        "Q6 E-TRON"
+      ],
+      "why": "Q6L (China long-wheelbase) is not the Q6 e-tron; kept separate"
+    }
+  ]
+}
