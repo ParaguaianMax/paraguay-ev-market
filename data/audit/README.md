@@ -116,3 +116,27 @@ La motorización (powertrain) no cambia en ninguna línea: la Aduana manda. Apro
       (el sitio debe rankear por marca+modelo+powertrain).
     - `suspicious_powertrain_2026-10-08.csv` lista combinaciones 2026 dudosas (Vitz PHEV,
       etc.). No se corrigen; son para Max.
+
+### Tercera ronda, segunda parte — 2026-10-08 (Max)
+17. **Cambios de motorización (solo estos 2; ver `powertrain_changes_2026-10-08.csv`):**
+    - TOYOTA VITZ usado (26DA000000290926 ítem 2, NCM 8703.60): el texto dice "VITZ HV" y el Vitz
+      no tiene versión enchufable. Pasa de PHEV a **HEV**. Es una excepción decidida por Max y queda
+      fijada en `manual_powertrain_overrides.json`, igual que los pines de Riddara.
+    - PEUGEOT 5008 GT "1.2 HEV" (26DA000000520703 ítem 2, NCM 8703.40): pasa de OTHERS (mild) a
+      **HEV**, igual que el 3008 GT del mismo despacho. Es una regla (Peugeot/Citroën "1.2 HEV",
+      "1.2 HYBRID" o "HYBRID 136/145" con 8703.40 → HEV). Ninguna otra línea Peugeot/Citroën de
+      2022–2026 estaba en OTHERS. Los Vitz/Voxy "movido a gasolina" siguen como HEV.
+18. **Canter:** toda línea 8704 cuyo modelo es CANTER pasa a `pesado`, sin importar la marca
+    declarada. La marca no se cambia; las rarezas de marca están en
+    `canter_brand_oddities_2026-10-08.csv`. La única línea 8703 (station wagon TOYOTA CANTER)
+    queda en `leve`.
+19. **FOTON BJ6609U2DDA-E3** ("camioneta furgón" diésel, 2 líneas de 2023-10) → `pesado`.
+20. **Hyundai Creta:**
+    - CRETA y NEW CRETA tienen modelo base `CRETA`;
+    - la versión (COMFORT, PLATINUM, ACTION, GLS) pasa a `edicion`;
+    - las palabras de combustible o motor (NAFTERO, NAFT, FLEX, 15CC, AT) se eliminan.
+21. **Corvette E-Ray:** un Corvette HEV es el E-Ray (es el único Corvette híbrido). Modelo base
+    `CORVETTE E-RAY`, con `edicion` CONVERTIBLE cuando el texto lo dice. Los Corvette ICE no
+    cambian.
+
+Ver `model_cleanup_2026-10-08b.csv`.

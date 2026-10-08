@@ -1,0 +1,13 @@
+marca,modelo_before,modelo_after,edicion_after,powertrain,units,example_period,example_despacho,example_item,rule
+HYUNDAI,NEW CRETA,CRETA,,ICE,1236,2022-08,22DA000000205721,3,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA COMFORT NAFTERO,CRETA,COMFORT,ICE,893,2025-03,25DA000000111620,4,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA COMFORT NAFTERO 15CC AT,CRETA,COMFORT,ICE,247,2025-09,25DA000000436478,1,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA PLATINUM NAFTERO,CRETA,PLATINUM,ICE,193,2025-03,25DA000000111620,7,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA COMFORT,CRETA,COMFORT,ICE,85,2025-10,25DA000000520289,1,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA PLATINUM,CRETA,PLATINUM,ICE,28,2025-08,25DA000000417757,2,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA PLATINUM NAFTERO 15CC AT,CRETA,PLATINUM,ICE,27,2025-09,25DA000000436550,1,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA ACTION FLEX,CRETA,ACTION,ICE,2,2023-11,23DA000000858142,2,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+HYUNDAI,NEW CRETA GLS,CRETA,GLS,ICE,1,2024-07,24DA000000318172,1,Hyundai Creta: NEW prefix = same model; trim → edicion; fuel/engine words dropped
+CHEVROLET,CORVETTE,CORVETTE E-RAY,,HEV,1,2026-03,26DA000000130057,1,HEV Corvette = E-Ray (only hybrid Corvette); body → edicion
+CHEVROLET,CORVETTE E-RAY CONVERTIBLE,CORVETTE E-RAY,CONVERTIBLE,HEV,1,2026-03,26DA000000145594,1,HEV Corvette = E-Ray (only hybrid Corvette); body → edicion
+CHEVROLET,CORVETTE ERAY,CORVETTE E-RAY,,HEV,1,2026-06,26DA000000312885,1,HEV Corvette = E-Ray (only hybrid Corvette); body → edicion
