@@ -380,7 +380,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-09,LightVehicles,leve,DODGE,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,DODGE,CHALLENGER GT,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,DODGE,RAM2500,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
-2025-09,LightVehicles,leve,DODGE RAM,TRX,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-09,LightVehicles,leve,DONGFENG,RICH7 MT STD 4WD,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-09,LightVehicles,leve,FORD,F150,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-09,LightVehicles,leve,FORD,MUSTANG MACH-E,,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -456,12 +455,13 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-09,LightVehicles,leve,NISSAN,VANETTE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-09,LightVehicles,leve,PORSCHE,911 TURBO S 50 JAHRE TURBO,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,PORSCHE,CAYANNE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-09,LightVehicles,leve,RAM,TRX,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2025-09,LightVehicles,leve,ROLLS ROYCE,SILVER SHADOW,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,SCANIA,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2025-09,LightVehicles,leve,SIN MARCA,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,SIN MARCA,AURIS,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,SIN MARCA,G10 MINIBUS 7 ASIENTOS AT,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-09,LightVehicles,leve,SKODA FABIA,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2025-09,LightVehicles,leve,SKODA,FABIA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,SSANGYONG,REXTON,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,SUBARU,IMPREZA GT,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,SUBARU,IMPREZA WRX STI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -503,7 +503,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-09,LightVehicles,leve,TOYOTA,SPORTAGE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,TOYOTA,SW4,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,TOYOTA,TACOMA,,HEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2025-09,LightVehicles,leve,TOYOTA,TUNDRA,,BEV,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
+2025-09,LightVehicles,leve,TOYOTA,TUNDRA,,HEV,nuevo,1,Aduana PY datos abiertos,8704 + pickup/camioneta keyword
 2025-09,LightVehicles,leve,TOYOTA,VELLFIRE,,ICE,usado,1,Aduana PY datos abiertos,passenger van/minibus (Hiace/Staria/…) counts as leve
 2025-09,LightVehicles,leve,TOYOTA,WISH NAFTERO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2025-09,LightVehicles,leve,TOYOTA,WISH NIO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

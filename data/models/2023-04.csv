@@ -301,18 +301,18 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-04,LightVehicles,pesado,FORD,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-04,LightVehicles,pesado,ISUZU,FRR90SL-NAN,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-04,LightVehicles,pesado,IVECO,TECTOR 11-190,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
-2023-04,LightVehicles,pesado,MERCEDES BENZ CATARINA,2023 C/CARROCERIA PLASTICA,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
-2023-04,LightVehicles,pesado,MERCEDES BENZ CATARINA,2023 CON CARROCERIA FRIGOFICA PLASTICA,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
+2023-04,LightVehicles,pesado,MERCEDES-BENZ,2023 C/CARROCERIA PLASTICA,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2023-04,LightVehicles,pesado,MERCEDES-BENZ,2023 CON CARROCERIA FRIGOFICA PLASTICA,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-04,LightVehicles,pesado,MERCEDES-BENZ,818,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-04,LightVehicles,pesado,MERCEDES-BENZ,ATEGO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-04,LightVehicles,pesado,MERCEDES-BENZ,LEO ATEGO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2023-04,LightVehicles,pesado,MERCEDES-BENZ,PIG LIFFE,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-04,LightVehicles,pesado,NISSAN,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-04,LightVehicles,pesado,SCANIA,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-04,LightVehicles,pesado,SCANIA,124 360,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-04,LightVehicles,pesado,SCANIA,P340,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-04,LightVehicles,pesado,SCANIA,P94 220,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-04,LightVehicles,pesado,TOYOTA,TOYOACE,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
-2023-04,LightVehicles,pesado,TRIELHT MERCEDES BENZ,PIG LIFFE,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-04,LightVehicles,pesado,VOLKSWAGEN,15,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-04,LightVehicles,recreativo,VENTURA,VENTURA 400 COR CONZA,,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2023-04,LightVehicles,recreativo,VENTURA,VENTURA 400 COR VERMELHO,,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow

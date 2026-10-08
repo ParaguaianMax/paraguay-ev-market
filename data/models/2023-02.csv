@@ -70,12 +70,12 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-02,LightVehicles,leve,YAMAHA,(sin modelo),,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,AUDI,Q5 2,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,CHEVROLET,S10 CD HC 2,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2023-02,LightVehicles,leve,RENAULT,KWID ZEN 1,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,VOLKSWAGEN,NIVUS 1,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,BMW,X5 XDRIVE25D,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,CHEVROLET,S10 CD LS 2,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-02,LightVehicles,leve,CHEVROLET,S10 LT,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-02,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,10,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2023-02,LightVehicles,leve,RENAULT,KWID ZEN 1,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,TOYOTA,RAV4,,HEV,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,VOLKSWAGEN,SAVEIRO ROBUST SC 1,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2023-02,LightVehicles,leve,CHEVROLET,S10 LS,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -161,7 +161,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-02,LightVehicles,leve,BAIC,EU5,,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,CHANGAN,HUNTER DOBLE CABINA,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2023-02,LightVehicles,leve,CITROEN,BERLINGO HDI 90 BVM5,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2023-02,LightVehicles,leve,EXCAR,(sin modelo),,BEV,nuevo,2,Aduana PY datos abiertos,8704.60 electric goods vehicle (treated leve unless heavy)
 2023-02,LightVehicles,leve,FORD,EXPLORER 4DR 4WD XLT 2,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,GAC,GS8-NEW 2,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,HYUNDAI,H-100,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -193,6 +192,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-02,LightVehicles,pesado,MITSUBISHI,CANTER,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2023-02,LightVehicles,pesado,SCANIA,P280,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2023-02,LightVehicles,pesado,SCANIA,R420,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
+2023-02,LightVehicles,recreativo,EXCAR,(sin modelo),,BEV,nuevo,2,Aduana PY datos abiertos,HS 8704.60 triciclo/motocarro/carrito → recreativo
 2023-02,LightVehicles,recreativo,FORTRESS,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703.10
 2023-02,LightVehicles,leve,AUDI,E-TRON 55 ADVANCE,,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,AUDI,ETRON 50 SPORTBACK ADVANCE,,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -258,7 +258,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-02,LightVehicles,leve,PEUGEOT,508,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,PORSCHE,911 CON,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,RAM,1500,TRX DOBLE CABINA,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
-2023-02,LightVehicles,leve,REANAULT,KWID ZEN 1,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,RENAULT,NUEVA DUSTER E3 OUTISDER CVT,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,RENAULT,NUEVA DUSTER E3 OUTSIDER CVT,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2023-02,LightVehicles,leve,RENAULT,NUEVA DUSTERINTENS VISION CVT,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

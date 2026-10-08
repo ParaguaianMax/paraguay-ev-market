@@ -63,8 +63,8 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-10,LightVehicles,leve,TOYOTA,COROLLA CROSS,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-10,LightVehicles,leve,BMW,X1 SDRIVE18I,,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-10,LightVehicles,leve,CHANGAN,NEW CS35 PLUS,,ICE,nuevo,13,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2022-10,LightVehicles,pesado,MERCEDES-BENZ,(sin modelo),,ICE,usado,13,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-10,LightVehicles,leve,HYUNDAI,HB20 HATCH 1,,ICE,nuevo,12,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2022-10,LightVehicles,pesado,MERCEDES-BENZ,(sin modelo),,ICE,usado,12,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-10,LightVehicles,leve,CHEVROLET,ONIX JOY,,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-10,LightVehicles,recreativo,TRAMONTINA,(sin modelo),,ICE,nuevo,11,Aduana PY datos abiertos,NCM 8703.10
 2022-10,LightVehicles,leve,HYUNDAI,NEW TUCSON,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -288,10 +288,9 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-10,LightVehicles,leve,TOYOTA,YARIS VERSO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-10,LightVehicles,leve,VOLKSWAGEN,8150,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2022-10,LightVehicles,leve,VOLKSWAGEN,GOL 1,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2022-10,LightVehicles,leve,VOLKWAGEN,NIIVUS CL TSI,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2022-10,LightVehicles,leve,VOLKSWAGEN,NIIVUS CL TSI,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-10,LightVehicles,pesado,IVECO,TECTOR 17 280,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-10,LightVehicles,pesado,IVECO,TECTOR 260E30,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
-2022-10,LightVehicles,pesado,MERCEDE BENZ,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-10,LightVehicles,pesado,MERCEDES-BENZ,1223,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-10,LightVehicles,pesado,MERCEDES-BENZ,1317,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-10,LightVehicles,pesado,MERCEDES-BENZ,1323,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t

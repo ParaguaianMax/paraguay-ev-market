@@ -23,7 +23,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,ISUZU,(sin modelo),,ICE,nuevo,93,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,SUZUKI,(sin modelo),,ICE,nuevo,92,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,FIAT,PULSE DRIVE 1,,ICE,nuevo,88,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-06,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,84,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2026-06,LightVehicles,leve,MITSUBISHI,CANTER,,ICE,usado,85,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,TOYOTA,COROLLA CROSS,,HEV,nuevo,79,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,HYUNDAI,NEW HB20 HATCH 1,,ICE,nuevo,75,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,TOYOTA,COROLLA,,HEV,nuevo,74,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -54,8 +54,8 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,JEEP,COMPASS SPORT 1,,ICE,nuevo,42,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,GAC,GS4 MAX GL 1,,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,HYUNDAI,NEW CRETA COMFORT NAFTERO 1,,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-06,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,usado,40,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,MOTOMAX,(sin modelo),,ICE,nuevo,40,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-06,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,usado,39,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,nuevo,38,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,KIA,K5,,ICE,usado,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,TOYOTA,YARIS CROSS,,HEV,nuevo,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -302,7 +302,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,CHEVROLET,CAMARO,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,CHEVROLET,S10 CD Z71 2,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,CHEVROLET,TRACKER LTZ 1,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-06,LightVehicles,leve,CHUFENG,HQG5080TQZBEVQC,,BEV,nuevo,2,Aduana PY datos abiertos,8704.60 electric goods vehicle (treated leve unless heavy)
 2026-06,LightVehicles,leve,DAIHATSU,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,DAIHATSU,MOVE,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,DODGE,CHALLENGER A/O,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -320,6 +319,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,HYUNDAI,I40,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,HYUNDAI,MIGHTY,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,HYUNDAI,PALISADE,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-06,LightVehicles,leve,INFINITI,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,JEEP,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,JEEP,WRANGLER,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,KIA,BONGO III,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -368,6 +368,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,TOYOTA,TOYOACE,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,VOLKSWAGEN,KARMANN GHIA,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,YUFENG,HSE7000BEVG5C,,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-06,LightVehicles,pesado,CHUFENG,HQG5080TQZBEVQC,,BEV,nuevo,2,Aduana PY datos abiertos,HS 8704.60 camión/chasis-cabina → pesado
 2026-06,LightVehicles,pesado,HYUNDAI,EX10,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2026-06,LightVehicles,pesado,HYUNDAI,EX8,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2026-06,LightVehicles,pesado,SCANIA,113,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
@@ -464,8 +465,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,HYUNDAI,TUCSON A/O,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,HYUNDAI,VELOSTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,HYUNDAI,VELOSTER A/O,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-06,LightVehicles,leve,INFINITI,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-06,LightVehicles,leve,INIFINITI,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,ISUZU,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,ISUZU,BIGHORN,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,IVECO,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -557,7 +556,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,MERCEDES-BENZ,SPTINTER 310 CDI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,MERCEDES-BENZ,VARIOS 815D,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,MINI,COOPER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-06,LightVehicles,leve,MITSUBICHI,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,MITSUBISHI,CANTER CUSTOMANIO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,MITSUBISHI,CANTER GUTSANIO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,MITSUBISHI,FUSO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -567,7 +565,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,MITSUBISHI,PAJERO IO,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,MITSUBISHI,PAJERO MINI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,MITSUBISHI,PAJERO OI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2026-06,LightVehicles,leve,MITUSBISHI,CANTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,NISSAN,ATLAS ELF 100,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2026-06,LightVehicles,leve,NISSAN,CARAVAN,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-06,LightVehicles,leve,NISSAN,DAYS,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

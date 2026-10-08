@@ -143,6 +143,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,LEXUS,UX250H,,HEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MAXUS,T60 D20 LUXURY,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,MERCEDES-BENZ,ATEGO,,ICE,usado,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2024-01,LightVehicles,leve,MERCEDES-BENZ,SPRINTER,,ICE,usado,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,MITSUBISHI,CANTER GUTS DIESEL,,ICE,usado,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,RENAULT,KWID E-TECH,,BEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,SEGWAY,FUGLEMAN UT10 CREW PREMIUM,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
@@ -174,7 +175,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLE 300 D 4MATIC,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLE 300 D 4MATIC COUPE,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,GLE 450 D 4MATIC,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,MERCEDES-BENZ,SPRINTER,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,MERCEDES-BENZ,SPRINTER F-3250 311 CDI,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2024-01,LightVehicles,leve,MINI,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,NISSAN,ATLAS,,ICE,usado,2,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
@@ -247,7 +247,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,leve,LAND ROVER,RANGE ROVER SPORT 3,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,LEXUS,(sin modelo),,HEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MAZDA,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-01,LightVehicles,leve,MERCEDES BENZ SPRINTER,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,190D,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,2023,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-01,LightVehicles,leve,MERCEDES-BENZ,AMG GLE 63S,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -324,7 +323,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-01,LightVehicles,pesado,SCANIA,P380,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2024-01,LightVehicles,pesado,SCANIA,P93 250 6X4,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2024-01,LightVehicles,pesado,SCANIA,P94,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
-2024-01,LightVehicles,recreativo,CANAM,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2024-01,LightVehicles,recreativo,CAN-AM,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2024-01,LightVehicles,recreativo,POLARIS,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2024-01,LightVehicles,recreativo,POLARIS,RZR-22 74 DX T,,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2024-01,LightVehicles,recreativo,POLARIS,RZR-24 XP1 K4 MIC WHT LTNG,,ICE,nuevo,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow

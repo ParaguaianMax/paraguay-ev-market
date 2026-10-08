@@ -20,7 +20,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-08,LightVehicles,leve,TOYOTA,SIENTA,,ICE,usado,67,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-08,LightVehicles,leve,VOLKSWAGEN,SAVEIRO ROBUST SC 1,,ICE,nuevo,60,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2022-08,LightVehicles,leve,NISSAN,(sin modelo),,ICE,nuevo,54,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2022-08,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,usado,51,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
+2022-08,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,usado,52,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2022-08,LightVehicles,leve,TOYOTA,PREMIO,,ICE,usado,51,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-08,LightVehicles,leve,TOYOTA,ALLION,,ICE,usado,50,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-08,LightVehicles,leve,HYUNDAI,TUCSON,,ICE,nuevo,49,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -291,7 +291,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-08,LightVehicles,leve,MERCEDES-BENZ,ML350 4MATIC,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-08,LightVehicles,leve,MERCEDES-BENZ,MOTOR CARAVAN 1017A,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-08,LightVehicles,leve,MERCEDES-BENZ,SPRINTER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
-2022-08,LightVehicles,leve,MISTUBISHI,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-08,LightVehicles,leve,MITSUBISHI,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2022-08,LightVehicles,leve,MITSUBISHI,OUTLANDER,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-08,LightVehicles,leve,MITSUBISHI FUSO,FE71CE6L,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta

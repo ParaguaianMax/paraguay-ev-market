@@ -131,6 +131,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-09,LightVehicles,leve,MITSUBISHI,MONTERO SPORT GLS AT 2,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,TOYOTA,ALLEX,,ICE,usado,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,TOYOTA,COROLLA,,HEV,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2022-09,LightVehicles,pesado,FUSO,(sin modelo),,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-09,LightVehicles,leve,CHEVROLET,S10 LTZ,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2022-09,LightVehicles,leve,FIAT,STRADA VOLCANO DC 1,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
 2022-09,LightVehicles,leve,FORD,F-150 DC,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta
@@ -139,7 +140,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-09,LightVehicles,leve,JIM,JXW1032BSAD 2,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta
 2022-09,LightVehicles,leve,TOYOTA,AXIO,,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,ZHIDOU,D2S-L7E-17KWH,,PHEV,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2022-09,LightVehicles,pesado,FUSO,(sin modelo),,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-09,LightVehicles,pesado,HINO,(sin modelo),,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-09,LightVehicles,recreativo,SEGWAY,(sin modelo),,ICE,nuevo,4,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2022-09,LightVehicles,leve,AUDI,Q3 1,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
@@ -298,14 +298,12 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-09,LightVehicles,leve,TOYOTA,REGIUS,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,TOYOTA,WLO WISH,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,VOLKSWAGEN,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2022-09,LightVehicles,leve,VOLKSWAGEN,E-DELIVERY 14 TON,,BEV,nuevo,1,Aduana PY datos abiertos,8704.60 electric goods vehicle (treated leve unless heavy)
 2022-09,LightVehicles,leve,VOLKSWAGEN,FUSCA,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,VOLKSWAGEN,GOLF,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,VOLKSWAGEN,GOLF TDI,,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,VOLKSWAGEN,VOYAGE 1,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,leve,YAMAHA,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2022-09,LightVehicles,pesado,CATERPILLAR,725,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
-2022-09,LightVehicles,pesado,FUS0,(sin modelo),,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-09,LightVehicles,pesado,FUSO,FAV1PH1LNJA,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-09,LightVehicles,pesado,IVECO,TECTOR 9-190,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-09,LightVehicles,pesado,MAN,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
@@ -339,8 +337,9 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2022-09,LightVehicles,pesado,SCANIA,P94-220,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2022-09,LightVehicles,pesado,SCANIA,R450,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2022-09,LightVehicles,pesado,VOLKSWAGEN,17,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
+2022-09,LightVehicles,pesado,VOLKSWAGEN,E-DELIVERY 14 TON,,BEV,nuevo,1,Aduana PY datos abiertos,HS 8704.60 camión/chasis-cabina → pesado
 2022-09,LightVehicles,pesado,VOLVO,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
 2022-09,LightVehicles,pesado,VOLVO,FH12/380,,ICE,usado,1,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t
-2022-09,LightVehicles,recreativo,CAN AM,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
+2022-09,LightVehicles,recreativo,CAN-AM,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2022-09,LightVehicles,recreativo,MONDIAL,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
 2022-09,LightVehicles,recreativo,POLARIS,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
