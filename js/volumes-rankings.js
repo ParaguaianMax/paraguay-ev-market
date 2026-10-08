@@ -4,13 +4,16 @@
  * Powertrain chips (multi-select): Todos | BEV | plug-in (PHEV) | HEV.
  * Todos = every powertrain in the ranking. Specific chips are a union and
  * never include ICE/OTHERS. Turning the last specific chip off returns to Todos.
- * With 2+ specific chips, brand/model tables add a Total row under each
- * group that spans multiple powertrains (units + % for brands).
+ * With 2+ specific chips, the brand table adds a Total row under each
+ * brand that spans multiple powertrains (units + %).
+ * Top modelos rows are marca + modelo + powertrain (versions count as one
+ * model only with the same powertrain); the Modelos checklist lists base
+ * models and picking one includes all its powertrains.
  * Condición chips: Todos | Nuevo | Usado (hidden until CSV has condicion).
  * Aligns with site-wide 0 km filter (localStorage pyev-vehicles-all).
  * Model editions: on when rows carry `edicion` (monthly CSV, or joined
  * onto the assembled file). Blank edicion is the "no edition" bucket.
- * Expanded lines show trim, units, and that edition's share of the model.
+ * Expanded lines show trim, units, and that edition's share of the row.
  * Ranking charts default to Top 20; "Todas" shows the full brand list
  * and all models. Bar labels include the rank number.
  * Brand selection scopes the model ranking and the model picker to those
@@ -682,8 +685,9 @@
     }
 
     function paintModelTable() {
+      // Model rows are single-powertrain, so no per-model Total line.
       PYEVModels.renderTopModelTable(modelTable, lastModels, {
-        showGroupTotals: ptSet.size >= 2,
+        showGroupTotals: false,
         expandedModels,
       });
     }
@@ -712,9 +716,10 @@
         modelClickBound = function (ev) {
           const pt = ev && ev.points && ev.points[0];
           if (!pt) return;
+          // Ticks start with the row's rank, which is unique per model + powertrain.
           const raw = String((pt.customdata != null ? pt.customdata : pt.y) || "");
-          const label = raw.replace(/^\d+\.\s+/, "");
-          const hit = models.find((m) => (m.label === label || m.label === raw) && m.editions);
+          const rk = /^(\d+)\.\s/.exec(raw);
+          const hit = rk && models.find((m) => m.rank === Number(rk[1]) && m.editions);
           if (!hit) return;
           toggleModelEdition(PYEVModels.modelEditionKey(hit));
         };

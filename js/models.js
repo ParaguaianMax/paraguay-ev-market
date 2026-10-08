@@ -494,6 +494,54 @@
   }
 
   /**
+   * Ranking unit for Top modelos: marca + base modelo + powertrain.
+   * Versions of a model count together only when they share the powertrain
+   * (Corolla Cross HEV and ICE are two rows). Same object shape as
+   * byModelStacked (byPt holds the single powertrain), so charts/tables
+   * render unchanged. Editions are per row; their % is of that row.
+   */
+  function byModelPowertrain(rows, topN) {
+    const editionAware = hasEdicion(rows);
+    const e = {};
+    (rows || []).forEach((r) => {
+      const k = r.marca + "\0" + r.modelo + "\0" + r.powertrain;
+      if (!e[k]) {
+        e[k] = {
+          marca: r.marca,
+          modelo: r.modelo,
+          powertrain: r.powertrain,
+          label: r.marca + " " + r.modelo,
+          total: 0,
+          byPt: {},
+        };
+        if (editionAware) e[k].editionMap = {};
+      }
+      e[k].total += r.units;
+      e[k].byPt[r.powertrain] = (e[k].byPt[r.powertrain] || 0) + r.units;
+      if (editionAware) {
+        const name = Object.prototype.hasOwnProperty.call(r, "edicion")
+          ? String(r.edicion || "").trim()
+          : "";
+        e[k].editionMap[name] = (e[k].editionMap[name] || 0) + r.units;
+      }
+    });
+    let a = Object.values(e).sort(
+      (x, y) =>
+        y.total - x.total ||
+        (x.label < y.label ? -1 : x.label > y.label ? 1 : 0) ||
+        POWERTRAINS.indexOf(x.powertrain) - POWERTRAINS.indexOf(y.powertrain)
+    );
+    if (topN && a.length > topN) a = a.slice(0, topN);
+    if (editionAware) {
+      a.forEach((m) => {
+        m.editions = editionList(m.editionMap);
+        delete m.editionMap;
+      });
+    }
+    return a;
+  }
+
+  /**
    * LightVehicles + leve only (cars + light pickups). Never falls back to Whole:
    * months without LV model detail are omitted (caller shows empty note).
    */
@@ -605,7 +653,7 @@
     opts = opts || {};
     const topN = opts.topN == null ? 100 : opts.topN;
     const q = String(opts.query || "").trim().toLowerCase();
-    let models = byModelStacked(rows, null);
+    let models = byModelPowertrain(rows, null);
     if (q) {
       models = models.filter(
         (m) => matchQuery(m.marca, q) || matchQuery(m.modelo, q) || matchQuery(m.label, q)
@@ -631,7 +679,7 @@
     return s.slice(0, Math.max(1, max - 1)) + "…";
   }
 
-  function renderStackedHBar(el, items, labelFn) {
+  function renderStackedHBar(el, items, labelFn, suffixFn) {
     if (!el || !global.Plotly) return null;
     if (!items || !items.length) {
       el.innerHTML = '<div class="status">' + t("models_empty_filter") + "</div>";
@@ -643,10 +691,17 @@
     const full = items.map((it, i) => {
       const name = labelFn(it);
       const rank = it.rank || i + 1;
-      return { name, rank, tick: rank + ". " + name };
+      const suffix = suffixFn ? suffixFn(it, narrow) || "" : "";
+      const base = rank + ". " + name;
+      return {
+        name,
+        rank,
+        tick: base + suffix,
+        short: fitTick(base, Math.max(8, 18 - suffix.length)) + suffix,
+      };
     });
     const yLabels = full
-      .map((f) => (narrow ? fitTick(f.tick, 18) : f.tick))
+      .map((f) => (narrow ? f.short : f.tick))
       .reverse();
     const fullNames = full.map((f) => f.tick).reverse();
     const traces = POWERTRAINS.map((pt) => ({
@@ -660,7 +715,7 @@
       hovertemplate: "%{customdata} · " + pt + ": %{x:,}<extra></extra>",
     })).filter((tr) => tr.x.some((v) => v > 0));
     const rowH = narrow ? 28 : n > 40 ? 20 : n > 20 ? 22 : 26;
-    const longest = full.reduce((m, f) => Math.max(m, (narrow ? fitTick(f.tick, 18) : f.tick).length), 0);
+    const longest = full.reduce((m, f) => Math.max(m, (narrow ? f.short : f.tick).length), 0);
     const left = narrow
       ? Math.min(128, Math.max(84, Math.round(longest * 6.8)))
       : Math.min(220, Math.max(128, Math.round(longest * 7)));
@@ -705,7 +760,18 @@
   }
 
   function renderTopModelChart(el, models) {
-    return renderStackedHBar(el, models, (m) => m.label);
+    // Name the powertrain only where the same model shows up more than once.
+    const seen = {};
+    (models || []).forEach((m) => {
+      seen[m.label] = (seen[m.label] || 0) + 1;
+    });
+    return renderStackedHBar(
+      el,
+      models,
+      (m) => m.label,
+      (m, narrow) =>
+        m.powertrain && seen[m.label] > 1 ? (narrow ? " " : " · ") + m.powertrain : ""
+    );
   }
 
   function renderTopBrandTable(el, brands, opts) {
@@ -775,7 +841,7 @@
 
   /** Key lives in a data-* attribute: HTML turns NUL into U+FFFD, so use U+241F. */
   function modelEditionKey(m) {
-    return m.marca + "\u241F" + m.modelo;
+    return m.marca + "\u241F" + m.modelo + "\u241F" + (m.powertrain || "");
   }
 
   function renderTopModelTable(el, models, opts) {
@@ -1025,6 +1091,7 @@
     byBrand,
     byModel,
     byModelStacked,
+    byModelPowertrain,
     marketSeriesRows,
     aggregateToMarketRows,
     filterByPeriodScope,
