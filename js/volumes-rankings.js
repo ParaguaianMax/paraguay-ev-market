@@ -1,9 +1,13 @@
 /**
  * Top marcas / modelos on Volúmenes — month | year | YTD, multi-select name lists, powertrain stack.
  * Scope: LightVehicles + leve only (no Whole fallback).
- * Powertrain chips (multi-select): Todos | BEV | plug-in (PHEV) | HEV.
+ * Powertrain chips (multi-select): Todos | BEV | PHEV | non-plug-in (HEV + mild).
  * Todos = every powertrain in the ranking. Specific chips are a union and
- * never include ICE/OTHERS. Turning the last specific chip off returns to Todos.
+ * never include ICE. Turning the last specific chip off returns to Todos.
+ * Period (month | year | YTD) lives in sessionStorage: a new visit opens on
+ * YTD of the latest year. Links can set it with ?periodo=ytd&anio=YYYY&pt=bev.
+ * % columns (brands and models) = share of the current cut: period + condition
+ * toggle + powertrain chips. Top 20 / Todas, brand picks and search never change it.
  * With 2+ specific chips, the brand table adds a Total row under each
  * brand that spans multiple powertrains (units + %).
  * Top modelos rows are marca + modelo + powertrain (versions count as one
@@ -51,6 +55,39 @@
       localStorage.setItem(k, v);
     } catch (e) {}
   }
+  // Period choice is per visit (sessionStorage), so a fresh visit starts on YTD.
+  function ssGet(k) {
+    try {
+      return sessionStorage.getItem(k) || "";
+    } catch (e) {
+      return "";
+    }
+  }
+  function ssSet(k, v) {
+    try {
+      sessionStorage.setItem(k, v);
+    } catch (e) {}
+  }
+
+  /** ?periodo=month|year|ytd&anio=YYYY&pt=bev|plugin|hev|all (links from Inicio). */
+  function applyUrlScope() {
+    let q;
+    try {
+      q = new URLSearchParams(location.search);
+    } catch (e) {
+      return;
+    }
+    const periodo = q.get("periodo");
+    const anio = q.get("anio");
+    const pt = q.get("pt");
+    if (!periodo && !anio && !pt) return;
+    if (["month", "year", "ytd"].includes(periodo)) ssSet(MODE_KEY, periodo);
+    if (/^\d{4}$/.test(anio || "")) ssSet(YEAR_KEY, anio);
+    if (pt === "all" || PT_SPECIFIC.includes(pt)) lsSet(PT_KEY, pt);
+    try {
+      history.replaceState(null, "", location.pathname + location.hash);
+    } catch (e) {}
+  }
 
   function loadPtSet() {
     const raw = (lsGet(PT_KEY) || "all").trim();
@@ -72,7 +109,7 @@
     const pts = [];
     if (ptSet.has("bev")) pts.push("BEV");
     if (ptSet.has("plugin")) pts.push("PHEV");
-    if (ptSet.has("hev")) pts.push("HEV");
+    if (ptSet.has("hev")) pts.push("HEV", "OTHERS");
     return pts;
   }
 
@@ -343,13 +380,16 @@
     let marketRows = [];
     let lastModels = [];
     let lastBevModels = [];
+    let periodTotal = 0;
+    let bevTotal = 0;
     const expandedModels = new Set();
     const expandedBev = new Set();
     let plotGen = 0;
     let modelClickBound = null;
     let topLimit = lsGet(TOP_KEY) === "all" ? "all" : "20";
-    let mode = lsGet(MODE_KEY) || "month";
-    if (!["month", "year", "ytd"].includes(mode)) mode = "month";
+    applyUrlScope();
+    let mode = ssGet(MODE_KEY) || "ytd";
+    if (!["month", "year", "ytd"].includes(mode)) mode = "ytd";
     let ptSet = loadPtSet();
     let condMode = lsGet(COND_KEY) || "all";
     if (!COND_MODES.includes(condMode)) condMode = "all";
@@ -422,6 +462,7 @@
         btn.setAttribute("aria-pressed", on ? "true" : "false");
       });
       renderPtBanners();
+      renderStickySummary();
       condBtns.forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.condMode === condMode);
       });
@@ -432,12 +473,33 @@
       if (yearWrap && mode === "ytd") yearWrap.hidden = false;
     }
 
+    /** One-line cut for the collapsed filter bar: "0 km · YTD 2026 · Todos". */
+    function renderStickySummary() {
+      const el = document.getElementById("mmStickySummary");
+      if (!el) return;
+      const cond = !condicionAvailable ? "" :
+        condMode === "nuevo" ? t("hl_cut_new") : condMode === "usado" ? t("hl_cut_used") : t("hl_cut_all");
+      let period = "";
+      if (mode === "month") {
+        const p = selectedMonthPeriod();
+        period = p ? PYEV.periodLabel(p) : t("vol_period_month");
+      } else {
+        const y = (yearSel && yearSel.value) || "";
+        period = t(mode === "ytd" ? "vol_period_ytd" : "vol_period_year") + (y ? " " + y : "");
+      }
+      const pts = [];
+      if (ptSet.has("bev")) pts.push("BEV");
+      if (ptSet.has("plugin")) pts.push("PHEV");
+      if (ptSet.has("hev")) pts.push("HEV + mild");
+      el.textContent = [cond, period, pts.length ? pts.join(" + ") : t("vol_pt_all")].filter(Boolean).join(" · ");
+    }
+
     function fillPeriodSelects(forceYear) {
       const periods = PYEVModels.periodsOf(periodOptionRows());
       const years = [...new Set(periods.map((p) => p.slice(0, 4)))].sort();
       const latest = periods[periods.length - 1] || "";
-      const savedMonth = lsGet(MONTH_KEY);
-      const savedYear = lsGet(YEAR_KEY);
+      const savedMonth = ssGet(MONTH_KEY);
+      const savedYear = ssGet(YEAR_KEY);
       const oldMonthPeriod = selectedMonthPeriod();
       let desiredPeriod;
       if (forceYear) {
@@ -478,7 +540,7 @@
         monthSel.value = chosenPeriod ? chosenPeriod.slice(5, 7) : "";
         if (chosenPeriod) {
           if (monthYearSel) monthYearSel.value = chosenPeriod.slice(0, 4);
-          lsSet(MONTH_KEY, chosenPeriod);
+          ssSet(MONTH_KEY, chosenPeriod);
         }
       }
 
@@ -647,6 +709,7 @@
       PYEVCharts.renderPowertrainHeadline(el, PYEVCharts.sumPowertrains(rows), {
         periods: PYEVModels.periodsOf(periodRows),
         cond,
+        cutOnly: true,
       });
     }
 
@@ -654,6 +717,7 @@
       syncModeUI();
       // Keep the month/year choices limited to periods present under all active filters.
       fillPeriodSelects();
+      renderStickySummary();
       const periodRows = PYEVModels.filterByPeriodScope(marketRows, {
         mode,
         month: selectedMonthPeriod(),
@@ -680,6 +744,9 @@
       }
 
       const qOn = queryTokens().length > 0;
+      // Base for every % column: the current cut (period + condition + powertrain chips).
+      // Top 20 / Todas, brand picks and search never change it.
+      periodTotal = rows.reduce((a, r) => a + (Number(r.units) || 0), 0);
       const rankedBrands = PYEVModels.rankBrands(rows, { topN: 0 });
       rankedBrands.forEach((b, i) => {
         b.rank = i + 1;
@@ -724,6 +791,7 @@
         modelChart._pyevPlotPromise = PYEVModels.renderTopModelChart(modelChart, models);
       }
       const tableOpts = {
+        grand: periodTotal,
         showGroupTotals: ptSet.size >= 2,
         columns: !!(brandTable && brandTable.dataset.columns === "1"),
       };
@@ -740,8 +808,10 @@
       let base = periodRows;
       const cond = condicionAvailable ? condMode : "all";
       if (cond === "nuevo" || cond === "usado") base = PYEVModels.filterModels(base, { condicion: cond });
+      base = PYEVModels.marketSeriesRows(base).filter((r) => r.powertrain === "BEV");
+      // This table's cut is BEV only, so its % is of all BEV units in the period.
+      bevTotal = base.reduce((a, r) => a + (Number(r.units) || 0), 0);
       if (brandPicker.selected.size) base = base.filter((r) => brandPicker.selected.has(r.marca));
-      base = base.filter((r) => r.powertrain === "BEV");
       let ranked = PYEVModels.rankModels(base, { topN: 0 });
       ranked.forEach((m, i) => { m.rank = i + 1; });
       if (qOn) ranked = ranked.filter((m) => matchesQuery(m.marca + " " + m.modelo + " " + m.label));
@@ -758,6 +828,7 @@
     function paintModelTable() {
       // Model rows are single-powertrain, so no per-model Total line.
       PYEVModels.renderTopModelTable(modelTable, lastModels, {
+        grand: periodTotal,
         showGroupTotals: false,
         expandedModels,
       });
@@ -765,6 +836,7 @@
     function paintBevTable() {
       if (!bevTable) return;
       PYEVModels.renderTopModelTable(bevTable, lastBevModels, {
+        grand: bevTotal,
         showGroupTotals: false,
         expandedModels: expandedBev,
       });
@@ -819,7 +891,7 @@
     modeBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         mode = btn.dataset.periodMode;
-        lsSet(MODE_KEY, mode);
+        ssSet(MODE_KEY, mode);
         syncModeUI();
         draw();
       });
@@ -863,19 +935,19 @@
     if (monthYearSel) {
       monthYearSel.addEventListener("change", () => {
         fillPeriodSelects(monthYearSel.value);
-        lsSet(MONTH_KEY, selectedMonthPeriod());
+        ssSet(MONTH_KEY, selectedMonthPeriod());
         draw();
       });
     }
     if (monthSel) {
       monthSel.addEventListener("change", () => {
-        lsSet(MONTH_KEY, selectedMonthPeriod());
+        ssSet(MONTH_KEY, selectedMonthPeriod());
         draw();
       });
     }
     if (yearSel) {
       yearSel.addEventListener("change", () => {
-        lsSet(YEAR_KEY, yearSel.value);
+        ssSet(YEAR_KEY, yearSel.value);
         draw();
       });
     }

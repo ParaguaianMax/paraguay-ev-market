@@ -5,6 +5,8 @@
  */
 (function (global) {
   const CATS = ["BEV", "PHEV", "HEV", "OTHERS", "ICE"];
+  /** Users never see the raw OTHERS code. */
+  function catLabel(k) { return k === "OTHERS" ? "mild" : k; }
   const FIT_CATS = ["BEV", "PHEV", "HEV", "ICE"];
   const EPS = 1e-4;
   const PROJECT_MONTHS = 48;
@@ -147,15 +149,15 @@
     const displayCats = ["BEV", "PHEV", "HEV", "ICE"];
     if (rows.some(function (r) { return r.share.OTHERS >= 0.15; })) displayCats.splice(3, 0, "OTHERS");
     displayCats.forEach(function (k) {
-      var obsHover = "<b>" + k + "</b>: %{y:.2f}%<extra></extra>";
-      var projHover = "<b>" + k + "</b> " + t("traj_proj") + ": %{y:.2f}%<extra></extra>";
-      traces.push({ type: "scatter", mode: "lines", name: k + " · " + t("traj_fit"), x: histCurveX, y: histCurveByCat[k], line: { color: col[k], width: 1.75 }, legendgroup: k, hoverinfo: "skip", showlegend: false, meta: { pyevRole: "fit" } });
-      traces.push({ type: "scatter", mode: "lines", name: k + " · " + t("traj_proj"), x: futX, y: futByCat[k], line: { color: col[k], width: 1.75, dash: "dash" }, legendgroup: k, hoverinfo: "skip", showlegend: false, meta: { pyevRole: "proj" } });
-      traces.push({ type: "scatter", mode: "markers", name: k, x: histByCat[k].x, y: histByCat[k].y, marker: { color: col[k], size: 8, line: { width: 1, color: dark ? "#141413" : "#fdfdfc" } }, legendgroup: k, hoverinfo: "skip", meta: { pyevRole: "observed" } });
+      var obsHover = "<b>" + catLabel(k) + "</b>: %{y:.2f}%<extra></extra>";
+      var projHover = "<b>" + catLabel(k) + "</b> " + t("traj_proj") + ": %{y:.2f}%<extra></extra>";
+      traces.push({ type: "scatter", mode: "lines", name: catLabel(k) + " · " + t("traj_fit"), x: histCurveX, y: histCurveByCat[k], line: { color: col[k], width: 1.75 }, legendgroup: k, hoverinfo: "skip", showlegend: false, meta: { pyevRole: "fit" } });
+      traces.push({ type: "scatter", mode: "lines", name: catLabel(k) + " · " + t("traj_proj"), x: futX, y: futByCat[k], line: { color: col[k], width: 1.75, dash: "dash" }, legendgroup: k, hoverinfo: "skip", showlegend: false, meta: { pyevRole: "proj" } });
+      traces.push({ type: "scatter", mode: "markers", name: catLabel(k), x: histByCat[k].x, y: histByCat[k].y, marker: { color: col[k], size: 8, line: { width: 1, color: dark ? "#141413" : "#fdfdfc" } }, legendgroup: k, hoverinfo: "skip", meta: { pyevRole: "observed" } });
       // Invisible month bins drive the hover label. The fit is never listed.
       // An observed month lists only the dots; a later month lists only the projection.
-      traces.push({ type: "scatter", mode: "markers", name: k, x: histByCat[k].x, y: histByCat[k].y, xperiod: "M1", xperiodalignment: "middle", marker: { color: col[k], size: 8, opacity: 0 }, legendgroup: k, showlegend: false, hovertemplate: obsHover, meta: { pyevRole: "observed", pyevReadout: false } });
-      traces.push({ type: "scatter", mode: "markers", name: k + " · " + t("traj_proj"), x: tl.future, y: futByCat[k].slice(1), xperiod: "M1", xperiodalignment: "middle", marker: { color: col[k], size: 8, opacity: 0 }, legendgroup: k, showlegend: false, hovertemplate: projHover, meta: { pyevRole: "proj", pyevReadout: false } });
+      traces.push({ type: "scatter", mode: "markers", name: catLabel(k), x: histByCat[k].x, y: histByCat[k].y, xperiod: "M1", xperiodalignment: "middle", marker: { color: col[k], size: 8, opacity: 0 }, legendgroup: k, showlegend: false, hovertemplate: obsHover, meta: { pyevRole: "observed", pyevReadout: false } });
+      traces.push({ type: "scatter", mode: "markers", name: catLabel(k) + " · " + t("traj_proj"), x: tl.future, y: futByCat[k].slice(1), xperiod: "M1", xperiodalignment: "middle", marker: { color: col[k], size: 8, opacity: 0 }, legendgroup: k, showlegend: false, hovertemplate: projHover, meta: { pyevRole: "proj", pyevReadout: false } });
     });
     const annotations = [];
     const shapes = [{
@@ -229,24 +231,24 @@
     const cats = ["BEV", "PHEV", "HEV", "OTHERS", "ICE"];
     const traces = cats.map(function (k) {
       return {
-        type: "scatter", mode: "lines", name: k,
+        type: "scatter", mode: "lines", name: catLabel(k),
         x: points.map(function (p) { return p.period; }),
         y: points.map(function (p) { return +p.share[k].toFixed(4); }),
         customdata: points.map(function (p) { return p.windowMonths; }),
         stackgroup: "one", groupnorm: "percent",
         line: { width: 0.5, color: col[k] }, fillcolor: col[k],
-        hovertemplate: "<b>" + k + "</b>: %{y:.2f}% · " + t("traj_window") + " %{customdata} " + t("traj_months_short") + "<extra></extra>"
+        hovertemplate: "<b>" + catLabel(k) + "</b>: %{y:.2f}% · " + t("traj_window") + " %{customdata} " + t("traj_months_short") + "<extra></extra>"
       };
     });
     if (n < 4) {
       const barTraces = cats.map(function (k) {
         return {
-          type: "bar", name: k,
+          type: "bar", name: catLabel(k),
           x: points.map(function (p) { return p.label; }),
           y: points.map(function (p) { return +p.share[k].toFixed(4); }),
           customdata: points.map(function (p) { return p.windowMonths; }),
           marker: { color: col[k], line: { width: 0 } },
-          hovertemplate: "<b>" + k + "</b>: %{y:.2f}% · " + t("traj_window") + " %{customdata} " + t("traj_months_short") + "<extra></extra>"
+          hovertemplate: "<b>" + catLabel(k) + "</b>: %{y:.2f}% · " + t("traj_window") + " %{customdata} " + t("traj_months_short") + "<extra></extra>"
         };
       });
       const base = layoutBase();

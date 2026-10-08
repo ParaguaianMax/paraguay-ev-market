@@ -710,12 +710,12 @@
     const traces = POWERTRAINS.map((pt) => ({
       type: "bar",
       orientation: "h",
-      name: pt,
+      name: ptLabel(pt),
       y: yLabels,
       x: items.map((it) => it.byPt[pt] || 0).reverse(),
       customdata: fullNames,
       marker: { color: c[pt] },
-      hovertemplate: "%{customdata} · " + pt + ": %{x:,}<extra></extra>",
+      hovertemplate: "%{customdata} · " + ptLabel(pt) + ": %{x:,}<extra></extra>",
     })).filter((tr) => tr.x.some((v) => v > 0));
     const muted = global.PYEV && global.PYEV.isDark && global.PYEV.isDark() ? "#aeaba2" : "#55534c";
     const ink = global.PYEV && global.PYEV.isDark && global.PYEV.isDark() ? "#ecebe6" : "#1a1a18";
@@ -812,13 +812,13 @@
       models,
       (m) => m.label,
       (m, narrow) =>
-        m.powertrain && seen[m.label] > 1 ? (narrow ? " " : " · ") + m.powertrain : ""
+        m.powertrain && seen[m.label] > 1 ? (narrow ? " " : " · ") + ptLabel(m.powertrain) : ""
     );
   }
 
 
-  /** One row per brand: BEV / PHEV / HEV / mild / ICE columns. */
-  function renderBrandColumnTable(el, brands) {
+  /** One row per brand: BEV / PHEV / HEV / mild / ICE columns. % is of the cut total (opts.grand). */
+  function renderBrandColumnTable(el, brands, grandTotal) {
     const cols = [
       ["BEV", "BEV", "c-bev"],
       ["PHEV", "PHEV", "c-phev"],
@@ -826,12 +826,12 @@
       ["OTHERS", t("mild_col"), "c-others"],
       ["ICE", "ICE", "c-ice"],
     ];
-    const grand = brands.reduce((a, b) => a + b.total, 0);
+    const grand = grandTotal || brands.reduce((a, b) => a + b.total, 0);
     let html =
       '<div class="data-table-wrap"><table class="data brand-cols"><thead><tr><th>#</th><th>' +
       t("models_col_brand") + "</th>" +
       cols.map((c) => "<th class='num " + c[2] + "'>" + esc(c[1]) + "</th>").join("") +
-      "<th class='num'>" + t("total") + "</th><th class='num hide-phone'>%</th></tr></thead><tbody>";
+      "<th class='num'>" + t("total") + "</th><th class='num pct-col hide-phone'>" + t("mm_pct_total") + "</th></tr></thead><tbody>";
     brands.forEach((b, i) => {
       const cells = cols.map((c) => {
         const u = b.byPt[c[0]] || 0;
@@ -855,7 +855,7 @@
     }
     opts = opts || {};
     if (opts.columns) {
-      renderBrandColumnTable(el, brands);
+      renderBrandColumnTable(el, brands, opts.grand);
       return;
     }
     const showGroupTotals = !!opts.showGroupTotals;
@@ -866,8 +866,11 @@
       t("models_col_pt") +
       "</th><th class='num'>" +
       t("units") +
-      "</th><th class='num'>%</th></tr></thead><tbody>";
-    const grand = brands.reduce((a, b) => a + b.total, 0);
+      "</th><th class='num'>" +
+      t("mm_pct_total") +
+      "</th></tr></thead><tbody>";
+    // Share of the whole cut (period + 0 km toggle + powertrain), not of the rows shown.
+    const grand = opts.grand || brands.reduce((a, b) => a + b.total, 0);
     brands.forEach((b, i) => {
       const pts = POWERTRAINS.filter((pt) => (b.byPt[pt] || 0) > 0);
       let groupUnits = 0;
@@ -930,6 +933,10 @@
     opts = opts || {};
     const showGroupTotals = !!opts.showGroupTotals;
     const expanded = opts.expandedModels;
+    // % = share of the whole period market (all powertrains), opts.grand.
+    const grand = opts.grand || 0;
+    const pctOf = (u) => (grand ? ((100 * u) / grand).toFixed(1) + "%" : "—");
+    const pctHead = grand ? "<th class='num pct-col'>" + t("mm_pct_total") + "</th>" : "";
     let html =
       '<div class="data-table-wrap table-fit"><table class="data rank-models"><thead><tr><th>#</th><th>' +
       t("models_col_brand") +
@@ -939,7 +946,7 @@
       t("models_col_pt") +
       "</th><th class='num'>" +
       t("units") +
-      "</th></tr></thead><tbody>";
+      "</th>" + pctHead + "</tr></thead><tbody>";
     models.forEach((m, i) => {
       const pts = POWERTRAINS.filter((pt) => (m.byPt[pt] || 0) > 0);
       const editions = m.editions;
@@ -988,7 +995,7 @@
           "</td>" +
           "<td class='num'>" +
           fmt(u) +
-          "</td></tr>";
+          "</td>" + (grand ? "<td class='num'>" + pctOf(u) + "</td>" : "") + "</tr>";
       });
       if (showGroupTotals && pts.length >= 2) {
         html +=
@@ -1001,7 +1008,7 @@
           "</td>" +
           "<td class='num'>" +
           fmt(groupUnits) +
-          "</td></tr>";
+          "</td>" + (grand ? "<td class='num'>" + pctOf(groupUnits) + "</td>" : "") + "</tr>";
       }
       if (editions && open) {
         let items = "";
@@ -1022,7 +1029,7 @@
             "</span></span></li>";
         });
         html +=
-          "<tr class='rank-editions'><td colspan='5'><div class='rank-editions-label'>" +
+          "<tr class='rank-editions'><td colspan='" + (grand ? 6 : 5) + "'><div class='rank-editions-label'>" +
           esc(t("vol_editions")) +
           "</div><ul class='rank-edition-list'>" +
           items +
@@ -1033,8 +1040,13 @@
     el.innerHTML = html;
   }
 
+  /** Users never see the raw OTHERS code: it is "mild" (light hybrid). */
+  function ptLabel(pt) {
+    return pt === "OTHERS" ? "mild" : pt;
+  }
+
   function pillHtml(pt) {
-    return '<span class="pill ' + (PILL[pt] || "pill-others") + '">' + pt + "</span>";
+    return '<span class="pill ' + (PILL[pt] || "pill-others") + '">' + esc(ptLabel(pt)) + "</span>";
   }
 
   function fmt(n) {
@@ -1196,7 +1208,7 @@
         [
           {
             type: "bar",
-            x: data.map((d) => d.powertrain),
+            x: data.map((d) => ptLabel(d.powertrain)),
             y: data.map((d) => d.units),
             text: data.map((d) => fmt(d.units)),
             textposition: "outside",
@@ -1220,11 +1232,11 @@
       const x = brands.map((b) => b.marca);
       const traces = POWERTRAINS.map((pt) => ({
         type: "bar",
-        name: pt,
+        name: ptLabel(pt),
         x,
         y: brands.map((b) => b.byPt[pt] || 0),
         marker: { color: c[pt] },
-        hovertemplate: "%{x} · " + pt + ": %{y:,}<extra></extra>",
+        hovertemplate: "%{x} · " + ptLabel(pt) + ": %{y:,}<extra></extra>",
       })).filter((tr) => tr.y.some((v) => v > 0));
       Plotly.newPlot(
         el,
@@ -1245,7 +1257,7 @@
         return;
       }
       const c = colors();
-      const y = models.map((m) => m.marca + " " + m.modelo + " · " + m.powertrain).reverse();
+      const y = models.map((m) => m.marca + " " + m.modelo + " · " + ptLabel(m.powertrain)).reverse();
       const x = models.map((m) => m.units).reverse();
       const pts = models.map((m) => m.powertrain).reverse();
       Plotly.newPlot(

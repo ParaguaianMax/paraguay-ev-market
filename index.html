@@ -92,7 +92,7 @@
       <span class="pill pill-ice">ICE</span>
     </div>
     <h1 data-i18n="home_title">Mercado híbrido / eléctrico en Paraguay</h1>
-    <p class="lead" data-i18n="home_lead">Seguimiento mensual de las importaciones de vehículos en Paraguay: eléctricos de batería (BEV), híbridos enchufables (PHEV) e híbridos (HEV), comparados con el total y los vehículos de combustión (ICE).</p>
+    <p class="lead" data-i18n="home_lead">Seguimiento mensual de las importaciones de vehículos en Paraguay: eléctricos de batería (BEV), híbridos enchufables (PHEV) e híbridos no enchufables (HEV + mild), comparados con el total y los vehículos de combustión (ICE).</p>
     <div class="nuevos-banner" data-nuevos-note hidden data-i18n="nuevos_banner">Solo 0 km</div>
 
 <div id="kpis" class="pt-headline">
@@ -117,13 +117,13 @@
         <h2 data-i18n="home_top_bev">Top 5 BEV</h2>
         <p class="pt-cut" data-home-top-cut></p>
         <ol class="top-bars bev" id="home-top-bev"></ol>
-        <p class="home-link"><a href="pages/marcas.html#modelos" data-rank-link="bev" data-i18n="home_top_link">Ver ranking completo →</a></p>
+        <p class="home-link"><a href="pages/marcas.html?periodo=ytd&amp;pt=bev#modelos" data-rank-link="bev" data-i18n="home_top_link">Ver ranking completo →</a></p>
       </div>
       <div class="home-top">
         <h2 data-i18n="home_top_nonplug">Top 5 híbridos no enchufables</h2>
         <p class="pt-cut" data-home-top-cut></p>
         <ol class="top-bars nonplug" id="home-top-nonplug"></ol>
-        <p class="home-link"><a href="pages/marcas.html#modelos" data-rank-link="hev" data-i18n="home_top_link">Ver ranking completo →</a></p>
+        <p class="home-link"><a href="pages/marcas.html?periodo=ytd&amp;pt=hev#modelos" data-rank-link="hev" data-i18n="home_top_link">Ver ranking completo →</a></p>
       </div>
     </section>
 
@@ -215,22 +215,20 @@
         if (chargerDesc) chargerDesc.textContent = PYEV.t("card_chargers_counts", c);
       }
 
-      // "Ver ranking completo" opens Marcas y modelos on the same cut (year to date, chip).
-      document.querySelectorAll("[data-rank-link]").forEach((a) => {
-        a.addEventListener("click", () => {
-          if (!S) return;
-          try {
-            localStorage.setItem("pyev-vol-period-mode", "ytd");
-            localStorage.setItem("pyev-vol-period-year", String(S.cutoff).slice(0, 4));
-            localStorage.setItem("pyev-vol-pt-mode", a.dataset.rankLink);
-          } catch (e) {}
+      // "Ver ranking completo" opens Marcas y modelos on the Top 5 cut: year to date
+      // of the cutoff year, with the chip. The URL carries it, so a new tab works too.
+      function setRankLinks() {
+        const year = S && S.cutoff ? "&anio=" + String(S.cutoff).slice(0, 4) : "";
+        document.querySelectorAll("[data-rank-link]").forEach((a) => {
+          a.setAttribute("href", "pages/marcas.html?periodo=ytd" + year + "&pt=" + a.dataset.rankLink + "#modelos");
         });
-      });
+      }
 
       try {
         const res = await fetch("data/summary.json", { cache: "no-cache" });
         if (!res.ok) throw new Error(res.status);
         S = await res.json();
+        setRankLinks();
         draw();
       } catch (e) {
         kpis.innerHTML = '<div class="status error">' + PYEV.t("home_error") + "</div>";

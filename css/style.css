@@ -977,6 +977,8 @@ background: var(--surface-2); color: var(--muted); cursor: pointer;
 /* Powertrain headline: BEV | PHEV (plug-in subtotal) | non-plug-in hybrids | combustion */
 .pt-headline { margin: 1.25rem 0 1.75rem; }
 .pt-headline > .status { padding: 1rem 0; }
+.pt-headline.cut-only { margin: 0.75rem 0 1.25rem; }
+.pt-headline.cut-only .pt-cut { margin-bottom: 0; }
 .pt-cut {
 font-size: 0.8rem;
 color: var(--muted);
@@ -1179,6 +1181,8 @@ margin: 0 -0.25rem;
 .scope-bar .scope-note { font-size: 0.78rem; color: var(--muted); margin-right: auto; }
 
 .section-anchor { scroll-margin-top: 7rem; }
+/* Marcas: anchors land below the sticky header + filter bar. */
+.vol-rankings .section-anchor { scroll-margin-top: calc(var(--hdr-h, 4rem) + var(--mm-bar-h, 3rem) + 0.75rem); }
 .mm-search {
 display: flex;
 align-items: center;
@@ -1245,3 +1249,73 @@ color: var(--text);
 .defs { margin: 0.5rem 0 1rem; padding-left: 1.1rem; }
 .defs li { margin: 0.3rem 0; line-height: 1.45; }
 .chart-network-hbars { min-height: 0; }
+
+/* Mercado year table: one header row per year, change under each value. */
+.annual-table { width: 100%; }
+.annual-table thead th { vertical-align: bottom; line-height: 1.2; white-space: normal; overflow-wrap: normal; hyphens: manual; }
+.annual-table tr.annual-year th { text-align: left; font-weight: 400; text-transform: none; letter-spacing: 0; white-space: normal; background: var(--bg-deep); padding-top: 0.35rem; padding-bottom: 0.35rem; }
+.annual-table tr.annual-year th b { font-weight: 700; margin-right: 0.35rem; }
+.annual-table tr.annual-year th small { color: var(--muted); }
+.annual-table .yoy { display: block; margin-top: 0.2rem; font-size: 0.78em; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.annual-table .yoy span { display: block; }
+.annual-table td b { font-variant-numeric: tabular-nums; }
+.annual-note { font-size: 0.8rem; color: var(--muted); margin: 0.4rem 0 0; }
+@media (max-width: 640px) {
+.annual-table thead th { font-size: 0.62rem; letter-spacing: 0; }
+.annual-table td, .annual-table th { padding-left: 0.18rem; padding-right: 0.18rem; }
+}
+.annual-tot-inline { display: none; }
+@media (max-width: 640px) {
+.annual-table .annual-tot { display: none; }
+.annual-table .annual-tot-inline { display: block; margin-top: 0.1rem; color: var(--muted); font-size: 0.9em; }
+.annual-table .annual-tot-inline b { color: var(--text); margin: 0; }
+}
+
+/* Marcas y modelos: sticky, collapsible filter bar under the sticky site header. */
+.mm-sticky {
+position: sticky;
+top: var(--hdr-h, 0px);
+z-index: 15;
+background: var(--bg);
+border-bottom: 1px solid var(--line);
+margin: 0 -1.15rem 0.9rem;
+padding: 0.35rem 1.15rem 0.45rem;
+box-shadow: 0 6px 10px -10px rgba(0, 0, 0, 0.35);
+}
+.mm-sticky-toggle {
+display: flex;
+align-items: baseline;
+gap: 0.5rem;
+width: 100%;
+padding: 0.3rem 0;
+border: 0;
+background: none;
+color: var(--text);
+font: inherit;
+font-size: 0.82rem;
+text-align: left;
+cursor: pointer;
+}
+.mm-sticky-label { font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.72rem; color: var(--muted); }
+.mm-sticky-summary { flex: 1; min-width: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+.mm-sticky-action { color: var(--accent); font-size: 0.78rem; white-space: nowrap; }
+.mm-sticky-action::after { content: " ▴"; }
+.mm-sticky.is-collapsed .mm-sticky-action::after { content: " ▾"; }
+.mm-sticky-body { max-height: calc(100vh - var(--hdr-h, 0px) - 3rem); overflow-y: auto; overscroll-behavior: contain; }
+.mm-sticky .pt-headline.cut-only { margin: 0.1rem 0 0.35rem; }
+.mm-sticky .series-toolbar { margin: 0.2rem 0 0.2rem; }
+@media (max-width: 719px) {
+.mm-sticky { margin-left: -1.15rem; margin-right: -1.15rem; }
+.mm-sticky .series-toolbar { gap: 0.45rem 0.6rem; padding: 0.45rem 0.5rem; }
+.mm-sticky .variant-switcher select { min-width: 7.5rem; }
+}
+/* "% del total del período" header wraps instead of widening the table. */
+table.data th.pct-col { white-space: normal; min-width: 4.2rem; max-width: 6rem; line-height: 1.15; }
+@media (max-width: 640px) {
+table.data.rank-models th, table.data.rank-models td { padding-left: 0.3rem; padding-right: 0.3rem; }
+table.data.rank-models th { white-space: normal; line-height: 1.15; }
+table.data th.pct-col { min-width: 3.4rem; font-size: 0.62rem; }
+}
+@media (max-width: 640px) {
+table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padding-right: 0.25rem; }
+}

@@ -87,7 +87,6 @@
     <h1 data-i18n="mm_title">Marcas y modelos</h1>
     <p class="lead" data-i18n="mm_lead">Unidades por marca y por modelo.</p>
     <div class="nuevos-banner" data-nuevos-note hidden></div>
-    <div id="volHeadline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
     <div class="vol-series-filter" id="volSeriesFilter" hidden>
       <span id="volSeriesFilterText"></span>
       <button type="button" class="vol-series-filter-clear" id="volSeriesFilterClear" data-i18n="vol_filter_clear">Quitar filtro</button>
@@ -100,6 +99,14 @@
       </div>
 
       <div id="vol-rankings-ui" hidden>
+        <div class="mm-sticky" id="mmSticky">
+          <button type="button" class="mm-sticky-toggle" id="mmStickyToggle" aria-expanded="true" aria-controls="mmStickyBody">
+            <span class="mm-sticky-label" data-i18n="mm_filters">Filtros</span>
+            <span class="mm-sticky-summary" id="mmStickySummary"></span>
+            <span class="mm-sticky-action" id="mmStickyAction" data-i18n="mm_filters_hide">Ocultar</span>
+          </button>
+          <div class="mm-sticky-body" id="mmStickyBody">
+        <div id="volHeadline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
         <div class="series-toolbar models-toolbar vol-period-toolbar">
           <div class="period-mode" role="group" aria-label="Período" data-i18n-attr="aria-label:vol_period_month">
             <button type="button" class="period-mode-btn active" data-period-mode="month" data-i18n="vol_period_month">Mes</button>
@@ -122,8 +129,8 @@
             <div class="period-mode vol-pt-mode" role="group" aria-label="Motorización" data-i18n-attr="aria-label:models_col_pt">
               <button type="button" class="period-mode-btn active" data-pt-mode="all" aria-pressed="true" data-i18n="vol_pt_all">Todos</button>
               <button type="button" class="period-mode-btn" data-pt-mode="bev" aria-pressed="false">BEV</button>
-              <button type="button" class="period-mode-btn" data-pt-mode="plugin" aria-pressed="false" data-i18n="vol_pt_plugin">Híbridos plug-in</button>
-              <button type="button" class="period-mode-btn" data-pt-mode="hev" aria-pressed="false" data-i18n="vol_pt_hev">Híbridos autorrecargables</button>
+              <button type="button" class="period-mode-btn" data-pt-mode="plugin" aria-pressed="false" data-i18n="vol_pt_plugin">Híbridos enchufables (PHEV)</button>
+              <button type="button" class="period-mode-btn" data-pt-mode="hev" aria-pressed="false" data-i18n="vol_pt_hev">Híbridos no enchufables (HEV + mild)</button>
             </div>
             <div id="volPtBanners" class="vol-pt-banners" hidden></div>
           </div>
@@ -133,6 +140,8 @@
             <button type="button" class="period-mode-btn" data-cond-mode="usado" data-i18n="vol_cond_usado">Usado</button>
           </div>
           <span class="variant-hint" id="volScopeHint"></span>
+        </div>
+          </div>
         </div>
 
         <div class="mm-search">
@@ -230,6 +239,47 @@
           filterText.textContent = PYEV.t("vol_filter_on", { items: (vf.models.length ? vf.models : vf.brands).join(", ") });
         }
       }
+
+    // Sticky filter bar: sits under the sticky site header; collapsed by default on phones.
+    (function () {
+      const bar = document.getElementById("mmSticky");
+      const toggle = document.getElementById("mmStickyToggle");
+      const body = document.getElementById("mmStickyBody");
+      const action = document.getElementById("mmStickyAction");
+      const header = document.querySelector("header.site");
+      if (!bar || !toggle || !body) return;
+      const KEY = "pyev-mm-filters-open";
+      const root = document.documentElement;
+      const measure = () => {
+        root.style.setProperty("--hdr-h", (header ? header.offsetHeight : 0) + "px");
+        root.style.setProperty("--mm-bar-h", bar.offsetHeight + "px");
+      };
+      const setOpen = (open, save) => {
+        bar.classList.toggle("is-collapsed", !open);
+        body.hidden = !open;
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        if (action) {
+          const k = open ? "mm_filters_hide" : "mm_filters_show";
+          action.setAttribute("data-i18n", k);
+          action.textContent = PYEV.t(k);
+        }
+        if (save) { try { sessionStorage.setItem(KEY, open ? "1" : "0"); } catch (e) {} }
+        measure();
+      };
+      let saved = "";
+      try { saved = sessionStorage.getItem(KEY) || ""; } catch (e) {}
+      const phone = window.matchMedia && window.matchMedia("(max-width: 719px)").matches;
+      setOpen(saved ? saved === "1" : !phone, false);
+      toggle.addEventListener("click", () => setOpen(body.hidden, true));
+      if (window.ResizeObserver) {
+        const ro = new ResizeObserver(measure);
+        ro.observe(bar);
+        if (header) ro.observe(header);
+      } else {
+        window.addEventListener("resize", measure);
+      }
+      measure();
+    })();
 
     // Content renders after load, so re-apply the #anchor once it has height.
     window.__pyevScrollHash = function () {

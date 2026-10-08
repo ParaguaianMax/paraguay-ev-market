@@ -89,6 +89,21 @@
     <div class="nuevos-banner" data-nuevos-note hidden></div>
     <div id="headline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
 
+    <section id="trayectorias" class="section-anchor">
+      <h2 data-i18n="traj_title">Trayectorias de adopción</h2>
+      <p class="lead" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste. Línea punteada = proyección si la tendencia se mantuviera.</p>
+      <div class="note" data-i18n="traj_disclaimer">La línea punteada extiende la tendencia observada. Es ilustrativa, no un pronóstico.</div>
+      <div class="legend-row">
+        <span class="lg-bev">BEV</span>
+        <span class="lg-phev">PHEV</span>
+        <span class="lg-hev">HEV</span>
+        <span class="lg-ice">ICE</span>
+      </div>
+      <div id="chart-extra" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="chart-foot" id="extra-foot"></p>
+      <p class="chart-foot" data-i18n="ice_formula">ICE = total menos BEV, PHEV, HEV y mild.</p>
+    </section>
+
     <section id="participacion" class="section-anchor">
       <h2 data-i18n="mercado_share_title">Participación mensual</h2>
       <p class="lead" data-i18n="mercado_share_lead">Porcentaje de cada mes.</p>
@@ -121,27 +136,13 @@
       <div class="elec-chart-toolbar">
         <div class="period-mode" role="group" data-i18n-attr="aria-label:elec_view_aria" aria-label="Vista de electrificados">
           <button type="button" class="period-mode-btn active" data-elec-mode="all" aria-pressed="true" data-i18n="elec_view_all">Todos sin ICE</button>
-          <button type="button" class="period-mode-btn" data-elec-mode="hev" aria-pressed="false" data-i18n="elec_view_hev">Híbridos autorrecargables</button>
+          <button type="button" class="period-mode-btn" data-elec-mode="hev" aria-pressed="false" data-i18n="elec_view_hev">Híbridos no enchufables (HEV + mild)</button>
         </div>
-        <p id="elecHevBanner" class="elec-chart-banner" hidden data-i18n="elec_view_hev_banner">Híbridos que se recargan solos, sin enchufe (HEV).</p>
+        <p id="elecHevBanner" class="elec-chart-banner" hidden data-i18n="elec_view_hev_banner">Híbridos no enchufables (HEV + mild): HEV y mild (híbrido leve). No se enchufan.</p>
       </div>
       <div id="chart-elec" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
     </section>
 
-    <details id="trayectorias" class="fold section-anchor">
-      <summary><span data-i18n="traj_title">Trayectorias de adopción</span> <span class="fold-sub" data-i18n="mercado_proj_sub">ilustrativa</span></summary>
-      <p class="lead" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste. Línea punteada = proyección si la tendencia se mantuviera.</p>
-      <div class="note" data-i18n="traj_disclaimer">La línea punteada extiende la tendencia observada. Es ilustrativa, no un pronóstico.</div>
-      <div class="legend-row">
-        <span class="lg-bev">BEV</span>
-        <span class="lg-phev">PHEV</span>
-        <span class="lg-hev">HEV</span>
-        <span class="lg-ice">ICE</span>
-      </div>
-      <div id="chart-extra" class="chart-panel chart-bare"><div class="status" data-i18n="loading">Cargando…</div></div>
-      <p class="chart-foot" id="extra-foot"></p>
-      <p class="chart-foot" data-i18n="ice_formula">ICE = total menos BEV, PHEV, HEV y mild.</p>
-    </details>
   </main>
   <footer class="site">
     <div class="wrap">
@@ -205,10 +206,11 @@
           PYEVCharts.renderPowertrainHeadline(headline, PYEVCharts.sumPowertrains(ytdRows), {
             periods: ytdRows.map((r) => r.period),
             cond: PYEV.isNuevosOnly && PYEV.isNuevosOnly() ? "nuevo" : "all",
+            cutOnly: true,
           });
           syncView();
           // Plotly does not clear the "Cargando…" placeholder by itself.
-          [el, elElec].forEach((n) => { if (!n.data) n.innerHTML = ""; });
+          [el, elElec, elExtra].forEach((n) => { if (!n.data) n.innerHTML = ""; });
           PYEVCharts.shareChart(el, rows, shareOpts());
           PYEVCharts.renderAnnualTable(annual, rows);
           elecModeBtns.forEach((btn) => {
@@ -218,8 +220,8 @@
           });
           if (elecHevBanner) elecHevBanner.hidden = electrifiedMode !== "hev";
           PYEVCharts.volumesElectrifiedChart(elElec, rows, { mode: electrifiedMode });
-          const open = document.getElementById("trayectorias").open;
-          if (open || elExtra._pyevRows) {
+          // First chart on the page, drawn on load (no longer folded).
+          {
             if (!elExtra.data) elExtra.innerHTML = "";
             PYEVTrajectories.extrapolationChart(elExtra, rows);
             const first = rows[0], last = rows[rows.length - 1];
@@ -237,9 +239,6 @@
           el.innerHTML = '<div class="status error">' + e.message + "</div>";
         }
       }
-      document.getElementById("trayectorias").addEventListener("toggle", () => {
-        if (document.getElementById("trayectorias").open && rows.length && !elExtra._pyevRows) draw();
-      });
 
     // Content renders after load, so re-apply the #anchor once it has height.
     window.__pyevScrollHash = function () {
@@ -251,7 +250,6 @@
       if (el.tagName === "DETAILS") el.open = true;
       requestAnimationFrame(() => el.scrollIntoView());
     };
-      if ((location.hash || "").indexOf("trayectorias") >= 0) document.getElementById("trayectorias").open = true;
       await draw();
       window.addEventListener("pyev-lang", draw);
       window.addEventListener("pyev-nuevos", draw);

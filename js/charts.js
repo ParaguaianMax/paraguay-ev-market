@@ -119,30 +119,100 @@
     el._pyevOpts = opts;
   }
 
-  /** Calendar-year totals: units and % per powertrain; partial years name their months. */
+  /** Unit change as on Inicio: "×2.5" from double up, else "+43%" / "−5%" / "±0%". */
+  function unitChangeLabel(cur, old) {
+    if (!old) return "";
+    const r = cur / old;
+    if (r >= 2) return "×" + r.toFixed(1);
+    const c = Math.round((r - 1) * 100);
+    return (c > 0 ? "+" : c < 0 ? "−" : "±") + Math.abs(c) + "%";
+  }
+
+  /** Share change in pp, from the shares as displayed (one decimal), so the numbers add up. */
+  function ppChangeLabel(curPct, oldPct) {
+    const r1 = (v) => Math.round(v * 10) / 10;
+    const d = r1(curPct) - r1(oldPct);
+    const arrow = d >= 0.05 ? "▲" : d <= -0.05 ? "▼" : "=";
+    return arrow + " " + Math.abs(d).toFixed(1) + " pp";
+  }
+
+  /**
+   * Calendar-year totals per group (BEV, PHEV, HEV + mild, ICE, total) with the
+   * change against the previous year. A partial year is compared with the same
+   * months of the year before; the first year has no comparison.
+   */
   function renderAnnualTable(container, rows) {
     if (!container || !rows || !rows.length) return;
     const P = global.PYEV;
+    const t = P.t;
+    const byPeriod = {};
+    rows.forEach((r) => { byPeriod[r.period] = r; });
+    const sumOf = (periods) => {
+      const o = { BEV: 0, PHEV: 0, NONPLUG: 0, ICE: 0, TOTAL: 0 };
+      periods.forEach((p) => {
+        const r = byPeriod[p];
+        o.BEV += Number(r.BEV) || 0;
+        o.PHEV += Number(r.PHEV) || 0;
+        o.NONPLUG += (Number(r.HEV) || 0) + (Number(r.OTHERS) || 0);
+        o.ICE += Number(r.ICE) || 0;
+        o.TOTAL += Number(r.TOTAL) || 0;
+      });
+      return o;
+    };
     const years = {};
-    rows.forEach((r) => {
-      const y = String(r.period).slice(0, 4);
-      if (!years[y]) years[y] = { months: [], BEV: 0, PHEV: 0, HEV: 0, OTHERS: 0, ICE: 0, TOTAL: 0 };
-      years[y].months.push(r.period);
-      ["BEV", "PHEV", "HEV", "OTHERS", "ICE", "TOTAL"].forEach((k) => { years[y][k] += Number(r[k]) || 0; });
+    Object.keys(byPeriod).sort().forEach((p) => {
+      const y = p.slice(0, 4);
+      (years[y] = years[y] || []).push(p);
     });
-    const cats = [["BEV", "BEV"], ["PHEV", "PHEV"], ["HEV", "HEV"], ["OTHERS", "mild"], ["ICE", "ICE"]];
-    const head = "<thead><tr><th>" + P.t("vol_year_label") + "</th><th class='num'>" + P.t("total") + "</th>" +
-      cats.map((c) => "<th class='num'>" + c[1] + "</th>").join("") + "</tr></thead>";
+    const cats = [
+      ["BEV", "BEV", "c-bev"],
+      ["PHEV", "PHEV", "c-phev"],
+      ["NONPLUG", t("hl_nonplug"), "c-hev"],
+      ["ICE", t("hl_ice"), "c-ice"],
+    ];
+    const noYoy = '<span class="yoy none">—</span>';
+    const head = "<thead><tr>" +
+      cats.map((c) => "<th class='num " + c[2] + "'>" + c[1] + "</th>").join("") +
+      "<th class='num annual-tot'>" + t("total") + "</th></tr></thead>";
+    const notes = [];
     const body = Object.keys(years).sort().reverse().map((y) => {
-      const d = years[y];
-      const partial = d.months.length < 12 ? "<small>" + monthsLabel(d.months) + "</small>" : "";
+      const months = years[y];
+      const d = sumOf(months);
+      const prevMonths = months.map((p) => String(Number(y) - 1) + p.slice(4));
+      const hasPrev = prevMonths.every((p) => byPeriod[p]);
+      const ps = hasPrev ? sumOf(prevMonths) : null;
+      const partial = months.length < 12;
+      const monthsOnly = (ms) => monthsLabel(ms).replace(/\s+\d{4}$/, "");
+      let sub = "";
+      if (partial) {
+        sub = monthsOnly(months) + (ps ? " · " + t("annual_vs", { prev: monthsLabel(prevMonths) }) : "");
+        if (ps) notes.push(t("annual_partial_note", { year: y, months: monthsOnly(months), prev: monthsLabel(prevMonths) }));
+      } else if (ps) {
+        sub = t("annual_vs", { prev: String(Number(y) - 1) });
+      }
       const cells = cats.map((c) => {
-        const pct = d.TOTAL ? (100 * d[c[0]]) / d.TOTAL : 0;
-        return "<td class='num'><b>" + P.fmtPct(pct) + "</b><small>" + P.fmtInt(d[c[0]]) + "</small></td>";
+        const u = d[c[0]];
+        const pct = d.TOTAL ? (100 * u) / d.TOTAL : 0;
+        let yoy = noYoy;
+        if (ps && ps.TOTAL) {
+          const old = ps[c[0]];
+          const uc = unitChangeLabel(u, old);
+          yoy = '<span class="yoy">' + ppChangeLabel(pct, (100 * old) / ps.TOTAL) +
+            (uc ? "<span>" + uc + "</span>" : "") + "</span>";
+        }
+        return "<td class='num'><b>" + P.fmtPct(pct) + "</b><small>" + P.fmtInt(u) + "</small>" + yoy + "</td>";
       }).join("");
-      return "<tr><td><b>" + y + "</b>" + partial + "</td><td class='num'>" + P.fmtInt(d.TOTAL) + "</td>" + cells + "</tr>";
+      const totYoy = ps && ps.TOTAL ? '<span class="yoy"><span>' + unitChangeLabel(d.TOTAL, ps.TOTAL) + "</span></span>" : noYoy;
+      // Phones show the total in the year line instead of a sixth column.
+      const totInline = '<span class="annual-tot-inline">' + t("total") + " <b>" + P.fmtInt(d.TOTAL) + "</b>" +
+        (ps && ps.TOTAL ? " (" + unitChangeLabel(d.TOTAL, ps.TOTAL) + ")" : "") + "</span>";
+      return "<tr class='annual-year'><th colspan='" + (cats.length + 1) + "' scope='rowgroup'><b>" + y + "</b>" +
+        (sub ? " <small>" + sub + "</small>" : "") + totInline + "</th></tr>" +
+        "<tr>" + cells + "<td class='num annual-tot'><b>" + P.fmtInt(d.TOTAL) + "</b>" + totYoy + "</td></tr>";
     }).join("");
-    container.innerHTML = '<div class="data-table-wrap"><table class="data annual-table">' + head + "<tbody>" + body + "</tbody></table></div>";
+    container.innerHTML = '<div class="data-table-wrap"><table class="data annual-table">' + head + "<tbody>" + body +
+      "</tbody></table></div>" +
+      '<p class="annual-note">' + t("annual_note") + (notes.length ? " " + notes.join(" ") : "") + "</p>";
   }
 
   /** Monthly date x-axis shared by the volume charts: ticks follow the UI
@@ -234,7 +304,7 @@
     // Value labels only when they fit; otherwise the hover / tap readout carries them.
     const labelAll = rows.length <= (narrow ? 4 : 12);
     const limit = Array.isArray(opts.cats) && opts.cats.length ? opts.cats : null;
-    const cats = (mode === "hev" ? ["HEV"] : ["BEV", "PHEV", "HEV", "OTHERS"]).filter(
+    const cats = (mode === "hev" ? ["HEV", "OTHERS"] : ["BEV", "PHEV", "HEV", "OTHERS"]).filter(
       (k) => !limit || limit.includes(k)
     );
     if (!cats.length) {
@@ -316,7 +386,7 @@
       BEV: "BEV",
       PHEV: "PHEV",
       HEV: "HEV",
-      OTHERS: "OTHERS",
+      OTHERS: "mild",
       ICE: "ICE",
       electrified: "Electrificados",
     };
@@ -416,7 +486,8 @@
    * subtotal, then non-plug-in hybrids (HEV + mild/OTHERS) and combustion.
    * sums: { BEV, PHEV, HEV, OTHERS, ICE, TOTAL }; opts: { periods, cond }.
    * opts.prev = { sums, periods } adds a delta line per card (share change in
-   * pp and unit change) against that window.
+   * pp and unit change) against that window. opts.cutOnly renders just the
+   * period line (Mercado, Marcas): the percentage cards live only on Inicio.
    */
   function renderPowertrainHeadline(container, sums, opts) {
     if (!container) return;
@@ -436,20 +507,9 @@
     const prev = opts.prev && opts.prev.sums && opts.prev.sums.TOTAL ? opts.prev : null;
     const ps = prev ? prev.sums : null;
     const prevLabel = prev ? monthsLabel(prev.periods) : "";
-    const unitChange = (cur, old) => {
-      if (!old) return "";
-      const r = cur / old;
-      if (r >= 2) return "×" + r.toFixed(1);
-      const c = Math.round((r - 1) * 100);
-      return (c > 0 ? "+" : c < 0 ? "−" : "±") + Math.abs(c) + "%";
-    };
-    const ppChange = (cur, old) => {
-      // Difference of the shares as displayed (one decimal), so the numbers add up.
-      const r1 = (v) => Math.round(v * 10) / 10;
-      const d = r1(total ? (100 * cur) / total : 0) - r1(ps.TOTAL ? (100 * old) / ps.TOTAL : 0);
-      const arrow = d >= 0.05 ? "▲" : d <= -0.05 ? "▼" : "=";
-      return arrow + " " + Math.abs(d).toFixed(1) + " pp";
-    };
+    const unitChange = unitChangeLabel;
+    const ppChange = (cur, old) =>
+      ppChangeLabel(total ? (100 * cur) / total : 0, ps.TOTAL ? (100 * old) / ps.TOTAL : 0);
     const delta = (cur, old) => {
       if (!ps) return "";
       const u = unitChange(cur, old);
@@ -460,10 +520,17 @@
       '<div class="pt-card ' + cls + '"><div class="label">' + label + '</div><div class="value">' + pct(n) +
       '</div><div class="sub">' + (sub || units(n)) + "</div>" + (ps ? delta(n, old) : "") + "</div>";
     const prevPlug = ps ? (ps.BEV || 0) + (ps.PHEV || 0) : 0;
-    container.innerHTML =
+    const cutLine =
       '<div class="pt-cut">' + cutLabel(opts.periods, opts.cond) + " · <b>" + units(total) + "</b>" +
       (ps ? ' <span class="pt-cut-delta">(' + unitChange(total, ps.TOTAL) + " " + t("hl_vs") + " " + prevLabel + ")</span>" : "") +
-      "</div>" +
+      "</div>";
+    container.classList.toggle("cut-only", !!opts.cutOnly);
+    if (opts.cutOnly) {
+      container.innerHTML = cutLine;
+      return;
+    }
+    container.innerHTML =
+      cutLine +
       '<div class="pt-grid" role="group" aria-label="' + t("hl_aria") + '">' +
       '<div class="pt-group"><div class="pt-group-head"><span>' + t("hl_plug") + "</span><span>" +
       P.fmtInt(plug) + " · " + pct(plug) + (ps ? ' · <span class="pt-head-delta">' + ppChange(plug, prevPlug) + "</span>" : "") + "</span></div>" +
