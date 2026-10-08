@@ -416,8 +416,7 @@
    * subtotal, then non-plug-in hybrids (HEV + mild/OTHERS) and combustion.
    * sums: { BEV, PHEV, HEV, OTHERS, ICE, TOTAL }; opts: { periods, cond }.
    * opts.prev = { sums, periods } adds a delta line per card (share change in
-   * pp and unit change) against that window; opts.sentence adds one line
-   * derived from the plug-in numbers.
+   * pp and unit change) against that window.
    */
   function renderPowertrainHeadline(container, sums, opts) {
     if (!container) return;
@@ -461,17 +460,7 @@
       '<div class="pt-card ' + cls + '"><div class="label">' + label + '</div><div class="value">' + pct(n) +
       '</div><div class="sub">' + (sub || units(n)) + "</div>" + (ps ? delta(n, old) : "") + "</div>";
     const prevPlug = ps ? (ps.BEV || 0) + (ps.PHEV || 0) : 0;
-    const sentence = opts.sentence && ps
-      ? '<p class="pt-sentence">' + t("hl_sentence", {
-          pct: "<b>" + pct(plug) + "</b>",
-          scope: t(opts.cond === "nuevo" ? "hl_scope_new" : "hl_scope_all"),
-          period: monthsLabel(opts.periods),
-          prev: P.fmtPct((100 * prevPlug) / ps.TOTAL),
-          prevPeriod: prevLabel,
-        }) + "</p>"
-      : "";
     container.innerHTML =
-      sentence +
       '<div class="pt-cut">' + cutLabel(opts.periods, opts.cond) + " · <b>" + units(total) + "</b>" +
       (ps ? ' <span class="pt-cut-delta">(' + unitChange(total, ps.TOTAL) + " " + t("hl_vs") + " " + prevLabel + ")</span>" : "") +
       "</div>" +
