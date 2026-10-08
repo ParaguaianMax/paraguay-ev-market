@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - 'data/models/**'
-     - 'data/Paraguay.csv'
+      - 'data/Paraguay.csv'
       - 'data/chargers-dc.csv'
       - 'scripts/build-summary.py'
       - '.github/workflows/assemble-paraguay-models.yml'
