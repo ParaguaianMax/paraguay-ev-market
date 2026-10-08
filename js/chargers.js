@@ -123,6 +123,11 @@
       net[key].GBT += c.GBT;
     });
     const ops = Object.keys(opNames);
+    const pubOps = {};
+    pub.forEach((r) => {
+      const o = String(r.operator || "").trim();
+      if (PLACEHOLDER_OPERATORS.indexOf(o) < 0) pubOps[o] = true;
+    });
     return {
       sites: all.length,
       plugs: plugs(all),
@@ -133,39 +138,29 @@
       // As the KPI always counted it: distinct operator values, placeholders included.
       operators: ops.length,
       realOperators: ops.filter((o) => PLACEHOLDER_OPERATORS.indexOf(o) < 0).length,
+      // Real networks (no placeholders) among public locations only.
+      pubRealOperators: Object.keys(pubOps).length,
       networks: Object.keys(net).map((k) => net[k]),
     };
   }
 
+  /**
+   * Carga top cards: public locations, public connectors (CCS large, CHAdeMO and
+   * GB/T small, no total) and real operators among public locations. A growth card
+   * is held back: chargers-dc.csv has no dates, so there is no like-for-like
+   * figure for one year earlier.
+   */
   function renderKPIs(el, rows) {
     const n = chargerCounts(rows);
-    const typeLine = (tp) => "CCS " + tp.CCS + " · CHAdeMO " + tp.CHAdeMO + " · GB/T " + tp.GBT;
-    const items = [
-      { cls: "", label: PYEV.t("locations_dc"), value: String(n.sites), sub: PYEV.t("kpi_sites_sub") },
-      // Connectors card: the split by type is the main content (no single total).
-      {
-        cls: "elec kpi-types-card",
-        label: PYEV.t("plugs"),
-        valueHtml:
-          '<div class="value kpi-types">' +
-          [["CCS", n.types.CCS], ["CHAdeMO", n.types.CHAdeMO], ["GB/T", n.types.GBT]]
-            .map((p) => "<span><b>" + p[1] + "</b><small>" + p[0] + "</small></span>")
-            .join("") +
-          "</div>",
-        sub: "",
-      },
-      { cls: "bev", label: PYEV.t("public_access_kpi"), value: String(n.pubSites), sub: PYEV.t("public_kpi_sub", { plugs: n.pubPlugs }) + "<br>" + typeLine(n.pubTypes) },
-      { cls: "phev", label: PYEV.t("operators"), value: String(n.operators), sub: PYEV.t("consolidated_labels") },
-    ];
-    el.innerHTML = items
-      .map(
-        (it) =>
-          `<div class="kpi ${it.cls}"><div class="label">${it.label}</div>` +
-          (it.valueHtml || `<div class="value">${it.value}</div>`) +
-          (it.sub ? `<div class="sub">${it.sub}</div>` : "") +
-          `</div>`
-      )
-      .join("");
+    el.classList.add("kpi-3");
+    el.innerHTML =
+      '<div class="kpi bev"><div class="label">' + PYEV.t("kpi_pub_points") + '</div><div class="value">' + n.pubSites +
+      '</div><div class="sub">' + PYEV.t("kpi_pub_points_sub") + "</div></div>" +
+      '<div class="kpi bev kpi-conn"><div class="label">' + PYEV.t("kpi_connectors") + '</div><div class="value">' + n.pubTypes.CCS +
+      ' <small>CCS</small></div><div class="kpi-minor"><span>CHAdeMO <b>' + n.pubTypes.CHAdeMO + "</b></span><span>GB/T <b>" + n.pubTypes.GBT +
+      "</b></span></div></div>" +
+      '<div class="kpi"><div class="label">' + PYEV.t("operators") + '</div><div class="value">' + n.pubRealOperators +
+      '</div><div class="sub">' + PYEV.t("kpi_ops_sub") + "</div></div>";
   }
 
   function renderBreakdown(el, rows) {
