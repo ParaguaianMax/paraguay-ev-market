@@ -755,9 +755,9 @@
     const names = stats.map((s) => operatorLabel(s.key));
     const n = stats.length;
     const anyAdapter = stats.some((s) => s.GBTA > 0);
-    // About 3 columns of ~13px per network on phones (4 with adapters); wider
-    // than the screen scrolls in the container.
-    const need = n * (phone ? (anyAdapter ? 58 : 46) : (anyAdapter ? 68 : 54)) + 70;
+    // About 3 columns of ~13px per network on phones; wider than the screen
+    // scrolls in the container. Adapters stack on the GB/T column (no 4th slot).
+    const need = n * (phone ? 46 : 54) + 70;
     const width = need > avail ? need : null;
     function col(key, label, color) {
       const y = stats.map((s) => s[key]);
@@ -773,16 +773,27 @@
         textangle: 0,
         cliponaxis: false,
         textfont: { size: phone ? 9 : 10, color: th.muted },
+        constraintext: "none",
         hovertemplate: "<b>%{x}</b><br>" + label + ": %{y}<extra></extra>",
+        offsetgroup: key === "GBTA" ? "GBT" : key,
       };
     }
-    const maxOne = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT, s.GBTA || 0), 0);
-    const traces = [col("CCS", "CCS", th.CCS), col("CHAdeMO", "CHAdeMO", th.CHAdeMO), col("GBT", "GB/T", th.GBT)];
+    const maxOne = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT + (s.GBTA || 0)), 0);
+    const gbt = col("GBT", "GB/T", th.GBT);
+    const traces = [col("CCS", "CCS", th.CCS), col("CHAdeMO", "CHAdeMO", th.CHAdeMO), gbt];
     if (anyAdapter) {
-      // Locations with a GB/T adapter: lighter hatched GB/T, outside every total and the sort.
+      // Locations with a GB/T adapter: hatched, lighter, stacked on the native GB/T
+      // column (same slot, base = native count). Outside every total and the sort.
+      const short = PYEV.t("gbt_adapter_short");
       const a = col("GBTA", PYEV.t("gbt_adapter_series"), th.GBTA);
+      a.base = stats.map((s) => s.GBT);
+      a.customdata = stats.map((s) => s.GBT);
       a.marker = { color: th.GBTA, line: { color: th.GBT, width: stats.map((s) => (s.GBTA > 0 ? 1 : 0)) }, pattern: { shape: "/", fgcolor: th.GBT, size: 5, solidity: 0.25 } };
-      a.hovertemplate = "<b>%{x}</b><br>" + PYEV.t("gbt_adapter_hover", { n: "%{y}" }) + "<extra></extra>";
+      a.hovertemplate = "<b>%{x}</b><br>" + PYEV.t("gbt_adapter_hover", { native: "%{customdata}", n: "%{y}" }) + "<extra></extra>";
+      // One label on top of the GB/T column: "1 + 2 adapt.", "2 adapt." or the native number
+      // (two lines so it stays about as narrow as the column).
+      a.text = stats.map((s) => (s.GBTA > 0 ? (s.GBT > 0 ? s.GBT + " + " : "") + s.GBTA + "<br>" + short : ""));
+      gbt.text = stats.map((s) => (s.GBTA > 0 || !s.GBT ? "" : String(s.GBT)));
       traces.push(a);
     }
     const layout = {
