@@ -73,7 +73,7 @@
   </header>
   <div class="subnav-bar scope-bar">
     <div class="wrap">
-      <label class="nuevos-toggle access-toggle" id="accessToggleLabel">
+      <label class="nuevos-toggle access-toggle" id="accessToggleLabel" data-access-toggle>
         <span class="access-opt access-opt-pub" data-i18n="access_mode_public">Público</span>
         <input type="checkbox" id="accessToggle" aria-label="Público y restringido" data-i18n-attr="aria-label:access_mode_all" />
         <span class="nuevos-toggle-ui" aria-hidden="true"></span>
@@ -139,6 +139,14 @@
 
     <details class="fold section-anchor" id="tabla" open>
       <summary><span data-i18n="carga_table_toggle">Ubicaciones</span> <span class="fold-sub" id="table-count"></span></summary>
+      <div class="table-access">
+        <label class="nuevos-toggle access-toggle" id="accessToggleLabelTable" data-access-toggle>
+          <span class="access-opt access-opt-pub" data-i18n="access_mode_public">Público</span>
+          <input type="checkbox" id="accessToggleTable" aria-label="Público y restringido" data-i18n-attr="aria-label:access_mode_all" />
+          <span class="nuevos-toggle-ui" aria-hidden="true"></span>
+          <span class="access-opt access-opt-all" data-i18n="access_mode_all">Público y restringido</span>
+        </label>
+      </div>
       <div class="table-search">
         <input type="search" id="f-q" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:carga_search" placeholder="Buscar nombre, ciudad o red" />
       </div>
@@ -162,8 +170,8 @@
       const networkSitesEl = document.getElementById("chart-network-sites");
       const networkSitesFoot = document.getElementById("network-sites-foot");
       const breakdownEl = document.getElementById("breakdown");
-      const accessToggle = document.getElementById("accessToggle");
-      const accessLabel = document.getElementById("accessToggleLabel");
+      // Two synced copies of the access switch: top bar and above the table.
+      const accessLabels = Array.from(document.querySelectorAll("[data-access-toggle]"));
       // Links (e.g. from Inicio) can open a mode: ?acceso=publico|todo.
       try {
         const qa = new URLSearchParams(location.search).get("acceso");
@@ -194,8 +202,11 @@
       const bandRows = () => PYEVChargers.filterRows(modeRows(), "all", fBand.value);
       const baseline = () => historyBundle ? (PYEVChargers.growthBaseline(historyBundle, mode) || false) : null;
       function syncAccessUI() {
-        accessToggle.checked = mode === "all";
-        accessLabel.classList.toggle("is-all", mode === "all");
+        accessLabels.forEach((lab) => {
+          const input = lab.querySelector("input");
+          if (input) input.checked = mode === "all";
+          lab.classList.toggle("is-all", mode === "all");
+        });
       }
       syncAccessUI();
 
@@ -282,14 +293,29 @@
           fBand.appendChild(opt);
         });
         mapApi = PYEVChargers.initMap(mapEl, all);
-        accessToggle.addEventListener("change", () => {
-          mode = accessToggle.checked ? "all" : "public";
+        function setMode(next, anchorEl) {
+          // Keep the switch that was used at the same spot on screen: content
+          // above it (cards, charts, breakdown) can change height.
+          const before = anchorEl ? anchorEl.getBoundingClientRect().top : null;
+          const keep = () => {
+            if (before == null) return;
+            const delta = anchorEl.getBoundingClientRect().top - before;
+            if (Math.abs(delta) > 0.5) window.scrollBy(0, delta);
+          };
+          mode = next;
           PYEVChargers.setAccessMode(mode);
           syncAccessUI();
           PYEVChargers.renderKPIs(kpis, all, baseline(), mode);
           PYEVChargers.renderBreakdown(breakdownEl, modeRows());
           refresh();
           paintHistory();
+          keep();
+          requestAnimationFrame(() => { keep(); setTimeout(keep, 120); });
+        }
+        accessLabels.forEach((lab) => {
+          const input = lab.querySelector("input");
+          if (!input) return;
+          input.addEventListener("change", () => setMode(input.checked ? "all" : "public", lab.id === "accessToggleLabel" ? null : lab));
         });
         fBand.addEventListener("change", refresh);
         fQ.addEventListener("input", refresh);

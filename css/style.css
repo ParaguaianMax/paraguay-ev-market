@@ -1233,6 +1233,8 @@ list-style-position: inside;
 }
 details.fold > summary .fold-sub { font-family: var(--font-ui); font-size: 0.82rem; font-weight: 500; color: var(--muted); margin-left: 0.4rem; }
 .table-search { margin: 0.25rem 0 0.6rem; }
+.table-access { display: flex; justify-content: flex-start; margin: 0.5rem 0 0.35rem; }
+.table-access .nuevos-toggle { margin-left: 0; }
 .table-search input {
 width: 100%;
 max-width: 22rem;

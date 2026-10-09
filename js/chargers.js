@@ -443,17 +443,19 @@
   function plugShareLink(row) {
     const url = plugShareUrl(row);
     return url
-      ? `<br><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(PYEV.t("plugshare_link"))}</a>`
+      ? `<br><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(PYEV.t("popup_plugshare"))}</a>`
       : "";
   }
 
+  /** Map popup: name, network, max power, connectors (with adapter note), access · status, PlugShare link. */
   function chargerPopup(row) {
-    const kw = Number.isFinite(row.kw_max) ? row.kw_max + " kW" : PYEV.t("not_published");
+    const kw = Number.isFinite(row.kw_max) ? row.kw_max + " kW" : PYEV.t("popup_kw_unknown");
     return (
       `<b>${escapeHtml(row.name)}</b><br>` +
       `${escapeHtml(PYEV.t("network"))}: ${escapeHtml(operatorLabel(row.operator))}<br>` +
+      `${escapeHtml(PYEV.t("popup_power"))}: ${escapeHtml(kw)}<br>` +
       `${escapeHtml(PYEV.t("plugs_short"))}: ${escapeHtml(connectorText(row))}<br>` +
-      `${escapeHtml(PYEV.t("power"))}: ${escapeHtml(kw)}` +
+      `${escapeHtml(PYEV.t("access_col"))}: ${escapeHtml(localizeValue(row.access))} \u00b7 ${escapeHtml(PYEV.t("status"))}: ${escapeHtml(localizeValue(row.status))}` +
       plugShareLink(row)
     );
   }
