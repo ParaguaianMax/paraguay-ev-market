@@ -54,7 +54,7 @@ id,name,url,status,access,departamento,ciudad,lat,lon,operator,n_dc_plugs,connec
 367979,Esquina DIESA,https://www.plugshare.com/location/367979,ativo,público,Cordillera,San Bernardino,-25.312643,-57.296875,Diesa,2,"CCS2×1, GB/T DC×1",60,50–99 kW,estimado (check-ins)
 2244886,Karumbe Market / Imurai,https://www.plugshare.com/location/2244886,ativo,público,Guairá,Villarrica,-25.754221,-56.436092,Evergo,2,"CCS2×1, GB/T DC×1",150,150+ kW,inferido (nome/desc)
 630753,Petropar Cnel. Bogado - EverGo,https://www.plugshare.com/location/630753,ativo,público,Itapúa,Coronel Bogado,-27.181070,-56.222054,Evergo,2,"CCS2×1, CHAdeMO×1",45,abaixo de 50 kW,estimado (check-ins)
-2123872,BYD,https://www.plugshare.com/location/2123872,ativo (restrito),restrito,Itapúa,Encarnacion,-27.312360,-55.845442,Diesa,2,CCS2×2,60,50–99 kW,estimado (check-ins)
+2123872,BYD,https://www.plugshare.com/location/2123872,ativo (restrito),restrito,Itapúa,Encarnacion,-27.312360,-55.845442,Diesa,2,"CCS2×1, GB/T DC×1",60,50–99 kW,estimado (check-ins)
 712478,Automotor S.A. Suc. Encarnación EVERGO,https://www.plugshare.com/location/712478,ativo,público,Itapúa,Encarnación,-27.310945,-55.842742,Automotor,2,CCS2×2,100,100–149 kW,inferido (nome/desc)
 547717,Hotel Cooperativa MPAI Naranjito Ltda.,https://www.plugshare.com/location/547717,ativo,público,Itapúa,Naranjito,-26.360177,-55.242502,Diesa,2,"CCS2×1, GB/T DC×1",80,50–99 kW,estimado (check-ins)
 630617,Petropar Ayolas - EverGo,https://www.plugshare.com/location/630617,ativo,público,Misiones,Ayolas,-27.386239,-56.833717,Evergo,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,inferido (nome/desc)
