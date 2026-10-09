@@ -1335,6 +1335,8 @@ table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padd
 .kpi.kpi-conn .value small { font-size: 0.66em; font-weight: 700; letter-spacing: 0; }
 .kpi-minor { display: flex; flex-wrap: wrap; gap: 0.1rem 0.75rem; margin-top: 0.3rem; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .kpi-minor b { font-weight: 600; color: var(--muted); }
+.kpi-adapter { margin-top: 0.2rem; font-size: 0.74rem; color: var(--muted); }
+table.data td.conn-cell { white-space: nowrap; font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) {
 .kpi-grid.kpi-4 .kpi { padding: 0.85rem 0.6rem 0.95rem; }
 .kpi-grid.kpi-4 .label { font-size: 0.62rem; letter-spacing: 0.03em; }

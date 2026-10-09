@@ -122,6 +122,15 @@
     try { localStorage.setItem(ACCESS_MODE_KEY, normMode(m)); } catch (e) {}
   }
 
+  // GB/T adapter flag (column gbt_adaptador: sí/si/yes/true, any case or
+  // accent; missing column or anything else = no adapter). An adapter is NOT a
+  // connector: it never enters n_dc_plugs, types or any connector total.
+  function hasGbtAdapter(r) {
+    const v = String((r && r.gbt_adaptador) || "").trim().toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return v === "si" || v === "yes" || v === "true";
+  }
+
   // One set of definitions for every count on the site (Inicio card, KPIs,
   // map footer, network charts): a location is one CSV row; connectors are
   // n_dc_plugs summed, split by type from connectors_dc; pub* fields mean
@@ -136,6 +145,7 @@
     const pubTypes = { CCS: 0, CHAdeMO: 0, GBT: 0 };
     const net = {};
     const opNames = {};
+    let adapterSites = 0;
     all.forEach((r) => {
       const c = parseConnectorCounts(r.connectors_dc);
       const isPub = r.access === "público";
@@ -145,7 +155,11 @@
       });
       opNames[r.operator || "—"] = true;
       const key = operatorKey(r.operator);
-      if (!net[key]) net[key] = { key: key, sites: 0, plugs: 0, CCS: 0, CHAdeMO: 0, GBT: 0 };
+      if (!net[key]) net[key] = { key: key, sites: 0, plugs: 0, CCS: 0, CHAdeMO: 0, GBT: 0, GBTA: 0 };
+      if (hasGbtAdapter(r)) {
+        adapterSites += 1;
+        net[key].GBTA += 1;
+      }
       net[key].sites += 1;
       net[key].plugs += Number(r.n_dc_plugs) || 0;
       net[key].CCS += c.CCS;
@@ -165,6 +179,8 @@
       pubPlugs: plugs(pub),
       types: types,
       pubTypes: pubTypes,
+      // Locations with a GB/T adapter (not connectors; never in types/plugs).
+      adapterSites: adapterSites,
       // As the KPI always counted it: distinct operator values, placeholders included.
       operators: ops.length,
       realOperators: ops.filter((o) => PLACEHOLDER_OPERATORS.indexOf(o) < 0).length,
@@ -234,7 +250,11 @@
       '<div class="kpi kpi-growth"><div class="label">' + PYEV.t("kpi_growth") + "</div>" + growth + "</div>" +
       '<div class="kpi bev kpi-conn"><div class="label">' + PYEV.t("kpi_connectors") + '</div><div class="value">' + n.types.CCS +
       ' <small>CCS</small></div><div class="kpi-minor"><span>CHAdeMO <b>' + n.types.CHAdeMO + "</b></span><span>GB/T <b>" + n.types.GBT +
-      "</b></span></div></div>" +
+      "</b></span></div>" +
+      (n.adapterSites > 0
+        ? '<div class="kpi-adapter">' + PYEV.t(n.adapterSites === 1 ? "kpi_gbt_adapter_one" : "kpi_gbt_adapter", { n: n.adapterSites }) + "</div>"
+        : "") +
+      "</div>" +
       '<div class="kpi"><div class="label">' + PYEV.t("operators") + '</div><div class="value">' + n.realOperators +
       '</div><div class="sub">' + PYEV.t(pub ? "kpi_ops_sub" : "kpi_ops_sub_all") + "</div></div>";
   }
@@ -303,6 +323,18 @@
     return key ? PYEV.t(key) : v;
   }
 
+  /** "2× CCS · GB/T con adaptador": native connectors by type, then the adapter flag. */
+  function connectorText(r) {
+    const c = parseConnectorCounts(r.connectors_dc);
+    const parts = [];
+    if (c.CCS) parts.push(c.CCS + "\u00d7 CCS");
+    if (c.CHAdeMO) parts.push(c.CHAdeMO + "\u00d7 CHAdeMO");
+    if (c.GBT) parts.push(c.GBT + "\u00d7 GB/T");
+    if (!parts.length) parts.push(String(r.n_dc_plugs || 0));
+    if (hasGbtAdapter(r)) parts.push(PYEV.t("gbt_adapter_text"));
+    return parts.join(" \u00b7 ");
+  }
+
   function renderTable(el, rows) {
     const head =
       "<thead><tr>" +
@@ -323,7 +355,7 @@
           `<td>${escapeHtml(r.ciudad)}</td>` +
           `<td class="muted-cell">${escapeHtml(r.departamento)}</td>` +
           `<td>${escapeHtml(operatorLabel(r.operator))}</td>` +
-          `<td class="num">${r.n_dc_plugs}</td>` +
+          `<td class="conn-cell">${escapeHtml(connectorText(r))}</td>` +
           `<td class="num">${kw}</td>` +
           `<td>${escapeHtml(localizeValue(r.power_band))}</td>` +
           `<td>${escapeHtml(localizeValue(r.status))}</td>` +
@@ -364,6 +396,7 @@
     return (
       `<b>${escapeHtml(row.name)}</b><br>` +
       `${escapeHtml(PYEV.t("network"))}: ${escapeHtml(operatorLabel(row.operator))}<br>` +
+      `${escapeHtml(PYEV.t("plugs_short"))}: ${escapeHtml(connectorText(row))}<br>` +
       `${escapeHtml(PYEV.t("power"))}: ${escapeHtml(kw)}` +
       plugShareLink(row)
     );
@@ -493,6 +526,7 @@
       // Match site palette: CCS≈PHEV blue, GB/T≈OTHERS purple, CHAdeMO≈HEV gold
       CCS: dark ? "#86acdd" : "#1d4f91",
       GBT: dark ? "#b59ad6" : "#6b4f9a",
+      GBTA: dark ? "rgba(181,154,214,0.35)" : "rgba(107,79,154,0.22)",
       CHAdeMO: dark ? "#d4b45a" : "#8a6a12",
     };
   }
@@ -655,8 +689,10 @@
     const phone = window.innerWidth < 640;
     const names = stats.map((s) => operatorLabel(s.key));
     const n = stats.length;
-    // About 3 columns of ~13px per network on phones; wider than the screen scrolls in the container.
-    const need = n * (phone ? 46 : 54) + 70;
+    const anyAdapter = stats.some((s) => s.GBTA > 0);
+    // About 3 columns of ~13px per network on phones (4 with adapters); wider
+    // than the screen scrolls in the container.
+    const need = n * (phone ? (anyAdapter ? 58 : 46) : (anyAdapter ? 68 : 54)) + 70;
     const width = need > avail ? need : null;
     function col(key, label, color) {
       const y = stats.map((s) => s[key]);
@@ -674,7 +710,15 @@
         hovertemplate: "<b>%{x}</b><br>" + label + ": %{y}<extra></extra>",
       };
     }
-    const maxOne = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT), 0);
+    const maxOne = stats.reduce((m, s) => Math.max(m, s.CCS, s.CHAdeMO, s.GBT, s.GBTA || 0), 0);
+    const traces = [col("CCS", "CCS", th.CCS), col("CHAdeMO", "CHAdeMO", th.CHAdeMO), col("GBT", "GB/T", th.GBT)];
+    if (anyAdapter) {
+      // Locations with a GB/T adapter: lighter hatched GB/T, outside every total and the sort.
+      const a = col("GBTA", PYEV.t("gbt_adapter_series"), th.GBTA);
+      a.marker = { color: th.GBTA, line: { color: th.GBT, width: stats.map((s) => (s.GBTA > 0 ? 1 : 0)) }, pattern: { shape: "/", fgcolor: th.GBT, size: 5, solidity: 0.25 } };
+      a.hovertemplate = "<b>%{x}</b><br>" + PYEV.t("gbt_adapter_hover", { n: "%{y}" }) + "<extra></extra>";
+      traces.push(a);
+    }
     const layout = {
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
@@ -717,7 +761,7 @@
     if (host) host.classList.toggle("is-scrolling", !!width);
     Plotly.newPlot(
       el,
-      [col("CCS", "CCS", th.CCS), col("CHAdeMO", "CHAdeMO", th.CHAdeMO), col("GBT", "GB/T", th.GBT)],
+      traces,
       layout,
       { responsive: !width, displayModeBar: false }
     );
@@ -1201,6 +1245,8 @@
     renderKPIs,
     growthBaseline,
     rowsForMode,
+    hasGbtAdapter,
+    connectorText,
     getAccessMode,
     setAccessMode,
     renderBreakdown,
