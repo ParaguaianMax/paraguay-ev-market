@@ -199,6 +199,13 @@
         if (normCat(cats[j]) === target) { idx = j; break; }
       }
       if (idx < 0) return;
+      var tmeta = traceMeta(trace);
+      if (tmeta && Array.isArray(tmeta.pyevReadoutText)) {
+        // Per-point text row (e.g. "+ 2 adaptadores"); no row where it is empty.
+        var rt = tmeta.pyevReadoutText[idx];
+        if (rt) lines.push({ name: rt, value: { num: "", unit: "" }, hit: i === pt.curveNumber });
+        return;
+      }
       var custom = trace.customdata ? trace.customdata[idx] : undefined;
       var pctAxis = axisIsPct(layout, axisKey(trace, horiz));
       lines.push({

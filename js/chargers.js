@@ -774,7 +774,8 @@
         cliponaxis: false,
         textfont: { size: phone ? 9 : 10, color: th.muted },
         constraintext: "none",
-        hovertemplate: "<b>%{x}</b><br>" + label + ": %{y}<extra></extra>",
+        // "x unified" hover already names the network once as the header.
+        hovertemplate: label + ": %{y}<extra></extra>",
         offsetgroup: key === "GBTA" ? "GBT" : key,
       };
     }
@@ -786,10 +787,18 @@
       // column (same slot, base = native count). Outside every total and the sort.
       const short = PYEV.t("gbt_adapter_short");
       const a = col("GBTA", PYEV.t("gbt_adapter_series"), th.GBTA);
+      // Points only where the network has adapters (null elsewhere: no bar, no hover row).
+      const adapterText = stats.map((s) =>
+        s.GBTA > 0 ? PYEV.t(s.GBTA === 1 ? "gbt_adapter_hover_one" : "gbt_adapter_hover", { n: PYEV.fmtInt ? PYEV.fmtInt(s.GBTA) : s.GBTA }) : ""
+      );
+      a.y = stats.map((s) => (s.GBTA > 0 ? s.GBTA : null));
       a.base = stats.map((s) => s.GBT);
-      a.customdata = stats.map((s) => s.GBT);
+      a.customdata = adapterText;
+      // Tap readout: the same "+ N adaptadores" row, skipped where there are none.
+      a.meta = Object.assign({}, a.meta, { pyevReadoutText: adapterText });
       a.marker = { color: th.GBTA, line: { color: th.GBT, width: stats.map((s) => (s.GBTA > 0 ? 1 : 0)) }, pattern: { shape: "/", fgcolor: th.GBT, size: 5, solidity: 0.25 } };
-      a.hovertemplate = "<b>%{x}</b><br>" + PYEV.t("gbt_adapter_hover", { native: "%{customdata}", n: "%{y}" }) + "<extra></extra>";
+      // Hover value is the adapter count only (customdata), never base + value.
+      a.hovertemplate = "%{customdata}<extra></extra>";
       // One label on top of the GB/T column: "1 + 2 adapt.", "2 adapt." or the native number
       // (two lines so it stays about as narrow as the column).
       a.text = stats.map((s) => (s.GBTA > 0 ? (s.GBT > 0 ? s.GBT + " + " : "") + s.GBTA + "<br>" + short : ""));
