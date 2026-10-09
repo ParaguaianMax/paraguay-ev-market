@@ -14,6 +14,12 @@ Se incluyen ubicaciones con conectores **DC** (CCS2, CHAdeMO y GB/T), tanto púb
 
 **Corrección del 9 de octubre de 2026:** el punto PlugShare 2123872 (Encarnación) pertenece a la red Diesa y es exclusivo para clientes. Pasa a operadora Diesa y acceso restringido, por lo que sale del conteo «Público». Puntos públicos y operativos: 59 · 118 conectores. Sus conectores son 1 CCS2 y 1 GB/T (antes figuraban 2 CCS2).
 
+## Adaptadores GB/T (`gbt_adaptador`)
+
+Regla desde el 9 de octubre de 2026: un adaptador GB/T colocado en un cargador CCS **no cuenta como conector**. La columna `gbt_adaptador` (última del CSV) vale `sí` cuando la fuente dice explícitamente que el GB/T del punto se ofrece mediante un adaptador del local. En ese caso el GB/T no entra en `n_dc_plugs` ni en `connectors_dc`. En los demás puntos vale `no`. Los adaptadores que llevan los propios conductores (mencionados en check-ins) no cuentan.
+
+Puntos con `sí`: Pya’e Master Bearings (1876346) y Pyae Shopping Dubai (1876280), según la descripción de PlugShare («adaptador para GB/T, solicitar para uso»). Ambos ya figuraban solo con CCS2, así que los totales no cambian.
+
 ## Potencia (kW)
 
 La potencia es orientativa: cuando PlugShare no publica un valor, se estima a partir de la información disponible en el punto (check-ins, nombre/descripción) o se confirma manualmente. No debe interpretarse como una medición certificada.
