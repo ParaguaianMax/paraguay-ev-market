@@ -1336,6 +1336,15 @@ table.data.brand-cols th, table.data.brand-cols td { padding-left: 0.25rem; padd
 .kpi-minor { display: flex; flex-wrap: wrap; gap: 0.1rem 0.75rem; margin-top: 0.3rem; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .kpi-minor b { font-weight: 600; color: var(--muted); }
 .kpi-adapter { margin-top: 0.2rem; font-size: 0.74rem; color: var(--muted); }
+/* Carga locations table: sortable headers. */
+table.charger-table th { padding: 0; }
+table.charger-table th.num { text-align: right; }
+.th-sort { all: unset; box-sizing: border-box; display: block; width: 100%; padding: 0.65rem 0.75rem; cursor: pointer; font: inherit; color: inherit; text-transform: inherit; letter-spacing: inherit; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
+table.charger-table th.num .th-sort { text-align: right; }
+.th-sort:hover, .th-sort.is-active { color: var(--text); }
+.th-sort:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.th-sort .sort-ind { font-size: 0.85em; opacity: 0.35; }
+.th-sort.is-active .sort-ind { opacity: 1; }
 table.data td.conn-cell { white-space: nowrap; font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) {
 .kpi-grid.kpi-4 .kpi { padding: 0.85rem 0.6rem 0.95rem; }

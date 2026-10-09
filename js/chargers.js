@@ -335,14 +335,71 @@
     return parts.join(" \u00b7 ");
   }
 
+  // Locations table sorting. Null = the CSV order (default until a header is
+  // clicked). The state lives here, so it survives re-renders from the search
+  // box and the Público / Público y restringido switch.
+  const TABLE_COLLATOR = new Intl.Collator("es", { sensitivity: "base", numeric: true });
+  const TABLE_COLUMNS = [
+    { key: "name", label: "name", text: (r) => r.name },
+    { key: "city", label: "city", text: (r) => r.ciudad },
+    { key: "dept", label: "dept", text: (r) => r.departamento },
+    { key: "net", label: "operators", text: (r) => operatorLabel(r.operator) },
+    { key: "plugs", label: "plugs_short", num: (r) => Number(r.n_dc_plugs) || 0, desc: true },
+    { key: "kw", label: "max_kw", num: (r) => (Number.isFinite(r.kw_max) ? r.kw_max : null), desc: true },
+    { key: "status", label: "status", text: (r) => localizeValue(r.status) },
+    { key: "access", label: "access_col", text: (r) => localizeValue(r.access) },
+  ];
+  let tableSort = null; // { key, dir: 1 ascending | -1 descending }
+
+  function sortTableRows(rows) {
+    if (!tableSort) return rows;
+    const col = TABLE_COLUMNS.find((c) => c.key === tableSort.key);
+    if (!col) return rows;
+    const dir = tableSort.dir;
+    return rows.slice().sort((a, b) => {
+      if (col.num) {
+        const x = col.num(a), y = col.num(b);
+        // Empty values (no published kW) always last, in both directions.
+        if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
+        return (x - y) * dir;
+      }
+      return TABLE_COLLATOR.compare(String(col.text(a) || ""), String(col.text(b) || "")) * dir;
+    });
+  }
+
   function renderTable(el, rows) {
+    el._pyevRows = rows;
+    if (!el._pyevSortBound) {
+      el._pyevSortBound = true;
+      el.addEventListener("click", (ev) => {
+        const btn = ev.target.closest && ev.target.closest("button[data-sort]");
+        if (!btn || !el.contains(btn)) return;
+        const col = TABLE_COLUMNS.find((c) => c.key === btn.dataset.sort);
+        if (!col) return;
+        const natural = col.desc ? -1 : 1;
+        tableSort = tableSort && tableSort.key === col.key
+          ? { key: col.key, dir: -tableSort.dir }
+          : { key: col.key, dir: natural };
+        const wrap = el.querySelector(".data-table-wrap");
+        const scrollLeft = wrap ? wrap.scrollLeft : 0;
+        renderTable(el, el._pyevRows || []);
+        const nw = el.querySelector(".data-table-wrap");
+        if (nw) nw.scrollLeft = scrollLeft;
+        const again = el.querySelector('button[data-sort="' + col.key + '"]');
+        if (again) again.focus();
+      });
+    }
     const head =
       "<thead><tr>" +
-      [PYEV.t("name"), PYEV.t("city"), PYEV.t("dept"), PYEV.t("operators"), PYEV.t("plugs_short"), PYEV.t("max_kw"), PYEV.t("band"), PYEV.t("status"), PYEV.t("access_col")]
-        .map((h) => "<th>" + h + "</th>")
-        .join("") +
+      TABLE_COLUMNS.map((c) => {
+        const active = tableSort && tableSort.key === c.key;
+        const aria = active ? (tableSort.dir === 1 ? "ascending" : "descending") : "none";
+        const ind = active ? (tableSort.dir === 1 ? "\u25b2" : "\u25bc") : "\u2195";
+        return '<th aria-sort="' + aria + '"' + (c.num ? ' class="num"' : "") + '><button type="button" class="th-sort' + (active ? " is-active" : "") +
+          '" data-sort="' + c.key + '">' + escapeHtml(PYEV.t(c.label)) + ' <span class="sort-ind" aria-hidden="true">' + ind + "</span></button></th>";
+      }).join("") +
       "</tr></thead>";
-    const body = rows
+    const body = sortTableRows(rows)
       .map((r) => {
         const rowUrl = plugShareUrl(r);
         const name = rowUrl
@@ -357,14 +414,13 @@
           `<td>${escapeHtml(operatorLabel(r.operator))}</td>` +
           `<td class="conn-cell">${escapeHtml(connectorText(r))}</td>` +
           `<td class="num">${kw}</td>` +
-          `<td>${escapeHtml(localizeValue(r.power_band))}</td>` +
           `<td>${escapeHtml(localizeValue(r.status))}</td>` +
           `<td><span class="tag-access ${accessClass(r.access)}">${escapeHtml(localizeValue(r.access))}</span></td>` +
           "</tr>"
         );
       })
       .join("");
-    el.innerHTML = `<div class="data-table-wrap"><table class="data">${head}<tbody>${body}</tbody></table></div>`;
+    el.innerHTML = `<div class="data-table-wrap"><table class="data charger-table">${head}<tbody>${body}</tbody></table></div>`;
   }
 
   function escapeHtml(s) {
