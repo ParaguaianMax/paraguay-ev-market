@@ -12,6 +12,8 @@ Se incluyen ubicaciones con conectores **DC** (CCS2, CHAdeMO y GB/T), tanto púb
 
 **Agregado el 9 de octubre de 2026:** Pyae Azotey Parador Fleitas (PlugShare 2277261, Azotey, Concepción), con 1 CCS2 y 1 GB/T de 60 kW (potencia según la descripción del local). Se cargó a mano porque la API de PlugShare no respondía ese día. Los conectores fueron confirmados por el equipo y la coordenada es aproximada (ubicación del Parador Fleitas).
 
+**Corrección del 9 de octubre de 2026:** el punto PlugShare 2123872 (Encarnación) pertenece a la red Diesa y es exclusivo para clientes. Pasa a operadora Diesa y acceso restringido, por lo que sale del conteo «Público». Puntos públicos y operativos: 59 · 118 conectores.
+
 ## Potencia (kW)
 
 La potencia es orientativa: cuando PlugShare no publica un valor, se estima a partir de la información disponible en el punto (check-ins, nombre/descripción) o se confirma manualmente. No debe interpretarse como una medición certificada.
