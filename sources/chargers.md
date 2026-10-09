@@ -8,7 +8,9 @@ Inventario de puntos de carga publicado en PlugShare y revisado para evitar dupl
 
 Se incluyen ubicaciones con conectores **DC** (CCS2, CHAdeMO y GB/T), tanto públicas como restringidas o residenciales/privadas, claramente identificadas. Este corte no registra conectores NACS/Tesla.
 
-**Totales del corte:** 73 ubicaciones DC · 143 conectores DC.
+**Totales del corte:** 74 ubicaciones DC · 145 conectores DC (CCS2 92 · CHAdeMO 28 · GB/T 25).
+
+**Agregado el 9 de octubre de 2026:** Pyae Azotey Parador Fleitas (PlugShare 2277261, Azotey, Concepción), con 1 CCS2 y 1 GB/T de 60 kW (potencia según la descripción del local). Se cargó a mano porque la API de PlugShare no respondía ese día. Los conectores fueron confirmados por el equipo y la coordenada es aproximada (ubicación del Parador Fleitas).
 
 ## Potencia (kW)
 
