@@ -478,18 +478,6 @@ table.data tr.rank-editions td {
   font-size: 0.8rem;
   line-height: 1.35;
 }
-.chart-scroll + .chart-readout ul {
-  list-style: none;
-  margin: 0.15rem 0 0;
-  padding: 0;
-}
-.chart-scroll + .chart-readout li {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.6rem;
-  padding: 0.08rem 0;
-}
-.chart-readout-cat { font-weight: 650; }
 
 @media (max-width: 640px) {
   #chart-top-brands.chart-panel,

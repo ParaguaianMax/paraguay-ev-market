@@ -12,6 +12,21 @@
     return lang() === "en" ? "units" : "unidades";
   }
 
+  // Unit for a value: the trace's meta.pyevUnit (e.g. "ubicaciones",
+  // "conectores"), otherwise vehicle units. Singular when the value is 1.
+  function unitFor(trace, num) {
+    var meta = trace && trace.meta;
+    var one = Math.abs(num) === 1;
+    if (meta && typeof meta === "object" && !Array.isArray(meta) && meta.pyevUnit) {
+      return one && meta.pyevUnitOne ? meta.pyevUnitOne : meta.pyevUnit;
+    }
+    if (one && global.PYEV && global.PYEV.t) {
+      var u1 = global.PYEV.t("unit_one");
+      if (u1 && u1 !== "unit_one") return u1;
+    }
+    return unitsWord();
+  }
+
   function hintText() {
     var L = lang();
     if (L === "en") return "Tap a point to see the values.";
@@ -63,12 +78,13 @@
     return typeof title === "string" && title.indexOf("%") !== -1;
   }
 
-  function formatValue(n, pctAxis, custom) {
-    if (n == null || n === "") return "—";
+  /** { num, unit } for one readout row; unit carries the % share when present. */
+  function formatValue(n, pctAxis, custom, trace) {
+    if (n == null || n === "") return { num: "—", unit: "" };
     var num = typeof n === "number" ? n : Number(n);
-    var main;
+    var out;
     if (pctAxis && isFinite(num)) {
-      main = num.toFixed(2) + "%";
+      out = { num: num.toFixed(2) + "%", unit: "" };
     } else if (isFinite(num)) {
       var shown;
       if (Math.abs(num - Math.round(num)) < 1e-6 && global.PYEV && global.PYEV.fmtInt) {
@@ -77,14 +93,14 @@
         var locale = lang() === "pt" ? "pt-BR" : lang() === "en" ? "en-US" : "es-PY";
         shown = num.toLocaleString(locale, { maximumFractionDigits: 2 });
       }
-      main = shown + " " + unitsWord();
+      out = { num: shown, unit: unitFor(trace, num) };
     } else {
-      main = String(n);
+      out = { num: String(n), unit: "" };
     }
     if (!pctAxis && custom != null && custom !== "" && isFinite(Number(custom))) {
-      main += " (" + Number(custom).toFixed(2) + "%)";
+      out.unit += (out.unit ? " " : "") + "(" + Number(custom).toFixed(2) + "%)";
     }
-    return main;
+    return out;
   }
 
   function panelFor(el) {
@@ -146,14 +162,14 @@
       var shown;
       if (global.PYEV && global.PYEV.fmtInt && isFinite(Number(pt.value))) shown = global.PYEV.fmtInt(pt.value);
       else shown = String(pt.value == null ? "—" : pt.value);
-      if (pct != null && isFinite(pct)) shown += " (" + pct.toFixed(1) + "%)";
+      var share = pct != null && isFinite(pct) ? "(" + pct.toFixed(1) + "%)" : "";
       var series = pt.data.name;
       if (!series && global.PYEV && global.PYEV.t) {
         var nch = global.PYEV.t("n_chargers");
         if (nch && nch !== "n_chargers") series = nch;
       }
       if (!series) series = unitsWord();
-      return { cat: pt.label, lines: [{ name: series, value: shown, hit: true }] };
+      return { cat: pt.label, lines: [{ name: series, value: { num: shown, unit: share }, hit: true }] };
     }
     var horizontal = pt.data.orientation === "h";
     var target = normCat(horizontal ? pt.y : pt.x);
@@ -187,7 +203,7 @@
       var pctAxis = axisIsPct(layout, axisKey(trace, horiz));
       lines.push({
         name: trace.name || formatCat(cats[idx]),
-        value: formatValue(vals[idx], pctAxis, custom),
+        value: formatValue(vals[idx], pctAxis, custom, trace),
         hit: i === pt.curveNumber,
       });
     });
@@ -197,7 +213,7 @@
       var pctAxisPt = axisIsPct(layout, axisKey(pt.data, horizPt));
       lines.push({
         name: pt.data.name || formatCat(horizPt ? pt.y : pt.x),
-        value: formatValue(horizPt ? pt.x : pt.y, pctAxisPt, pt.customdata),
+        value: formatValue(horizPt ? pt.x : pt.y, pctAxisPt, pt.customdata, pt.data),
         hit: true,
       });
     }
@@ -211,7 +227,9 @@
     if (!parsed) return;
     var html = '<div class="chart-readout-cat">' + esc(parsed.cat) + "</div><ul>";
     parsed.lines.forEach(function (line) {
-      html += '<li class="' + (line.hit ? "is-hit" : "") + '"><span class="name">' + esc(line.name) + '</span><span class="val">' + esc(line.value) + "</span></li>";
+      // Three grid cells per row (name · number · unit) so every value lines up.
+      html += '<li class="' + (line.hit ? "is-hit" : "") + '"><span class="name">' + esc(line.name) + '</span><span class="num">' +
+        esc(line.value.num) + '</span><span class="unit">' + esc(line.value.unit) + "</span></li>";
     });
     html += "</ul>";
     panel.hidden = false;

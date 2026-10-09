@@ -122,6 +122,13 @@
     try { localStorage.setItem(ACCESS_MODE_KEY, normMode(m)); } catch (e) {}
   }
 
+  // Unit words for the tap readout under each chart (js/chart-click.js).
+  function unitMeta(kind) {
+    return kind === "sites"
+      ? { pyevUnit: PYEV.t("unit_sites"), pyevUnitOne: PYEV.t("unit_sites_one") }
+      : { pyevUnit: PYEV.t("unit_connectors"), pyevUnitOne: PYEV.t("unit_connectors_one") };
+  }
+
   // GB/T adapter flag (column gbt_adaptador: sí/si/yes/true, any case or
   // accent; missing column or anything else = no adapter). An adapter is NOT a
   // connector: it never enters n_dc_plugs, types or any connector total.
@@ -756,6 +763,7 @@
       const y = stats.map((s) => s[key]);
       return {
         type: "bar",
+        meta: unitMeta(key === "GBTA" ? "sites" : "connectors"),
         name: label,
         x: names,
         y: y,
@@ -846,6 +854,7 @@
     const label = PYEV.t("carga_sites_axis");
     const trace = {
       type: "bar",
+      meta: unitMeta("sites"),
       orientation: "h",
       name: label,
       y: names,
@@ -914,6 +923,7 @@
     const total = items.reduce((s, it) => s + it.value, 0);
     const trace = {
       type: "bar",
+      meta: unitMeta("connectors"),
       x: items.map((it) => it.label),
       y: items.map((it) => it.value),
       text: items.map((it) => String(it.value)),
@@ -1122,6 +1132,7 @@
     const max = values.reduce((m, v) => Math.max(m, v), 0);
     const trace = {
       type: "scatter",
+      meta: unitMeta("sites"),
       mode: "lines+markers+text",
       name: PYEV.t("chargers_history_series"),
       x: labels,
@@ -1149,6 +1160,7 @@
       });
       return {
         type: "scatter",
+        meta: unitMeta("connectors"),
         mode: "lines+markers",
         name: field.name,
         x: labels,
@@ -1242,6 +1254,7 @@
     const labels = cuts.map((c) => historyMonthLabel(c.corte));
     const traces = networks.map((name) => ({
       type: "scatter",
+      meta: unitMeta("sites"),
       mode: "lines+markers",
       name: name,
       x: labels,

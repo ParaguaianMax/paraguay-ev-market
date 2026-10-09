@@ -1364,3 +1364,23 @@ table.data td.conn-cell { white-space: nowrap; font-variant-numeric: tabular-num
 .chart-network-cols { min-height: 0; }
 .chart-scroll-hint { display: none; font-size: 0.75rem; color: var(--muted); margin: 0.2rem 0 0; }
 .chart-hscroll.is-scrolling + .chart-scroll-hint { display: block; }
+
+/* Tap readout under every chart (js/chart-click.js): name · number · unit grid. */
+.chart-readout { font-size: 0.8rem; line-height: 1.35; margin: 0.25rem 0 0.6rem; color: var(--text); }
+.chart-readout[data-state="hint"] { color: var(--muted); }
+.chart-readout-cat { font-weight: 650; margin-bottom: 0.1rem; }
+.chart-readout ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, max-content) max-content minmax(0, 1fr);
+  column-gap: 0.6rem;
+  row-gap: 0.12rem;
+  align-items: baseline;
+}
+.chart-readout li { display: contents; }
+.chart-readout .name { min-width: 0; overflow-wrap: anywhere; }
+.chart-readout .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.chart-readout .unit { color: var(--muted); white-space: nowrap; }
+.chart-readout li.is-hit .name, .chart-readout li.is-hit .num { font-weight: 700; }
