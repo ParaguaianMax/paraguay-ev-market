@@ -1313,6 +1313,11 @@ cursor: pointer;
 .mm-sticky .series-toolbar { gap: 0.45rem 0.6rem; padding: 0.45rem 0.5rem; }
 .mm-sticky .variant-switcher select { min-width: 7.5rem; }
 }
+/* The bar bleeds to the page edge by the .wrap padding; at ≤560px that padding
+   is 0.9rem, so a 1.15rem bleed overflowed the page by 4px. */
+@media (max-width: 560px) {
+.mm-sticky { margin-left: -0.9rem; margin-right: -0.9rem; padding-left: 0.9rem; padding-right: 0.9rem; }
+}
 /* "% del total del período" header wraps instead of widening the table. */
 table.data th.pct-col { white-space: normal; min-width: 4.2rem; max-width: 6rem; line-height: 1.15; }
 @media (max-width: 640px) {
