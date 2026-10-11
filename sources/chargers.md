@@ -8,11 +8,19 @@ Inventario de puntos de carga publicado en PlugShare y revisado para evitar dupl
 
 Se incluyen ubicaciones con conectores **DC** (CCS2, CHAdeMO y GB/T), tanto públicas como restringidas o residenciales/privadas, claramente identificadas. Este corte no registra conectores NACS/Tesla.
 
-**Totales del corte:** 74 ubicaciones DC · 145 conectores DC (CCS2 91 · CHAdeMO 28 · GB/T 26).
+**Totales del corte:** 77 ubicaciones DC · 151 conectores DC (CCS2 96 · CHAdeMO 28 · GB/T 27).
 
 **Agregado el 9 de octubre de 2026:** Pyae Azotey Parador Fleitas (PlugShare 2277261, Azotey, Concepción), con 1 CCS2 y 1 GB/T de 60 kW (potencia según la descripción del local). Se cargó a mano porque la API de PlugShare no respondía ese día. Los conectores fueron confirmados por el equipo y la coordenada es aproximada (ubicación del Parador Fleitas).
 
 **Corrección del 9 de octubre de 2026:** el punto PlugShare 2123872 (Encarnación) pertenece a la red Diesa y es exclusivo para clientes. Pasa a operadora Diesa y acceso restringido, por lo que sale del conteo «Público». Puntos públicos y operativos: 59 · 118 conectores. Sus conectores son 1 CCS2 y 1 GB/T (antes figuraban 2 CCS2).
+
+**Agregados el 11 de octubre de 2026:** tres puntos nuevos, públicos y operativos, cargados a mano porque la API de PlugShare no respondía ese día (datos de la página pública de cada punto, conectores y potencia confirmados por el equipo):
+
+- Pya’e Sax Palace (PlugShare 2293545, Ciudad del Este, Alto Paraná): 2 CCS2, 160 kW. Coordenada según el plus code F9RR+GW2 (edificio Sax). El registro PlugShare 2295440 es el mismo punto y no se cuenta.
+- Pyae Estación de Recarga Caaguazú (PlugShare 2292624, Caaguazú): 1 CCS2 y 1 GB/T nativo, 120 kW. Coordenada aproximada (junto a la terminal de ómnibus, sobre la Ruta PY02). El registro PlugShare 2291803 es el mismo punto y no se cuenta.
+- EcoMoving | 120kw (PlugShare 2286669, Hernandarias, Alto Paraná): 2 CCS2, 120 kW; red EcoMoving (app TriCharge).
+
+Puntos públicos y operativos: 62 · 124 conectores. Los puntos en reparación (por ejemplo Audi Prestigio, Puma Ypacaraí, Biggie Luque y Shell Bahía Aviadores) siguen como «en mantenimiento» y no entran en el conteo «Público».
 
 ## Adaptadores GB/T (`gbt_adaptador`)
 
