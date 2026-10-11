@@ -657,6 +657,11 @@
     return palette[h % palette.length];
   }
 
+  // Carga charts set an explicit layout.height (rows × per-row height). They are
+  // drawn with responsive: false: Plotly's responsive resize relayouts with
+  // autosize, which drops that height and collapses the chart to its container
+  // (0 px for the network bars) on any resize, including the iPhone URL bar
+  // showing/hiding. carga.html re-renders them itself when the width changes.
   function resetChart(el) {
     if (!el) return;
     if (el.data && global.Plotly) {
@@ -725,7 +730,7 @@
       },
     };
     resetChart(el);
-    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
+    Plotly.newPlot(el, [trace], layout, { responsive: false, displayModeBar: false });
   }
 
   /**
@@ -849,7 +854,7 @@
       el,
       traces,
       layout,
-      { responsive: !width, displayModeBar: false }
+      { responsive: false, displayModeBar: false }
     );
   }
 
@@ -920,7 +925,7 @@
       },
     };
     resetChart(el);
-    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
+    Plotly.newPlot(el, [trace], layout, { responsive: false, displayModeBar: false });
   }
 
   function renderConnectorChart(el, rows) {
@@ -987,7 +992,7 @@
       },
     };
     resetChart(el);
-    Plotly.newPlot(el, [trace], layout, { responsive: true, displayModeBar: false });
+    Plotly.newPlot(el, [trace], layout, { responsive: false, displayModeBar: false });
     el._pyevConnectorTotal = total;
     el._pyevConnectorCounts = counts;
   }
@@ -1239,7 +1244,7 @@
     };
     el.style.minHeight = (phone ? 330 : 390) + "px";
     resetChart(el);
-    Plotly.newPlot(el, traces, layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
+    Plotly.newPlot(el, traces, layout, { responsive: false, displayModeBar: false, scrollZoom: false, doubleClick: false });
   }
 
   function renderHistoryNetworkLegend(el, stacks) {
@@ -1327,7 +1332,7 @@
     };
     el.style.minHeight = (phone ? 400 : 440) + "px";
     resetChart(el);
-    Plotly.newPlot(el, traces, layout, { responsive: true, displayModeBar: false, scrollZoom: false, doubleClick: false });
+    Plotly.newPlot(el, traces, layout, { responsive: false, displayModeBar: false, scrollZoom: false, doubleClick: false });
   }
 
   global.PYEVChargers = {

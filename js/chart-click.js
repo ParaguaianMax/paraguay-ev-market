@@ -250,6 +250,8 @@
     el.on("plotly_click", function (ev) { renderClick(el, ev); });
   }
 
+  var fixedCharts = new Set();
+
   function install() {
     if (!global.Plotly || global.Plotly.__pyevClickPatched) return false;
     var origNew = global.Plotly.newPlot;
@@ -261,9 +263,23 @@
     global.Plotly.newPlot = function (el, data, layout, config) {
       var locked = lockLayout(layout);
       var cfg = Object.assign({}, config || {}, { scrollZoom: false, doubleClick: false });
+      // A chart with its own height must not use Plotly's responsive resize: that
+      // relayouts with autosize, which drops layout.height and shrinks the chart to
+      // its container (a few px when the container has no min-height) on any
+      // resize, including the iPhone URL bar showing/hiding. Keep the height and
+      // follow width changes ourselves.
+      var fixedH = typeof locked.height === "number" && locked.height > 0 ? locked.height : 0;
+      var followWidth = !!(fixedH && cfg.responsive && locked.width == null);
+      if (fixedH) cfg.responsive = false;
       var ret = origNew.call(global.Plotly, el, data, locked, cfg);
       return Promise.resolve(ret).then(function (gd) {
-        bind(gd || nodeOf(el));
+        var node = gd || nodeOf(el);
+        if (node) {
+          node._pyevPlotAt = Date.now();
+          if (followWidth) { node._pyevFixedH = fixedH; fixedCharts.add(node); }
+          else { fixedCharts.delete(node); }
+        }
+        bind(node);
         return gd;
       });
     };
@@ -288,6 +304,23 @@
       return origPurge.apply(global.Plotly, arguments);
     };
     global.Plotly.__pyevClickPatched = true;
+    var lastW = global.innerWidth;
+    var timer = 0;
+    global.addEventListener("resize", function () {
+      if (global.innerWidth === lastW) return; // height-only (URL bar): nothing to do
+      lastW = global.innerWidth;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fixedCharts.forEach(function (gd) {
+          if (!gd.isConnected || !gd._fullLayout || !gd._pyevFixedH) { fixedCharts.delete(gd); return; }
+          if (Date.now() - (gd._pyevPlotAt || 0) < 250) return; // the page just redrew it
+          var cs = global.getComputedStyle(gd);
+          var w = gd.clientWidth - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0);
+          if (!(w > 0) || !gd.offsetParent) return;
+          origRelayout.call(global.Plotly, gd, { width: Math.floor(w), height: gd._pyevFixedH });
+        });
+      }, 200);
+    });
     return true;
   }
 

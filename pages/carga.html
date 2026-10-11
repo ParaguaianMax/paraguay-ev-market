@@ -336,22 +336,25 @@
             paintHistory();
           }, 30);
         });
+        // Charts have fixed heights and responsive: false, so redraw them here when the
+        // width changes (rotation, window resize). Height-only resizes (the iPhone URL
+        // bar) need nothing. Registered before the history load so it never goes missing.
+        let resizeTimer = 0;
+        let lastW = window.innerWidth;
+        window.addEventListener("resize", () => {
+          if (window.innerWidth === lastW) return;
+          lastW = window.innerWidth;
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            paintHistory();
+            PYEVChargers.renderNetworkSites(networkSitesEl, bandRows());
+            PYEVChargers.renderNetworkBars(networkBarsEl, bandRows());
+          }, 150);
+        });
         try {
           historyBundle = await PYEVChargers.loadHistory();
           PYEVChargers.renderKPIs(kpis, all, baseline(), mode);
           paintHistory();
-          let timer = 0;
-          let lastW = window.innerWidth;
-          window.addEventListener("resize", () => {
-            if (window.innerWidth === lastW) return;
-            lastW = window.innerWidth;
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-              paintHistory();
-              PYEVChargers.renderNetworkSites(networkSitesEl, bandRows());
-            PYEVChargers.renderNetworkBars(networkBarsEl, bandRows());
-            }, 150);
-          });
         } catch (err) {
           historyEl.innerHTML = '<div class="status error">' + esc(err.message) + "</div>";
           historyNetEl.innerHTML = "";
