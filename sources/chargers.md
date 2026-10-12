@@ -10,14 +10,14 @@ Se incluyen ubicaciones con conectores **DC** (CCS2, CHAdeMO y GB/T), tanto púb
 
 **Totales del corte:** 77 ubicaciones DC · 151 conectores DC (CCS2 96 · CHAdeMO 28 · GB/T 27).
 
-**Agregado el 9 de octubre de 2026:** Pyae Azotey Parador Fleitas (PlugShare 2277261, Azotey, Concepción), con 1 CCS2 y 1 GB/T de 60 kW (potencia según la descripción del local). Se cargó a mano porque la API de PlugShare no respondía ese día. Los conectores fueron confirmados por el equipo y la coordenada es aproximada (ubicación del Parador Fleitas).
+**Agregado el 9 de octubre de 2026:** Pya'e Azotey Parador Fleitas (PlugShare 2277261, Azotey, Concepción), con 1 CCS2 y 1 GB/T de 60 kW (potencia según la descripción del local). Se cargó a mano porque la API de PlugShare no respondía ese día. Los conectores fueron confirmados por el equipo y la coordenada es aproximada (ubicación del Parador Fleitas).
 
 **Corrección del 9 de octubre de 2026:** el punto PlugShare 2123872 (Encarnación) pertenece a la red Diesa y es exclusivo para clientes. Pasa a operadora Diesa y acceso restringido, por lo que sale del conteo «Público». Puntos públicos y operativos: 59 · 118 conectores. Sus conectores son 1 CCS2 y 1 GB/T (antes figuraban 2 CCS2).
 
 **Agregados el 11 de octubre de 2026:** tres puntos nuevos, públicos y operativos, cargados a mano porque la API de PlugShare no respondía ese día (datos de la página pública de cada punto, conectores y potencia confirmados por el equipo):
 
-- Pya’e Sax Palace (PlugShare 2293545, Ciudad del Este, Alto Paraná): 2 CCS2, 160 kW. Coordenada según el plus code F9RR+GW2 (edificio Sax). El registro PlugShare 2295440 es el mismo punto y no se cuenta.
-- Pyae Estación de Recarga Caaguazú (PlugShare 2292624, Caaguazú): 1 CCS2 y 1 GB/T nativo, 120 kW. Coordenada aproximada (junto a la terminal de ómnibus, sobre la Ruta PY02). El registro PlugShare 2291803 es el mismo punto y no se cuenta.
+- Pya'e Sax Palace (PlugShare 2293545, Ciudad del Este, Alto Paraná): 2 CCS2, 160 kW. Coordenada según el plus code F9RR+GW2 (edificio Sax). El registro PlugShare 2295440 es el mismo punto y no se cuenta.
+- Pya'e Estación de Recarga Caaguazú (PlugShare 2292624, Caaguazú): 1 CCS2 y 1 GB/T nativo, 120 kW. Coordenada aproximada (junto a la terminal de ómnibus, sobre la Ruta PY02). El registro PlugShare 2291803 es el mismo punto y no se cuenta.
 - EcoMoving | 120kw (PlugShare 2286669, Hernandarias, Alto Paraná): 2 CCS2, 120 kW; red EcoMoving (app TriCharge).
 
 Puntos públicos y operativos: 62 · 124 conectores. Los puntos en reparación (por ejemplo Audi Prestigio, Puma Ypacaraí, Biggie Luque y Shell Bahía Aviadores) siguen como «en mantenimiento» y no entran en el conteo «Público».
@@ -26,7 +26,7 @@ Puntos públicos y operativos: 62 · 124 conectores. Los puntos en reparación (
 
 Regla desde el 9 de octubre de 2026: un adaptador GB/T colocado en un cargador CCS **no cuenta como conector**. La columna `gbt_adaptador` (última del CSV) vale `sí` cuando la fuente dice explícitamente que el GB/T del punto se ofrece mediante un adaptador del local. En ese caso el GB/T no entra en `n_dc_plugs` ni en `connectors_dc`. En los demás puntos vale `no`. Los adaptadores que llevan los propios conductores (mencionados en check-ins) no cuentan.
 
-Puntos con `sí`: Pya’e Master Bearings (1876346) y Pyae Shopping Dubai (1876280), según la descripción de PlugShare («adaptador para GB/T, solicitar para uso»). Ambos ya figuraban solo con CCS2, así que los totales no cambian.
+Puntos con `sí`: Pya'e Master Bearings (1876346) y Pya'e Shopping Dubai (1876280), según la descripción de PlugShare («adaptador para GB/T, solicitar para uso»). Ambos ya figuraban solo con CCS2, así que los totales no cambian.
 
 ## Potencia (kW)
 
