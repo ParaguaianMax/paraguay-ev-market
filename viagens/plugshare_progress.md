@@ -20,3 +20,9 @@
 - Rejeitados: Posto Gasparin (PS 731577 Av. Olímpio Rafagnin ≠ Nilson Gottlieb), Letts Road (PS 714395 R. Taboão ≠ Rod. do Café 3325), Simão Pneus EB-sp3619 (2788 vs PS 2188), Shopping Cilla (só PS Energy Cleve), Movix-E Pio XII/Medcar, Bionova Rio Negro, Zacarias.
 - Total 225 pontos; restam 109 EB.
 - Rodada 9b: On Charge - CCS SJP→1542106 "On-Charge Indústria" (240 kW; CCS2×6; GB/T só adaptador → gbt_adaptador=sí). DDG voltou a bloquear (testado após 10 min e de novo); WebSearch sem id para Dom Antônio, Gold Park V, Cia Charge Peugeot, Pelanda 27, Espaço MarQ. Restam 108 EB.
+
+## Rodada 10 (2026-10-13 ~08h–09h PYT)
+- psq.py modificado: ao bloquear, espera 15 min e tenta de novo (até 8×); 30 s entre buscas. DDG libera ~1 busca a cada 15 min → ~7 linhas/h. Processo continua em background (nohup) gravando em /workspace/psq_out.jsonl.
+- Casados 3: Dom Antônio→1036375 (80; PS nº 6121 vs EB 6145, mesmo restaurante), GAC Servopa→1387093, Open Point Volvo Servopa→177170 (R. Jerônimo Durski 925; revisar se é DC – notas antigas indicam só AC 7 kW).
+- Sem casamento: Luz da Lua EB-ocm306612 (PS 1673485 R. do Semeador ≠; PS 709590 sem endereço), Volt-On (2135202/2080546 outros endereços), GS Charger (candidatos Raposo Tavares/Itacolomi ≠ Frischmann 2520), Subway Água Verde (1493199/2126863 outros). WebSearch sem id: Smart Fit, Expocentro BC, Boca Mafra, Porto Belo All Resort, Zandoná, Graal Parada Norte.
+- Restam 105 EB.

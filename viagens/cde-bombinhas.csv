@@ -67,15 +67,15 @@ EB-ocm306612,Posto Luz da Lua - InWatts,https://www.eletrospostosbrasil.com.br/e
 152997,Copel Telecomunicações,https://www.plugshare.com/location/152997,ativo,público,PR,Curitiba,-25.432604,-49.339198,Copel,2,"CCS2×1, CHAdeMO×1",50,50–99 kW,inferido (nome/desc),no
 585042,GWM Evollux - Manoel Ribas,https://www.plugshare.com/location/585042,ativo (restrito),restrito,PR,Curitiba,-25.399855,-49.337342,GWM,1,CCS2×1,,,desconhecido,no
 618208,Vila dos Ventos,https://www.plugshare.com/location/618208,ativo,público,PR,Curitiba,-25.393082,-49.335465,OnCharge,2,"GB/T DC×1, CCS2×1",60,50–99 kW,inferido (nome/desc),no
-EB-sp3622,Dom Antônio,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-dom-antonio-sp3622,ativo,público,PR,Curitiba,-25.403343,-49.329843,desconhecido,2,CCS2×2,60,50–99 kW,estimado (check-ins),no
+1036375,Dom Antônio Eletroposto | CCS2 - 80kW / APP On Charge,https://www.plugshare.com/location/1036375,ativo,público,PR,Curitiba,-25.403343,-49.329843,desconhecido,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
 2142359,Ítalo Supermercados - Curitiba Barigui,https://www.plugshare.com/location/2142359,ativo,público,PR,Curitiba,-25.438143,-49.315537,desconhecido,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
 1618714,CIA do Alimento - 80kw,https://www.plugshare.com/location/1618714,ativo,público,PR,Curitiba,-25.477531,-49.312243,desconhecido,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
 1892121,Zella Eletroposto | CCS2 - 80kW,https://www.plugshare.com/location/1892121,ativo,público,PR,Curitiba,-25.475435,-49.302407,desconhecido,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
-EB-sp3704,GAC Servopa,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-gac-servopa-sp3704,ativo,público,PR,Curitiba,-25.467448,-49.298904,desconhecido,2,CCS2×2,48,abaixo de 50 kW,estimado (check-ins),no
+1387093,GAC Servopa,https://www.plugshare.com/location/1387093,ativo,público,PR,Curitiba,-25.467448,-49.298904,desconhecido,2,CCS2×2,48,abaixo de 50 kW,estimado (check-ins),no
 EB-sp3677,Volt-On,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-volt-on-sp3677,ativo,público,PR,Curitiba,-25.458505,-49.315233,desconhecido,3,CCS2×3,69,50–99 kW,estimado (check-ins),no
 EB-sp3864,GS Charger,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-gs-charger-sp3864,ativo,público,PR,Curitiba,-25.467275,-49.294885,desconhecido,2,CCS2×2,80,50–99 kW,estimado (check-ins),no
 1033749,40 KW | Eletroposto Sete de Setembro,https://www.plugshare.com/location/1033749,ativo,público,PR,Curitiba,-25.451213,-49.302508,Energia Atual,1,CCS2×1,40,abaixo de 50 kW,inferido (nome/desc),no
-EB-ocm235318,Open Point Volvo Cars - Grupo Servopa,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-open-point-volvo-cars-grupo-servopa-ocm235318,ativo,público,PR,Curitiba,-25.439377,-49.300987,Volvo,1,CCS2×1,30,abaixo de 50 kW,inferido (nome/desc),no
+177170,Volvo - Concessionária Servopa - Curitiba,https://www.plugshare.com/location/177170,ativo,público,PR,Curitiba,-25.439377,-49.300987,Volvo,1,CCS2×1,30,abaixo de 50 kW,inferido (nome/desc),no
 EB-sp3617,Subway Água Verde,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-subway-agua-verde-sp3617,ativo,público,PR,Curitiba,-25.463051,-49.287360,desconhecido,2,CCS2×2,50,50–99 kW,estimado (check-ins),no
 711335,Ev Eletroposto Posto Ipiranga (Batel),https://www.plugshare.com/location/711335,ativo,público,PR,Curitiba,-25.445394,-49.295126,desconhecido,1,CCS2×1,40,abaixo de 50 kW,inferido (nome/desc),no
 606715,Shell Recharge | Mercado Angeloni Bigorrilho,https://www.plugshare.com/location/606715,ativo,público,PR,Curitiba,-25.433299,-49.298564,Shell Recharge,2,"CHAdeMO×1, CCS2×1",50,50–99 kW,inferido (nome/desc),no
