@@ -19,3 +19,4 @@
 - Duplicatas EB removidas (mesmo PS): EB-ocm473181 Itelo Webber, EB-sp3994 Jerônimo e Madero, EB-ocm204434 Copel Maranello, EB-sp3639 Ecofortte Meotti.
 - Rejeitados: Posto Gasparin (PS 731577 Av. Olímpio Rafagnin ≠ Nilson Gottlieb), Letts Road (PS 714395 R. Taboão ≠ Rod. do Café 3325), Simão Pneus EB-sp3619 (2788 vs PS 2188), Shopping Cilla (só PS Energy Cleve), Movix-E Pio XII/Medcar, Bionova Rio Negro, Zacarias.
 - Total 225 pontos; restam 109 EB.
+- Rodada 9b: On Charge - CCS SJP→1542106 "On-Charge Indústria" (240 kW; CCS2×6; GB/T só adaptador → gbt_adaptador=sí). DDG voltou a bloquear (testado após 10 min e de novo); WebSearch sem id para Dom Antônio, Gold Park V, Cia Charge Peugeot, Pelanda 27, Espaço MarQ. Restam 108 EB.
