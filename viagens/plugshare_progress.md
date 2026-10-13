@@ -32,3 +32,9 @@
 - Casados 4 (endereço confirmado na página pública PlugShare): Ecofortte Francisco Rocha→1677938 (Rua Francisco Rocha 1494; kw 94→120; CCS2×6), GWM Evollux Batel→570266 (Av. do Batel 1682; restrito), Posto Petrobras→706196 (Av. Manoel Ribas 3130; kw 24→30), Madrid→722782 (R. Vicente Machado 551; kw 43→60; Energia Atual).
 - Rejeitado: Ecofortte Fris Mercado (PS 659190 Plaza Estacionamento / Ermelino de Leão ≠ Assis Gonçalves 665). Já rejeitados antes sem novo casamento: Gasparin, Movix-E/Medcar, Bionova, Zacarias, Simão Pneus, Shopping Cilla, Letts Road, Luz da Lua, Volt-On, GS Charger, Subway Água Verde. Sem cand: Pra Frente Brasil, Posto Palmeiras, Estação Guapo, Volton.
 - Total: 225 pontos; restam 101 EB.
+
+## Rodada 12 (2026-10-13 ~12h55 PYT)
+- psq.py seguiu em background (DDG liberou ~25 buscas entre 11h e 12h); títulos/descrições lidos na página pública PlugShare; endereços ambíguos conferidos por geocodificação (Nominatim) contra as coordenadas EB.
+- Casados 16: Plaza CCS2→659190 (Ermelino de Leão 167; 120+60), Rua Inácio Lustosa→2247825 (RZ Power Adega Boulevard nº 250, ~20 m; 80), Ultra Charge→1599577 (80), Av. da Integração→1877991, Alx Ahú→1716808 (nº 27 vs 43), Smart Fit→2071975, Alx Itupava→1639810 (1580 vs 1590; 80), Posto Imola→1851366 (Av. V. F. do Amaral 1280, ~55 m; 80), BYD Matriz→582973 (R. Rockefeller 1217), Av. V. F. do Amaral 2400→1920373 (~30 m), Eletrocentro Lactec→477079 (BR-116 8813; 100), La Ventura→1920306 (3925 vs 3821; 60), B4 Energia Solar→1435191 (80), 80kw Derosso→1970023 (80), Posto Selection→1822010 (80), Novo CNF Clube Olímpico→1715960 (Derosso 3269, ~200 m das coords EB; 80).
+- Rejeitados/sem id: Alumifix (PS 647548/647566 R. Salvador Ferrante ≠ William Booth 751, ~500 m), Smart Hub, CNF Auto Master, Em Instalação, Fanny, Ecofortte Eco-Express, Gold Park V, Posto Tic 2, Subway Carmo.
+- Total: 225 pontos; restam 85 EB.
