@@ -26,3 +26,9 @@
 - Casados 3: Dom Antônio→1036375 (80; PS nº 6121 vs EB 6145, mesmo restaurante), GAC Servopa→1387093, Open Point Volvo Servopa→177170 (R. Jerônimo Durski 925; revisar se é DC – notas antigas indicam só AC 7 kW).
 - Sem casamento: Luz da Lua EB-ocm306612 (PS 1673485 R. do Semeador ≠; PS 709590 sem endereço), Volt-On (2135202/2080546 outros endereços), GS Charger (candidatos Raposo Tavares/Itacolomi ≠ Frischmann 2520), Subway Água Verde (1493199/2126863 outros). WebSearch sem id: Smart Fit, Expocentro BC, Boca Mafra, Porto Belo All Resort, Zandoná, Graal Parada Norte.
 - Restam 105 EB.
+
+## Rodada 11 (2026-10-13 ~11h05 PYT)
+- psq.py ainda rodando (espera 15 min ao bloquear DDG); jsonl com 49 linhas; 87 EB ainda não buscadas.
+- Casados 2 (endereço confirmado na página pública PlugShare): Ecofortte Francisco Rocha→1677938 (Rua Francisco Rocha 1494; kw 94→120; 6 plugues CCS2), GWM Evollux Batel→570266 (Av. do Batel 1682; restrito).
+- Já rejeitados antes (sem novo casamento): Gasparin, Movix-E/Medcar, Bionova Cascavel, Zacarias, Simão Pneus, Shopping Cilla, Letts Road, Luz da Lua, Volt-On, GS Charger, Subway Água Verde. Sem cand: Pra Frente Brasil, Posto Palmeiras, Estação Guapo, Volton.
+- Total: 225 pontos; restam 103 EB.
