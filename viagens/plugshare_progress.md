@@ -28,7 +28,7 @@
 - Restam 105 EB.
 
 ## Rodada 11 (2026-10-13 ~11h05 PYT)
-- psq.py ainda rodando (espera 15 min ao bloquear DDG); jsonl com 49 linhas; 87 EB ainda não buscadas.
-- Casados 2 (endereço confirmado na página pública PlugShare): Ecofortte Francisco Rocha→1677938 (Rua Francisco Rocha 1494; kw 94→120; 6 plugues CCS2), GWM Evollux Batel→570266 (Av. do Batel 1682; restrito).
-- Já rejeitados antes (sem novo casamento): Gasparin, Movix-E/Medcar, Bionova Cascavel, Zacarias, Simão Pneus, Shopping Cilla, Letts Road, Luz da Lua, Volt-On, GS Charger, Subway Água Verde. Sem cand: Pra Frente Brasil, Posto Palmeiras, Estação Guapo, Volton.
-- Total: 225 pontos; restam 103 EB.
+- psq.py em background (espera 15 min ao bloquear DDG); jsonl passou de 49→52+ linhas neste turno.
+- Casados 4 (endereço confirmado na página pública PlugShare): Ecofortte Francisco Rocha→1677938 (Rua Francisco Rocha 1494; kw 94→120; CCS2×6), GWM Evollux Batel→570266 (Av. do Batel 1682; restrito), Posto Petrobras→706196 (Av. Manoel Ribas 3130; kw 24→30), Madrid→722782 (R. Vicente Machado 551; kw 43→60; Energia Atual).
+- Rejeitado: Ecofortte Fris Mercado (PS 659190 Plaza Estacionamento / Ermelino de Leão ≠ Assis Gonçalves 665). Já rejeitados antes sem novo casamento: Gasparin, Movix-E/Medcar, Bionova, Zacarias, Simão Pneus, Shopping Cilla, Letts Road, Luz da Lua, Volt-On, GS Charger, Subway Água Verde. Sem cand: Pra Frente Brasil, Posto Palmeiras, Estação Guapo, Volton.
+- Total: 225 pontos; restam 101 EB.
