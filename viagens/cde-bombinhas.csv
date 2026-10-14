@@ -117,7 +117,7 @@ EB-sp3605,CNF - Auto Master,https://www.eletrospostosbrasil.com.br/eletroposto/c
 1376621,Alumifix AGUA VERDE,https://www.plugshare.com/location/1376621,ativo,público,PR,Curitiba,-25.456685,-49.270552,desconhecido,5,CCS2×5,120,100–149 kW,inferido (nome/desc),no
 EB-sp3717,Em Instalação,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-em-instalacao-sp3717,em breve,público,PR,Curitiba,-25.447275,-49.253489,desconhecido,1,CCS2×1,38,abaixo de 50 kW,estimado (check-ins),no
 1920373,"Av. Victor Ferreira do Amaral, 2400",https://www.plugshare.com/location/1920373,ativo,público,PR,Curitiba,-25.429869,-49.216623,desconhecido,2,CCS2×2,43,abaixo de 50 kW,estimado (check-ins),no
-477079,Eletrocentro Lactec 100 Kw,https://www.plugshare.com/location/477079,ativo,público,PR,Curitiba,-25.451069,-49.239775,Lactec,6,"CHAdeMO×3, CCS2×3",100,100–149 kW,inferido (nome/desc),no
+477079,Eletrocentro Lactec,https://www.plugshare.com/location/477079,ativo,público,PR,Curitiba,-25.451069,-49.239775,Lactec,6,"CHAdeMO×3, CCS2×3",60,50–99 kW,Max (confirmação),no
 1435376,QG Amigos do Guerra,https://www.plugshare.com/location/1435376,ativo,público,PR,Curitiba,-25.463759,-49.257587,desconhecido,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
 731146,Ellosolar Engenharia,https://www.plugshare.com/location/731146,ativo,público,PR,Curitiba,-25.474310,-49.273854,desconhecido,4,"GB/T DC×2, CCS2×2",21,abaixo de 50 kW,estimado (check-ins),no
 2141534,Green Charger - Duplo CCS2 80 kW - Costelão Pinhais,https://www.plugshare.com/location/2141534,ativo,público,PR,Pinhais,-25.431257,-49.203072,Green Charger,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
@@ -135,7 +135,7 @@ EB-sp3534,Alumifix Aluminio,https://www.eletrospostosbrasil.com.br/eletroposto/c
 1822010,80 KW | Posto Selection,https://www.plugshare.com/location/1822010,ativo,público,PR,Curitiba,-25.491777,-49.221202,desconhecido,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
 EB-sp3648,Subway Carmo - Undare,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-subway-carmo-undare-sp3648,ativo,público,PR,Curitiba,-25.502504,-49.236801,desconhecido,2,CCS2×2,74,50–99 kW,estimado (check-ins),no
 1715960,NOVO CNF Eletropostos - EcoClube Clube Olímpico,https://www.plugshare.com/location/1715960,ativo,público,PR,Curitiba,-25.517308,-49.253803,CNF,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
-1542106,On-Charge Indústria,https://www.plugshare.com/location/1542106,ativo,público,PR,São José dos Pinhais,-25.491200,-49.176979,desconhecido,6,CCS2×6,240,150+ kW,inferido (nome/desc),sí
+1542106,On-Charge Indústria,https://www.plugshare.com/location/1542106,ativo,público,PR,São José dos Pinhais,-25.491200,-49.176979,desconhecido,6,CCS2×6,240,150+ kW,Max (confirmação),sí
 1160681,Elexpower Ecomall Parque Da Fonte,https://www.plugshare.com/location/1160681,ativo,público,PR,São José dos Pinhais,-25.503284,-49.179772,Elexpower,1,CCS2×1,30,abaixo de 50 kW,inferido (nome/desc),no
 EB-sp3965,Parque Da Fonte,https://www.eletrospostosbrasil.com.br/eletroposto/sao-jose-dos-pinhais-parque-da-fonte-sp3965,ativo,público,PR,São José dos Pinhais,-25.513694,-49.189583,desconhecido,1,CCS2×1,30,abaixo de 50 kW,inferido (nome/desc),no
 EB-sp3531,Cia Charge Peugeot - São José Dos Pinhais,https://www.eletrospostosbrasil.com.br/eletroposto/sao-jose-dos-pinhais-cia-charge-peugeot-sao-jose-dos-pinhais-sp3531,ativo,público,PR,São José dos Pinhais,-25.517074,-49.199987,Cia Charge,2,CCS2×2,72,50–99 kW,estimado (check-ins),no
