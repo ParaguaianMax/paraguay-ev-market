@@ -550,23 +550,26 @@
   }
 
   /** Inicio: monthly BEV and PHEV share (% of each month's units), one axis. */
-  function bevPhevChart(el, monthly) {
+  function bevPhevChart(el, monthly, opts) {
+    const withHev = !!(opts && opts.hev);
     if (!el || !monthly || !monthly.length) return;
     const col = C();
     const dark = isDark();
     const narrow = typeof window !== "undefined" && window.innerWidth < 640;
     const markerBorder = dark ? "#141413" : "#fdfdfc";
     const x = monthly.map((m) => m.period);
-    const traces = ["BEV", "PHEV"].map((k) => ({
+    const val = (m, k) => (k === "NONPLUG" ? (m.HEV || 0) + (m.OTHERS || 0) : m[k]);
+    const keys = withHev ? ["BEV", "PHEV", "NONPLUG"] : ["BEV", "PHEV"];
+    const traces = keys.map((k) => ({
       type: "scatter",
       mode: "lines+markers",
-      name: k,
+      name: k === "NONPLUG" ? "HEV + mild" : k,
       x: x,
-      y: monthly.map((m) => (m.TOTAL ? +((100 * m[k]) / m.TOTAL).toFixed(2) : 0)),
-      customdata: monthly.map((m) => m[k]),
-      line: { color: col[k], width: narrow ? 2 : 2.5 },
-      marker: { color: col[k], size: narrow ? 6 : 7, line: { width: 1, color: markerBorder } },
-      hovertemplate: "<b>" + k + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
+      y: monthly.map((m) => (m.TOTAL ? +((100 * val(m, k)) / m.TOTAL).toFixed(2) : 0)),
+      customdata: monthly.map((m) => val(m, k)),
+      line: { color: col[k === "NONPLUG" ? "HEV" : k], width: narrow ? 2 : 2.5 },
+      marker: { color: col[k === "NONPLUG" ? "HEV" : k], size: narrow ? 6 : 7, line: { width: 1, color: markerBorder } },
+      hovertemplate: "<b>" + (k === "NONPLUG" ? "HEV + mild" : k) + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
     }));
     const maxY = traces.reduce((m, tr) => Math.max(m, ...tr.y), 0);
     const base = plotlyLayout();
@@ -593,16 +596,17 @@
         }),
         margin: { t: 12, r: 12, b: 8, l: 8 },
       }),
-      { responsive: true, displayModeBar: false }
+      { responsive: false, displayModeBar: false }
     );
     el._pyevKind = "bevPhev";
     el._pyevRows = monthly;
+    el._pyevOpts = opts || {};
   }
 
   function restyleTheme(el) {
     if (!el || !el._pyevRows) return;
     if (el._pyevKind === "volumes") volumesChart(el, el._pyevRows, el._pyevOpts);
-    else if (el._pyevKind === "bevPhev") bevPhevChart(el, el._pyevRows);
+    else if (el._pyevKind === "bevPhev") bevPhevChart(el, el._pyevRows, el._pyevOpts);
     else if (el._pyevKind === "volumesElec") volumesElectrifiedChart(el, el._pyevRows, Object.assign({}, el._pyevOpts, { mode: el._pyevElecMode }));
     else shareChart(el, el._pyevRows, el._pyevOpts);
   }

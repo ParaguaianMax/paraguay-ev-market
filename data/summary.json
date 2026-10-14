@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11T14:42:10-03:00",
+ "generated": "2026-10-14T14:41:41-03:00",
  "cutoff": "2026-09",
  "conditions": {
   "nuevo": {
@@ -90,72 +90,96 @@
      "period": "2025-10",
      "BEV": 109,
      "PHEV": 171,
+     "HEV": 166,
+     "OTHERS": 0,
      "TOTAL": 4437
     },
     {
      "period": "2025-11",
      "BEV": 65,
      "PHEV": 112,
+     "HEV": 238,
+     "OTHERS": 0,
      "TOTAL": 3765
     },
     {
      "period": "2025-12",
      "BEV": 93,
      "PHEV": 169,
+     "HEV": 312,
+     "OTHERS": 0,
      "TOTAL": 3676
     },
     {
      "period": "2026-01",
      "BEV": 42,
      "PHEV": 205,
+     "HEV": 238,
+     "OTHERS": 0,
      "TOTAL": 3024
     },
     {
      "period": "2026-02",
      "BEV": 112,
      "PHEV": 130,
+     "HEV": 256,
+     "OTHERS": 0,
      "TOTAL": 3643
     },
     {
      "period": "2026-03",
      "BEV": 165,
      "PHEV": 294,
+     "HEV": 342,
+     "OTHERS": 1,
      "TOTAL": 4238
     },
     {
      "period": "2026-04",
      "BEV": 84,
      "PHEV": 282,
+     "HEV": 385,
+     "OTHERS": 1,
      "TOTAL": 4739
     },
     {
      "period": "2026-05",
      "BEV": 148,
      "PHEV": 187,
+     "HEV": 466,
+     "OTHERS": 1,
      "TOTAL": 4213
     },
     {
      "period": "2026-06",
      "BEV": 110,
      "PHEV": 90,
+     "HEV": 536,
+     "OTHERS": 15,
      "TOTAL": 4451
     },
     {
      "period": "2026-07",
      "BEV": 193,
      "PHEV": 245,
+     "HEV": 438,
+     "OTHERS": 16,
      "TOTAL": 5344
     },
     {
      "period": "2026-08",
      "BEV": 148,
      "PHEV": 659,
+     "HEV": 665,
+     "OTHERS": 12,
      "TOTAL": 5183
     },
     {
      "period": "2026-09",
      "BEV": 295,
      "PHEV": 484,
+     "HEV": 443,
+     "OTHERS": 5,
      "TOTAL": 5582
     }
    ],
@@ -361,72 +385,96 @@
      "period": "2025-10",
      "BEV": 111,
      "PHEV": 172,
+     "HEV": 192,
+     "OTHERS": 0,
      "TOTAL": 11197
     },
     {
      "period": "2025-11",
      "BEV": 67,
      "PHEV": 115,
+     "HEV": 258,
+     "OTHERS": 1,
      "TOTAL": 9016
     },
     {
      "period": "2025-12",
      "BEV": 94,
      "PHEV": 170,
+     "HEV": 338,
+     "OTHERS": 0,
      "TOTAL": 9275
     },
     {
      "period": "2026-01",
      "BEV": 42,
      "PHEV": 205,
+     "HEV": 251,
+     "OTHERS": 0,
      "TOTAL": 7716
     },
     {
      "period": "2026-02",
      "BEV": 112,
      "PHEV": 131,
+     "HEV": 279,
+     "OTHERS": 0,
      "TOTAL": 8358
     },
     {
      "period": "2026-03",
      "BEV": 165,
      "PHEV": 295,
+     "HEV": 380,
+     "OTHERS": 1,
      "TOTAL": 10502
     },
     {
      "period": "2026-04",
      "BEV": 84,
      "PHEV": 283,
+     "HEV": 442,
+     "OTHERS": 1,
      "TOTAL": 10264
     },
     {
      "period": "2026-05",
      "BEV": 153,
      "PHEV": 187,
+     "HEV": 508,
+     "OTHERS": 1,
      "TOTAL": 10112
     },
     {
      "period": "2026-06",
      "BEV": 110,
      "PHEV": 91,
+     "HEV": 565,
+     "OTHERS": 15,
      "TOTAL": 9997
     },
     {
      "period": "2026-07",
      "BEV": 193,
      "PHEV": 245,
+     "HEV": 471,
+     "OTHERS": 16,
      "TOTAL": 11186
     },
     {
      "period": "2026-08",
      "BEV": 156,
      "PHEV": 659,
+     "HEV": 680,
+     "OTHERS": 12,
      "TOTAL": 8639
     },
     {
      "period": "2026-09",
      "BEV": 299,
      "PHEV": 485,
+     "HEV": 500,
+     "OTHERS": 5,
      "TOTAL": 10807
     }
    ],

@@ -147,7 +147,7 @@ def build_condition(market, model_rows, latest):
         if p not in market:
             continue
         m = market[p]
-        monthly.append({"period": p, "BEV": int(round(m["BEV"])), "PHEV": int(round(m["PHEV"])), "TOTAL": int(round(m["TOTAL"]))})
+        monthly.append({"period": p, "BEV": int(round(m["BEV"])), "PHEV": int(round(m["PHEV"])), "HEV": int(round(m["HEV"])), "OTHERS": int(round(m["OTHERS"])), "TOTAL": int(round(m["TOTAL"]))})
     return {
         "ytd": dict(ytd, months=ytd_present),
         "prev": dict(prev, months=prev_present),

@@ -103,9 +103,16 @@
     <section class="home-bp" aria-labelledby="home-bp-title">
       <h2 id="home-bp-title" data-i18n="home_bp_title">Participación BEV y PHEV, últimos 12 meses</h2>
       <p class="lead" data-i18n="home_bp_lead">Porcentaje de las unidades de cada mes.</p>
+      <div class="view-toggle-row">
+        <div class="period-mode" role="group" data-i18n-attr="aria-label:share_view_aria" aria-label="Líneas del gráfico">
+          <button type="button" class="period-mode-btn active" data-bp-hev="0" aria-pressed="true" data-i18n="home_bp_view_plug">BEV y PHEV</button>
+          <button type="button" class="period-mode-btn" data-bp-hev="1" aria-pressed="false" data-i18n="home_bp_view_hev">+ Híbridos no enchufables</button>
+        </div>
+      </div>
       <div class="legend-row">
         <span class="lg-bev">BEV</span>
         <span class="lg-phev">PHEV</span>
+        <span class="lg-hev" id="home-bp-lg-hev" hidden data-i18n="hl_nonplug">Híbridos no enchufables (HEV + mild)</span>
       </div>
       <div id="home-bp-chart" class="chart-panel chart-bare chart-yty"></div>
       <p class="chart-foot" id="home-bp-note"></p>
@@ -190,6 +197,20 @@
         ).join("");
       }
 
+      const BP_HEV_KEY = "pyev-home-bp-hev";
+      function bpHev() {
+        try { return localStorage.getItem(BP_HEV_KEY) === "1"; } catch (e) { return false; }
+      }
+      document.querySelectorAll("[data-bp-hev]").forEach((b) => {
+        b.addEventListener("click", () => {
+          try {
+            if (b.dataset.bpHev === "1") localStorage.setItem(BP_HEV_KEY, "1");
+            else localStorage.removeItem(BP_HEV_KEY);
+          } catch (e) {}
+          draw();
+        });
+      });
+
       function draw() {
         if (!S) return;
         const cond = condKey();
@@ -206,9 +227,21 @@
           "<span>" + PYEV.t("home_cutoff", { period: PYEV.periodLabel(S.cutoff) }) + "</span>" +
           '<span class="home-meta-chargers"><b>⚡ ' + PYEV.t("home_chargers_stat", { plugs: PYEV.fmtInt(c.plugs), sites: PYEV.fmtInt(c.sites) }) + "</b>" +
           ' · <a href="pages/carga.html?acceso=publico">' + PYEV.t("home_chargers_link") + "</a></span>";
-        PYEVCharts.bevPhevChart(chart, d.monthly);
+        const hevOn = bpHev();
+        document.querySelectorAll("[data-bp-hev]").forEach((b) => {
+          const on = (b.dataset.bpHev === "1") === hevOn;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        const lgHev = document.getElementById("home-bp-lg-hev");
+        if (lgHev) lgHev.hidden = !hevOn;
+        const bpTitle = document.getElementById("home-bp-title");
+        if (bpTitle) bpTitle.textContent = PYEV.t(hevOn ? "home_bp_title_hev" : "home_bp_title");
+        PYEVCharts.bevPhevChart(chart, d.monthly, { hev: hevOn });
         const w = d.last12, p = d.prev12;
-        note.innerHTML = PYEV.t("home_bp_note", {
+        note.innerHTML = PYEV.t(hevOn ? "home_bp_note_hev" : "home_bp_note", {
+          hev: "<b>" + pct(w.HEV + w.OTHERS, w.TOTAL) + "</b>",
+          phhev: pct(p.HEV + p.OTHERS, p.TOTAL),
           period: "<b>" + PYEVCharts.monthsLabel(w.months) + "</b>",
           bev: "<b>" + pct(w.BEV, w.TOTAL) + "</b>",
           phev: "<b>" + pct(w.PHEV, w.TOTAL) + "</b>",
@@ -247,7 +280,7 @@
       let narrow = window.innerWidth < 640;
       window.addEventListener("resize", () => {
         const n = window.innerWidth < 640;
-        if (n !== narrow) { narrow = n; if (S) PYEVCharts.bevPhevChart(chart, S.conditions[condKey()].monthly); }
+        if (n !== narrow) { narrow = n; if (S) PYEVCharts.bevPhevChart(chart, S.conditions[condKey()].monthly, { hev: bpHev() }); }
       });
       window.addEventListener("pyev-theme", () => { if (chart && chart._pyevRows) PYEVCharts.restyleTheme(chart); });
     });
