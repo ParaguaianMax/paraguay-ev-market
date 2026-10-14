@@ -12,11 +12,11 @@ id,name,url,status,access,departamento,ciudad,lat,lon,operator,n_dc_plugs,connec
 800492,Cia Charge | 80KW | Double Tree - Foz,https://www.plugshare.com/location/800492,ativo,público,PR,Foz do Iguaçu,-25.562201,-54.560863,Cia Charge,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
 1840163,BYD Foz do Iguaçu,https://www.plugshare.com/location/1840163,ativo,público,PR,Foz do Iguaçu,-25.529380,-54.569957,BYD,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 1036907,Autocar Oliveira - Verde Energia,https://www.plugshare.com/location/1036907,ativo,público,PR,Foz do Iguaçu,-25.527988,-54.568235,Verde Energia,1,CCS2×1,35,abaixo de 50 kW,estimado (check-ins),no
-731577,EV Eletroposto 60 kw - Posto Gasparin,https://www.plugshare.com/location/731577,ativo,público,PR,Foz do Iguaçu,-25.504756,-54.542540,EV Eletroposto,1,DC (tipo não informado)×1,60,50–99 kW,inferido (nome/desc),no
+731577,EV Eletroposto 60 kw - Posto Gasparin,https://www.plugshare.com/location/731577,ativo,público,PR,Foz do Iguaçu,-25.504756,-54.542540,EV Eletroposto,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 EB-sp3533,Posto Gasparin,https://www.eletrospostosbrasil.com.br/eletroposto/foz-do-iguacu-posto-gasparin-sp3533,em breve,público,PR,Foz do Iguaçu,-25.526244,-54.478913,desconhecido,2,CCS2×2,50,abaixo de 50 kW,estimado (check-ins),no
 1418057,Passeio Vivaz,https://www.plugshare.com/location/1418057,ativo,público,PR,Medianeira,-25.290372,-54.098612,desconhecido,2,CCS2×2,49,abaixo de 50 kW,estimado (check-ins),no
 1275352,Posto Lar Condá,https://www.plugshare.com/location/1275352,ativo,público,PR,Medianeira,-25.309759,-54.089102,desconhecido,1,CCS2×1,34,abaixo de 50 kW,estimado (check-ins),no
-1094582,Bionova • Associação Empresarial de Medianeira,https://www.plugshare.com/location/1094582,ativo,público,PR,Medianeira,-25.290099,-54.090152,Bionova,2,DC (tipo não informado)×2,60,50–99 kW,inferido (nome/desc),no
+1094582,Bionova • Associação Empresarial de Medianeira,https://www.plugshare.com/location/1094582,ativo,público,PR,Medianeira,-25.290099,-54.090152,Bionova,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 1511070,Posto Stop,https://www.plugshare.com/location/1511070,ativo,público,PR,Santa Tereza do Oeste,-25.046092,-53.608927,desconhecido,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 174364,Posto Ipiranga,https://www.plugshare.com/location/174364,ativo,público,PR,Cascavel,-25.018445,-53.536938,desconhecido,2,"CHAdeMO×1, CCS2×1",50,50–99 kW,inferido (nome/desc),no
 1351005,Estr. Mun. Itelo Webber,https://www.plugshare.com/location/1351005,ativo,público,PR,Cascavel,-24.998002,-53.497917,desconhecido,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
@@ -28,7 +28,7 @@ EB-ocm193477,Posto Pra Frente Brasil,https://www.eletrospostosbrasil.com.br/elet
 1698373,Joy Energy Eletroposto,https://www.plugshare.com/location/1698373,ativo,público,PR,Cascavel,-24.953681,-53.473476,desconhecido,3,CCS2×3,39,abaixo de 50 kW,estimado (check-ins),no
 1762154,Universal Eletroposto - 80kW,https://www.plugshare.com/location/1762154,ativo,público,PR,Cascavel,-24.952794,-53.467078,desconhecido,3,CCS2×3,80,50–99 kW,inferido (nome/desc),no
 EB-sp3627,Movix-E,https://www.eletrospostosbrasil.com.br/eletroposto/cascavel-movix-e-sp3627,ativo,público,PR,Cascavel,-24.976162,-53.470928,Movix-E,2,CCS2×2,51,50–99 kW,estimado (check-ins),no
-2088254,Bionova • Days Inn 60kW,https://www.plugshare.com/location/2088254,ativo,público,PR,Cascavel,-24.979555,-53.454194,Bionova,2,DC (tipo não informado)×2,60,50–99 kW,inferido (nome/desc),no
+2088254,Bionova • Days Inn 60kW,https://www.plugshare.com/location/2088254,ativo,público,PR,Cascavel,-24.979555,-53.454194,Bionova,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 721396,Catuaí Shopping Cascavel,https://www.plugshare.com/location/721396,ativo,público,PR,Cascavel,-24.948021,-53.435035,Cia Charge,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 1077916,Jerônimo & Madero Burger - Verde Energia,https://www.plugshare.com/location/1077916,ativo,público,PR,Cascavel,-24.951442,-53.425016,Verde Energia,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 EB-ocm301455,Bionova - Carregadores e Mobilidade Elétrica,https://www.eletrospostosbrasil.com.br/eletroposto/cascavel-bionova-carregadores-e-mobilidade-eletrica-ocm301455,ativo,público,PR,Cascavel,-24.950805,-53.425892,Bionova,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
@@ -87,7 +87,7 @@ EB-sp3617,Subway Água Verde,https://www.eletrospostosbrasil.com.br/eletroposto/
 2144754,Nacar - Centro,https://www.plugshare.com/location/2144754,ativo,público,PR,Curitiba,-25.427159,-49.280746,desconhecido,3,"CCS2×2, GB/T DC×1",160,150+ kW,inferido (nome/desc),no
 722782,Eletroposto Madrid 60kW,https://www.plugshare.com/location/722782,ativo,público,PR,Curitiba,-25.434757,-49.281718,Energia Atual,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 EB-sp3703,Ecofortte | Fris Mercado,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-ecofortte-fris-mercado-sp3703,ativo,público,PR,Curitiba,-25.458877,-49.283036,Ecofortte,2,CCS2×2,51,50–99 kW,estimado (check-ins),no
-1493199,Carregador 60kW - Madero & Jeronimo - Água Verde,https://www.plugshare.com/location/1493199,ativo,público,PR,Curitiba,-25.453633,-49.273297,desconhecido,1,DC (tipo não informado)×1,60,50–99 kW,inferido (nome/desc),no
+1493199,Carregador 60kW - Madero & Jeronimo - Água Verde,https://www.plugshare.com/location/1493199,ativo,público,PR,Curitiba,-25.453633,-49.273297,desconhecido,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 606717,Shell Recharge | Mercado Angeloni Água Verde,https://www.plugshare.com/location/606717,ativo,público,PR,Curitiba,-25.453193,-49.277256,Shell Recharge,2,"CHAdeMO×1, CCS2×1",50,50–99 kW,inferido (nome/desc),no
 931676,[App Energia Atual] Eletroposto Lugano 60kW,https://www.plugshare.com/location/931676,ativo,público,PR,Curitiba,-25.445371,-49.282010,Energia Atual,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 EB-sp3614,Gold Park V,https://www.eletrospostosbrasil.com.br/eletroposto/curitiba-gold-park-v-sp3614,ativo,público,PR,Curitiba,-25.447914,-49.273447,desconhecido,2,CCS2×2,80,50–99 kW,inferido (nome/desc),no
@@ -158,7 +158,7 @@ EB-sp3853,Ecofortte Car,https://www.eletrospostosbrasil.com.br/eletroposto/sao-j
 EB-sp4012,Restaurante Merlo,https://www.eletrospostosbrasil.com.br/eletroposto/garuva-restaurante-merlo-sp4012,ativo,público,SC,Garuva,-25.989247,-48.893963,desconhecido,2,CCS2×2,48,abaixo de 50 kW,estimado (check-ins),no
 587477,EV Eletroposto | Restaurante Merlo,https://www.plugshare.com/location/587477,ativo,público,SC,Garuva,-26.052004,-48.859946,desconhecido,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 2105876,Estação de recarga GreenV | Posto Buffon 15 Joinville,https://www.plugshare.com/location/2105876,ativo,público,SC,Joinville,-26.155855,-48.907482,GreenV,2,CCS2×2,150,150+ kW,inferido (nome/desc),no
-683231,Eletroposto Max Moppi,https://www.plugshare.com/location/683231,ativo,público,SC,Joinville,-26.175076,-48.955846,desconhecido,1,DC (tipo não informado)×1,30,abaixo de 50 kW,inferido (nome/desc),no
+683231,Eletroposto Max Moppi,https://www.plugshare.com/location/683231,ativo,público,SC,Joinville,-26.175076,-48.955846,desconhecido,1,CCS2×1,30,abaixo de 50 kW,inferido (nome/desc),no
 602468,UDESC - Centro de Projetos Multidisciplinares e de Visitação,https://www.plugshare.com/location/602468,ativo (restrito),restrito,SC,Joinville,-26.251697,-48.854177,UDESC,2,"CCS2×1, CHAdeMO×1",60,50–99 kW,inferido (nome/desc),no
 2039194,Espaço MarQ - WeCharge | Dimas GWM,https://www.plugshare.com/location/2039194,ativo,público,SC,Joinville,-26.290813,-48.864612,WeCharge,1,CCS2×1,30,abaixo de 50 kW,inferido (nome/desc),no
 1899170,Solturi Energia Solar,https://www.plugshare.com/location/1899170,ativo,público,SC,Joinville,-26.293299,-48.876216,Solturi,2,CCS2×2,40,abaixo de 50 kW,inferido (nome/desc),no
@@ -181,7 +181,7 @@ EB-sp4212,Catarinna’s,https://www.eletrospostosbrasil.com.br/eletroposto/joinv
 2123373,Ecomoving energy - Posto Parada Ferreti,https://www.plugshare.com/location/2123373,ativo,público,SC,Barra Velha,-26.687808,-48.695148,OnCharge,1,CCS2×1,60,50–99 kW,inferido (nome/desc),no
 EB-sp4043,Eletrocentro,https://www.eletrospostosbrasil.com.br/eletroposto/balneario-picarras-eletrocentro-sp4043,ativo,público,SC,Balneário Piçarras,-26.732686,-48.682877,desconhecido,1,CCS2×1,29,abaixo de 50 kW,estimado (check-ins),no
 624425,Graal PN SC | 120kW,https://www.plugshare.com/location/624425,ativo,público,SC,Balneário Piçarras,-26.744909,-48.681922,Eletrograal,2,CCS2×2,120,100–149 kW,inferido (nome/desc),no
-1866796,Berato Recarga/Panificadora Patrícia,https://www.plugshare.com/location/1866796,ativo,público,SC,Balneário Piçarras,-26.761606,-48.684748,Tupinambá,1,DC (tipo não informado)×1,40,abaixo de 50 kW,inferido (nome/desc),no
+1866796,Berato Recarga/Panificadora Patrícia,https://www.plugshare.com/location/1866796,ativo,público,SC,Balneário Piçarras,-26.761606,-48.684748,Tupinambá,1,CCS2×1,40,abaixo de 50 kW,inferido (nome/desc),no
 618688,Graal GP SUL | 120KW/H,https://www.plugshare.com/location/618688,ativo,público,SC,Balneario Piçarras,-26.780494,-48.685202,Eletrograal,2,CCS2×2,120,100–149 kW,inferido (nome/desc),no
 1410460,COULOMB Energia - Posto Zandoná Z14,https://www.plugshare.com/location/1410460,ativo,público,SC,Penha,-26.791683,-48.661163,Coulomb,2,CCS2×2,60,50–99 kW,inferido (nome/desc),no
 1850519,Posto Sonho Meu (Charger Point),https://www.plugshare.com/location/1850519,ativo,público,SC,Itajaí,-26.888802,-48.685189,Charger Point,1,CCS2×1,40,abaixo de 50 kW,inferido (nome/desc),no
