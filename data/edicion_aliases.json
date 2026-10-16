@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-08",
+  "updated": "2026-10-16",
   "policy": "Standard spelling of edicion (trim) so the same trim counts on one row (Max 2026-10-08). Only high-confidence abbreviations and typos of the SAME trim of the SAME brand+model. Powertrain is part of the row key: nothing here merges rows of different powertrains. Distinct trims are never merged; doubtful pairs are listed in 'doubtful' and left as they are. Applied after the base-model/edicion split (modelo_base.py); rows that end up with the same (period, variant, segmento, marca, modelo, edicion, powertrain, condicion) are summed.",
   "token_aliases": {
     "*": {
@@ -33,6 +33,9 @@
       "PREMIER RWD T": "PREMIER RWD",
       "PREMIER EV AT": "PREMIER RWD",
       "PREMIER EV": "PREMIER RWD"
+    },
+    "GREATWALL|ORA 03": {
+      "SKIN 480 BITONO": "SKIN 480 BITONO"
     }
   },
   "token_order": {
@@ -72,7 +75,8 @@
     "CHEVROLET|CORVETTE E-RAY": "HEV Corvette = E-Ray (the only hybrid Corvette); ERAY → E-RAY; edicion = CONVERTIBLE/COUPE where stated. ICE Corvettes unchanged.",
     "NISSAN|NEW KICKS": "2nd-gen Kicks (220T). Base NEW KICKS; edicion SENSE / ADVANCE / ADVANCE PLUS / EXCLUSIVE; engine/gearbox/fuel words (220T, 6 DCT, FLEX) dropped (Max 2026-10-08 round 5).",
     "fuel_words": "Fuel/accessory/gearbox words (NAFT, NAFTA, NAFTERO, DIESEL, GASOLINA, FLEX, MOVIDO A …, CON SUS ACCESORIOS …, AUT/AT/MT/CVT/DCT, 16CC) never go into modelo or edicion (Max 2026-10-08 round 5).",
-    "CHEVROLET|CAPTIVA EV": "Max + Gerente 2026-10-08: 'CAPTIVA EV PREMIER RWD T' and 'CAPTIVA PREMIER EV AT' are the same car (BEV, NCM 8703.80, 0 km, CIF ~US$21.8k) -> modelo CAPTIVA EV, edicion PREMIER RWD. BEV lines only, and only when MERCADERIA names Captiva EV Premier; the used ICE/diesel Captiva is never touched."
+    "CHEVROLET|CAPTIVA EV": "Max + Gerente 2026-10-08: 'CAPTIVA EV PREMIER RWD T' and 'CAPTIVA PREMIER EV AT' are the same car (BEV, NCM 8703.80, 0 km, CIF ~US$21.8k) -> modelo CAPTIVA EV, edicion PREMIER RWD. BEV lines only, and only when MERCADERIA names Captiva EV Premier; the used ICE/diesel Captiva is never touched.",
+    "GREATWALL|ORA 03": "Gerente/Max 2026-10-16: ORA 03 GT / ORA 03 SKIN (2024, MODELO in text) and ORA 03 SKIN 480 BITONO (2026-06, text only) -> base ORA 03, trim in edicion; ORA 5 HIGH -> ORA 5 / HIGH. BEV only; the 2026 '(sin modelo)' fill applies only when MERCADERIA itself starts with 'ORA 03'/'ORA 5'. GT, SKIN and SKIN 480 BITONO are not merged with each other."
   },
   "doubtful": [
     {

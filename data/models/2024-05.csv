@@ -237,7 +237,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-05,LightVehicles,leve,GAC,EMKOO GS,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,GEELY,OKAVANGO,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,GREATWALL,JOLION,,HEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
-2024-05,LightVehicles,leve,GREATWALL,ORA 03 GT,,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2024-05,LightVehicles,leve,GREATWALL,ORA 03,GT,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,HONDA,CIVIC TYPE R,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,HYUNDAI,AVANTE,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2024-05,LightVehicles,leve,JEEP,GRAND CHEROKEE,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)

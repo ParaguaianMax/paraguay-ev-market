@@ -177,3 +177,10 @@ La motorización no cambia. Solo cambian los nombres de modelo y 10 marcas.
     - La regla está en `display_modelo` y `modelo_base` y el alias en `edicion_aliases.json`, así
       que sobrevive a las reconstrucciones.
     - Detalle por línea en `captiva_ev_merge_2026-10-08.csv`.
+
+## 2026-10-16 — GREAT WALL ORA (`gwm_ora_fill_2026-10-16.csv`)
+- Rule (Max standing rule, via Gerente): fill `(sin modelo)` only when MERCADERIA names the model. Each line was checked against the original Aduana text (quoted in the CSV).
+- 2026-06, despacho 26DA000000277998 (GREATWALL, 8703.80, NUEVO): item 1 `ORA 5 HIGH` → ORA 5 / HIGH (1 un); items 2–12 `ORA 03 SKIN 480 BITONO` → ORA 03 / SKIN 480 BITONO (11 un).
+- 2024 lines (`MODELO ORA 03 GT` / `ORA 03 SKIN`) → base ORA 03, edicion GT / SKIN (GT 5 un, SKIN 2 un). BEV only; trims not merged with each other.
+- Brand check: no ORA / Good Cat / Funky Cat lines under other brands in 2022–2026; the only `GWM` text line is a HAVAL RAPTOR HI4 PHEV (2024-11), listed only.
+- QA: 57/57 periods; Paraguay.csv byte-identical; LV leve 2026 Jan–Sep = 87,581.
