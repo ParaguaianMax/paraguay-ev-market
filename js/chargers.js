@@ -1246,7 +1246,7 @@
       textposition: "top center",
       textfont: { size: phone ? 10 : 11, color: th.muted },
       cliponaxis: false,
-      line: { color: siteColor, width: 2, shape: "hv" },
+      line: { color: siteColor, width: 2, shape: "linear" },
       marker: {
         size: rows.map((r) => (r.summaryOnly ? 11 : 9)),
         symbol: rows.map((r) => (r.summaryOnly ? "circle-open" : "circle")),
@@ -1271,7 +1271,7 @@
         x: labels,
         y: values,
         connectgaps: false,
-        line: { color: th[field.color], width: 2, dash: "dot", shape: "hv" },
+        line: { color: th[field.color], width: 2, dash: "dot", shape: "linear" },
         marker: { size: 6, color: th[field.color] },
         hovertemplate: field.name + ": %{y}<extra></extra>",
       };
@@ -1371,7 +1371,7 @@
       name: historyNetName(name),
       x: labels,
       y: cuts.map((c) => (c.byNet && c.byNet[name]) || 0),
-      line: { color: historyNetworkColor(name, th.dark), width: 2, shape: "hv" },
+      line: { color: historyNetworkColor(name, th.dark), width: 2, shape: "linear" },
       marker: { color: historyNetworkColor(name, th.dark), size: 6 },
       hovertemplate: historyNetName(name) + ": %{y}<extra></extra>",
     }));
