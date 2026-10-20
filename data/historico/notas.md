@@ -49,3 +49,15 @@ Outros cortes do próprio relatório, sem corrigir nada:
 
 O kW da série histórica é o kW real impresso; `kw_nominal` guarda o outro número da mesma linha. Em 2026-10 o kW é o campo kW máx (melhor estimativa) e `n_plugs` é `nº plugs DC`. Nos relatórios, `n_plugs` é a coluna Conectores do anexo (não é a mesma definição).
 
+
+## Extensão mensal abr/2025 – out/2026 (reconstrução pela base, 2026-10-20)
+
+Linhas novas em `resumo_por_corte.csv` e `pontos_por_corte.csv` com `fonte` = `reconstrução pela base`; as linhas antigas ganharam `fonte` = `informe`. Montadas a partir de `data/chargers-dc.csv` (77 locais, estado de 2026-10-20) e da coluna `criado em (hora PY)` (data de criação do local no PlugShare) da aba desduplicados da planilha.
+
+- **Critério** (o do anexo dos informes): conta cada local DC listado no PlugShare criado até o fim do mês, inclusive fora de serviço/em manutenção. Ficam fora residencial/privado (854324, 717062) e em breve (1913002, 2162141). Restritos entram (o informe tinha Diesa Encarnación). `n_links_plugshare` = `n_grafico_soma` = nº de locais.
+- **Conectores**: CCS2, CHAdeMO e GB/T DC nativos de `connectors_dc`; adaptador GB/T (`gbt_adaptador`) não conta.
+- **Rede**: operadora consolidada da base; Evergo→EverGo, Shell Recharge→Shell, "não informado"/"sem rede"→"Sin red identificada".
+- **Sem data**: 4 locais (2277261, 2286669, 2292624, 2293545). Ids PlugShare são sequenciais e todos são maiores que 2244886 (criado 2026-09-20); pela taxa de ids de setembro caem em out/2026, e entram em 2026-10 com comentário "data estimada pelo id".
+- **Limite**: estado, rede e conectores são os de hoje para todos os meses (não há histórico de status). Locais que sumiram do PlugShare não aparecem (AGRIESA 556244 e Petrobras 496785).
+- **Salto mar/2025 → abr/2025**: 42 → 49 locais. Saem 556244 e 496785; entram 9 que já existiam no PlugShare mas não estavam no anexo de mar/2025 (346524, 367979, 623158, 720223, 723717, 734367, 735451 e 799783/759932 criados em abr/2025). Conectores 43/29/10 → 56/25/16 (CCS/CHAdeMO/GB/T): a base atual tem CCS2×2 nos Automotor e GB/T corrigido em vários Diesa/EverGo. Rede: os 2 "PTI" do informe (222978, 223276) são Petropar na base; Timbo 247410 virou Shell.
+- O cartão de crescimento do site continua usando o último corte `informe` como linha de base.

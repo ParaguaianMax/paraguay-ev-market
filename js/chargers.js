@@ -210,6 +210,7 @@
     (pointRows || []).forEach((r) => {
       const c = String(r.corte || "").trim();
       if (!/^\d{4}-\d{2}$/.test(c) || c >= "2026-01") return;
+      if (String(r.fonte || "informe").trim() !== "informe") return;
       if (!byCut[c]) byCut[c] = { corte: c, all: 0, public: 0 };
       byCut[c].all += 1;
       if (String(r.estado || "").trim().toLowerCase() === "en funcionamiento") byCut[c].public += 1;
@@ -1024,14 +1025,14 @@
     });
   }
 
-  // Site counts from the historical reports only; skips any 2026+ cut.
+  // History: report cuts (fonte=informe) + monthly rebuild from the base (fonte=reconstrução pela base) up to 2026-10.
   // Never reads data/chargers-dc.csv.
   function historyPoints(rows) {
     return (rows || []).map((r) => {
       const corte = String(r.corte || "").trim();
       const links = Number(r.n_links_plugshare);
       const graph = Number(r.n_grafico_soma);
-      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-01") return null;
+      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-11") return null;
       const summaryOnly = !(links > 0);
       const value = summaryOnly ? graph : links;
       if (!Number.isFinite(value)) return null;
@@ -1072,7 +1073,7 @@
   function historyStacks(rows) {
     const cuts = (rows || []).map((r) => {
       const corte = String(r.corte || "").trim();
-      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-01") return null;
+      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-11") return null;
       return { corte: corte, byNet: parseNetworkJSON(r.n_grafico_por_rede) };
     }).filter(Boolean);
     const totals = {};
@@ -1097,7 +1098,7 @@
     const present = {};
     (rows || []).forEach((r) => {
       const corte = String(r.corte || "").trim();
-      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-01") return;
+      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-11") return;
       if (!cuts[corte]) cuts[corte] = { ccs: 0, chademo: 0, gbt: 0 };
       fields.forEach((f) => {
         const raw = String(r[f.key] ?? "").trim();
