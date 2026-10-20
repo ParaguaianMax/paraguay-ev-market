@@ -1217,6 +1217,92 @@
     return historyBundle(parseHistoryCSV(summaryText), parseHistoryCSV(connectorText), serieRows);
   }
 
+  // Monotone cubic (Fritsch-Carlson) through the real cuts, on x in ms. Never
+  // overshoots: between two cuts the curve stays within their two values.
+  // Null values split the series into runs (a series starts at its first cut).
+  function monotoneCurve(xs, ys, steps) {
+    const outX = [];
+    const outY = [];
+    const run = [];
+    const flush = () => {
+      const n = run.length;
+      if (n === 1) { outX.push(run[0][0]); outY.push(run[0][1]); }
+      if (n >= 2) {
+        const x = run.map((p) => p[0]);
+        const y = run.map((p) => p[1]);
+        const d = [];
+        for (let i = 0; i < n - 1; i++) d.push((y[i + 1] - y[i]) / (x[i + 1] - x[i]));
+        const m = new Array(n);
+        m[0] = d[0];
+        m[n - 1] = d[n - 2];
+        for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+        for (let i = 0; i < n - 1; i++) {
+          if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+          const a = m[i] / d[i];
+          const b = m[i + 1] / d[i];
+          const h = a * a + b * b;
+          if (h > 9) {
+            const t = 3 / Math.sqrt(h);
+            m[i] = t * a * d[i];
+            m[i + 1] = t * b * d[i];
+          }
+        }
+        for (let i = 0; i < n - 1; i++) {
+          const dx = x[i + 1] - x[i];
+          for (let k = 0; k < steps; k++) {
+            const t = k / steps;
+            const t2 = t * t;
+            const t3 = t2 * t;
+            outX.push(x[i] + t * dx);
+            outY.push((2 * t3 - 3 * t2 + 1) * y[i] + (t3 - 2 * t2 + t) * dx * m[i] +
+              (-2 * t3 + 3 * t2) * y[i + 1] + (t3 - t2) * dx * m[i + 1]);
+          }
+        }
+        outX.push(x[n - 1]);
+        outY.push(y[n - 1]);
+      }
+      if (n) { outX.push(null); outY.push(null); }
+      run.length = 0;
+    };
+    xs.forEach((xv, i) => {
+      const yv = ys[i];
+      if (yv == null || !Number.isFinite(Number(yv))) { flush(); return; }
+      run.push([Date.parse(xv), Number(yv)]);
+    });
+    flush();
+    return {
+      x: outX.map((v) => (v == null ? null : new Date(v).toISOString())),
+      y: outY,
+    };
+  }
+
+  // One series -> [smooth line (no hover, no readout), markers at real cuts
+  // (hover + tap readout)]. Legend shows the line; markers share its group.
+  function smoothHistoryTraces(trace, showLegend) {
+    const curve = monotoneCurve(trace.x, trace.y, 24);
+    const group = "h-" + trace.name;
+    const line = {
+      type: "scatter",
+      mode: "lines",
+      name: trace.name,
+      x: curve.x,
+      y: curve.y,
+      line: Object.assign({}, trace.line, { shape: "linear" }),
+      connectgaps: false,
+      hoverinfo: "skip",
+      legendgroup: group,
+      showlegend: showLegend,
+      meta: { pyevReadoutSkip: true },
+    };
+    const marks = Object.assign({}, trace, {
+      mode: String(trace.mode || "markers").replace(/lines\+?/, "") || "markers",
+      legendgroup: group,
+      showlegend: false,
+    });
+    delete marks.line;
+    return [line, marks];
+  }
+
   function renderHistory(el, points, connectors) {
     if (!el) return;
     if (!global.Plotly) {
@@ -1276,7 +1362,8 @@
         hovertemplate: field.name + ": %{y}<extra></extra>",
       };
     });
-    const traces = [trace].concat(connectorTraces);
+    const showLeg = connectorTraces.length > 0;
+    const traces = [trace].concat(connectorTraces).reduce((acc, t) => acc.concat(smoothHistoryTraces(t, showLeg)), []);
     const layout = {
       height: phone ? 280 : 340,
       paper_bgcolor: "rgba(0,0,0,0)",
@@ -1364,7 +1451,7 @@
     const th = chartTheme();
     const phone = window.innerWidth < 640;
     const labels = cuts.map((c) => cutDate(c.corte));
-    const traces = networks.map((name) => ({
+    const series = networks.map((name) => ({
       type: "scatter",
       meta: unitMeta("sites"),
       mode: "lines+markers",
@@ -1375,9 +1462,10 @@
       marker: { color: historyNetworkColor(name, th.dark), size: 6 },
       hovertemplate: historyNetName(name) + ": %{y}<extra></extra>",
     }));
-    const max = traces.reduce((m, trace) =>
+    const max = series.reduce((m, trace) =>
       Math.max(m, ...trace.y.map((v) => Number(v) || 0)), 0
     );
+    const traces = series.reduce((acc, t) => acc.concat(smoothHistoryTraces(t, false)), []);
     const layout = {
       height: phone ? 380 : 420,
       paper_bgcolor: "rgba(0,0,0,0)",

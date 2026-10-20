@@ -185,6 +185,8 @@
     });
     traces.forEach(function (trace, i) {
       if (!trace || trace.type === "pie") return;
+      var skipMeta = traceMeta(trace);
+      if (skipMeta && skipMeta.pyevReadoutSkip) return;
       if (extrapolate) {
         var meta = traceMeta(trace);
         if (!meta || meta.pyevReadout === false) return;
