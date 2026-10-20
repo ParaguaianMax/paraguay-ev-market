@@ -1027,6 +1027,14 @@
 
   // History: report cuts (fonte=informe) + monthly rebuild from the base (fonte=reconstrução pela base) up to 2026-10.
   // Never reads data/chargers-dc.csv.
+  function isRebuilt(r) {
+    return /^reconstru/i.test(String((r && r.fonte) || "").trim());
+  }
+
+  function historyRebuiltSuffix(rebuilt) {
+    return rebuilt ? " " + PYEV.t("chargers_history_rebuilt") : "";
+  }
+
   function historyPoints(rows) {
     return (rows || []).map((r) => {
       const corte = String(r.corte || "").trim();
@@ -1036,7 +1044,7 @@
       const summaryOnly = !(links > 0);
       const value = summaryOnly ? graph : links;
       if (!Number.isFinite(value)) return null;
-      return { corte: corte, value: value, summaryOnly: summaryOnly };
+      return { corte: corte, value: value, summaryOnly: summaryOnly, rebuilt: isRebuilt(r) };
     }).filter(Boolean);
   }
 
@@ -1074,7 +1082,7 @@
     const cuts = (rows || []).map((r) => {
       const corte = String(r.corte || "").trim();
       if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-11") return null;
-      return { corte: corte, byNet: parseNetworkJSON(r.n_grafico_por_rede) };
+      return { corte: corte, byNet: parseNetworkJSON(r.n_grafico_por_rede), rebuilt: isRebuilt(r) };
     }).filter(Boolean);
     const totals = {};
     cuts.forEach((c) => {
@@ -1177,7 +1185,8 @@
           width: 2,
         },
       },
-      hovertemplate: PYEV.t("chargers_history_series") + ": %{y}<extra></extra>",
+      customdata: rows.map((r) => historyRebuiltSuffix(r.rebuilt)),
+      hovertemplate: PYEV.t("chargers_history_series") + ": %{y}%{customdata}<extra></extra>",
     };
     const connectorTraces = ((connectors && connectors.fields) || []).map((field) => {
       const values = rows.map((r) => {
@@ -1279,7 +1288,7 @@
     const th = chartTheme();
     const phone = window.innerWidth < 640;
     const labels = cuts.map((c) => historyMonthLabel(c.corte));
-    const traces = networks.map((name) => ({
+    const traces = networks.map((name, ni) => ({
       type: "scatter",
       meta: unitMeta("sites"),
       mode: "lines+markers",
@@ -1288,7 +1297,8 @@
       y: cuts.map((c) => (c.byNet && c.byNet[name]) || 0),
       line: { color: historyNetworkColor(name, th.dark), width: 2 },
       marker: { color: historyNetworkColor(name, th.dark), size: 6 },
-      hovertemplate: name + ": %{y}<extra></extra>",
+      customdata: cuts.map((c) => (ni === 0 ? historyRebuiltSuffix(c.rebuilt) : "")),
+      hovertemplate: name + ": %{y}%{customdata}<extra></extra>",
     }));
     const max = traces.reduce((m, trace) =>
       Math.max(m, ...trace.y.map((v) => Number(v) || 0)), 0
