@@ -223,8 +223,18 @@
   function growthBaseline(bundle, mode) {
     const b = bundle && bundle.baselines;
     if (!b) return null;
-    const sites = b[normMode(mode)];
-    return sites > 0 ? { corte: b.corte, sites: sites } : null;
+    const m = normMode(mode);
+    const sites = b[m];
+    if (!(sites > 0)) return null;
+    const out = { corte: b.corte, sites: sites };
+    // "Público y restringido": compare like with like, both sides from
+    // resumo_por_corte.csv (locations per cut: no residential/private, no
+    // "em breve"), latest cut vs the base cut. Público keeps the live count
+    // (público + ativo), which matches the base's "En Funcionamiento".
+    const pts = (bundle && bundle.points) || [];
+    const last = pts[pts.length - 1];
+    if (m === "all" && last && last.corte.slice(0, 7) > b.corte) out.current = last.value;
+    return out;
   }
 
   function signed(n) {
@@ -244,7 +254,7 @@
     el.classList.add("kpi-4");
     let growth = '<div class="value">\u2014</div>';
     if (baseline && baseline.sites > 0) {
-      const diff = n.sites - baseline.sites;
+      const diff = (baseline.current > 0 ? baseline.current : n.sites) - baseline.sites;
       const pct = Math.round((diff / baseline.sites) * 100);
       growth =
         '<div class="value">' + signed(diff) + ' <small>(' + signed(pct) + "%)</small></div>" +
