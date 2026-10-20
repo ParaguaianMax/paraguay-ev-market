@@ -1136,12 +1136,32 @@
     return { fields: available, cuts: cuts };
   }
 
-  function historyBundle(rows, connectorRows) {
+  // Growth base from serie_locais.csv (one row per location, one column group
+  // per report cut). Latest pre-2026 report cut: all = present, public =
+  // present and "En Funcionamiento" (mar/2025: 42 / 40). Same rule as before.
+  function baselinesFromSerie(rows) {
+    if (!rows || !rows.length) return null;
+    const cuts = Object.keys(rows[0])
+      .map((k) => (k.match(/^(\d{4}-\d{2})_presente$/) || [])[1])
+      .filter((c) => c && c < "2026-01")
+      .sort();
+    if (!cuts.length) return null;
+    const c = cuts[cuts.length - 1];
+    const out = { corte: c, all: 0, public: 0 };
+    rows.forEach((r) => {
+      if (String(r[c + "_presente"] || "").trim().toLowerCase() !== "sim") return;
+      out.all += 1;
+      if (String(r[c + "_estado"] || "").trim().toLowerCase() === "en funcionamiento") out.public += 1;
+    });
+    return out.all > 0 ? out : null;
+  }
+
+  function historyBundle(rows, connectorRows, serieRows) {
     return {
       points: historyPoints(rows),
       stacks: historyStacks(rows),
       connectors: historyConnectors(connectorRows),
-      baselines: historyBaselines(connectorRows),
+      baselines: historyBaselines(connectorRows) || baselinesFromSerie(serieRows),
     };
   }
 
@@ -1157,7 +1177,12 @@
     if (!results[0].ok) throw new Error(PYEV.t("source_error") + " (" + results[0].status + ")");
     if (!results[1].ok) throw new Error(PYEV.t("source_error") + " (" + results[1].status + ")");
     const [summaryText, connectorText] = await Promise.all(results.map((res) => res.text()));
-    return historyBundle(parseHistoryCSV(summaryText), parseHistoryCSV(connectorText));
+    let serieRows = [];
+    try {
+      const sr = await fetch(connectorUrl.replace("pontos_por_corte.csv", "serie_locais.csv"));
+      if (sr.ok) serieRows = parseHistoryCSV(await sr.text());
+    } catch (e) { /* growth card falls back to its dash */ }
+    return historyBundle(parseHistoryCSV(summaryText), parseHistoryCSV(connectorText), serieRows);
   }
 
   function renderHistory(el, points, connectors) {
