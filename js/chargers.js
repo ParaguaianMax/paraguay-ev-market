@@ -1037,12 +1037,15 @@
     const f = String((r && r.fonte) || "informe").trim().toLowerCase();
     return f === "informe" || f === "levantamento";
   }
+  // x position = sourced survey date (column `data`, YYYY-MM-DD). Rows without
+  // a valid date are skipped; no day is ever invented.
+  const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
   function historyCut(r) {
-    const c = String((r && r.corte) || "").trim();
-    return CUT_RE.test(c) && isRealCut(r) ? c : null;
+    const d = String((r && r.data) || "").trim();
+    return DATE_RE.test(d) && isRealCut(r) ? d : null;
   }
   function cutDate(c) {
-    return c.length === 7 ? c + "-15" : c; // month-only cuts sit mid-month
+    return c;
   }
 
   function historyPoints(rows) {
