@@ -1030,6 +1030,8 @@
   // Real survey points only: published reports (fonte=informe, also when the
   // column is empty) and our own dated surveys (fonte=levantamento). Any
   // reconstructed/estimated row is ignored. corte is YYYY-MM or YYYY-MM-DD.
+  // History x-axis tick spacing (Plotly dtick): phone vs wide screens.
+  const HISTORY_TICKS = { phone: "M6", wide: "M3" };
   const CUT_RE = /^\d{4}-\d{2}(-\d{2})?$/;
   function isRealCut(r) {
     const f = String((r && r.fonte) || "informe").trim().toLowerCase();
@@ -1237,10 +1239,10 @@
       xaxis: {
         type: "date",
         // Real time scale; report cuts in 2024 sit a month apart, so cut-level
-        // labels collide. Yearly ticks; the exact cut shows in the hover/readout.
-        dtick: "M12",
+        // labels collide. Regular ticks (HISTORY_TICKS); the exact cut shows in the hover/readout.
+        dtick: phone ? HISTORY_TICKS.phone : HISTORY_TICKS.wide,
         tick0: "2024-01-01",
-        tickformat: "%Y",
+        tickformat: "%b %Y",
         hoverformat: "%b %Y",
         gridcolor: th.grid,
         zeroline: false,
@@ -1332,10 +1334,10 @@
       xaxis: {
         type: "date",
         // Real time scale; report cuts in 2024 sit a month apart, so cut-level
-        // labels collide. Yearly ticks; the exact cut shows in the hover/readout.
-        dtick: "M12",
+        // labels collide. Regular ticks (HISTORY_TICKS); the exact cut shows in the hover/readout.
+        dtick: phone ? HISTORY_TICKS.phone : HISTORY_TICKS.wide,
         tick0: "2024-01-01",
-        tickformat: "%Y",
+        tickformat: "%b %Y",
         hoverformat: "%b %Y",
         gridcolor: th.grid,
         zeroline: false,
