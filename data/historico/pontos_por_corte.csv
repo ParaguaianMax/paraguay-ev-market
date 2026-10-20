@@ -193,1079 +193,145 @@ corte,plugshare_id,operadora,nome,departamento,ccs,gbt,chademo,kw_nominal,kw_rea
 2025-03,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/640967,informe
 2025-03,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/657526,informe
 2025-03,712478,,,,,,,,,,,https://www.plugshare.com/location/712478,informe
-2025-04,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-04,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-04,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-04,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-04,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-04,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-04,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-04,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-04,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-04,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-04,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-04,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-04,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-04,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-04,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-04,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-04,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-04,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-04,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-04,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-04,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-04,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-04,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-04,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-04,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-04,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-04,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-04,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-04,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-04,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-04,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-04,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-04,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-04,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-04,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-04,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-04,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-04,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-04,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-04,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-04,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-04,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-04,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-04,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-04,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-04,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-04,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-04,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-04,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-05,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-05,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-05,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-05,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-05,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-05,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-05,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-05,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-05,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-05,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-05,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-05,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-05,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-05,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-05,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-05,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-05,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-05,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-05,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-05,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-05,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-05,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-05,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-05,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-05,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-05,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-05,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-05,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-05,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-05,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-05,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-05,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-05,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-05,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-05,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-05,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-05,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-05,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-05,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-05,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-05,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-05,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-05,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-05,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-05,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-05,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-05,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-05,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-05,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-06,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-06,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-06,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-06,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-06,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-06,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-06,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-06,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-06,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-06,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-06,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-06,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-06,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-06,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-06,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-06,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-06,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-06,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-06,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-06,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-06,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-06,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-06,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-06,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-06,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-06,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-06,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-06,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-06,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-06,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-06,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-06,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-06,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-06,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-06,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-06,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-06,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-06,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-06,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-06,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-06,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-06,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-06,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-06,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-06,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-06,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-06,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-06,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-06,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-07,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-07,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-07,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-07,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-07,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-07,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-07,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-07,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-07,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-07,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-07,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-07,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-07,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-07,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-07,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-07,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-07,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-07,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-07,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2025-07,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-07,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-07,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-07,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-07,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-07,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-07,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-07,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-07,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-07,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-07,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-07,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-07,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-07,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-07,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-07,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-07,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-07,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-07,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-07,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-07,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-07,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-07,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-07,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-07,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-07,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-07,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-07,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2025-07,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-07,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-07,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-07,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-08,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-08,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-08,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-08,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-08,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-08,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-08,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-08,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-08,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-08,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-08,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-08,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-08,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-08,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-08,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-08,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-08,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-08,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-08,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2025-08,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-08,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-08,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-08,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-08,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-08,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-08,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-08,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-08,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-08,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-08,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-08,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-08,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-08,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-08,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-08,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-08,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-08,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-08,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-08,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-08,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-08,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-08,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-08,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-08,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-08,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-08,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-08,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2025-08,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-08,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-08,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-08,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-09,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-09,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-09,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-09,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-09,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-09,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-09,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-09,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-09,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-09,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-09,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-09,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-09,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-09,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-09,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-09,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-09,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-09,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-09,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2025-09,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-09,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-09,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-09,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-09,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-09,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-09,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-09,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-09,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-09,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-09,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-09,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-09,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-09,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-09,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-09,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-09,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-09,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-09,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-09,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-09,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-09,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-09,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-09,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-09,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-09,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-09,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-09,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2025-09,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-09,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-09,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-09,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-10,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-10,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-10,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-10,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-10,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-10,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-10,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-10,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-10,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-10,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-10,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-10,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-10,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-10,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-10,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-10,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-10,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-10,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-10,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2025-10,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-10,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-10,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-10,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-10,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-10,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-10,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-10,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-10,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-10,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-10,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-10,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-10,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-10,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-10,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-10,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-10,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-10,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-10,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-10,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-10,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-10,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-10,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-10,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-10,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-10,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-10,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2025-10,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-10,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2025-10,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-10,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-10,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-10,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-11,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-11,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-11,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-11,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-11,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-11,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-11,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-11,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-11,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-11,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-11,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-11,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-11,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-11,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-11,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-11,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-11,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-11,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-11,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2025-11,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-11,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-11,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-11,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-11,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-11,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-11,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-11,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-11,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-11,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-11,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-11,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-11,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-11,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-11,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-11,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-11,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-11,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-11,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-11,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-11,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-11,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-11,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-11,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-11,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-11,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-11,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2025-11,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-11,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2025-11,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-11,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-11,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-11,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2025-12,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2025-12,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2025-12,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2025-12,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2025-12,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2025-12,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2025-12,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2025-12,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2025-12,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2025-12,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2025-12,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2025-12,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2025-12,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2025-12,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2025-12,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2025-12,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2025-12,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2025-12,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2025-12,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2025-12,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2025-12,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2025-12,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2025-12,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2025-12,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2025-12,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2025-12,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2025-12,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2025-12,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2025-12,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2025-12,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2025-12,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2025-12,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2025-12,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2025-12,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2025-12,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2025-12,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2025-12,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2025-12,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2025-12,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2025-12,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2025-12,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2025-12,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2025-12,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2025-12,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2025-12,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2025-12,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2025-12,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2025-12,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2025-12,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2025-12,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2025-12,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2025-12,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2025-12,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-01,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-01,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-01,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-01,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-01,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-01,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-01,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-01,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-01,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-01,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-01,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-01,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-01,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-01,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-01,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-01,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-01,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-01,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-01,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-01,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-01,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-01,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-01,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-01,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-01,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-01,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-01,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-01,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-01,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-01,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-01,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-01,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-01,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-01,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-01,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-01,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-01,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-01,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-01,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-01,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-01,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-01,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-01,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-01,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-01,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-01,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-01,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-01,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-01,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-01,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-01,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-01,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-01,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-01,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-02,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-02,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-02,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-02,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-02,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-02,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-02,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-02,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-02,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-02,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-02,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-02,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-02,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-02,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-02,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-02,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-02,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-02,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-02,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-02,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-02,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-02,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-02,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-02,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-02,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-02,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-02,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-02,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-02,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-02,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-02,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-02,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-02,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-02,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-02,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-02,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-02,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-02,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-02,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-02,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-02,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-02,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-02,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-02,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-02,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-02,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-02,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-02,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-02,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-02,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-02,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-02,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-02,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-02,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-03,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-03,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-03,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-03,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-03,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-03,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-03,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-03,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-03,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-03,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-03,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-03,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-03,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-03,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-03,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-03,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-03,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-03,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-03,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-03,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-03,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-03,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-03,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-03,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-03,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-03,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-03,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-03,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-03,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-03,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-03,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-03,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-03,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-03,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-03,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-03,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-03,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-03,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-03,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-03,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-03,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-03,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-03,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-03,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-03,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-03,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-03,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-03,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-03,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-03,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-03,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-03,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-03,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-03,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-03,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-04,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-04,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-04,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,reconstrução pela base
-2026-04,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-04,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-04,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-04,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-04,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,reconstrução pela base
-2026-04,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-04,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-04,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-04,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-04,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-04,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-04,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-04,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-04,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-04,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-04,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-04,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-04,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-04,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-04,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-04,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-04,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,reconstrução pela base
-2026-04,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-04,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-04,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-04,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-04,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-04,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-04,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-04,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-04,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,reconstrução pela base
-2026-04,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-04,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-04,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-04,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-04,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-04,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-04,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-04,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-04,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-04,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-04,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-04,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-04,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-04,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-04,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-04,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-04,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-04,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-04,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-04,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-04,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-04,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-04,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-04,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-04,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-05,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-05,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-05,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,reconstrução pela base
-2026-05,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-05,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-05,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-05,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-05,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,reconstrução pela base
-2026-05,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-05,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,reconstrução pela base
-2026-05,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,reconstrução pela base
-2026-05,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-05,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-05,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-05,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-05,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-05,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-05,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-05,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-05,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-05,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-05,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-05,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-05,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-05,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-05,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-05,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,reconstrução pela base
-2026-05,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-05,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-05,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-05,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-05,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-05,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,reconstrução pela base
-2026-05,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-05,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-05,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-05,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,reconstrução pela base
-2026-05,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-05,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-05,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-05,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-05,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-05,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-05,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-05,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-05,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-05,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-05,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-05,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-05,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-05,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-05,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-05,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-05,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-05,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-05,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-05,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-05,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-05,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-05,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-05,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-05,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-06,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-06,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-06,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,reconstrução pela base
-2026-06,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-06,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-06,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-06,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-06,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,reconstrução pela base
-2026-06,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-06,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,reconstrução pela base
-2026-06,1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,reconstrução pela base
-2026-06,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,reconstrução pela base
-2026-06,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-06,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-06,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-06,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-06,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-06,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-06,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-06,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-06,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-06,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-06,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-06,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-06,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-06,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-06,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-06,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,reconstrução pela base
-2026-06,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-06,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-06,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-06,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-06,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-06,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,reconstrução pela base
-2026-06,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-06,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-06,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-06,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,reconstrução pela base
-2026-06,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-06,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-06,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-06,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-06,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-06,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-06,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-06,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-06,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-06,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-06,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-06,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-06,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-06,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-06,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-06,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-06,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-06,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-06,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-06,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-06,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-06,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-06,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-06,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-06,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-07,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-07,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-07,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,reconstrução pela base
-2026-07,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-07,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-07,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-07,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-07,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,reconstrução pela base
-2026-07,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-07,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,reconstrução pela base
-2026-07,1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,reconstrução pela base
-2026-07,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,reconstrução pela base
-2026-07,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-07,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-07,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-07,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-07,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-07,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-07,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-07,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-07,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-07,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-07,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-07,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,reconstrução pela base
-2026-07,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-07,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-07,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-07,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-07,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,reconstrução pela base
-2026-07,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-07,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-07,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-07,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-07,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-07,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,reconstrução pela base
-2026-07,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-07,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-07,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-07,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,reconstrução pela base
-2026-07,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-07,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-07,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-07,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-07,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-07,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-07,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-07,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-07,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-07,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-07,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-07,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-07,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-07,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-07,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-07,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-07,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-07,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-07,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-07,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-07,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-07,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-07,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-07,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-07,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-08,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-08,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-08,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,reconstrução pela base
-2026-08,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-08,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-08,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-08,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-08,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,reconstrução pela base
-2026-08,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-08,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,reconstrução pela base
-2026-08,1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,reconstrução pela base
-2026-08,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,reconstrução pela base
-2026-08,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-08,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-08,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-08,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-08,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-08,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-08,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-08,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-08,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-08,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-08,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-08,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,reconstrução pela base
-2026-08,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-08,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-08,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-08,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-08,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,reconstrução pela base
-2026-08,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-08,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-08,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-08,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-08,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-08,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,reconstrução pela base
-2026-08,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-08,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-08,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-08,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,reconstrução pela base
-2026-08,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-08,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-08,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-08,2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,reconstrução pela base
-2026-08,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-08,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-08,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-08,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-08,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-08,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-08,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-08,2123872,Diesa,BYD,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/2123872,reconstrução pela base
-2026-08,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-08,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-08,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-08,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-08,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-08,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-08,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-08,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-08,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-08,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-08,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-08,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-08,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-08,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-08,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-09,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-09,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-09,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,reconstrução pela base
-2026-09,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-09,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-09,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-09,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-09,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,reconstrução pela base
-2026-09,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-09,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,reconstrução pela base
-2026-09,1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,reconstrução pela base
-2026-09,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,reconstrução pela base
-2026-09,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-09,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-09,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-09,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-09,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-09,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-09,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-09,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-09,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-09,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-09,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-09,2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,reconstrução pela base
-2026-09,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,reconstrução pela base
-2026-09,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-09,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-09,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-09,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-09,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,reconstrução pela base
-2026-09,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-09,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-09,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-09,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-09,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-09,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,reconstrução pela base
-2026-09,2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,reconstrução pela base
-2026-09,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-09,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-09,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-09,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,reconstrução pela base
-2026-09,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-09,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-09,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-09,2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,reconstrução pela base
-2026-09,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-09,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-09,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-09,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-09,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-09,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-09,2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,reconstrução pela base
-2026-09,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-09,2123872,Diesa,BYD,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/2123872,reconstrução pela base
-2026-09,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-09,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-09,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-09,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-09,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-09,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-09,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-09,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-09,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-09,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-09,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-09,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-09,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-09,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-09,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
-2026-10,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,reconstrução pela base
-2026-10,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,reconstrução pela base
-2026-10,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,reconstrução pela base
-2026-10,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,reconstrução pela base
-2026-10,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,reconstrução pela base
-2026-10,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,reconstrução pela base
-2026-10,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,reconstrução pela base
-2026-10,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,reconstrução pela base
-2026-10,2293545,Pya'e,Pya'e Sax Palace,Alto Paraná,2,0,0,160,,ativo,data estimada pelo id,https://www.plugshare.com/location/2293545,reconstrução pela base
-2026-10,2286669,EcoMoving,EcoMoving - Spacio1,Alto Paraná,2,0,0,120,,ativo,data estimada pelo id,https://www.plugshare.com/location/2286669,reconstrução pela base
-2026-10,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,reconstrução pela base
-2026-10,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,reconstrução pela base
-2026-10,1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,reconstrução pela base
-2026-10,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,reconstrução pela base
-2026-10,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,reconstrução pela base
-2026-10,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,reconstrução pela base
-2026-10,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,reconstrução pela base
-2026-10,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,reconstrução pela base
-2026-10,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,reconstrução pela base
-2026-10,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,reconstrução pela base
-2026-10,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,reconstrução pela base
-2026-10,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,reconstrução pela base
-2026-10,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,reconstrução pela base
-2026-10,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,reconstrução pela base
-2026-10,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,reconstrução pela base
-2026-10,2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,reconstrução pela base
-2026-10,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,reconstrução pela base
-2026-10,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,reconstrução pela base
-2026-10,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,reconstrução pela base
-2026-10,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,reconstrução pela base
-2026-10,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,reconstrução pela base
-2026-10,2292624,Pya'e,Pya'e Estacion de Recarga Caaguazu,Caaguazú,1,1,0,120,,ativo,data estimada pelo id,https://www.plugshare.com/location/2292624,reconstrução pela base
-2026-10,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,reconstrução pela base
-2026-10,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,reconstrução pela base
-2026-10,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,reconstrução pela base
-2026-10,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,reconstrução pela base
-2026-10,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,reconstrução pela base
-2026-10,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,reconstrução pela base
-2026-10,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,reconstrução pela base
-2026-10,2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,reconstrução pela base
-2026-10,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,reconstrução pela base
-2026-10,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,reconstrução pela base
-2026-10,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,reconstrução pela base
-2026-10,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,reconstrução pela base
-2026-10,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,reconstrução pela base
-2026-10,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,reconstrução pela base
-2026-10,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,reconstrução pela base
-2026-10,2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,reconstrução pela base
-2026-10,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,reconstrução pela base
-2026-10,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,reconstrução pela base
-2026-10,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,reconstrução pela base
-2026-10,2277261,Pya'e,Pya'e Azotey Parador Fleitas,Concepción,1,1,0,60,,ativo,data estimada pelo id,https://www.plugshare.com/location/2277261,reconstrução pela base
-2026-10,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,reconstrução pela base
-2026-10,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,reconstrução pela base
-2026-10,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,reconstrução pela base
-2026-10,2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,reconstrução pela base
-2026-10,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,reconstrução pela base
-2026-10,2123872,Diesa,BYD,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/2123872,reconstrução pela base
-2026-10,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,reconstrução pela base
-2026-10,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,reconstrução pela base
-2026-10,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,reconstrução pela base
-2026-10,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,reconstrução pela base
-2026-10,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,reconstrução pela base
-2026-10,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,reconstrução pela base
-2026-10,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,reconstrução pela base
-2026-10,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,reconstrução pela base
-2026-10,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,reconstrução pela base
-2026-10,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,reconstrução pela base
-2026-10,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,reconstrução pela base
-2026-10,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,reconstrução pela base
-2026-10,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,reconstrução pela base
-2026-10,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,reconstrução pela base
-2026-10,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,reconstrução pela base
+2026-09,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,levantamento
+2026-09,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,levantamento
+2026-09,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,levantamento
+2026-09,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,levantamento
+2026-09,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,levantamento
+2026-09,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,levantamento
+2026-09,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,levantamento
+2026-09,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,levantamento
+2026-09,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,levantamento
+2026-09,1876280,Pya'e,Pyae Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,levantamento
+2026-09,1991790,Pya'e,Pya’e Alta Vista Hotel,Amambay,2,0,0,85,,ativo,,https://www.plugshare.com/location/1991790,levantamento
+2026-09,1876346,Pya'e,Pya’e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,levantamento
+2026-09,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,levantamento
+2026-09,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,levantamento
+2026-09,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,levantamento
+2026-09,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,levantamento
+2026-09,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,levantamento
+2026-09,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,45,,ativo,,https://www.plugshare.com/location/577015,levantamento
+2026-09,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,levantamento
+2026-09,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,levantamento
+2026-09,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,levantamento
+2026-09,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,levantamento
+2026-09,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,levantamento
+2026-09,2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,levantamento
+2026-09,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,levantamento
+2026-09,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,levantamento
+2026-09,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,levantamento
+2026-09,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,levantamento
+2026-09,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,levantamento
+2026-09,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,levantamento
+2026-09,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,levantamento
+2026-09,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,levantamento
+2026-09,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,levantamento
+2026-09,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,levantamento
+2026-09,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,levantamento
+2026-09,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,levantamento
+2026-09,2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,levantamento
+2026-09,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,levantamento
+2026-09,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,levantamento
+2026-09,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,levantamento
+2026-09,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,levantamento
+2026-09,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,em manutenção,,https://www.plugshare.com/location/561924,levantamento
+2026-09,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,levantamento
+2026-09,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,levantamento
+2026-09,2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,levantamento
+2026-09,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,em manutenção,,https://www.plugshare.com/location/561234,levantamento
+2026-09,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,levantamento
+2026-09,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,levantamento
+2026-09,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,levantamento
+2026-09,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,levantamento
+2026-09,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,levantamento
+2026-09,2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,levantamento
+2026-09,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,45,,ativo,,https://www.plugshare.com/location/630753,levantamento
+2026-09,2123872,BYD,BYD,Itapúa,2,0,0,60,,ativo,,https://www.plugshare.com/location/2123872,levantamento
+2026-09,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,levantamento
+2026-09,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,80,,ativo,,https://www.plugshare.com/location/547717,levantamento
+2026-09,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,levantamento
+2026-09,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,120,,em manutenção,,https://www.plugshare.com/location/620840,levantamento
+2026-09,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,levantamento
+2026-09,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,levantamento
+2026-09,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,88,,ativo,,https://www.plugshare.com/location/354126,levantamento
+2026-09,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,levantamento
+2026-09,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,levantamento
+2026-09,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,levantamento
+2026-09,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,levantamento
+2026-09,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,levantamento
+2026-09,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,60,,ativo,,https://www.plugshare.com/location/576600,levantamento
+2026-09,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,levantamento
+2026-09,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,levantamento
+2026-10,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,levantamento
+2026-10,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,levantamento
+2026-10,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,levantamento
+2026-10,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,levantamento
+2026-10,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,levantamento
+2026-10,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,levantamento
+2026-10,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,levantamento
+2026-10,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,levantamento
+2026-10,2293545,Pya'e,Pya'e Sax Palace,Alto Paraná,2,0,0,160,,ativo,,https://www.plugshare.com/location/2293545,levantamento
+2026-10,2286669,EcoMoving,EcoMoving - Spacio1,Alto Paraná,2,0,0,120,,ativo,,https://www.plugshare.com/location/2286669,levantamento
+2026-10,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,levantamento
+2026-10,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,levantamento
+2026-10,1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,levantamento
+2026-10,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,levantamento
+2026-10,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,levantamento
+2026-10,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,levantamento
+2026-10,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,levantamento
+2026-10,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,levantamento
+2026-10,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,levantamento
+2026-10,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,levantamento
+2026-10,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,levantamento
+2026-10,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,levantamento
+2026-10,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,levantamento
+2026-10,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,levantamento
+2026-10,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,levantamento
+2026-10,2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,levantamento
+2026-10,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,levantamento
+2026-10,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,levantamento
+2026-10,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,levantamento
+2026-10,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,levantamento
+2026-10,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,levantamento
+2026-10,2292624,Pya'e,Pya'e Estacion de Recarga Caaguazu,Caaguazú,1,1,0,120,,ativo,,https://www.plugshare.com/location/2292624,levantamento
+2026-10,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,levantamento
+2026-10,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,levantamento
+2026-10,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,levantamento
+2026-10,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,levantamento
+2026-10,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,levantamento
+2026-10,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,levantamento
+2026-10,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,levantamento
+2026-10,2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,levantamento
+2026-10,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,levantamento
+2026-10,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,levantamento
+2026-10,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,levantamento
+2026-10,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,levantamento
+2026-10,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,levantamento
+2026-10,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,levantamento
+2026-10,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,levantamento
+2026-10,2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,levantamento
+2026-10,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,levantamento
+2026-10,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,levantamento
+2026-10,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,levantamento
+2026-10,2277261,Pya'e,Pya'e Azotey Parador Fleitas,Concepción,1,1,0,60,,ativo,,https://www.plugshare.com/location/2277261,levantamento
+2026-10,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,levantamento
+2026-10,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,levantamento
+2026-10,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,levantamento
+2026-10,2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,levantamento
+2026-10,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,levantamento
+2026-10,2123872,Diesa,BYD,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/2123872,levantamento
+2026-10,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,levantamento
+2026-10,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,levantamento
+2026-10,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,levantamento
+2026-10,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,levantamento
+2026-10,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,levantamento
+2026-10,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,levantamento
+2026-10,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,levantamento
+2026-10,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,levantamento
+2026-10,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,levantamento
+2026-10,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,levantamento
+2026-10,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,levantamento
+2026-10,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,levantamento
+2026-10,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,levantamento
+2026-10,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,levantamento
+2026-10,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,levantamento
