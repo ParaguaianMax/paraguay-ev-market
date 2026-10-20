@@ -1,5 +1,18 @@
 # Histórico de carregadores DC no Paraguai
 
+## Regra de datas (Max, 2026-10-20)
+
+Só entram no histórico cortes com data exata (dia incluído) e com fonte. Nenhuma data é inventada ou estimada. Os CSVs têm as colunas `data` (AAAA-MM-DD) e `data_fonte`.
+
+| corte | data | fonte da data |
+| --- | --- | --- |
+| 2026-09 | 2026-09-24 | Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)». Os 73 ids da aba desduplicados são os mesmos do `chargers-dc.csv` de a9c909f. |
+| 2026-10 | 2026-10-20 | `data/chargers-dc.csv` em main, commit 8f92a85 (2026-10-20); varredura PlugShare do mesmo dia sem mudanças. |
+
+**Removidos:** os 7 informes (2024-01, 2024-02, 2024-03, 2024-05, 2024-08, 2024-11, 2025-03). Os PDFs só dizem «Datos de <mês> de <ano>», sem dia. A data de criação do PDF é a data em que o relatório foi gerado, não a da coleta (ex.: o de jan/2024 foi criado em 08/02/2024), por isso não foi usada. As datas 17/09 e 02/10 para o corte de set/2026 também não foram usadas: 24/09 é a data de coleta escrita na própria planilha, e 02/10 é só a data em que o arquivo foi publicado (a9c909f).
+
+As seções abaixo descrevem os relatórios como referência. Os cortes deles não estão mais nos CSVs.
+
 Cortes 2024-01 a 2025-03 saem dos PDFs Paraguay EV Report (camada de texto e, quando a URL vem cortada na página, o link completo da anotação do PDF). O corte 2026-10 sai de `desduplicados.csv` (id = `location_id principal`), levantamento de 2026-10-02. Não houve OCR.
 
 ## O que cada relatório tem
@@ -51,10 +64,10 @@ O kW da série histórica é o kW real impresso; `kw_nominal` guarda o outro nú
 
 ## Cortes de levantamento depois de mar/2025
 
-Sem meses estimados ou reconstruídos: só entram os 7 informes publicados (`fonte` = `informe`, 2024-01 a 2025-03) e os levantamentos reais (`fonte` = `levantamento`). Meses sem levantamento não têm linha.
+Sem meses estimados ou reconstruídos. Só entram levantamentos reais com data exata (`fonte` = `levantamento`). Meses sem levantamento não têm linha.
 
-- **2026-09**: levantamento PlugShare do Max (planilha «Carregadores DC Paraguai», set/2026), primeiro `data/chargers-dc.csv` publicado (commit a9c909f, 2026-10-02). 73 linhas → **69** locais. CCS 85, CHAdeMO 28, GB/T 23.
-- **2026-10**: estado atual de `data/chargers-dc.csv` em main (commit 8f92a85, 2026-10-20). 77 linhas → **73** locais. CCS 90, CHAdeMO 28, GB/T 26.
+- **2026-09** (data 2026-09-24): levantamento PlugShare do Max (planilha «Carregadores DC Paraguai», set/2026), primeiro `data/chargers-dc.csv` publicado (commit a9c909f, 2026-10-02). 73 linhas → **69** locais. CCS 85, CHAdeMO 28, GB/T 23.
+- **2026-10** (data 2026-10-20): estado atual de `data/chargers-dc.csv` em main (commit 8f92a85, 2026-10-20). 77 linhas → **73** locais. CCS 90, CHAdeMO 28, GB/T 26.
 - Os commits de `chargers-dc.csv` entre os dois são correções e acréscimos pontuais (kW, nomes, acesso, +4 pontos em 09–11/10), não um levantamento novo; por isso não viram corte próprio.
 - **Critério** (igual nos dois): locais DC listados no PlugShare, inclusive fora de serviço/em manutenção e restritos; ficam fora residencial/privado e "em breve". Conectores CCS2, CHAdeMO e GB/T DC nativos de `connectors_dc` (adaptador GB/T não conta). Rede: operadora da base com Evergo→EverGo, Shell Recharge→Shell, "não informado"/"sem rede"→"Sin red identificada".
 - No arquivo de a9c909f a linha 734367 tem o nome "Itaipu KM 3,5" sem aspas; as colunas foram realinhadas na leitura (o CSV em si não foi alterado).

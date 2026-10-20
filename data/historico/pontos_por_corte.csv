@@ -1,337 +1,143 @@
-corte,plugshare_id,operadora,nome,departamento,ccs,gbt,chademo,kw_nominal,kw_real,estado,comentario,url,fonte
-2024-03,556244,EverGo,AGRIESA - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/556244,informe
-2024-03,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550304,informe
-2024-03,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/591112,informe
-2024-03,550305,EverGo,Biggie Express Sargento Gauto - Evergo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550305,informe
-2024-03,561818,EverGo,Biggie Genaro Romero - Evergo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561818,informe
-2024-03,496785,Petrobras,,,1,0,1,0,0,Fuera de Servicio,*roto,https://www.plugshare.com/location/496785,informe
-2024-03,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561924,informe
-2024-03,577015,EverGo,Biggie Mcal/ López - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/577015,informe
-2024-03,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/548865,informe
-2024-03,541237,Diesa,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/541237,informe
-2024-03,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,0,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/582737,informe
-2024-03,222978,PTI,Estacion de servicio Enex,Cordillera,1,1,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/222978,informe
-2024-03,576598,EverGo,Estación De Servicio Puma y Drei Schritte,Canindeyú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576598,informe
-2024-03,561831,Enex,Estacion de Servicios Enex,Central,1,1,0,50,50,En Funcionamiento,,https://www.plugshare.com/location/561831,informe
-2024-03,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/530588,informe
-2024-03,513138,Automotor,Estación Integral km 201 - Automotor,Caaguazú,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/513138,informe
-2024-03,559663,EverGo,Estación Puma Interlagos - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/559663,informe
-2024-03,545869,EverGo,Evergo - Biggie De Las Palmeras,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/545869,informe
-2024-03,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapua,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/547717,informe
-2024-03,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Central,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525657,informe
-2024-03,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525017,informe
-2024-03,512141,Automotor,Integral Service Station,Alto Paraná,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/512141,informe
-2024-03,354126,Diesa,Parador Del Touring,Misiones,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/354126,informe
-2024-03,223276,PTI,Petropar San Jose 2,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/223276,informe
-2024-03,576600,EverGo,Puma Kaavo Santani - EverGo,San Pedro,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576600,informe
-2024-03,560790,EverGo,Puma Parador campo 9 - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/560790,informe
-2024-03,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/588466,informe
-2024-03,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561234,informe
-2024-03,247410,Timbo,Shell Madame Lynch - BAIC,Central,0,2,0,50,50,Fuera de Servicio,,https://www.plugshare.com/location/247410,informe
-2024-03,485055,Shell,Shell Recharge | Estación Shell Bahia Aviadores - ASU,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/485055,informe
-2024-03,478320,EverGo,Volvo charge - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/478320,informe
-2024-03,602983,EverGo,Fruteria Paraguari - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/602983,informe
-2024-03,605132,EverGo,EverGo Copetrol Caapucu,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605132,informe
-2024-03,606927,EverGo,Biggie Express Perú,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/606927,informe
-2024-03,605133,EverGo,Biggie Express Ita,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605133,informe
-2024-05,556244,EverGo,AGRIESA - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/556244,informe
-2024-05,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550304,informe
-2024-05,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/591112,informe
-2024-05,550305,EverGo,Biggie Express Sargento Gauto - Evergo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550305,informe
-2024-05,561818,EverGo,Biggie Genaro Romero - Evergo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561818,informe
-2024-05,496785,Petrobras,,,1,0,1,0,0,Fuera de Servicio,*roto,https://www.plugshare.com/location/496785,informe
-2024-05,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561924,informe
-2024-05,577015,EverGo,Biggie Mcal/ López - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/577015,informe
-2024-05,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/548865,informe
-2024-05,541237,Diesa,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/541237,informe
-2024-05,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,0,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/582737,informe
-2024-05,222978,PTI,Estacion de servicio Enex,Cordillera,1,1,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/222978,informe
-2024-05,576598,EverGo,Estación De Servicio Puma y Drei Schritte,Canindeyú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576598,informe
-2024-05,561831,Enex,Estacion de Servicios Enex,Central,1,1,0,50,50,En Funcionamiento,,https://www.plugshare.com/location/561831,informe
-2024-05,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/530588,informe
-2024-05,513138,Automotor,Estación Integral km 201 - Automotor,Caaguazú,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/513138,informe
-2024-05,559663,EverGo,Estación Puma Interlagos - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/559663,informe
-2024-05,545869,EverGo,Evergo - Biggie De Las Palmeras,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/545869,informe
-2024-05,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapua,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/547717,informe
-2024-05,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Central,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525657,informe
-2024-05,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525017,informe
-2024-05,512141,Automotor,Integral Service Station,Alto Paraná,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/512141,informe
-2024-05,354126,Diesa,Parador Del Touring,Misiones,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/354126,informe
-2024-05,223276,PTI,Petropar San Jose 2,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/223276,informe
-2024-05,576600,EverGo,Puma Kaavo Santani - EverGo,San Pedro,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576600,informe
-2024-05,560790,EverGo,Puma Parador campo 9 - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/560790,informe
-2024-05,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/588466,informe
-2024-05,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561234,informe
-2024-05,247410,Timbo,Shell Madame Lynch - BAIC,Central,0,2,0,50,50,Fuera de Servicio,,https://www.plugshare.com/location/247410,informe
-2024-05,485055,Shell,Shell Recharge | Estación Shell Bahia Aviadores - ASU,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/485055,informe
-2024-05,478320,EverGo,Volvo charge - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/478320,informe
-2024-05,602983,EverGo,Fruteria Paraguari - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/602983,informe
-2024-05,605132,EverGo,EverGo Copetrol Caapucu,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605132,informe
-2024-05,606927,EverGo,Biggie Express Perú,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/606927,informe
-2024-05,605133,EverGo,Biggie Express Ita,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605133,informe
-2024-05,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,120,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/620840,informe
-2024-08,556244,EverGo,AGRIESA - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/556244,informe
-2024-08,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550304,informe
-2024-08,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/591112,informe
-2024-08,550305,EverGo,Biggie Express Sargento Gauto - Evergo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550305,informe
-2024-08,561818,EverGo,,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561818,informe
-2024-08,496785,Petrobras,,,1,0,1,0,0,Fuera de Servicio,*roto,https://www.plugshare.com/location/496785,informe
-2024-08,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561924,informe
-2024-08,577015,EverGo,Biggie Mcal/ López - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/577015,informe
-2024-08,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/548865,informe
-2024-08,541237,Diesa,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/541237,informe
-2024-08,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,0,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/582737,informe
-2024-08,222978,PTI,Estacion de servicio Enex,Cordillera,1,1,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/222978,informe
-2024-08,576598,EverGo,Estación De Servicio Puma y Drei Schritte,Canindeyú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576598,informe
-2024-08,561831,Enex,Estacion de Servicios Enex,Central,1,1,0,50,50,En Funcionamiento,,https://www.plugshare.com/location/561831,informe
-2024-08,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/530588,informe
-2024-08,513138,Automotor,Estación Integral km 201 - Automotor,Caaguazú,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/513138,informe
-2024-08,559663,EverGo,Estación Puma Interlagos - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/559663,informe
-2024-08,545869,EverGo,Evergo - Biggie De Las Palmeras,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/545869,informe
-2024-08,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapua,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/547717,informe
-2024-08,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Central,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525657,informe
-2024-08,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525017,informe
-2024-08,512141,Automotor,Integral Service Station,Alto Paraná,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/512141,informe
-2024-08,354126,Diesa,Parador Del Touring,Misiones,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/354126,informe
-2024-08,223276,PTI,Petropar San Jose 2,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/223276,informe
-2024-08,576600,EverGo,Puma Kaavo Santani - EverGo,San Pedro,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576600,informe
-2024-08,560790,EverGo,Puma Parador campo 9 - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/560790,informe
-2024-08,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/588466,informe
-2024-08,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561234,informe
-2024-08,247410,Timbo,Shell Madame Lynch - BAIC,Central,0,2,0,50,50,Fuera de Servicio,,https://www.plugshare.com/location/247410,informe
-2024-08,485055,Shell,Shell Recharge | Estación Shell Bahia Aviadores - ASU,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/485055,informe
-2024-08,478320,EverGo,Volvo charge - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/478320,informe
-2024-08,602983,EverGo,Fruteria Paraguari - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/602983,informe
-2024-08,605132,EverGo,Copetrol Caapucu - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605132,informe
-2024-08,606927,EverGo,Biggie Express Perú,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/606927,informe
-2024-08,605133,EverGo,Biggie Express Ita,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605133,informe
-2024-08,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,120,80,Por Inaugurar,*Cable limitado a 200A,https://www.plugshare.com/location/620840,informe
-2024-08,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/630617,informe
-2024-08,630753,EverGo,Petropar Cnel. Bogado - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/630753,informe
-2024-08,630794,Diesa,Diesa Encarnación,Misiones,1,1,0,60,80,En Funcionamiento,,https://www.plugshare.com/location/630794,informe
-2024-08,640967,,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,50,,,https://www.plugshare.com/location/640967,informe
-2024-11,556244,EverGo,AGRIESA - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/556244,informe
-2024-11,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550304,informe
-2024-11,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/591112,informe
-2024-11,550305,EverGo,Biggie Express Sargento Gauto - Evergo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550305,informe
-2024-11,561818,EverGo,,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561818,informe
-2024-11,496785,Petrobras,,,1,0,1,0,0,Fuera de Servicio,*roto,https://www.plugshare.com/location/496785,informe
-2024-11,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561924,informe
-2024-11,577015,EverGo,Biggie Mcal/ López - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/577015,informe
-2024-11,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/548865,informe
-2024-11,541237,Diesa,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/541237,informe
-2024-11,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,0,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/582737,informe
-2024-11,222978,PTI,Estacion de servicio Enex,Cordillera,1,1,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/222978,informe
-2024-11,576598,EverGo,Estación De Servicio Puma y Drei Schritte,Canindeyú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576598,informe
-2024-11,561831,Enex,Estacion de Servicios Enex,Central,1,1,0,50,50,En Funcionamiento,,https://www.plugshare.com/location/561831,informe
-2024-11,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/530588,informe
-2024-11,513138,Automotor,Estación Integral km 201 - Automotor,Caaguazú,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/513138,informe
-2024-11,559663,EverGo,Estación Puma Interlagos - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/559663,informe
-2024-11,545869,EverGo,Evergo - Biggie De Las Palmeras,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/545869,informe
-2024-11,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapua,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/547717,informe
-2024-11,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Central,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525657,informe
-2024-11,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525017,informe
-2024-11,512141,Automotor,Integral Service Station,Alto Paraná,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/512141,informe
-2024-11,354126,Diesa,Parador Del Touring,Misiones,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/354126,informe
-2024-11,223276,PTI,Petropar San Jose 2,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/223276,informe
-2024-11,576600,EverGo,Puma Kaavo Santani - EverGo,San Pedro,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576600,informe
-2024-11,560790,EverGo,Puma Parador campo 9 - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/560790,informe
-2024-11,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/588466,informe
-2024-11,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561234,informe
-2024-11,247410,Timbo,Shell Madame Lynch - BAIC,Central,0,2,0,50,50,En Funcionamiento,,https://www.plugshare.com/location/247410,informe
-2024-11,485055,Shell,Shell Recharge | Estación Shell Bahia Aviadores - ASU,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/485055,informe
-2024-11,478320,EverGo,Volvo charge - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/478320,informe
-2024-11,602983,EverGo,Fruteria Paraguari - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/602983,informe
-2024-11,605132,EverGo,Copetrol Caapucu - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605132,informe
-2024-11,606927,EverGo,Biggie Express Perú,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/606927,informe
-2024-11,605133,EverGo,Biggie Express Ita,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605133,informe
-2024-11,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,120,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/620840,informe
-2024-11,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/630617,informe
-2024-11,630753,EverGo,Petropar Cnel. Bogado - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/630753,informe
-2024-11,630794,Diesa,Diesa Encarnación,Misiones,1,1,0,60,80,En Funcionamiento,,https://www.plugshare.com/location/630794,informe
-2024-11,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/640967,informe
-2024-11,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/657526,informe
-2025-03,556244,EverGo,AGRIESA - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/556244,informe
-2025-03,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550304,informe
-2025-03,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/591112,informe
-2025-03,550305,EverGo,Biggie Express Sargento Gauto - Evergo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/550305,informe
-2025-03,561818,EverGo,,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561818,informe
-2025-03,496785,Petrobras,,,1,0,1,0,0,Fuera de Servicio,*roto,https://www.plugshare.com/location/496785,informe
-2025-03,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561924,informe
-2025-03,577015,EverGo,Biggie Mcal/ López - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/577015,informe
-2025-03,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/548865,informe
-2025-03,541237,Diesa,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/541237,informe
-2025-03,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,0,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/582737,informe
-2025-03,222978,PTI,Estacion de servicio Enex,Cordillera,1,1,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/222978,informe
-2025-03,576598,EverGo,Estación De Servicio Puma y Drei Schritte,Canindeyú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576598,informe
-2025-03,561831,Enex,Estacion de Servicios Enex,Central,1,1,0,50,50,En Funcionamiento,,https://www.plugshare.com/location/561831,informe
-2025-03,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/530588,informe
-2025-03,513138,Automotor,Estación Integral km 201 - Automotor,Caaguazú,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/513138,informe
-2025-03,559663,EverGo,Estación Puma Interlagos - EverGo,Alto Paraná,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/559663,informe
-2025-03,545869,EverGo,Evergo - Biggie De Las Palmeras,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/545869,informe
-2025-03,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapua,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/547717,informe
-2025-03,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Central,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525657,informe
-2025-03,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/525017,informe
-2025-03,512141,Automotor,Integral Service Station,Alto Paraná,2,0,0,100,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/512141,informe
-2025-03,354126,Diesa,Parador Del Touring,Misiones,1,1,0,60,60,En Funcionamiento,,https://www.plugshare.com/location/354126,informe
-2025-03,223276,PTI,Petropar San Jose 2,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/223276,informe
-2025-03,576600,EverGo,Puma Kaavo Santani - EverGo,San Pedro,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/576600,informe
-2025-03,560790,EverGo,Puma Parador campo 9 - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/560790,informe
-2025-03,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/588466,informe
-2025-03,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/561234,informe
-2025-03,247410,Timbo,Shell Madame Lynch - BAIC,Central,0,2,0,50,50,En Funcionamiento,,https://www.plugshare.com/location/247410,informe
-2025-03,485055,Shell,Shell Recharge | Estación Shell Bahia Aviadores - ASU,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/485055,informe
-2025-03,478320,EverGo,Volvo charge - EverGo,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/478320,informe
-2025-03,602983,EverGo,Fruteria Paraguari - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/602983,informe
-2025-03,605132,EverGo,Copetrol Caapucu - EverGo,Paraguari,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605132,informe
-2025-03,606927,EverGo,Biggie Express Perú,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/606927,informe
-2025-03,605133,EverGo,Biggie Express Ita,Central,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/605133,informe
-2025-03,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,120,80,En Funcionamiento,*Cable limitado a 200A,https://www.plugshare.com/location/620840,informe
-2025-03,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/630617,informe
-2025-03,630753,EverGo,Petropar Cnel. Bogado - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/630753,informe
-2025-03,630794,Diesa,Diesa Encarnación,Misiones,1,1,0,60,80,En Funcionamiento,,https://www.plugshare.com/location/630794,informe
-2025-03,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/640967,informe
-2025-03,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,50,50,En Funcionamiento,,https://www.plugshare.com/location/657526,informe
-2025-03,712478,,,,,,,,,,,https://www.plugshare.com/location/712478,informe
-2026-09,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,levantamento
-2026-09,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,levantamento
-2026-09,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,levantamento
-2026-09,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,levantamento
-2026-09,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,levantamento
-2026-09,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,levantamento
-2026-09,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,levantamento
-2026-09,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,levantamento
-2026-09,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,levantamento
-2026-09,1876280,Pya'e,Pyae Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,levantamento
-2026-09,1991790,Pya'e,Pya’e Alta Vista Hotel,Amambay,2,0,0,85,,ativo,,https://www.plugshare.com/location/1991790,levantamento
-2026-09,1876346,Pya'e,Pya’e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,levantamento
-2026-09,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,levantamento
-2026-09,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,levantamento
-2026-09,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,levantamento
-2026-09,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,levantamento
-2026-09,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,levantamento
-2026-09,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,45,,ativo,,https://www.plugshare.com/location/577015,levantamento
-2026-09,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,levantamento
-2026-09,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,levantamento
-2026-09,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,levantamento
-2026-09,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,levantamento
-2026-09,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,levantamento
-2026-09,2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,levantamento
-2026-09,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,levantamento
-2026-09,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,levantamento
-2026-09,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,levantamento
-2026-09,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,levantamento
-2026-09,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,levantamento
-2026-09,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,levantamento
-2026-09,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,levantamento
-2026-09,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,levantamento
-2026-09,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,levantamento
-2026-09,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,levantamento
-2026-09,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,levantamento
-2026-09,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,levantamento
-2026-09,2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,levantamento
-2026-09,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,levantamento
-2026-09,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,levantamento
-2026-09,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,levantamento
-2026-09,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,levantamento
-2026-09,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,em manutenção,,https://www.plugshare.com/location/561924,levantamento
-2026-09,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,levantamento
-2026-09,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,levantamento
-2026-09,2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,levantamento
-2026-09,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,em manutenção,,https://www.plugshare.com/location/561234,levantamento
-2026-09,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,levantamento
-2026-09,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,levantamento
-2026-09,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,levantamento
-2026-09,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,levantamento
-2026-09,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,levantamento
-2026-09,2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,levantamento
-2026-09,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,45,,ativo,,https://www.plugshare.com/location/630753,levantamento
-2026-09,2123872,BYD,BYD,Itapúa,2,0,0,60,,ativo,,https://www.plugshare.com/location/2123872,levantamento
-2026-09,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,levantamento
-2026-09,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,80,,ativo,,https://www.plugshare.com/location/547717,levantamento
-2026-09,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,levantamento
-2026-09,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,120,,em manutenção,,https://www.plugshare.com/location/620840,levantamento
-2026-09,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,levantamento
-2026-09,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,levantamento
-2026-09,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,88,,ativo,,https://www.plugshare.com/location/354126,levantamento
-2026-09,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,levantamento
-2026-09,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,levantamento
-2026-09,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,levantamento
-2026-09,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,levantamento
-2026-09,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,levantamento
-2026-09,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,60,,ativo,,https://www.plugshare.com/location/576600,levantamento
-2026-09,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,levantamento
-2026-09,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,levantamento
-2026-10,623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,levantamento
-2026-10,582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,levantamento
-2026-10,1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,levantamento
-2026-10,512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,levantamento
-2026-10,734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,levantamento
-2026-10,1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,levantamento
-2026-10,559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,levantamento
-2026-10,1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,levantamento
-2026-10,2293545,Pya'e,Pya'e Sax Palace,Alto Paraná,2,0,0,160,,ativo,,https://www.plugshare.com/location/2293545,levantamento
-2026-10,2286669,EcoMoving,EcoMoving - Spacio1,Alto Paraná,2,0,0,120,,ativo,,https://www.plugshare.com/location/2286669,levantamento
-2026-10,759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,levantamento
-2026-10,1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,levantamento
-2026-10,1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,levantamento
-2026-10,1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,levantamento
-2026-10,735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,levantamento
-2026-10,550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,levantamento
-2026-10,606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,levantamento
-2026-10,550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,levantamento
-2026-10,561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,levantamento
-2026-10,577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,levantamento
-2026-10,1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,levantamento
-2026-10,561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,levantamento
-2026-10,485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,levantamento
-2026-10,545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,levantamento
-2026-10,525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,levantamento
-2026-10,2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,levantamento
-2026-10,2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,levantamento
-2026-10,247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,levantamento
-2026-10,478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,levantamento
-2026-10,1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,levantamento
-2026-10,223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,levantamento
-2026-10,2292624,Pya'e,Pya'e Estacion de Recarga Caaguazu,Caaguazú,1,1,0,120,,ativo,,https://www.plugshare.com/location/2292624,levantamento
-2026-10,1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,levantamento
-2026-10,513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,levantamento
-2026-10,541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,levantamento
-2026-10,560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,levantamento
-2026-10,657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,levantamento
-2026-10,576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,levantamento
-2026-10,1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,levantamento
-2026-10,2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,levantamento
-2026-10,799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,levantamento
-2026-10,723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,levantamento
-2026-10,605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,levantamento
-2026-10,1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,levantamento
-2026-10,561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,levantamento
-2026-10,548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,levantamento
-2026-10,588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,levantamento
-2026-10,2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,levantamento
-2026-10,561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,levantamento
-2026-10,591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,levantamento
-2026-10,530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,levantamento
-2026-10,2277261,Pya'e,Pya'e Azotey Parador Fleitas,Concepción,1,1,0,60,,ativo,,https://www.plugshare.com/location/2277261,levantamento
-2026-10,222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,levantamento
-2026-10,720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,levantamento
-2026-10,367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,levantamento
-2026-10,2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,levantamento
-2026-10,630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,levantamento
-2026-10,2123872,Diesa,BYD,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/2123872,levantamento
-2026-10,712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,levantamento
-2026-10,547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,levantamento
-2026-10,630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,levantamento
-2026-10,620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,levantamento
-2026-10,640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,levantamento
-2026-10,1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,levantamento
-2026-10,354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,levantamento
-2026-10,605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,levantamento
-2026-10,1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,levantamento
-2026-10,602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,levantamento
-2026-10,981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,levantamento
-2026-10,525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,levantamento
-2026-10,576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,levantamento
-2026-10,346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,levantamento
-2026-10,630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,levantamento
+corte,data,data_fonte,plugshare_id,operadora,nome,departamento,ccs,gbt,chademo,kw_nominal,kw_real,estado,comentario,url,fonte
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1876280,Pya'e,Pyae Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1991790,Pya'e,Pya’e Alta Vista Hotel,Amambay,2,0,0,85,,ativo,,https://www.plugshare.com/location/1991790,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1876346,Pya'e,Pya’e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,45,,ativo,,https://www.plugshare.com/location/577015,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,em manutenção,,https://www.plugshare.com/location/561924,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,em manutenção,,https://www.plugshare.com/location/561234,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,45,,ativo,,https://www.plugshare.com/location/630753,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",2123872,BYD,BYD,Itapúa,2,0,0,60,,ativo,,https://www.plugshare.com/location/2123872,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,80,,ativo,,https://www.plugshare.com/location/547717,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,120,,em manutenção,,https://www.plugshare.com/location/620840,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,88,,ativo,,https://www.plugshare.com/location/354126,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,60,,ativo,,https://www.plugshare.com/location/576600,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,levantamento
+2026-09,2026-09-24,"Planilha «Carregadores DC Paraguai - PlugShare (2026-09).xlsx», aba notas: «coleta em 24/09/2026 (hora PY)»; mesmos 73 ids do chargers-dc.csv de a9c909f",630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",623158,Audi,Audi - Prestigio Group S.A.,Alto Paraná,1,0,0,25,,em manutenção,,https://www.plugshare.com/location/623158,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",582737,Diesa,Diesa Ciudad Del Este,Alto Paraná,1,2,0,60,,ativo,,https://www.plugshare.com/location/582737,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1757000,EverGo,Evergo Biggie San Jose,Alto Paraná,2,0,0,21,,em manutenção,,https://www.plugshare.com/location/1757000,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",512141,Automotor,Integral Service Station AUTOMOTOR,Alto Paraná,2,0,0,100,,parcialmente em manutenção,,https://www.plugshare.com/location/512141,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",734367,PTI,"Itaipu KM 3,5",Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/734367,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1434538,Automotor,Estacion Integral Hernandarias Automotor EVERGO,Alto Paraná,2,0,0,90,,ativo,,https://www.plugshare.com/location/1434538,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",559663,EverGo,Estación Puma Interlagos - Evergo,Alto Paraná,1,0,1,50,,ativo,,https://www.plugshare.com/location/559663,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1832661,PTI,Terminal de Omnibus de Hernandarias,Alto Paraná,2,0,0,196,,ativo,,https://www.plugshare.com/location/1832661,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2293545,Pya'e,Pya'e Sax Palace,Alto Paraná,2,0,0,160,,ativo,,https://www.plugshare.com/location/2293545,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2286669,EcoMoving,EcoMoving - Spacio1,Alto Paraná,2,0,0,120,,ativo,,https://www.plugshare.com/location/2286669,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",759932,Charger Pro,Charger Pro - Shopping China,Amambay,4,0,0,60,,ativo,,https://www.plugshare.com/location/759932,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1876280,Pya'e,Pya'e Shopping Dubai,Amambay,4,0,0,120,,ativo,,https://www.plugshare.com/location/1876280,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1991790,Pya'e,Pya'e Alta Vista Hotel,Amambay,2,0,0,60,,ativo,,https://www.plugshare.com/location/1991790,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1876346,Pya'e,Pya'e Master Bearings,Amambay,2,0,0,120,,ativo,,https://www.plugshare.com/location/1876346,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",735451,AG Power,Shopping China Importados,Amambay,1,0,0,60,,ativo,,https://www.plugshare.com/location/735451,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",550304,EverGo,Biggie Express Lillo Villa Morra - EverGo,Asunción (Capital),1,1,0,51,,ativo,,https://www.plugshare.com/location/550304,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",606927,EverGo,Biggie Express Perú,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/606927,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",550305,EverGo,Biggie Express Sargento Gauto -  Evergo,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/550305,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",561818,EverGo,Biggie Genaro Romero - Evergo,Asunción (Capital),1,0,1,46,,ativo,,https://www.plugshare.com/location/561818,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",577015,EverGo,Biggie Mcal/ López - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/577015,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1679896,Sin red identificada,Casa de los Trofeos,Asunción (Capital),0,2,0,55,,ativo,,https://www.plugshare.com/location/1679896,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",561831,Enex,Estacion De Servicios Enex,Asunción (Capital),1,1,0,60,,parcialmente em manutenção,,https://www.plugshare.com/location/561831,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",485055,Shell,Estación Shell Bahia Aviadores - ASU,Asunción (Capital),1,0,1,50,,em manutenção,,https://www.plugshare.com/location/485055,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",545869,EverGo,Evergo - Biggie De Las Palmeras,Asunción (Capital),1,1,0,50,,ativo,,https://www.plugshare.com/location/545869,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",525657,Automotor,Integral Sacramento Y Vía Ferrea - Automotor,Asunción (Capital),2,0,0,100,,ativo,,https://www.plugshare.com/location/525657,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2223902,Energia Actual,Ipale Itapua 60kW,Asunción (Capital),2,0,0,60,,ativo,,https://www.plugshare.com/location/2223902,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2095149,EverGo,Oficina Evergo,Asunción (Capital),1,0,1,42,,ativo,,https://www.plugshare.com/location/2095149,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",247410,Shell,Shell Madame Lynch - BAIC,Asunción (Capital),0,2,0,50,,ativo,,https://www.plugshare.com/location/247410,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",478320,EverGo,Volvo charge - EverGo,Asunción (Capital),1,0,1,50,,ativo,,https://www.plugshare.com/location/478320,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1045107,Automotor,Ecop Chortitzer Bioceanica - Automotor,Boquerón,2,0,0,100,,ativo,,https://www.plugshare.com/location/1045107,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",223276,Petropar,Petropar San Jose 2,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/223276,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2292624,Pya'e,Pya'e Estacion de Recarga Caaguazu,Caaguazú,1,1,0,120,,ativo,,https://www.plugshare.com/location/2292624,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1795558,Sin red identificada,AGROTEC,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/1795558,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",513138,Automotor,Integral - Estación de Servicios Pastoreo,Caaguazú,2,0,0,100,,ativo,,https://www.plugshare.com/location/513138,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",541237,Sin red identificada,D Shopping Coronel Oviedo,Caaguazú,1,1,0,60,,ativo,,https://www.plugshare.com/location/541237,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",560790,EverGo,Parador Campo 9 Evergo,Caaguazú,1,0,1,52,,ativo,,https://www.plugshare.com/location/560790,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",657526,EverGo,Petromax San José - EverGo,Caaguazú,1,0,1,51,,ativo,,https://www.plugshare.com/location/657526,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",576598,EverGo,Estación De Servicio Puma y Drei Schritte - EverGo,Canindeyú,1,0,1,50,,ativo,,https://www.plugshare.com/location/576598,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1922980,Autocharge,LG CHARGE,Canindeyú,0,1,0,41,,ativo,,https://www.plugshare.com/location/1922980,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2205935,Green Wolf,Carga Granel SA - Green Wolf Evolution Curuguaty,Canindeyú,0,1,0,40,,ativo,,https://www.plugshare.com/location/2205935,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",799783,Sin red identificada,Barbería Kratos,Central,1,1,0,22,,ativo,,https://www.plugshare.com/location/799783,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",723717,Sin red identificada,Paseo Guarani,Central,0,1,0,60,,ativo,,https://www.plugshare.com/location/723717,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",605133,EverGo,Biggie Ita - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/605133,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1816766,EverGo,Evergo Biggie Veranda,Central,1,0,1,45,,ativo,,https://www.plugshare.com/location/1816766,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",561924,EverGo,Biggie Luque - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/561924,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",548865,EverGo,Biggie San Lorenzo - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/548865,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",588466,EverGo,Puma Shopping Pinedo - EverGo,Central,1,0,1,48,,ativo,,https://www.plugshare.com/location/588466,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2109926,Sin red identificada,TOP Tiendas,Central,1,0,0,40,,ativo,,https://www.plugshare.com/location/2109926,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",561234,EverGo,Puma Ypacarai - EverGo,Central,1,0,1,51,,ativo,,https://www.plugshare.com/location/561234,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",591112,EverGo,Biggie Express Ñemby - EverGo,Central,1,0,1,50,,ativo,,https://www.plugshare.com/location/591112,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",530588,Automotor,Estación Integral - Yby Yau,Concepción,1,0,1,100,,ativo,,https://www.plugshare.com/location/530588,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2277261,Pya'e,Pya'e Azotey Parador Fleitas,Concepción,1,1,0,60,,ativo,,https://www.plugshare.com/location/2277261,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",222978,Petropar,Estacion de servicio Petropar,Cordillera,1,0,1,38,,ativo,,https://www.plugshare.com/location/222978,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",720223,Automotor,3MG San Bernardino - Automotor EVERGO,Cordillera,2,0,0,100,,ativo,,https://www.plugshare.com/location/720223,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",367979,Diesa,Esquina DIESA,Cordillera,1,1,0,60,,ativo,,https://www.plugshare.com/location/367979,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2244886,EverGo,Karumbe Market / Imurai,Guairá,1,1,0,150,,ativo,,https://www.plugshare.com/location/2244886,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",630753,EverGo,Petropar Cnel. Bogado - EverGo,Itapúa,1,0,1,50,,ativo,,https://www.plugshare.com/location/630753,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",2123872,Diesa,BYD,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/2123872,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",712478,Automotor,Automotor S.A. Suc. Encarnación EVERGO,Itapúa,2,0,0,100,,ativo,,https://www.plugshare.com/location/712478,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",547717,Diesa,Hotel Cooperativa MPAI Naranjito Ltda.,Itapúa,1,1,0,60,,ativo,,https://www.plugshare.com/location/547717,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",630617,EverGo,Petropar Ayolas - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/630617,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",620840,Diesa,Parador Piringo - Diesa,Misiones,1,1,0,60,,em manutenção,,https://www.plugshare.com/location/620840,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",640967,EverGo,Petropar San Ignacio - EverGo,Misiones,1,0,1,50,,ativo,,https://www.plugshare.com/location/640967,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1536369,Diesa,Diesa Te Guarani,Misiones,1,1,0,60,,ativo,,https://www.plugshare.com/location/1536369,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",354126,Sin red identificada,Parador Del Touring,Misiones,1,1,0,80,,ativo,,https://www.plugshare.com/location/354126,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",605132,EverGo,Copetrol Caapucu - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/605132,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",1267324,EverGo,Evergo Petropar Carapegua,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/1267324,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",602983,EverGo,Fruteria Paraguari - EverGo,Paraguarí,1,0,1,50,,ativo,,https://www.plugshare.com/location/602983,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",981215,Automotor,Shell Pai Puku - Automotor,Presidente Hayes,2,0,0,100,,ativo,,https://www.plugshare.com/location/981215,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",525017,Automotor,Integral Santani - Automotor,San Pedro,2,0,0,100,,ativo,,https://www.plugshare.com/location/525017,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",576600,EverGo,Almacén Ka'avo SA (1),San Pedro,1,0,1,50,,ativo,,https://www.plugshare.com/location/576600,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",346524,Audi,Audi Center,Asunción (Capital),1,0,0,25,,ativo (restrito),,https://www.plugshare.com/location/346524,levantamento
+2026-10,2026-10-20,"data/chargers-dc.csv em main, commit 8f92a85 (2026-10-20 09:56 -03); varredura PlugShare de 2026-10-20 sem mudanças",630794,Diesa,Diesa Encarnación,Itapúa,1,1,0,60,,ativo (restrito),,https://www.plugshare.com/location/630794,levantamento
