@@ -45,15 +45,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <link rel="stylesheet" href="../css/style.css?v=20261020b" />
-  <link rel="stylesheet" href="../css/variant.css?v=20261020b" />
+  <link rel="stylesheet" href="../css/style.css?v=20261020c" />
+  <link rel="stylesheet" href="../css/variant.css?v=20261020c" />
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
-  <script src="../js/chart-click.js?v=20261020b" defer></script>
-  <script src="../js/i18n.js?v=20261020b" defer></script>
-  <script src="../js/load-csv.js?v=20261020b" defer></script>
-  <script src="../js/chargers.js?v=20261020b" defer></script>
+  <script src="../js/chart-click.js?v=20261020c" defer></script>
+  <script src="../js/i18n.js?v=20261020c" defer></script>
+  <script src="../js/load-csv.js?v=20261020c" defer></script>
+  <script src="../js/chargers.js?v=20261020c" defer></script>
 </head><body>
   <header class="site">
     <div class="wrap">
@@ -102,10 +102,12 @@
         <select id="f-band">
           <option value="all" data-i18n="all_bands">Todas</option>
         </select>
+        <span id="f-app-wrap" hidden>
         <label for="f-app" data-i18n="app_label">App</label>
         <select id="f-app">
           <option value="all" data-i18n="all">Todos</option>
         </select>
+        </span>
       </div>
       <div class="map-wrap"><div id="chargers-map" role="img" aria-label="Mapa de cargadores DC" data-i18n-attr="aria-label:map_aria"></div></div>
       <p class="chart-foot" id="map-foot"></p>
@@ -117,10 +119,12 @@
       <div id="chart-network-sites" class="chart-panel chart-bare chart-network-hbars"><div class="status" data-i18n="loading">Cargando…</div></div>
       <p class="chart-foot" id="network-sites-foot"></p>
 
+      <div id="apps-section" hidden>
       <h2 id="apps" data-i18n="carga_apps_title">Ubicaciones de carga por app</h2>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_apps_lead">App con la que se habilita la carga en cada ubicación. La app puede ser de otra red.</p>
       <div id="chart-app-sites" class="chart-panel chart-bare chart-network-hbars"><div class="status" data-i18n="loading">Cargando…</div></div>
       <p class="chart-foot" id="app-sites-foot"></p>
+      </div>
 
       <h2 id="conectores" data-i18n="carga_networks_title">Conectores por red</h2>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="network_bar_lead">Cantidad de conectores CCS, CHAdeMO y GB/T de cada red, por separado.</p>
@@ -190,7 +194,12 @@
       } catch (e) {}
       let mode = PYEVChargers.getAccessMode();
       const fBand = document.getElementById("f-band");
-      const fApp = document.getElementById("f-app");
+      const showApp = !!PYEVChargers.SHOW_APP;
+      const fApp = showApp ? document.getElementById("f-app") : null;
+      if (showApp) {
+        document.getElementById("f-app-wrap").hidden = false;
+        document.getElementById("apps-section").hidden = false;
+      }
       const appSitesEl = document.getElementById("chart-app-sites");
       const appSitesFoot = document.getElementById("app-sites-foot");
       const fQ = document.getElementById("f-q");
@@ -259,8 +268,8 @@
         const allN = PYEVChargers.chargerCounts(all, mode);
         const shownN = PYEVChargers.chargerCounts(mapRows);
         const pinN = PYEVChargers.chargerCounts(mapPins);
-        PYEVChargers.renderAppSites(appSitesEl, mapRows);
-        if (appSitesFoot) {
+        if (showApp) PYEVChargers.renderAppSites(appSitesEl, mapRows);
+        if (showApp && appSitesFoot) {
           const withApp = mapRows.filter((r) => PYEVChargers.appOf(r)).length;
           appSitesFoot.innerHTML = PYEV.t("carga_apps_foot", { sites: "<b>" + mapRows.length + "</b>", withApp: withApp }) + " · " + esc(filterText);
         }
@@ -302,7 +311,7 @@
           opt.textContent = PYEVChargers.localizeValue(b);
           fBand.appendChild(opt);
         });
-        PYEVChargers.appList(all).forEach((a) => {
+        if (fApp) PYEVChargers.appList(all).forEach((a) => {
           const opt = document.createElement("option");
           opt.value = a;
           opt.textContent = a;

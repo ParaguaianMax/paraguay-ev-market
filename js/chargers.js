@@ -471,7 +471,7 @@
     return (
       `<b>${escapeHtml(row.name)}</b><br>` +
       `${escapeHtml(PYEV.t("network"))}: ${escapeHtml(operatorLabel(row.operator))}` +
-      (appOf(row) ? ` \u00b7 ${escapeHtml(PYEV.t("app_label"))}: ${escapeHtml(appOf(row))}` : "") + "<br>" +
+      (SHOW_APP && appOf(row) ? ` \u00b7 ${escapeHtml(PYEV.t("app_label"))}: ${escapeHtml(appOf(row))}` : "") + "<br>" +
       `${escapeHtml(PYEV.t("popup_power"))}: ${escapeHtml(kw)}<br>` +
       `${escapeHtml(PYEV.t("plugs_short"))}: ${escapeHtml(connectorText(row))}<br>` +
       `${escapeHtml(PYEV.t("access_col"))}: ${escapeHtml(localizeValue(row.access))} \u00b7 ${escapeHtml(PYEV.t("status"))}: ${escapeHtml(localizeValue(row.status))}` +
@@ -952,6 +952,10 @@
 
   // App that unlocks/charges (column `app`); may differ from the network
   // (owner). Empty = not recorded; never inferred from the network.
+  // Temporarily off until every charger has an app (Max, 2026-10-20). Hides
+  // the map App filter, the App part of the popup and the "Por app" section.
+  const SHOW_APP = false;
+
   function appOf(row) {
     return String((row && row.app) || "").trim();
   }
@@ -1658,6 +1662,7 @@
     initMap,
     filterRows,
     countBy,
+    SHOW_APP,
     appOf,
     appList,
     filterByApp,
