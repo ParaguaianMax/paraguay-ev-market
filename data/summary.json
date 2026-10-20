@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-14T14:41:41-03:00",
+ "generated": "2026-10-20T10:15:04-03:00",
  "cutoff": "2026-09",
  "conditions": {
   "nuevo": {
@@ -595,11 +595,11 @@
  },
  "chargers": {
   "public": {
-   "sites": 62,
-   "plugs": 124,
+   "sites": 64,
+   "plugs": 128,
    "types": {
-    "CCS": 77,
-    "CHAdeMO": 25,
+    "CCS": 79,
+    "CHAdeMO": 27,
     "GBT": 22
    }
   }
