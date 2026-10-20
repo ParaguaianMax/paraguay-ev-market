@@ -618,9 +618,19 @@
   }
 
   /** Sites (one row = one DC charger location) and connector quantities, largest network first. */
+  // Non-networks always sort last: real networks (0), then no network /
+  // unknown / private (1), then "Otras" (2).
+  function networkTailRank(key) {
+    const k = String(key == null ? "" : key).trim();
+    if (k === "__other__") return 2;
+    if (PLACEHOLDER_OPERATORS.indexOf(k) >= 0) return 1;
+    if (/^(sin red|sem rede|no informado|não informado|nao informado|residencial)/i.test(k)) return 1;
+    return 0;
+  }
+
   function networkStats(rows) {
     return chargerCounts(rows).networks
-      .sort((a, b) => b.sites - a.sites || operatorLabel(a.key).localeCompare(operatorLabel(b.key)));
+      .sort((a, b) => networkTailRank(a.key) - networkTailRank(b.key) || b.sites - a.sites || operatorLabel(a.key).localeCompare(operatorLabel(b.key)));
   }
 
   function operatorColor(name, dark) {
@@ -758,7 +768,7 @@
     }
     const stats = chargerCounts(rows).networks
       .filter((s) => s.CCS + s.CHAdeMO + s.GBT > 0)
-      .sort((a, b) => (b.CCS + b.CHAdeMO + b.GBT) - (a.CCS + a.CHAdeMO + a.GBT) || b.sites - a.sites ||
+      .sort((a, b) => networkTailRank(a.key) - networkTailRank(b.key) || (b.CCS + b.CHAdeMO + b.GBT) - (a.CCS + a.CHAdeMO + a.GBT) || b.sites - a.sites ||
         operatorLabel(a.key).localeCompare(operatorLabel(b.key)));
     if (!stats.length) {
       emptyChart(el);
