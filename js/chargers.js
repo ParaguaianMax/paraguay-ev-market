@@ -1040,7 +1040,7 @@
     return CUT_RE.test(c) && isRealCut(r) ? c : null;
   }
   function cutDate(c) {
-    return c.length === 7 ? c + "-01" : c;
+    return c.length === 7 ? c + "-15" : c; // month-only cuts sit mid-month
   }
 
   function historyPoints(rows) {
