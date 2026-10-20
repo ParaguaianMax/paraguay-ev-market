@@ -470,7 +470,8 @@
     const kw = Number.isFinite(row.kw_max) ? row.kw_max + " kW" : PYEV.t("popup_kw_unknown");
     return (
       `<b>${escapeHtml(row.name)}</b><br>` +
-      `${escapeHtml(PYEV.t("network"))}: ${escapeHtml(operatorLabel(row.operator))}<br>` +
+      `${escapeHtml(PYEV.t("network"))}: ${escapeHtml(operatorLabel(row.operator))}` +
+      (appOf(row) ? ` \u00b7 ${escapeHtml(PYEV.t("app_label"))}: ${escapeHtml(appOf(row))}` : "") + "<br>" +
       `${escapeHtml(PYEV.t("popup_power"))}: ${escapeHtml(kw)}<br>` +
       `${escapeHtml(PYEV.t("plugs_short"))}: ${escapeHtml(connectorText(row))}<br>` +
       `${escapeHtml(PYEV.t("access_col"))}: ${escapeHtml(localizeValue(row.access))} \u00b7 ${escapeHtml(PYEV.t("status"))}: ${escapeHtml(localizeValue(row.status))}` +
@@ -929,6 +930,105 @@
         rangemode: "tozero",
         range: [0, Math.max(4, Math.ceil(maxV * 1.12))],
         dtick: maxV > 20 ? 5 : maxV > 8 ? 2 : 1,
+        automargin: true,
+      },
+      yaxis: {
+        gridcolor: "rgba(0,0,0,0)",
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: phone ? 10 : 12, color: th.text },
+        automargin: true,
+      },
+      hovermode: "closest",
+      hoverlabel: {
+        bgcolor: th.dark ? "#1b1b19" : "#ffffff",
+        bordercolor: th.grid,
+        font: { family: "Public Sans, system-ui, sans-serif", size: 12, color: th.text },
+      },
+    };
+    resetChart(el);
+    Plotly.newPlot(el, [trace], layout, { responsive: false, displayModeBar: false });
+  }
+
+  // App that unlocks/charges (column `app`); may differ from the network
+  // (owner). Empty = not recorded; never inferred from the network.
+  function appOf(row) {
+    return String((row && row.app) || "").trim();
+  }
+
+  function appList(rows) {
+    const seen = {};
+    (rows || []).forEach((r) => { const a = appOf(r); if (a) seen[a] = (seen[a] || 0) + 1; });
+    return Object.keys(seen).sort((a, b) => seen[b] - seen[a] || a.localeCompare(b));
+  }
+
+  function filterByApp(rows, app) {
+    if (!app || app === "all") return rows;
+    return (rows || []).filter((r) => appOf(r) === app);
+  }
+
+  const APP_TOP = 5;
+  /** Points per app: top APP_TOP apps, then one "Otras" bar (other apps + no app), always last. */
+  function appStats(rows) {
+    const counts = {};
+    (rows || []).forEach((r) => { const a = appOf(r); if (a) counts[a] = (counts[a] || 0) + 1; });
+    const ranked = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+    const top = ranked.slice(0, APP_TOP);
+    const other = (rows || []).length - top.reduce((s, a) => s + counts[a], 0);
+    const out = top.map((a) => ({ name: a, sites: counts[a] }));
+    if (other > 0) out.push({ name: PYEV.t("app_other"), sites: other, other: true });
+    return out;
+  }
+
+  function renderAppSites(el, rows) {
+    if (!el) return;
+    if (!global.Plotly) {
+      el.innerHTML = '<div class="status">' + (PYEV.t("loading") || "…") + "</div>";
+      return;
+    }
+    const stats = appStats(rows).reverse();
+    if (!stats.length) {
+      emptyChart(el);
+      return;
+    }
+    const th = chartTheme();
+    const phone = window.innerWidth < 640;
+    const names = stats.map((s) => s.name);
+    const vals = stats.map((s) => s.sites);
+    const maxV = vals.reduce((m, v) => Math.max(m, v), 0);
+    const label = PYEV.t("carga_sites_axis");
+    const green = th.dark ? "#2fc46a" : "#0f7a3a";
+    const trace = {
+      type: "bar",
+      meta: unitMeta("sites"),
+      orientation: "h",
+      name: label,
+      y: names,
+      x: vals,
+      text: vals.map(String),
+      textposition: "outside",
+      cliponaxis: false,
+      textfont: { size: 11, color: th.muted },
+      marker: { color: stats.map((s) => (s.other ? th.muted : green)), line: { width: 0 } },
+      hovertemplate: "<b>%{y}</b><br>" + label + ": %{x}<extra></extra>",
+    };
+    const layout = {
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      font: { family: 'Public Sans, "Helvetica Neue", system-ui, sans-serif', color: th.text, size: 12 },
+      bargap: 0.28,
+      showlegend: false,
+      height: Math.max(phone ? 200 : 220, stats.length * (phone ? 28 : 32) + (phone ? 50 : 60)),
+      margin: { t: 12, r: phone ? 24 : 36, b: 36, l: phone ? 8 : 12 },
+      xaxis: {
+        gridcolor: th.grid,
+        zeroline: false,
+        linecolor: th.grid,
+        tickfont: { size: 11, color: th.muted },
+        title: { text: label, font: { size: 11, color: th.muted } },
+        rangemode: "tozero",
+        range: [0, Math.max(4, Math.ceil(maxV * 1.12))],
+        dtick: maxV > 40 ? 10 : maxV > 20 ? 5 : maxV > 8 ? 2 : 1,
         automargin: true,
       },
       yaxis: {
@@ -1558,6 +1658,11 @@
     initMap,
     filterRows,
     countBy,
+    appOf,
+    appList,
+    filterByApp,
+    appStats,
+    renderAppSites,
     countByInOrder,
     updateLanguage,
     localizeValue,

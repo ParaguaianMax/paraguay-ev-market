@@ -102,6 +102,10 @@
         <select id="f-band">
           <option value="all" data-i18n="all_bands">Todas</option>
         </select>
+        <label for="f-app" data-i18n="app_label">App</label>
+        <select id="f-app">
+          <option value="all" data-i18n="all">Todos</option>
+        </select>
       </div>
       <div class="map-wrap"><div id="chargers-map" role="img" aria-label="Mapa de cargadores DC" data-i18n-attr="aria-label:map_aria"></div></div>
       <p class="chart-foot" id="map-foot"></p>
@@ -112,6 +116,11 @@
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_sites_lead">Cuántas ubicaciones con carga rápida (DC) tiene cada red.</p>
       <div id="chart-network-sites" class="chart-panel chart-bare chart-network-hbars"><div class="status" data-i18n="loading">Cargando…</div></div>
       <p class="chart-foot" id="network-sites-foot"></p>
+
+      <h2 id="apps" data-i18n="carga_apps_title">Ubicaciones de carga por app</h2>
+      <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_apps_lead">App con la que se habilita la carga en cada ubicación. La app puede ser de otra red.</p>
+      <div id="chart-app-sites" class="chart-panel chart-bare chart-network-hbars"><div class="status" data-i18n="loading">Cargando…</div></div>
+      <p class="chart-foot" id="app-sites-foot"></p>
 
       <h2 id="conectores" data-i18n="carga_networks_title">Conectores por red</h2>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="network_bar_lead">Cantidad de conectores CCS, CHAdeMO y GB/T de cada red, por separado.</p>
@@ -181,6 +190,9 @@
       } catch (e) {}
       let mode = PYEVChargers.getAccessMode();
       const fBand = document.getElementById("f-band");
+      const fApp = document.getElementById("f-app");
+      const appSitesEl = document.getElementById("chart-app-sites");
+      const appSitesFoot = document.getElementById("app-sites-foot");
       const fQ = document.getElementById("f-q");
       const tableCount = document.getElementById("table-count");
       const tableDetails = document.getElementById("tabla");
@@ -228,9 +240,10 @@
 
       function refresh() {
         const mapRows = bandRows();
+        const mapPins = PYEVChargers.filterByApp(mapRows, fApp ? fApp.value : "all");
         if (mapApi) {
           mapApi.group.clearLayers();
-          mapRows.forEach((r) => {
+          mapPins.forEach((r) => {
             const m = mapApi.markers.find((x) => x._pyev.id === r.id);
             if (m) mapApi.group.addLayer(m);
           });
@@ -245,6 +258,12 @@
         const filterText = filterParts.join(" · ");
         const allN = PYEVChargers.chargerCounts(all, mode);
         const shownN = PYEVChargers.chargerCounts(mapRows);
+        const pinN = PYEVChargers.chargerCounts(mapPins);
+        PYEVChargers.renderAppSites(appSitesEl, mapRows);
+        if (appSitesFoot) {
+          const withApp = mapRows.filter((r) => PYEVChargers.appOf(r)).length;
+          appSitesFoot.innerHTML = PYEV.t("carga_apps_foot", { sites: "<b>" + mapRows.length + "</b>", withApp: withApp }) + " · " + esc(filterText);
+        }
         PYEVChargers.renderNetworkSites(networkSitesEl, mapRows);
         PYEVChargers.renderNetworkBars(networkBarsEl, mapRows);
         if (networkSitesFoot) {
@@ -257,9 +276,9 @@
           " = " + PYEV.t("n_connectors", { n: shownN.plugs }) + " · " + esc(filterText);
         foot.innerHTML =
           PYEV.t("map_foot", {
-            sites: "<b>" + shownN.sites + "</b>", allSites: allN.sites,
-            plugs: "<b>" + shownN.plugs + "</b>", allPlugs: allN.plugs,
-          }) + " · " + esc(filterText) + " · " + PYEV.t("power_estimated");
+            sites: "<b>" + pinN.sites + "</b>", allSites: allN.sites,
+            plugs: "<b>" + pinN.plugs + "</b>", allPlugs: allN.plugs,
+          }) + " · " + esc(filterText) + (fApp && fApp.value !== "all" ? " · " + esc(PYEV.t("app_label") + ": " + fApp.value) : "") + " · " + PYEV.t("power_estimated");
       }
 
     // Content renders after load, so re-apply the #anchor once it has height.
@@ -282,6 +301,12 @@
           opt.value = b;
           opt.textContent = PYEVChargers.localizeValue(b);
           fBand.appendChild(opt);
+        });
+        PYEVChargers.appList(all).forEach((a) => {
+          const opt = document.createElement("option");
+          opt.value = a;
+          opt.textContent = a;
+          fApp.appendChild(opt);
         });
         mapApi = PYEVChargers.initMap(mapEl, all);
         function setMode(next, anchorEl) {
@@ -309,6 +334,7 @@
           input.addEventListener("change", () => setMode(input.checked ? "all" : "public", lab.id === "accessToggleLabel" ? null : lab));
         });
         fBand.addEventListener("change", refresh);
+        if (fApp) fApp.addEventListener("change", refresh);
         fQ.addEventListener("input", refresh);
         refresh();
         tableDetails.addEventListener("toggle", () => { if (mapApi && mapApi.invalidate) mapApi.invalidate(); });
