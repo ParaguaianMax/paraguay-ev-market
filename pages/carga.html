@@ -130,7 +130,6 @@
       <h2 data-i18n="chargers_history_title">Historial</h2>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="carga_history_lead">Ubicaciones DC en cada informe publicado.</p>
       <div id="chart-history" class="chart-panel chart-bare chart-history"><div class="status" data-i18n="loading">Cargando…</div></div>
-      <p class="note" id="history-cutoff"></p>
       <h3 data-i18n="chargers_history_networks_title">Por red</h3>
       <p class="lead" style="margin-top:-0.35rem;margin-bottom:0.5rem;font-size:0.95rem" data-i18n="chargers_history_networks_lead">Los mismos cortes de la línea de arriba.</p>
       <div id="chart-history-networks" class="chart-panel chart-bare chart-history-networks"><div class="status" data-i18n="loading">Cargando…</div></div>
@@ -188,7 +187,6 @@
       const historyEl = document.getElementById("chart-history");
       const historyNetEl = document.getElementById("chart-history-networks");
       const historyNetLegend = document.getElementById("history-networks-legend");
-      const historyNote = document.getElementById("history-cutoff");
       let all = [];
       let mapApi = null;
       let historyBundle = null;
@@ -215,13 +213,6 @@
         PYEVChargers.renderHistory(historyEl, historyBundle.points, historyBundle.connectors);
         PYEVChargers.renderHistoryNetworks(historyNetEl, historyBundle.stacks);
         PYEVChargers.renderHistoryNetworkLegend(historyNetLegend, historyBundle.stacks);
-        const pts = historyBundle.points;
-        if (historyNote && pts.length) {
-          historyNote.textContent = PYEV.t("carga_history_note", {
-            period: PYEV.periodLabel(pts[pts.length - 1].corte),
-            sites: PYEVChargers.chargerCounts(all, mode).sites,
-          }) + (mode === "all" ? " " + PYEV.t("carga_history_note_all") : "");
-        }
       }
 
       function filteredRows() {
