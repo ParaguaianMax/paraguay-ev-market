@@ -1176,7 +1176,7 @@
           width: 2,
         },
       },
-      hovertemplate: "<b>%{x}</b><br>" + PYEV.t("chargers_history_series") + ": %{y}<extra></extra>",
+      hovertemplate: PYEV.t("chargers_history_series") + ": %{y}<extra></extra>",
     };
     const connectorTraces = ((connectors && connectors.fields) || []).map((field) => {
       const values = rows.map((r) => {
@@ -1193,7 +1193,7 @@
         connectgaps: false,
         line: { color: th[field.color], width: 2, dash: "dot" },
         marker: { size: 6, color: th[field.color] },
-        hovertemplate: "<b>%{x}</b><br>" + field.name + ": %{y}<extra></extra>",
+        hovertemplate: field.name + ": %{y}<extra></extra>",
       };
     });
     const traces = [trace].concat(connectorTraces);
@@ -1236,6 +1236,7 @@
         range: [0, Math.ceil(max * 1.28)],
         fixedrange: true,
       },
+      hovermode: "x unified",
       hoverlabel: {
         bgcolor: th.dark ? "#1b1b19" : "#ffffff",
         bordercolor: th.grid,
@@ -1286,7 +1287,7 @@
       y: cuts.map((c) => (c.byNet && c.byNet[name]) || 0),
       line: { color: historyNetworkColor(name, th.dark), width: 2 },
       marker: { color: historyNetworkColor(name, th.dark), size: 6 },
-      hovertemplate: "<b>%{x}</b><br>" + name + ": %{y}<extra></extra>",
+      hovertemplate: name + ": %{y}<extra></extra>",
     }));
     const max = traces.reduce((m, trace) =>
       Math.max(m, ...trace.y.map((v) => Number(v) || 0)), 0
@@ -1324,6 +1325,7 @@
         range: [0, Math.ceil(max * 1.12) || 1],
         fixedrange: true,
       },
+      hovermode: "x unified",
       hoverlabel: {
         bgcolor: th.dark ? "#1b1b19" : "#ffffff",
         bordercolor: th.grid,
