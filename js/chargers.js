@@ -1025,27 +1025,35 @@
     });
   }
 
-  // History: report cuts (fonte=informe) + monthly rebuild from the base (fonte=reconstrução pela base) up to 2026-10.
+  // History: real cuts only (fonte=informe or levantamento).
   // Never reads data/chargers-dc.csv.
-  function isRebuilt(r) {
-    return /^reconstru/i.test(String((r && r.fonte) || "").trim());
+  // Real survey points only: published reports (fonte=informe, also when the
+  // column is empty) and our own dated surveys (fonte=levantamento). Any
+  // reconstructed/estimated row is ignored. corte is YYYY-MM or YYYY-MM-DD.
+  const CUT_RE = /^\d{4}-\d{2}(-\d{2})?$/;
+  function isRealCut(r) {
+    const f = String((r && r.fonte) || "informe").trim().toLowerCase();
+    return f === "informe" || f === "levantamento";
   }
-
-  function historyRebuiltSuffix(rebuilt) {
-    return rebuilt ? " " + PYEV.t("chargers_history_rebuilt") : "";
+  function historyCut(r) {
+    const c = String((r && r.corte) || "").trim();
+    return CUT_RE.test(c) && isRealCut(r) ? c : null;
+  }
+  function cutDate(c) {
+    return c.length === 7 ? c + "-01" : c;
   }
 
   function historyPoints(rows) {
     return (rows || []).map((r) => {
-      const corte = String(r.corte || "").trim();
+      const corte = historyCut(r);
       const links = Number(r.n_links_plugshare);
       const graph = Number(r.n_grafico_soma);
-      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-11") return null;
+      if (!corte) return null;
       const summaryOnly = !(links > 0);
       const value = summaryOnly ? graph : links;
       if (!Number.isFinite(value)) return null;
-      return { corte: corte, value: value, summaryOnly: summaryOnly, rebuilt: isRebuilt(r) };
-    }).filter(Boolean);
+      return { corte: corte, value: value, summaryOnly: summaryOnly };
+    }).filter(Boolean).sort((a, b) => cutDate(a.corte).localeCompare(cutDate(b.corte)));
   }
 
   function historyMonthLabel(corte, fullYear) {
@@ -1056,6 +1064,7 @@
         ? { "01": "jan", "02": "fev", "03": "mar", "04": "abr", "05": "mai", "06": "jun", "07": "jul", "08": "ago", "09": "set", "10": "out", "11": "nov", "12": "dez" }
         : { "01": "ene", "02": "feb", "03": "mar", "04": "abr", "05": "may", "06": "jun", "07": "jul", "08": "ago", "09": "sep", "10": "oct", "11": "nov", "12": "dic" };
     const parts = String(corte).split("-");
+    if (parts[2]) return String(Number(parts[2])) + " " + (months[parts[1]] || parts[1]) + " " + parts[0];
     const yy = parts[0] ? (fullYear ? parts[0] : parts[0].slice(2)) : "";
     return (months[parts[1]] || parts[1]) + " " + yy;
   }
@@ -1080,10 +1089,10 @@
   // Same cuts as the line (no 2026, never chargers-dc.csv).
   function historyStacks(rows) {
     const cuts = (rows || []).map((r) => {
-      const corte = String(r.corte || "").trim();
-      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-11") return null;
-      return { corte: corte, byNet: parseNetworkJSON(r.n_grafico_por_rede), rebuilt: isRebuilt(r) };
-    }).filter(Boolean);
+      const corte = historyCut(r);
+      if (!corte) return null;
+      return { corte: corte, byNet: parseNetworkJSON(r.n_grafico_por_rede) };
+    }).filter(Boolean).sort((a, b) => cutDate(a.corte).localeCompare(cutDate(b.corte)));
     const totals = {};
     cuts.forEach((c) => {
       Object.keys(c.byNet).forEach((k) => {
@@ -1105,8 +1114,8 @@
     const cuts = {};
     const present = {};
     (rows || []).forEach((r) => {
-      const corte = String(r.corte || "").trim();
-      if (!/^\d{4}-\d{2}$/.test(corte) || corte >= "2026-11") return;
+      const corte = historyCut(r);
+      if (!corte) return;
       if (!cuts[corte]) cuts[corte] = { ccs: 0, chademo: 0, gbt: 0 };
       fields.forEach((f) => {
         const raw = String(r[f.key] ?? "").trim();
@@ -1159,7 +1168,7 @@
     }
     const th = chartTheme();
     const phone = window.innerWidth < 640;
-    const labels = rows.map((r) => historyMonthLabel(r.corte));
+    const labels = rows.map((r) => cutDate(r.corte));
     const values = rows.map((r) => r.value);
     const summaryColor = th.muted;
     const siteColor = th.CCS;
@@ -1175,7 +1184,7 @@
       textposition: "top center",
       textfont: { size: phone ? 10 : 11, color: th.muted },
       cliponaxis: false,
-      line: { color: siteColor, width: 2, shape: "linear" },
+      line: { color: siteColor, width: 2, shape: "hv" },
       marker: {
         size: rows.map((r) => (r.summaryOnly ? 11 : 9)),
         symbol: rows.map((r) => (r.summaryOnly ? "circle-open" : "circle")),
@@ -1185,8 +1194,7 @@
           width: 2,
         },
       },
-      customdata: rows.map((r) => historyRebuiltSuffix(r.rebuilt)),
-      hovertemplate: PYEV.t("chargers_history_series") + ": %{y}%{customdata}<extra></extra>",
+      hovertemplate: PYEV.t("chargers_history_series") + ": %{y}<extra></extra>",
     };
     const connectorTraces = ((connectors && connectors.fields) || []).map((field) => {
       const values = rows.map((r) => {
@@ -1201,7 +1209,7 @@
         x: labels,
         y: values,
         connectgaps: false,
-        line: { color: th[field.color], width: 2, dash: "dot" },
+        line: { color: th[field.color], width: 2, dash: "dot", shape: "hv" },
         marker: { size: 6, color: th[field.color] },
         hovertemplate: field.name + ": %{y}<extra></extra>",
       };
@@ -1227,12 +1235,18 @@
       },
       margin: phone ? { t: 28, r: 10, b: 112, l: 42 } : { t: 32, r: 16, b: 88, l: 52 },
       xaxis: {
-        type: "category",
+        type: "date",
+        // Real time scale; report cuts in 2024 sit a month apart, so cut-level
+        // labels collide. Yearly ticks; the exact cut shows in the hover/readout.
+        dtick: "M12",
+        tick0: "2024-01-01",
+        tickformat: "%Y",
+        hoverformat: "%b %Y",
         gridcolor: th.grid,
         zeroline: false,
         linecolor: th.grid,
         tickfont: { size: phone ? 10 : 12, color: th.muted },
-        tickangle: phone ? -40 : 0,
+        tickangle: 0,
         automargin: true,
         fixedrange: true,
       },
@@ -1287,18 +1301,17 @@
     }
     const th = chartTheme();
     const phone = window.innerWidth < 640;
-    const labels = cuts.map((c) => historyMonthLabel(c.corte));
-    const traces = networks.map((name, ni) => ({
+    const labels = cuts.map((c) => cutDate(c.corte));
+    const traces = networks.map((name) => ({
       type: "scatter",
       meta: unitMeta("sites"),
       mode: "lines+markers",
       name: name,
       x: labels,
       y: cuts.map((c) => (c.byNet && c.byNet[name]) || 0),
-      line: { color: historyNetworkColor(name, th.dark), width: 2 },
+      line: { color: historyNetworkColor(name, th.dark), width: 2, shape: "hv" },
       marker: { color: historyNetworkColor(name, th.dark), size: 6 },
-      customdata: cuts.map((c) => (ni === 0 ? historyRebuiltSuffix(c.rebuilt) : "")),
-      hovertemplate: name + ": %{y}%{customdata}<extra></extra>",
+      hovertemplate: name + ": %{y}<extra></extra>",
     }));
     const max = traces.reduce((m, trace) =>
       Math.max(m, ...trace.y.map((v) => Number(v) || 0)), 0
@@ -1317,12 +1330,18 @@
       showlegend: false,
       margin: phone ? { t: 8, r: 8, b: 68, l: 36 } : { t: 12, r: 16, b: 58, l: 48 },
       xaxis: {
-        type: "category",
+        type: "date",
+        // Real time scale; report cuts in 2024 sit a month apart, so cut-level
+        // labels collide. Yearly ticks; the exact cut shows in the hover/readout.
+        dtick: "M12",
+        tick0: "2024-01-01",
+        tickformat: "%Y",
+        hoverformat: "%b %Y",
         gridcolor: th.grid,
         zeroline: false,
         linecolor: th.grid,
         tickfont: { size: phone ? 10 : 12, color: th.muted },
-        tickangle: phone ? -40 : 0,
+        tickangle: 0,
         automargin: true,
         fixedrange: true,
       },
