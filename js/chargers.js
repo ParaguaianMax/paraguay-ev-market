@@ -1042,6 +1042,12 @@
   // reconstructed/estimated row is ignored. corte is YYYY-MM or YYYY-MM-DD.
   // History x-axis tick spacing (Plotly dtick): phone vs wide screens.
   const HISTORY_TICKS = { phone: "M6", wide: "M3" };
+  const HISTORY_TOP_NETWORKS = 5;
+  const OTHER_NET = "__other__";
+  const NO_NETWORK_RE = /^(sin red|sem rede|no informado|não informado|nao informado)/i;
+  function historyNetName(name) {
+    return name === OTHER_NET ? PYEV.t("history_other_networks") : name;
+  }
   const CUT_RE = /^\d{4}-\d{2}(-\d{2})?$/;
   function isRealCut(r) {
     const f = String((r && r.fonte) || "informe").trim().toLowerCase();
@@ -1108,14 +1114,29 @@
       if (!corte) return null;
       return { corte: corte, byNet: parseNetworkJSON(r.n_grafico_por_rede) };
     }).filter(Boolean).sort((a, b) => cutDate(a.corte).localeCompare(cutDate(b.corte)));
+    // Top HISTORY_TOP_NETWORKS networks by the latest cut (ties: sum over all
+    // cuts, then name); every other network and the points without a network
+    // go into one "Otras" line per cut.
     const totals = {};
     cuts.forEach((c) => {
       Object.keys(c.byNet).forEach((k) => {
         totals[k] = (totals[k] || 0) + c.byNet[k];
       });
     });
-    const networks = Object.keys(totals).sort((a, b) => (totals[b] - totals[a]) || a.localeCompare(b));
-    return { networks: networks, cuts: cuts };
+    const latest = cuts.length ? cuts[cuts.length - 1].byNet : {};
+    const top = Object.keys(totals)
+      .filter((k) => !NO_NETWORK_RE.test(k))
+      .sort((a, b) => ((latest[b] || 0) - (latest[a] || 0)) || (totals[b] - totals[a]) || a.localeCompare(b))
+      .slice(0, HISTORY_TOP_NETWORKS);
+    const keep = {};
+    top.forEach((k) => { keep[k] = true; });
+    const folded = cuts.map((c) => {
+      const byNet = {};
+      top.forEach((k) => { byNet[k] = c.byNet[k] || 0; });
+      byNet[OTHER_NET] = Object.keys(c.byNet).reduce((sum, k) => sum + (keep[k] ? 0 : c.byNet[k]), 0);
+      return { corte: c.corte, byNet: byNet };
+    });
+    return { networks: top.concat([OTHER_NET]), cuts: folded };
   }
 
   // Connector counts come only from the historical location file. Cuts without
@@ -1176,6 +1197,7 @@
   }
 
   function historyNetworkColor(name, dark) {
+    if (name === OTHER_NET) return dark ? "#8a8a84" : "#9a9a94";
     const alias = { EverGo: "Evergo", Shell: "Shell Recharge", Petrobras: "Petropar" };
     return operatorColor(alias[name] || name, dark);
   }
@@ -1322,7 +1344,7 @@
     const th = chartTheme();
     el.innerHTML = networks.map((name) => {
       const color = historyNetworkColor(name, th.dark);
-      return '<span class="item"><span class="swatch" style="background:' + escapeHtml(color) + '"></span>' + escapeHtml(name) + '</span>';
+      return '<span class="item"><span class="swatch" style="background:' + escapeHtml(color) + '"></span>' + escapeHtml(historyNetName(name)) + '</span>';
     }).join("");
   }
 
@@ -1346,12 +1368,12 @@
       type: "scatter",
       meta: unitMeta("sites"),
       mode: "lines+markers",
-      name: name,
+      name: historyNetName(name),
       x: labels,
       y: cuts.map((c) => (c.byNet && c.byNet[name]) || 0),
       line: { color: historyNetworkColor(name, th.dark), width: 2, shape: "hv" },
       marker: { color: historyNetworkColor(name, th.dark), size: 6 },
-      hovertemplate: name + ": %{y}<extra></extra>",
+      hovertemplate: historyNetName(name) + ": %{y}<extra></extra>",
     }));
     const max = traces.reduce((m, trace) =>
       Math.max(m, ...trace.y.map((v) => Number(v) || 0)), 0
