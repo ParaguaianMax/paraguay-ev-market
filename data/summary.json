@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T16:47:15-03:00",
+ "generated": "2026-11-02T17:00:35-03:00",
  "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
@@ -610,7 +610,11 @@
  },
  "reev_models": [
   "BAIC BJ60E",
+  "CHANGAN DEEPAL S05",
+  "CHANGAN DEEPAL S07",
   "CHANGAN HUNTER REEV",
+  "ICAUR 03T LUXURY",
+  "ICAUR V27",
   "LEAPMOTOR C10 REEV",
   "LEAPMOTOR C11 REEV 300 SMART",
   "LEAPMOTOR C16 REEV 200",
