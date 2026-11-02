@@ -336,7 +336,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-03,LightVehicles,leve,AUDI,E5,,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-03,LightVehicles,leve,BMW,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-03,LightVehicles,leve,BMW,428I,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
-2026-03,LightVehicles,leve,BMW,IX1,,PHEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-03,LightVehicles,leve,BMW,IX1,,BEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-03,LightVehicles,leve,BMW,X3 30E XDRIVE,,PHEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-03,LightVehicles,leve,BMW,X4 XDRIVE20I,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-03,LightVehicles,leve,BMW,X5 XDRIVE30D,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
