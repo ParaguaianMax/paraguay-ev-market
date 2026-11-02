@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T16:45:23-03:00",
+ "generated": "2026-11-02T16:47:15-03:00",
  "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
@@ -615,6 +615,6 @@
   "LEAPMOTOR C11 REEV 300 SMART",
   "LEAPMOTOR C16 REEV 200",
   "LEAPMOTOR C16 REEV 200 PREMIUM",
-  "ROX ROX 01"
+  "ROX 01"
  ]
 }

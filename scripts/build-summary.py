@@ -212,7 +212,10 @@ def reev_models(rows):
     for r in rows:
         if (r.get("subtipo") or "").strip().upper() != "REEV":
             continue
-        name = " ".join(x for x in ((r.get("marca") or "").strip(), (r.get("modelo") or "").strip()) if x)
+        marca = (r.get("marca") or "").strip()
+        modelo = (r.get("modelo") or "").strip()
+        # Don't repeat the brand when the model name already starts with it (ROX + "ROX 01").
+        name = modelo if marca and (modelo.upper() == marca.upper() or modelo.upper().startswith(marca.upper() + " ")) else " ".join(x for x in (marca, modelo) if x)
         if name:
             out.add(name)
     return sorted(out)
