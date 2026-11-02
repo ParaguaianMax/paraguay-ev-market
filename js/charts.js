@@ -80,13 +80,13 @@
     const traces = cats.map((k) => ({
       type: "scatter",
       mode: "lines+markers",
-      name: k === "OTHERS" ? "mild" : k,
+      name: global.PYEV.ptLegend(k),
       x: periods,
       y: rows.map((r) => +((r.share[k] || 0).toFixed(4))),
       customdata: rows.map((r) => r[k] || 0),
       line: { color: col[k], width: narrow ? 1.75 : 2.25 },
       marker: { color: col[k], size: narrow ? 4 : 6, line: { width: 1, color: markerBorder } },
-      hovertemplate: "<b>" + (k === "OTHERS" ? "mild" : k) + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
+      hovertemplate: "<b>" + global.PYEV.ptName(k, true) + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
     }));
     const base = plotlyLayout();
     const titleFont = { size: narrow ? 10 : 11, color: muted };
@@ -242,7 +242,7 @@
     const muted = dark ? "#aeaba2" : "#55534c";
     const traces = cats.map((k) => ({
       type: "bar",
-      name: k,
+      name: global.PYEV.ptLegend(k),
       x: labels,
       xperiod: "M1",
       xperiodalignment: "middle",
@@ -316,7 +316,7 @@
     const col = C();
     const traces = cats.map((k) => ({
       type: "bar",
-      name: k === "OTHERS" ? "mild" : k,
+      name: global.PYEV.ptLegend(k),
       x: labels,
       xperiod: "M1",
       xperiodalignment: "middle",
@@ -384,7 +384,7 @@
     const cats = ["BEV", "PHEV", "HEV", "OTHERS", "ICE", "electrified"];
     const labels = {
       BEV: "BEV",
-      PHEV: "PHEV",
+      PHEV: global.PYEV.ptName("PHEV", true),
       HEV: "HEV",
       OTHERS: "mild",
       ICE: "ICE",
@@ -430,7 +430,7 @@
       { cls: "", label: global.PYEV.t("total"), value: global.PYEV.fmtInt(row.TOTAL), sub: global.PYEV.periodLabel(row.period) },
       { cls: "elec", label: global.PYEV.t("electrified_short"), value: global.PYEV.fmtPct(row.electrified_pct), sub: global.PYEV.fmtInt(row.electrified) + " " + global.PYEV.t("units") },
       { cls: "bev", label: "BEV %", value: global.PYEV.fmtPct(row.share.BEV), sub: global.PYEV.fmtInt(row.BEV) + " " + global.PYEV.t("units") },
-      { cls: "phev", label: "PHEV %", value: global.PYEV.fmtPct(row.share.PHEV), sub: global.PYEV.fmtInt(row.PHEV) + " " + global.PYEV.t("units") },
+      { cls: "phev", label: global.PYEV.ptName("PHEV", true) + " %", value: global.PYEV.fmtPct(row.share.PHEV), sub: global.PYEV.fmtInt(row.PHEV) + " " + global.PYEV.t("units") },
       { cls: "hev", label: "HEV %", value: global.PYEV.fmtPct(row.share.HEV), sub: global.PYEV.fmtInt(row.HEV) + " " + global.PYEV.t("units") },
       { cls: "ice", label: "ICE %", value: global.PYEV.fmtPct(row.share.ICE), sub: global.PYEV.fmtInt(row.ICE) + " " + global.PYEV.t("units") },
     ];
@@ -563,13 +563,13 @@
     const traces = keys.map((k) => ({
       type: "scatter",
       mode: "lines+markers",
-      name: k === "NONPLUG" ? "HEV + mild" : k,
+      name: k === "NONPLUG" ? "HEV + mild" : global.PYEV.ptLegend(k),
       x: x,
       y: monthly.map((m) => (m.TOTAL ? +((100 * val(m, k)) / m.TOTAL).toFixed(2) : 0)),
       customdata: monthly.map((m) => val(m, k)),
       line: { color: col[k === "NONPLUG" ? "HEV" : k], width: narrow ? 2 : 2.5 },
       marker: { color: col[k === "NONPLUG" ? "HEV" : k], size: narrow ? 6 : 7, line: { width: 1, color: markerBorder } },
-      hovertemplate: "<b>" + (k === "NONPLUG" ? "HEV + mild" : k) + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
+      hovertemplate: "<b>" + (k === "NONPLUG" ? "HEV + mild" : global.PYEV.ptName(k, true)) + "</b>: %{y:.1f}% · %{customdata:,} " + global.PYEV.t("units") + "<extra></extra>",
     }));
     const maxY = traces.reduce((m, tr) => Math.max(m, ...tr.y), 0);
     const base = plotlyLayout();

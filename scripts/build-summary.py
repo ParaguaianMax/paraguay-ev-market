@@ -77,6 +77,7 @@ def load_model_rows():
             "powertrain": pt if pt in PTS else "OTHERS",
             "condicion": (r.get("condicion") or "").strip().lower(),
             "units": num(r.get("units")),
+            "subtipo": (r.get("subtipo") or "").strip().upper(),
         })
     return out
 
@@ -203,6 +204,20 @@ def charger_counts():
     }
 
 
+def reev_models(rows):
+    """Distinct "MARCA MODELO" flagged REEV (column `subtipo` == REEV, any case) in
+    light vehicles (variant LightVehicles, segmento leve), sorted alphabetically. The
+    site shows them in a note next to the "PHEV + REEV" category; empty list hides it."""
+    out = set()
+    for r in rows:
+        if (r.get("subtipo") or "").strip().upper() != "REEV":
+            continue
+        name = " ".join(x for x in ((r.get("marca") or "").strip(), (r.get("modelo") or "").strip()) if x)
+        if name:
+            out.add(name)
+    return sorted(out)
+
+
 def main():
     models = load_model_rows()
     nuevo_rows = [r for r in models if r["condicion"] == "nuevo"]
@@ -217,6 +232,7 @@ def main():
             "all": build_condition(market_all, models, latest),
         },
         "chargers": charger_counts(),
+        "reev_models": reev_models(models),
     }
     out = DATA / "summary.json"
     # Keep the old timestamp when nothing else changed, so re-runs without new

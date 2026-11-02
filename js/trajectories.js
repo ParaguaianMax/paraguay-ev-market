@@ -6,7 +6,7 @@
 (function (global) {
   const CATS = ["BEV", "PHEV", "HEV", "OTHERS", "ICE"];
   /** Users never see the raw OTHERS code. */
-  function catLabel(k) { return k === "OTHERS" ? "mild" : k; }
+  function catLabel(k) { return global.PYEV && global.PYEV.ptLegend ? global.PYEV.ptLegend(k) : (k === "OTHERS" ? "mild" : k); }
   const FIT_CATS = ["BEV", "PHEV", "HEV", "ICE"];
   const EPS = 1e-4;
   const PROJECT_MONTHS = 48;

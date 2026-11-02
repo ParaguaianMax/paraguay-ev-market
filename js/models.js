@@ -821,7 +821,7 @@
   function renderBrandColumnTable(el, brands, grandTotal) {
     const cols = [
       ["BEV", "BEV", "c-bev"],
-      ["PHEV", "PHEV", "c-phev"],
+      ["PHEV", ptLabel("PHEV"), "c-phev"],
       ["HEV", "HEV", "c-hev"],
       ["OTHERS", t("mild_col"), "c-others"],
       ["ICE", "ICE", "c-ice"],
@@ -1042,7 +1042,7 @@
 
   /** Users never see the raw OTHERS code: it is "mild" (light hybrid). */
   function ptLabel(pt) {
-    return pt === "OTHERS" ? "mild" : pt;
+    return global.PYEV && global.PYEV.ptName ? global.PYEV.ptName(pt, true) : (pt === "OTHERS" ? "mild" : pt);
   }
 
   function pillHtml(pt) {
