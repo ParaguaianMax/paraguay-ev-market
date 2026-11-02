@@ -319,7 +319,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-10,LightVehicles,leve,GEELY,RADAR KING KONG,,BEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-10,LightVehicles,leve,HINO,DUTRO,,ICE,usado,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
 2026-10,LightVehicles,leve,HYUNDAI,ACCENT,,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
-2026-10,LightVehicles,leve,ICAUR,03T LUXURY,,PHEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-10,LightVehicles,leve,ICAUR,03T LUXURY,,PHEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),REEV
 2026-10,LightVehicles,leve,ICAUR,V23,,BEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-10,LightVehicles,leve,JAC,T9 ADVANCE LUXURY,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
 2026-10,LightVehicles,leve,LEXUS,LBXH,,HEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),

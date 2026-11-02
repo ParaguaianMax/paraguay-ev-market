@@ -111,7 +111,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-07,LightVehicles,leve,VOLKSWAGEN,POLO HIGHLINE,,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,pesado,FAW,TIGER,,ICE,nuevo,20,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
 2026-07,LightVehicles,leve,BAIC,X55,,ICE,nuevo,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
-2026-07,LightVehicles,leve,DEEPAL,DEEPAL MODELO,,PHEV,nuevo,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,leve,FIAT,STRADA RANCH D/C,,ICE,nuevo,19,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta,
 2026-07,LightVehicles,leve,KGM,TIVOLI,,ICE,nuevo,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,leve,TOYOTA,BELTA,,ICE,usado,19,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
@@ -133,6 +132,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-07,LightVehicles,leve,NISSAN,KAIT EXCLUSIVE CVT - FLEX,,ICE,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,leve,TOYOTA,COROLLA,,HEV,nuevo,16,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,pesado,MITSUBISHI,CANTER GUTS,,ICE,usado,16,Aduana PY datos abiertos,Mitsubishi Canter (camión) → pesado,
+2026-07,LightVehicles,leve,CHANGAN,DEEPAL S05,,PHEV,nuevo,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),REEV
 2026-07,LightVehicles,leve,CHANGAN,DEEPAL S07,,PHEV,nuevo,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),REEV
 2026-07,LightVehicles,leve,CHERY,T7 PRO,,PHEV,nuevo,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,leve,CHEVROLET,SILVERADO,,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
@@ -281,6 +281,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-07,LightVehicles,leve,CHANGAN,M60 FURGON,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta,
 2026-07,LightVehicles,leve,CHERY,HIMLA,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
 2026-07,LightVehicles,leve,DAIHATSU,MOVE,,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-07,LightVehicles,leve,DEEPAL,DEEPAL MODELO,,PHEV,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,leve,FIAT,TORO RANCH D/C,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
 2026-07,LightVehicles,leve,GAC AION,I60,,BEV,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-07,LightVehicles,leve,JAC,JS4,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
