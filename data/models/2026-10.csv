@@ -138,7 +138,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-10,LightVehicles,leve,TOYOTA,PASSO,,ICE,usado,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-10,LightVehicles,pesado,FAW,TIGER,,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t
 2026-10,LightVehicles,recreativo,VENTURA,ATV,,ICE,nuevo,15,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow
-2026-10,LightVehicles,leve,BAIC,(sin modelo),,BEV,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
+2026-10,LightVehicles,leve,BAIC,BJ60E,,PHEV,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-10,LightVehicles,leve,MAZDA,DEMIO,,ICE,usado,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-10,LightVehicles,leve,SUBARU,TREZIA,,ICE,usado,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
 2026-10,LightVehicles,leve,TOYOTA,CROWN ROYAL SALOON,,ICE,usado,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve)
