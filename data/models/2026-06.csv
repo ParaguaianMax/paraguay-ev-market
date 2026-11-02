@@ -116,7 +116,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,leve,NISSAN,NEW KICKS,EXCLUSIVE,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-06,LightVehicles,pesado,ISUZU,QMR77L-HH5AYN,,ICE,nuevo,15,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
 2026-06,LightVehicles,recreativo,VENTURA,ATV,,ICE,nuevo,15,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
-2026-06,LightVehicles,leve,BAIC,BJ30E,,OTHERS,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-06,LightVehicles,leve,BAIC,BJ30E,,HEV,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-06,LightVehicles,leve,CHEVROLET,TRACKER PREMIER,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-06,LightVehicles,leve,CHEVROLET,TRACKER RS,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-06,LightVehicles,leve,JETOUR,DASHING,,ICE,nuevo,14,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),

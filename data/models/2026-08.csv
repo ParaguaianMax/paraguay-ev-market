@@ -156,7 +156,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-08,LightVehicles,leve,RENAULT,OROCH ZEN,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta,
 2026-08,LightVehicles,leve,TOYOTA,CROWN ATHLETE,,ICE,usado,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-08,LightVehicles,leve,VOLKSWAGEN,POLO HIGHLINE,,ICE,nuevo,10,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
-2026-08,LightVehicles,leve,BAIC,BJ30E,,OTHERS,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-08,LightVehicles,leve,BAIC,BJ30E,,HEV,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-08,LightVehicles,leve,CHANGAN,DEEPAL S07,,PHEV,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-08,LightVehicles,leve,CHEVROLET,CAMARO,,ICE,usado,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-08,LightVehicles,leve,CHEVROLET,S10 LTZ,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
