@@ -1,15 +1,15 @@
 {
- "generated": "2026-11-02T11:11:08-03:00",
- "cutoff": "2026-09",
+ "generated": "2026-11-02T14:37:22-03:00",
+ "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
    "ytd": {
-    "BEV": 1297,
-    "PHEV": 2576,
-    "HEV": 3769,
-    "OTHERS": 51,
-    "ICE": 32724,
-    "TOTAL": 40417,
+    "BEV": 1475,
+    "PHEV": 2915,
+    "HEV": 4318,
+    "OTHERS": 66,
+    "ICE": 37568,
+    "TOTAL": 46342,
     "months": [
      "2026-01",
      "2026-02",
@@ -19,16 +19,17 @@
      "2026-06",
      "2026-07",
      "2026-08",
-     "2026-09"
+     "2026-09",
+     "2026-10"
     ]
    },
    "prev": {
-    "BEV": 525,
-    "PHEV": 735,
-    "HEV": 1376,
+    "BEV": 634,
+    "PHEV": 906,
+    "HEV": 1542,
     "OTHERS": 38,
-    "ICE": 25521,
-    "TOTAL": 28195,
+    "ICE": 29512,
+    "TOTAL": 32632,
     "months": [
      "2025-01",
      "2025-02",
@@ -38,18 +39,18 @@
      "2025-06",
      "2025-07",
      "2025-08",
-     "2025-09"
+     "2025-09",
+     "2025-10"
     ]
    },
    "last12": {
-    "BEV": 1564,
-    "PHEV": 3028,
-    "HEV": 4485,
-    "OTHERS": 51,
-    "ICE": 43167,
-    "TOTAL": 52295,
+    "BEV": 1633,
+    "PHEV": 3196,
+    "HEV": 4868,
+    "OTHERS": 66,
+    "ICE": 44020,
+    "TOTAL": 53783,
     "months": [
-     "2025-10",
      "2025-11",
      "2025-12",
      "2026-01",
@@ -60,18 +61,18 @@
      "2026-06",
      "2026-07",
      "2026-08",
-     "2026-09"
+     "2026-09",
+     "2026-10"
     ]
    },
    "prev12": {
-    "BEV": 816,
-    "PHEV": 940,
-    "HEV": 1952,
+    "BEV": 886,
+    "PHEV": 1006,
+    "HEV": 1942,
     "OTHERS": 62,
-    "ICE": 36031,
-    "TOTAL": 39801,
+    "ICE": 36590,
+    "TOTAL": 40486,
     "months": [
-     "2024-10",
      "2024-11",
      "2024-12",
      "2025-01",
@@ -82,18 +83,11 @@
      "2025-06",
      "2025-07",
      "2025-08",
-     "2025-09"
+     "2025-09",
+     "2025-10"
     ]
    },
    "monthly": [
-    {
-     "period": "2025-10",
-     "BEV": 109,
-     "PHEV": 171,
-     "HEV": 166,
-     "OTHERS": 0,
-     "TOTAL": 4437
-    },
     {
      "period": "2025-11",
      "BEV": 65,
@@ -181,10 +175,25 @@
      "HEV": 443,
      "OTHERS": 5,
      "TOTAL": 5582
+    },
+    {
+     "period": "2026-10",
+     "BEV": 178,
+     "PHEV": 339,
+     "HEV": 549,
+     "OTHERS": 15,
+     "TOTAL": 5925
     }
    ],
    "top": {
     "BEV": [
+     {
+      "marca": "CHEVROLET",
+      "modelo": "SPARK EUV",
+      "powertrain": "BEV",
+      "label": "CHEVROLET SPARK EUV",
+      "units": 160
+     },
      {
       "marca": "VOLVO",
       "modelo": "EX30",
@@ -193,32 +202,25 @@
       "units": 156
      },
      {
-      "marca": "CHEVROLET",
-      "modelo": "SPARK EUV",
-      "powertrain": "BEV",
-      "label": "CHEVROLET SPARK EUV",
-      "units": 152
-     },
-     {
       "marca": "ICAUR",
       "modelo": "V23",
       "powertrain": "BEV",
       "label": "ICAUR V23",
-      "units": 141
+      "units": 144
      },
      {
       "marca": "CHEVROLET",
       "modelo": "CAPTIVA EV",
       "powertrain": "BEV",
       "label": "CHEVROLET CAPTIVA EV",
-      "units": 96
+      "units": 132
      },
      {
-      "marca": "JMEV",
-      "modelo": "EV3",
+      "marca": "BYD",
+      "modelo": "YUAN PRO",
       "powertrain": "BEV",
-      "label": "JMEV EV3",
-      "units": 53
+      "label": "BYD YUAN PRO",
+      "units": 70
      }
     ],
     "PHEV": [
@@ -237,25 +239,25 @@
       "units": 180
      },
      {
+      "marca": "GREATWALL",
+      "modelo": "NEW H6 PHEV",
+      "powertrain": "PHEV",
+      "label": "GREATWALL NEW H6 PHEV",
+      "units": 177
+     },
+     {
+      "marca": "BYD",
+      "modelo": "YUAN PRO DM-I GS",
+      "powertrain": "PHEV",
+      "label": "BYD YUAN PRO DM-I GS",
+      "units": 136
+     },
+     {
       "marca": "ICAUR",
       "modelo": "V27",
       "powertrain": "PHEV",
       "label": "ICAUR V27",
       "units": 136
-     },
-     {
-      "marca": "JETOUR",
-      "modelo": "T2",
-      "powertrain": "PHEV",
-      "label": "JETOUR T2",
-      "units": 124
-     },
-     {
-      "marca": "LYNK CO",
-      "modelo": "06",
-      "powertrain": "PHEV",
-      "label": "LYNK CO 06",
-      "units": 123
      }
     ],
     "NONPLUG": [
@@ -264,47 +266,47 @@
       "modelo": "COROLLA CROSS",
       "powertrain": "HEV",
       "label": "TOYOTA COROLLA CROSS",
-      "units": 761
+      "units": 861
      },
      {
       "marca": "KIA",
       "modelo": "SPORTAGE",
       "powertrain": "HEV",
       "label": "KIA SPORTAGE",
-      "units": 569
-     },
-     {
-      "marca": "HYUNDAI",
-      "modelo": "ALL NEW TUCSON",
-      "powertrain": "HEV",
-      "label": "HYUNDAI ALL NEW TUCSON",
-      "units": 250
+      "units": 645
      },
      {
       "marca": "GREATWALL",
       "modelo": "JOLION PRO",
       "powertrain": "HEV",
       "label": "GREATWALL JOLION PRO",
-      "units": 235
+      "units": 305
+     },
+     {
+      "marca": "HYUNDAI",
+      "modelo": "ALL NEW TUCSON",
+      "powertrain": "HEV",
+      "label": "HYUNDAI ALL NEW TUCSON",
+      "units": 274
      },
      {
       "marca": "TOYOTA",
       "modelo": "RAV4",
       "powertrain": "HEV",
       "label": "TOYOTA RAV4",
-      "units": 196
+      "units": 236
      }
     ]
    }
   },
   "all": {
    "ytd": {
-    "BEV": 1314,
-    "PHEV": 2581,
-    "HEV": 4076,
-    "OTHERS": 51,
-    "ICE": 79559,
-    "TOTAL": 87581,
+    "BEV": 1493,
+    "PHEV": 2920,
+    "HEV": 4691,
+    "OTHERS": 66,
+    "ICE": 90638,
+    "TOTAL": 99808,
     "months": [
      "2026-01",
      "2026-02",
@@ -314,16 +316,17 @@
      "2026-06",
      "2026-07",
      "2026-08",
-     "2026-09"
+     "2026-09",
+     "2026-10"
     ]
    },
    "prev": {
-    "BEV": 530,
-    "PHEV": 741,
-    "HEV": 1459,
+    "BEV": 641,
+    "PHEV": 913,
+    "HEV": 1651,
     "OTHERS": 38,
-    "ICE": 65014,
-    "TOTAL": 67782,
+    "ICE": 75736,
+    "TOTAL": 78979,
     "months": [
      "2025-01",
      "2025-02",
@@ -333,18 +336,18 @@
      "2025-06",
      "2025-07",
      "2025-08",
-     "2025-09"
+     "2025-09",
+     "2025-10"
     ]
    },
    "last12": {
-    "BEV": 1586,
-    "PHEV": 3038,
-    "HEV": 4864,
-    "OTHERS": 52,
-    "ICE": 107529,
-    "TOTAL": 117069,
+    "BEV": 1654,
+    "PHEV": 3205,
+    "HEV": 5287,
+    "OTHERS": 67,
+    "ICE": 107886,
+    "TOTAL": 118099,
     "months": [
-     "2025-10",
      "2025-11",
      "2025-12",
      "2026-01",
@@ -355,18 +358,18 @@
      "2026-06",
      "2026-07",
      "2026-08",
-     "2026-09"
+     "2026-09",
+     "2026-10"
     ]
    },
    "prev12": {
-    "BEV": 826,
-    "PHEV": 948,
-    "HEV": 2047,
+    "BEV": 896,
+    "PHEV": 1015,
+    "HEV": 2060,
     "OTHERS": 62,
-    "ICE": 87673,
-    "TOTAL": 91556,
+    "ICE": 90484,
+    "TOTAL": 94517,
     "months": [
-     "2024-10",
      "2024-11",
      "2024-12",
      "2025-01",
@@ -377,18 +380,11 @@
      "2025-06",
      "2025-07",
      "2025-08",
-     "2025-09"
+     "2025-09",
+     "2025-10"
     ]
    },
    "monthly": [
-    {
-     "period": "2025-10",
-     "BEV": 111,
-     "PHEV": 172,
-     "HEV": 192,
-     "OTHERS": 0,
-     "TOTAL": 11197
-    },
     {
      "period": "2025-11",
      "BEV": 67,
@@ -476,10 +472,25 @@
      "HEV": 500,
      "OTHERS": 5,
      "TOTAL": 10807
+    },
+    {
+     "period": "2026-10",
+     "BEV": 179,
+     "PHEV": 339,
+     "HEV": 615,
+     "OTHERS": 15,
+     "TOTAL": 12227
     }
    ],
    "top": {
     "BEV": [
+     {
+      "marca": "CHEVROLET",
+      "modelo": "SPARK EUV",
+      "powertrain": "BEV",
+      "label": "CHEVROLET SPARK EUV",
+      "units": 160
+     },
      {
       "marca": "VOLVO",
       "modelo": "EX30",
@@ -488,32 +499,25 @@
       "units": 156
      },
      {
-      "marca": "CHEVROLET",
-      "modelo": "SPARK EUV",
-      "powertrain": "BEV",
-      "label": "CHEVROLET SPARK EUV",
-      "units": 152
-     },
-     {
       "marca": "ICAUR",
       "modelo": "V23",
       "powertrain": "BEV",
       "label": "ICAUR V23",
-      "units": 141
+      "units": 144
      },
      {
       "marca": "CHEVROLET",
       "modelo": "CAPTIVA EV",
       "powertrain": "BEV",
       "label": "CHEVROLET CAPTIVA EV",
-      "units": 96
+      "units": 132
      },
      {
-      "marca": "JMEV",
-      "modelo": "EV3",
+      "marca": "BYD",
+      "modelo": "YUAN PRO",
       "powertrain": "BEV",
-      "label": "JMEV EV3",
-      "units": 53
+      "label": "BYD YUAN PRO",
+      "units": 70
      }
     ],
     "PHEV": [
@@ -532,25 +536,25 @@
       "units": 180
      },
      {
+      "marca": "GREATWALL",
+      "modelo": "NEW H6 PHEV",
+      "powertrain": "PHEV",
+      "label": "GREATWALL NEW H6 PHEV",
+      "units": 177
+     },
+     {
+      "marca": "BYD",
+      "modelo": "YUAN PRO DM-I GS",
+      "powertrain": "PHEV",
+      "label": "BYD YUAN PRO DM-I GS",
+      "units": 136
+     },
+     {
       "marca": "ICAUR",
       "modelo": "V27",
       "powertrain": "PHEV",
       "label": "ICAUR V27",
       "units": 136
-     },
-     {
-      "marca": "JETOUR",
-      "modelo": "T2",
-      "powertrain": "PHEV",
-      "label": "JETOUR T2",
-      "units": 124
-     },
-     {
-      "marca": "LYNK CO",
-      "modelo": "06",
-      "powertrain": "PHEV",
-      "label": "LYNK CO 06",
-      "units": 123
      }
     ],
     "NONPLUG": [
@@ -559,35 +563,35 @@
       "modelo": "COROLLA CROSS",
       "powertrain": "HEV",
       "label": "TOYOTA COROLLA CROSS",
-      "units": 761
+      "units": 863
      },
      {
       "marca": "KIA",
       "modelo": "SPORTAGE",
       "powertrain": "HEV",
       "label": "KIA SPORTAGE",
-      "units": 569
-     },
-     {
-      "marca": "HYUNDAI",
-      "modelo": "ALL NEW TUCSON",
-      "powertrain": "HEV",
-      "label": "HYUNDAI ALL NEW TUCSON",
-      "units": 250
+      "units": 645
      },
      {
       "marca": "GREATWALL",
       "modelo": "JOLION PRO",
       "powertrain": "HEV",
       "label": "GREATWALL JOLION PRO",
-      "units": 235
+      "units": 305
+     },
+     {
+      "marca": "HYUNDAI",
+      "modelo": "ALL NEW TUCSON",
+      "powertrain": "HEV",
+      "label": "HYUNDAI ALL NEW TUCSON",
+      "units": 274
      },
      {
       "marca": "TOYOTA",
       "modelo": "RAV4",
       "powertrain": "HEV",
       "label": "TOYOTA RAV4",
-      "units": 197
+      "units": 237
      }
     ]
    }
