@@ -1,15 +1,15 @@
 {
- "generated": "2026-11-02T16:24:07-03:00",
+ "generated": "2026-11-02T16:43:57-03:00",
  "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
    "ytd": {
-    "BEV": 1523,
-    "PHEV": 3008,
-    "HEV": 4342,
-    "OTHERS": 66,
+    "BEV": 1520,
+    "PHEV": 3010,
+    "HEV": 4386,
+    "OTHERS": 22,
     "ICE": 37573,
-    "TOTAL": 46512,
+    "TOTAL": 46511,
     "months": [
      "2026-01",
      "2026-02",
@@ -44,12 +44,12 @@
     ]
    },
    "last12": {
-    "BEV": 1681,
-    "PHEV": 3289,
-    "HEV": 4892,
-    "OTHERS": 66,
+    "BEV": 1678,
+    "PHEV": 3291,
+    "HEV": 4936,
+    "OTHERS": 22,
     "ICE": 44025,
-    "TOTAL": 53953,
+    "TOTAL": 53952,
     "months": [
      "2025-11",
      "2025-12",
@@ -148,24 +148,24 @@
      "period": "2026-06",
      "BEV": 110,
      "PHEV": 90,
-     "HEV": 536,
-     "OTHERS": 15,
+     "HEV": 550,
+     "OTHERS": 1,
      "TOTAL": 4451
     },
     {
      "period": "2026-07",
-     "BEV": 193,
-     "PHEV": 245,
-     "HEV": 438,
-     "OTHERS": 16,
-     "TOTAL": 5344
+     "BEV": 190,
+     "PHEV": 247,
+     "HEV": 448,
+     "OTHERS": 6,
+     "TOTAL": 5343
     },
     {
      "period": "2026-08",
      "BEV": 148,
      "PHEV": 659,
-     "HEV": 665,
-     "OTHERS": 12,
+     "HEV": 674,
+     "OTHERS": 3,
      "TOTAL": 5183
     },
     {
@@ -180,8 +180,8 @@
      "period": "2026-10",
      "BEV": 226,
      "PHEV": 432,
-     "HEV": 573,
-     "OTHERS": 15,
+     "HEV": 584,
+     "OTHERS": 4,
      "TOTAL": 6095
     }
    ],
@@ -301,12 +301,12 @@
   },
   "all": {
    "ytd": {
-    "BEV": 1542,
-    "PHEV": 3013,
-    "HEV": 4717,
-    "OTHERS": 67,
+    "BEV": 1539,
+    "PHEV": 3015,
+    "HEV": 4761,
+    "OTHERS": 23,
     "ICE": 90643,
-    "TOTAL": 99982,
+    "TOTAL": 99981,
     "months": [
      "2026-01",
      "2026-02",
@@ -341,12 +341,12 @@
     ]
    },
    "last12": {
-    "BEV": 1703,
-    "PHEV": 3298,
-    "HEV": 5313,
-    "OTHERS": 68,
+    "BEV": 1700,
+    "PHEV": 3300,
+    "HEV": 5357,
+    "OTHERS": 24,
     "ICE": 107891,
-    "TOTAL": 118273,
+    "TOTAL": 118272,
     "months": [
      "2025-11",
      "2025-12",
@@ -445,24 +445,24 @@
      "period": "2026-06",
      "BEV": 110,
      "PHEV": 91,
-     "HEV": 565,
-     "OTHERS": 15,
+     "HEV": 579,
+     "OTHERS": 1,
      "TOTAL": 9997
     },
     {
      "period": "2026-07",
-     "BEV": 193,
-     "PHEV": 245,
-     "HEV": 471,
-     "OTHERS": 16,
-     "TOTAL": 11186
+     "BEV": 190,
+     "PHEV": 247,
+     "HEV": 481,
+     "OTHERS": 6,
+     "TOTAL": 11185
     },
     {
      "period": "2026-08",
      "BEV": 156,
      "PHEV": 659,
-     "HEV": 680,
-     "OTHERS": 12,
+     "HEV": 689,
+     "OTHERS": 3,
      "TOTAL": 8639
     },
     {
@@ -477,8 +477,8 @@
      "period": "2026-10",
      "BEV": 228,
      "PHEV": 432,
-     "HEV": 641,
-     "OTHERS": 16,
+     "HEV": 652,
+     "OTHERS": 5,
      "TOTAL": 12401
     }
    ],
