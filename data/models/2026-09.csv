@@ -324,7 +324,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-09,LightVehicles,pesado,SCANIA,124,,ICE,usado,4,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
 2026-09,LightVehicles,pesado,TATA,LPT407/34EX2TT LHD EUROII CLB,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
 2026-09,LightVehicles,recreativo,KAYO,ATV A50,,ICE,nuevo,4,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
-2026-09,LightVehicles,leve,AVATR,07,,PHEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-09,LightVehicles,leve,AVATR,07,,PHEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),REEV
 2026-09,LightVehicles,leve,AVATR,11,,BEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-09,LightVehicles,leve,BMW,320 D,,ICE,usado,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-09,LightVehicles,leve,BMW,X1 XDRIVE25E,,PHEV,nuevo,3,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),

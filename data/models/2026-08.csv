@@ -309,7 +309,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-08,LightVehicles,recreativo,SHINING,F4,,ICE,nuevo,3,Aduana PY datos abiertos,NCM 8703.10,
 2026-08,LightVehicles,leve,AUDI,Q5 SPORTBACK,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-08,LightVehicles,leve,AUDI,Q8,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
-2026-08,LightVehicles,leve,AVATR,07,,PHEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-08,LightVehicles,leve,AVATR,07,,PHEV,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),REEV
 2026-08,LightVehicles,leve,BAIC,(sin modelo),,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-08,LightVehicles,leve,BMW,320DX,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-08,LightVehicles,leve,BMW,320I,,ICE,usado,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),

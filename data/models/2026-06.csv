@@ -221,7 +221,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-06,LightVehicles,pesado,VOLKSWAGEN,11,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
 2026-06,LightVehicles,recreativo,CAN-AM,OUTLANDER MAX XT 700 GY,,ICE,nuevo,5,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
 2026-06,LightVehicles,recreativo,CAN-AM,OUTLANDER PRO HD5,,ICE,nuevo,5,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
-2026-06,LightVehicles,leve,AVATR,07,,PHEV,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-06,LightVehicles,leve,AVATR,07,,PHEV,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),REEV
 2026-06,LightVehicles,leve,BMW,218 GRAN COUPE,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-06,LightVehicles,leve,BYD,YUAN UP,,BEV,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-06,LightVehicles,leve,CHANGAN,NEW CS35 MAX ELITE,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
