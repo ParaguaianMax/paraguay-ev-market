@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T17:00:35-03:00",
+ "generated": "2026-11-02T17:02:32-03:00",
  "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
@@ -609,6 +609,7 @@
   }
  },
  "reev_models": [
+  "AVATR 07",
   "BAIC BJ60E",
   "CHANGAN DEEPAL S05",
   "CHANGAN DEEPAL S07",
