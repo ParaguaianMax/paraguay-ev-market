@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "updated": "2026-10-08",
+  "updated": "2026-11-02",
   "canonical_policy": "UPPERCASE after basic cleanup. Prefer official Latin spelling; MERCEDES-BENZ with hyphen. Only high-confidence aliases auto-apply. Do not merge distinct brands (BYD≠BYTON, MITSUBISHI≠MITSUBISHI FUSO). Trailing punctuation and money-like numbers glued to a brand (e.g. MITSUBISHI21.496,52 = FOB typed into MARCA) are stripped in canonical_marca. SSANGYONG and KGM (KG Mobility, the renamed SsangYong) are one brand: canonical KGM, the more common name in the data (735 vs 146 units, 2022-01..2026-09; Max 2026-10-08).",
   "aliases": {
     "MERCEDES BENZ": "MERCEDES-BENZ",
@@ -215,7 +215,10 @@
     "NASH METROPOLITAN": "NASH",
     "SSANGYONG": "KGM",
     "SAMSUNG": "RENAULT SAMSUNG",
-    "LI XIANG": "LI AUTO"
+    "LI XIANG": "LI AUTO",
+    "CREVROLET": "CHEVROLET",
+    "SUSUKI": "SUZUKI",
+    "JEACOO": "JAECOO"
   },
   "proposed": [
     {
@@ -510,5 +513,10 @@
       "to": null,
       "note": "Kept separate on purpose (Max 2026-10-08)."
     }
+  ],
+  "approved_2026_11_02": [
+    "CREVROLET→CHEVROLET",
+    "SUSUKI→SUZUKI",
+    "JEACOO→JAECOO (Max, chat 2026-11-02)"
   ]
 }
