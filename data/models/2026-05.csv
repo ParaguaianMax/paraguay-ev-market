@@ -47,7 +47,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2026-05,LightVehicles,leve,MAZDA,BT-50 DBL-CAB,,ICE,nuevo,39,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
 2026-05,LightVehicles,leve,TOYOTA,FORTUNER,,ICE,nuevo,39,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-05,LightVehicles,leve,TOYOTA,RAV4,,HEV,nuevo,39,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
-2026-05,LightVehicles,leve,ICAUR,V27,,PHEV,nuevo,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2026-05,LightVehicles,leve,ICAUR,V27,,PHEV,nuevo,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),REEV
 2026-05,LightVehicles,leve,KIA,CARENS,,ICE,nuevo,36,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-05,LightVehicles,leve,HYUNDAI,ALL NEW TUCSON,,ICE,nuevo,35,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2026-05,LightVehicles,leve,NISSAN,NEW KICKS,ADVANCE PLUS,ICE,nuevo,35,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
