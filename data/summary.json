@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T12:31:20-03:00",
+ "generated": "2026-11-03T13:26:01-03:00",
  "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
@@ -26,8 +26,8 @@
    "prev": {
     "BEV": 626,
     "PHEV": 906,
-    "HEV": 1542,
-    "OTHERS": 38,
+    "HEV": 1554,
+    "OTHERS": 26,
     "ICE": 29443,
     "TOTAL": 32555,
     "months": [
@@ -68,8 +68,8 @@
    "prev12": {
     "BEV": 878,
     "PHEV": 1006,
-    "HEV": 1942,
-    "OTHERS": 62,
+    "HEV": 1954,
+    "OTHERS": 50,
     "ICE": 36521,
     "TOTAL": 40409,
     "months": [
@@ -323,8 +323,8 @@
    "prev": {
     "BEV": 633,
     "PHEV": 913,
-    "HEV": 1651,
-    "OTHERS": 38,
+    "HEV": 1663,
+    "OTHERS": 26,
     "ICE": 75659,
     "TOTAL": 78894,
     "months": [
@@ -365,8 +365,8 @@
    "prev12": {
     "BEV": 888,
     "PHEV": 1015,
-    "HEV": 2060,
-    "OTHERS": 62,
+    "HEV": 2072,
+    "OTHERS": 50,
     "ICE": 90407,
     "TOTAL": 94432,
     "months": [
