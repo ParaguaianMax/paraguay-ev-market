@@ -1,15 +1,15 @@
 {
- "generated": "2026-11-03T15:52:24-03:00",
+ "generated": "2026-11-03T15:58:37-03:00",
  "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
    "ytd": {
-    "BEV": 1462,
-    "PHEV": 2977,
-    "HEV": 4354,
+    "BEV": 1457,
+    "PHEV": 2845,
+    "HEV": 4180,
     "OTHERS": 22,
-    "ICE": 36681,
-    "TOTAL": 45496,
+    "ICE": 36430,
+    "TOTAL": 44934,
     "months": [
      "2026-01",
      "2026-02",
@@ -25,11 +25,11 @@
    },
    "prev": {
     "BEV": 559,
-    "PHEV": 868,
-    "HEV": 1509,
+    "PHEV": 848,
+    "HEV": 1501,
     "OTHERS": 26,
-    "ICE": 27348,
-    "TOTAL": 30310,
+    "ICE": 27324,
+    "TOTAL": 30258,
     "months": [
      "2025-01",
      "2025-02",
@@ -44,12 +44,12 @@
     ]
    },
    "last12": {
-    "BEV": 1616,
-    "PHEV": 3257,
-    "HEV": 4900,
+    "BEV": 1611,
+    "PHEV": 3103,
+    "HEV": 4724,
     "OTHERS": 22,
-    "ICE": 42905,
-    "TOTAL": 52700,
+    "ICE": 42642,
+    "TOTAL": 52102,
     "months": [
      "2025-11",
      "2025-12",
@@ -67,11 +67,11 @@
    },
    "prev12": {
     "BEV": 786,
-    "PHEV": 967,
-    "HEV": 1802,
+    "PHEV": 947,
+    "HEV": 1794,
     "OTHERS": 38,
-    "ICE": 34110,
-    "TOTAL": 37703,
+    "ICE": 34086,
+    "TOTAL": 37651,
     "months": [
      "2024-11",
      "2024-12",
@@ -91,18 +91,18 @@
     {
      "period": "2025-11",
      "BEV": 65,
-     "PHEV": 112,
+     "PHEV": 106,
      "HEV": 234,
      "OTHERS": 0,
-     "TOTAL": 3585
+     "TOTAL": 3579
     },
     {
      "period": "2025-12",
      "BEV": 89,
-     "PHEV": 168,
-     "HEV": 312,
+     "PHEV": 152,
+     "HEV": 310,
      "OTHERS": 0,
-     "TOTAL": 3619
+     "TOTAL": 3589
     },
     {
      "period": "2026-01",
@@ -116,9 +116,9 @@
      "period": "2026-02",
      "BEV": 111,
      "PHEV": 129,
-     "HEV": 256,
+     "HEV": 237,
      "OTHERS": 0,
-     "TOTAL": 3517
+     "TOTAL": 3480
     },
     {
      "period": "2026-03",
@@ -126,7 +126,7 @@
      "PHEV": 292,
      "HEV": 342,
      "OTHERS": 1,
-     "TOTAL": 4165
+     "TOTAL": 4153
     },
     {
      "period": "2026-04",
@@ -134,7 +134,7 @@
      "PHEV": 281,
      "HEV": 385,
      "OTHERS": 1,
-     "TOTAL": 4667
+     "TOTAL": 4629
     },
     {
      "period": "2026-05",
@@ -150,23 +150,23 @@
      "PHEV": 83,
      "HEV": 542,
      "OTHERS": 1,
-     "TOTAL": 4352
+     "TOTAL": 4253
     },
     {
      "period": "2026-07",
      "BEV": 190,
-     "PHEV": 247,
-     "HEV": 441,
+     "PHEV": 231,
+     "HEV": 418,
      "OTHERS": 6,
-     "TOTAL": 5271
+     "TOTAL": 5199
     },
     {
      "period": "2026-08",
      "BEV": 148,
-     "PHEV": 657,
-     "HEV": 674,
+     "PHEV": 616,
+     "HEV": 583,
      "OTHERS": 3,
-     "TOTAL": 5133
+     "TOTAL": 4978
     },
     {
      "period": "2026-09",
@@ -178,11 +178,11 @@
     },
     {
      "period": "2026-10",
-     "BEV": 222,
-     "PHEV": 432,
-     "HEV": 584,
+     "BEV": 217,
+     "PHEV": 357,
+     "HEV": 543,
      "OTHERS": 4,
-     "TOTAL": 6008
+     "TOTAL": 5859
     }
    ],
    "top": {
@@ -239,13 +239,6 @@
       "units": 180
      },
      {
-      "marca": "GREATWALL",
-      "modelo": "NEW H6 PHEV",
-      "powertrain": "PHEV",
-      "label": "GREATWALL NEW H6 PHEV",
-      "units": 177
-     },
-     {
       "marca": "BYD",
       "modelo": "YUAN PRO DM-I GS",
       "powertrain": "PHEV",
@@ -258,6 +251,13 @@
       "powertrain": "PHEV",
       "label": "ICAUR V27",
       "units": 136
+     },
+     {
+      "marca": "GREATWALL",
+      "modelo": "NEW H6 PHEV",
+      "powertrain": "PHEV",
+      "label": "GREATWALL NEW H6 PHEV",
+      "units": 128
      }
     ],
     "NONPLUG": [
@@ -276,13 +276,6 @@
       "units": 645
      },
      {
-      "marca": "GREATWALL",
-      "modelo": "JOLION PRO",
-      "powertrain": "HEV",
-      "label": "GREATWALL JOLION PRO",
-      "units": 305
-     },
-     {
       "marca": "HYUNDAI",
       "modelo": "ALL NEW TUCSON",
       "powertrain": "HEV",
@@ -295,18 +288,25 @@
       "powertrain": "HEV",
       "label": "TOYOTA RAV4",
       "units": 236
+     },
+     {
+      "marca": "GREATWALL",
+      "modelo": "JOLION PRO",
+      "powertrain": "HEV",
+      "label": "GREATWALL JOLION PRO",
+      "units": 210
      }
     ]
    }
   },
   "all": {
    "ytd": {
-    "BEV": 1481,
-    "PHEV": 2982,
-    "HEV": 4729,
+    "BEV": 1476,
+    "PHEV": 2850,
+    "HEV": 4555,
     "OTHERS": 23,
-    "ICE": 89644,
-    "TOTAL": 98859,
+    "ICE": 89393,
+    "TOTAL": 98297,
     "months": [
      "2026-01",
      "2026-02",
@@ -322,11 +322,11 @@
    },
    "prev": {
     "BEV": 566,
-    "PHEV": 875,
-    "HEV": 1616,
+    "PHEV": 855,
+    "HEV": 1608,
     "OTHERS": 26,
-    "ICE": 73229,
-    "TOTAL": 76312,
+    "ICE": 73204,
+    "TOTAL": 76259,
     "months": [
      "2025-01",
      "2025-02",
@@ -341,12 +341,12 @@
     ]
    },
    "last12": {
-    "BEV": 1638,
-    "PHEV": 3266,
-    "HEV": 5321,
+    "BEV": 1633,
+    "PHEV": 3112,
+    "HEV": 5145,
     "OTHERS": 24,
-    "ICE": 106663,
-    "TOTAL": 116912,
+    "ICE": 106400,
+    "TOTAL": 116314,
     "months": [
      "2025-11",
      "2025-12",
@@ -364,11 +364,11 @@
    },
    "prev12": {
     "BEV": 796,
-    "PHEV": 976,
-    "HEV": 1918,
+    "PHEV": 956,
+    "HEV": 1910,
     "OTHERS": 38,
-    "ICE": 87661,
-    "TOTAL": 91389,
+    "ICE": 87636,
+    "TOTAL": 91336,
     "months": [
      "2024-11",
      "2024-12",
@@ -388,18 +388,18 @@
     {
      "period": "2025-11",
      "BEV": 67,
-     "PHEV": 115,
+     "PHEV": 109,
      "HEV": 254,
      "OTHERS": 1,
-     "TOTAL": 8836
+     "TOTAL": 8830
     },
     {
      "period": "2025-12",
      "BEV": 90,
-     "PHEV": 169,
-     "HEV": 338,
+     "PHEV": 153,
+     "HEV": 336,
      "OTHERS": 0,
-     "TOTAL": 9217
+     "TOTAL": 9187
     },
     {
      "period": "2026-01",
@@ -413,9 +413,9 @@
      "period": "2026-02",
      "BEV": 111,
      "PHEV": 130,
-     "HEV": 279,
+     "HEV": 260,
      "OTHERS": 0,
-     "TOTAL": 8220
+     "TOTAL": 8183
     },
     {
      "period": "2026-03",
@@ -423,7 +423,7 @@
      "PHEV": 293,
      "HEV": 380,
      "OTHERS": 1,
-     "TOTAL": 10406
+     "TOTAL": 10394
     },
     {
      "period": "2026-04",
@@ -431,7 +431,7 @@
      "PHEV": 282,
      "HEV": 442,
      "OTHERS": 1,
-     "TOTAL": 10187
+     "TOTAL": 10149
     },
     {
      "period": "2026-05",
@@ -447,23 +447,23 @@
      "PHEV": 84,
      "HEV": 571,
      "OTHERS": 1,
-     "TOTAL": 9891
+     "TOTAL": 9792
     },
     {
      "period": "2026-07",
      "BEV": 190,
-     "PHEV": 247,
-     "HEV": 474,
+     "PHEV": 231,
+     "HEV": 451,
      "OTHERS": 6,
-     "TOTAL": 11109
+     "TOTAL": 11037
     },
     {
      "period": "2026-08",
      "BEV": 156,
-     "PHEV": 657,
-     "HEV": 689,
+     "PHEV": 616,
+     "HEV": 598,
      "OTHERS": 3,
-     "TOTAL": 8581
+     "TOTAL": 8426
     },
     {
      "period": "2026-09",
@@ -475,11 +475,11 @@
     },
     {
      "period": "2026-10",
-     "BEV": 224,
-     "PHEV": 432,
-     "HEV": 652,
+     "BEV": 219,
+     "PHEV": 357,
+     "HEV": 611,
      "OTHERS": 5,
-     "TOTAL": 12314
+     "TOTAL": 12165
     }
    ],
    "top": {
@@ -536,13 +536,6 @@
       "units": 180
      },
      {
-      "marca": "GREATWALL",
-      "modelo": "NEW H6 PHEV",
-      "powertrain": "PHEV",
-      "label": "GREATWALL NEW H6 PHEV",
-      "units": 177
-     },
-     {
       "marca": "BYD",
       "modelo": "YUAN PRO DM-I GS",
       "powertrain": "PHEV",
@@ -555,6 +548,13 @@
       "powertrain": "PHEV",
       "label": "ICAUR V27",
       "units": 136
+     },
+     {
+      "marca": "GREATWALL",
+      "modelo": "NEW H6 PHEV",
+      "powertrain": "PHEV",
+      "label": "GREATWALL NEW H6 PHEV",
+      "units": 128
      }
     ],
     "NONPLUG": [
@@ -573,13 +573,6 @@
       "units": 645
      },
      {
-      "marca": "GREATWALL",
-      "modelo": "JOLION PRO",
-      "powertrain": "HEV",
-      "label": "GREATWALL JOLION PRO",
-      "units": 305
-     },
-     {
       "marca": "HYUNDAI",
       "modelo": "ALL NEW TUCSON",
       "powertrain": "HEV",
@@ -592,6 +585,13 @@
       "powertrain": "HEV",
       "label": "TOYOTA RAV4",
       "units": 237
+     },
+     {
+      "marca": "GREATWALL",
+      "modelo": "JOLION PRO",
+      "powertrain": "HEV",
+      "label": "GREATWALL JOLION PRO",
+      "units": 210
      }
     ]
    }
