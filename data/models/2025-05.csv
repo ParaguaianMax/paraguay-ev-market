@@ -148,7 +148,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-05,LightVehicles,leve,TOYOTA,LAND CRUISER PRADO,,ICE,nuevo,7,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-05,LightVehicles,leve,TOYOTA,TOYOACE,,ICE,usado,7,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
 2025-05,LightVehicles,pesado,ISUZU,NQR71L-LN5VAYN,,ICE,nuevo,7,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
-2025-05,LightVehicles,leve,BAIC,BJ30E,,OTHERS,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2025-05,LightVehicles,leve,BAIC,BJ30E,,HEV,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-05,LightVehicles,leve,BMW,X1 SDRIVE18I,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-05,LightVehicles,leve,BMW,X4 XDRIVE30I,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-05,LightVehicles,leve,CHANGAN,HUNTER,,ICE,nuevo,6,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
