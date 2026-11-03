@@ -72,7 +72,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-07,LightVehicles,leve,CHEVROLET,ONIX HATCHBACK LS,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-07,LightVehicles,leve,NISSAN,FRONTIER DOBLE CABINA,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8704.21 GVW≤5t pickup/camioneta,
 2025-07,LightVehicles,leve,VOLKSWAGEN,SAVEIRO ROBUST DC,,ICE,nuevo,18,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta,
-2025-07,LightVehicles,leve,XIAOMI,SU7 MAX,,BEV,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2025-07,LightVehicles,leve,XIAOMI,SU7,MAX,BEV,nuevo,18,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-07,LightVehicles,leve,MAZDA,CX-90 MILD,,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-07,LightVehicles,leve,MAZDA,DEMIO,,ICE,usado,17,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-07,LightVehicles,leve,VOLKSWAGEN,SAVEIRO ROBUST SC,,ICE,nuevo,17,Aduana PY datos abiertos,NCM 8704.31 GVW≤5t pickup/camioneta,
