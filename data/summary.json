@@ -1,15 +1,15 @@
 {
- "generated": "2026-11-02T17:14:32-03:00",
+ "generated": "2026-11-03T12:31:20-03:00",
  "cutoff": "2026-10",
  "conditions": {
   "nuevo": {
    "ytd": {
-    "BEV": 1522,
+    "BEV": 1515,
     "PHEV": 3008,
-    "HEV": 4386,
+    "HEV": 4380,
     "OTHERS": 22,
-    "ICE": 37573,
-    "TOTAL": 46511,
+    "ICE": 37534,
+    "TOTAL": 46459,
     "months": [
      "2026-01",
      "2026-02",
@@ -24,12 +24,12 @@
     ]
    },
    "prev": {
-    "BEV": 634,
+    "BEV": 626,
     "PHEV": 906,
     "HEV": 1542,
     "OTHERS": 38,
-    "ICE": 29512,
-    "TOTAL": 32632,
+    "ICE": 29443,
+    "TOTAL": 32555,
     "months": [
      "2025-01",
      "2025-02",
@@ -44,12 +44,12 @@
     ]
    },
    "last12": {
-    "BEV": 1680,
+    "BEV": 1670,
     "PHEV": 3289,
-    "HEV": 4936,
+    "HEV": 4930,
     "OTHERS": 22,
-    "ICE": 44025,
-    "TOTAL": 53952,
+    "ICE": 43947,
+    "TOTAL": 53858,
     "months": [
      "2025-11",
      "2025-12",
@@ -66,12 +66,12 @@
     ]
    },
    "prev12": {
-    "BEV": 886,
+    "BEV": 878,
     "PHEV": 1006,
     "HEV": 1942,
     "OTHERS": 62,
-    "ICE": 36590,
-    "TOTAL": 40486,
+    "ICE": 36521,
+    "TOTAL": 40409,
     "months": [
      "2024-11",
      "2024-12",
@@ -94,15 +94,15 @@
      "PHEV": 112,
      "HEV": 238,
      "OTHERS": 0,
-     "TOTAL": 3765
+     "TOTAL": 3732
     },
     {
      "period": "2025-12",
-     "BEV": 93,
+     "BEV": 90,
      "PHEV": 169,
      "HEV": 312,
      "OTHERS": 0,
-     "TOTAL": 3676
+     "TOTAL": 3667
     },
     {
      "period": "2026-01",
@@ -110,7 +110,7 @@
      "PHEV": 205,
      "HEV": 238,
      "OTHERS": 0,
-     "TOTAL": 3024
+     "TOTAL": 3019
     },
     {
      "period": "2026-02",
@@ -118,7 +118,7 @@
      "PHEV": 130,
      "HEV": 256,
      "OTHERS": 0,
-     "TOTAL": 3643
+     "TOTAL": 3636
     },
     {
      "period": "2026-03",
@@ -126,7 +126,7 @@
      "PHEV": 292,
      "HEV": 342,
      "OTHERS": 1,
-     "TOTAL": 4238
+     "TOTAL": 4229
     },
     {
      "period": "2026-04",
@@ -134,7 +134,7 @@
      "PHEV": 282,
      "HEV": 385,
      "OTHERS": 1,
-     "TOTAL": 4739
+     "TOTAL": 4736
     },
     {
      "period": "2026-05",
@@ -146,11 +146,11 @@
     },
     {
      "period": "2026-06",
-     "BEV": 110,
+     "BEV": 107,
      "PHEV": 90,
      "HEV": 550,
      "OTHERS": 1,
-     "TOTAL": 4451
+     "TOTAL": 4443
     },
     {
      "period": "2026-07",
@@ -166,23 +166,23 @@
      "PHEV": 659,
      "HEV": 674,
      "OTHERS": 3,
-     "TOTAL": 5183
+     "TOTAL": 5174
     },
     {
      "period": "2026-09",
      "BEV": 295,
      "PHEV": 484,
-     "HEV": 443,
+     "HEV": 437,
      "OTHERS": 5,
-     "TOTAL": 5582
+     "TOTAL": 5575
     },
     {
      "period": "2026-10",
-     "BEV": 226,
+     "BEV": 222,
      "PHEV": 432,
      "HEV": 584,
      "OTHERS": 4,
-     "TOTAL": 6095
+     "TOTAL": 6091
     }
    ],
    "top": {
@@ -266,7 +266,7 @@
       "modelo": "COROLLA CROSS",
       "powertrain": "HEV",
       "label": "TOYOTA COROLLA CROSS",
-      "units": 861
+      "units": 855
      },
      {
       "marca": "KIA",
@@ -301,12 +301,12 @@
   },
   "all": {
    "ytd": {
-    "BEV": 1541,
+    "BEV": 1534,
     "PHEV": 3013,
-    "HEV": 4761,
+    "HEV": 4755,
     "OTHERS": 23,
-    "ICE": 90643,
-    "TOTAL": 99981,
+    "ICE": 90587,
+    "TOTAL": 99912,
     "months": [
      "2026-01",
      "2026-02",
@@ -321,12 +321,12 @@
     ]
    },
    "prev": {
-    "BEV": 641,
+    "BEV": 633,
     "PHEV": 913,
     "HEV": 1651,
     "OTHERS": 38,
-    "ICE": 75736,
-    "TOTAL": 78979,
+    "ICE": 75659,
+    "TOTAL": 78894,
     "months": [
      "2025-01",
      "2025-02",
@@ -341,12 +341,12 @@
     ]
    },
    "last12": {
-    "BEV": 1702,
+    "BEV": 1692,
     "PHEV": 3298,
-    "HEV": 5357,
+    "HEV": 5351,
     "OTHERS": 24,
-    "ICE": 107891,
-    "TOTAL": 118272,
+    "ICE": 107796,
+    "TOTAL": 118161,
     "months": [
      "2025-11",
      "2025-12",
@@ -363,12 +363,12 @@
     ]
    },
    "prev12": {
-    "BEV": 896,
+    "BEV": 888,
     "PHEV": 1015,
     "HEV": 2060,
     "OTHERS": 62,
-    "ICE": 90484,
-    "TOTAL": 94517,
+    "ICE": 90407,
+    "TOTAL": 94432,
     "months": [
      "2024-11",
      "2024-12",
@@ -391,15 +391,15 @@
      "PHEV": 115,
      "HEV": 258,
      "OTHERS": 1,
-     "TOTAL": 9016
+     "TOTAL": 8983
     },
     {
      "period": "2025-12",
-     "BEV": 94,
+     "BEV": 91,
      "PHEV": 170,
      "HEV": 338,
      "OTHERS": 0,
-     "TOTAL": 9275
+     "TOTAL": 9266
     },
     {
      "period": "2026-01",
@@ -407,7 +407,7 @@
      "PHEV": 205,
      "HEV": 251,
      "OTHERS": 0,
-     "TOTAL": 7716
+     "TOTAL": 7711
     },
     {
      "period": "2026-02",
@@ -415,7 +415,7 @@
      "PHEV": 131,
      "HEV": 279,
      "OTHERS": 0,
-     "TOTAL": 8358
+     "TOTAL": 8351
     },
     {
      "period": "2026-03",
@@ -423,7 +423,7 @@
      "PHEV": 293,
      "HEV": 380,
      "OTHERS": 1,
-     "TOTAL": 10502
+     "TOTAL": 10481
     },
     {
      "period": "2026-04",
@@ -431,7 +431,7 @@
      "PHEV": 283,
      "HEV": 442,
      "OTHERS": 1,
-     "TOTAL": 10264
+     "TOTAL": 10261
     },
     {
      "period": "2026-05",
@@ -439,15 +439,15 @@
      "PHEV": 187,
      "HEV": 508,
      "OTHERS": 1,
-     "TOTAL": 10112
+     "TOTAL": 10111
     },
     {
      "period": "2026-06",
-     "BEV": 110,
+     "BEV": 107,
      "PHEV": 91,
      "HEV": 579,
      "OTHERS": 1,
-     "TOTAL": 9997
+     "TOTAL": 9987
     },
     {
      "period": "2026-07",
@@ -455,7 +455,7 @@
      "PHEV": 247,
      "HEV": 481,
      "OTHERS": 6,
-     "TOTAL": 11185
+     "TOTAL": 11184
     },
     {
      "period": "2026-08",
@@ -463,23 +463,23 @@
      "PHEV": 659,
      "HEV": 689,
      "OTHERS": 3,
-     "TOTAL": 8639
+     "TOTAL": 8630
     },
     {
      "period": "2026-09",
      "BEV": 299,
      "PHEV": 485,
-     "HEV": 500,
+     "HEV": 494,
      "OTHERS": 5,
-     "TOTAL": 10807
+     "TOTAL": 10799
     },
     {
      "period": "2026-10",
-     "BEV": 228,
+     "BEV": 224,
      "PHEV": 432,
      "HEV": 652,
      "OTHERS": 5,
-     "TOTAL": 12401
+     "TOTAL": 12397
     }
    ],
    "top": {
@@ -563,7 +563,7 @@
       "modelo": "COROLLA CROSS",
       "powertrain": "HEV",
       "label": "TOYOTA COROLLA CROSS",
-      "units": 863
+      "units": 857
      },
      {
       "marca": "KIA",
