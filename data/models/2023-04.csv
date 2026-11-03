@@ -94,7 +94,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-04,LightVehicles,leve,RENAULT,NUEVO KWID INTENS,,ICE,nuevo,9,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2023-04,LightVehicles,recreativo,CFMOTO,CF400AZ-3S,,ICE,nuevo,9,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart,
 2023-04,LightVehicles,recreativo,CFMOTO,CF500AU-9L,,ICE,nuevo,9,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart,
-2023-04,LightVehicles,leve,AUDI,Q8,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2023-04,LightVehicles,leve,AUDI,Q8,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2023-04,LightVehicles,leve,CHEVROLET,ONIX LS,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2023-04,LightVehicles,leve,CHEVROLET,ONIX LTZ FLEX AT TURBO,,ICE,nuevo,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2023-04,LightVehicles,leve,HYUNDAI,GRAND STAREX,,ICE,usado,8,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),

@@ -144,7 +144,7 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2023-12,LightVehicles,pesado,MERCEDES-BENZ,814,,ICE,usado,5,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
 2023-12,LightVehicles,pesado,MERCEDES-BENZ,ATEGO,,ICE,usado,5,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
 2023-12,LightVehicles,recreativo,CAN-AM,ATV OUTL PRO HD5,,ICE,nuevo,5,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
-2023-12,LightVehicles,leve,AUDI,Q5,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
+2023-12,LightVehicles,leve,AUDI,Q5,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2023-12,LightVehicles,leve,BMW,X1 XDRIVE25E,,PHEV,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2023-12,LightVehicles,leve,CHEVROLET,ONIX LTZ,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2023-12,LightVehicles,leve,CHEVROLET,ONIX PREMIER,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
