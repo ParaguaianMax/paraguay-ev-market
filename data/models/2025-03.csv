@@ -311,7 +311,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-03,LightVehicles,pesado,VOLKSWAGEN,24,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t,
 2025-03,LightVehicles,pesado,VOLKSWAGEN,31,,ICE,nuevo,2,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t,
 2025-03,LightVehicles,recreativo,YAMAHA,(sin modelo),,ICE,usado,2,Aduana PY datos abiertos,NCM 8703.10,
-2025-03,LightVehicles,recreativo,YAMAHA,BANSHE,,ICE,nuevo,2,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart,
 2025-03,LightVehicles,leve,AUDI,(sin modelo),,ICE,usado,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-03,LightVehicles,leve,AUDI,Q2,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2025-03,LightVehicles,leve,AUDI,Q6 E-TRON,QUATTRO,BEV,nuevo,1,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
@@ -518,3 +517,4 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2025-03,LightVehicles,recreativo,SHINING,F4,,ICE,nuevo,1,Aduana PY datos abiertos,NCM 8703.10,
 2025-03,LightVehicles,recreativo,TIKING,VITACCI T-REX,,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
 2025-03,LightVehicles,recreativo,TIKING,VITACCI T-REX 150,,ICE,usado,1,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
+2025-03,LightVehicles,recreativo,YAMAHA,BANSHE,,ICE,nuevo,1,Aduana PY datos abiertos,keyword cuadriciclo/triciclo/go-kart,

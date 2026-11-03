@@ -184,7 +184,6 @@ period,variant,segmento,marca,modelo,edicion,powertrain,condicion,units,source,n
 2024-12,LightVehicles,leve,VENTURA,ATV420 MARCA VENTURA,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2024-12,LightVehicles,leve,VOLKSWAGEN,TIGUAN LIFE,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2024-12,LightVehicles,pesado,SCANIA,P94,,ICE,usado,5,Aduana PY datos abiertos,NCM 8704.22 typically GVW>5t,
-2024-12,LightVehicles,pesado,SINOTRUK,HOWO TX,,ICE,nuevo,5,Aduana PY datos abiertos,NCM 8704.23 typically GVW>5t,
 2024-12,LightVehicles,recreativo,VENTURA,ATV M250L,,ICE,nuevo,5,Aduana PY datos abiertos,keyword ATV/UTV/carrito golf/snow,
 2024-12,LightVehicles,leve,BMW,X3 SDRIVE20I,,ICE,nuevo,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
 2024-12,LightVehicles,leve,CHEVROLET,CAMARO,,ICE,usado,4,Aduana PY datos abiertos,NCM 8703 automóvil/turismo (default leve),
