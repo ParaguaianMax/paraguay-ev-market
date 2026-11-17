@@ -1,0 +1,6 @@
+period,variant,segmento,marca,modelo,motorizacion,unidades,label
+2026-02,LightVehicles,leve,,,BEV,111,TOTAL BEV
+2026-02,LightVehicles,leve,,,PHEV,130,TOTAL PHEV
+2026-02,LightVehicles,leve,,,HEV,260,TOTAL HEV
+2026-02,LightVehicles,leve,,,ICE,7682,TOTAL ICE
+2026-02,LightVehicles,leve,,,ALL,8183,TOTAL general (8183)

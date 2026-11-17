@@ -1,0 +1,46 @@
+period,variant,segmento,marca,modelo,motorizacion,unidades,label
+2022-10,LightVehicles,leve,TOYOTA,,ALL,1834,TOYOTA · TOTAL
+2022-10,LightVehicles,leve,KIA,,ALL,638,KIA · TOTAL
+2022-10,LightVehicles,leve,CHEVROLET,,ALL,504,CHEVROLET · TOTAL
+2022-10,LightVehicles,leve,VOLKSWAGEN,,ALL,242,VOLKSWAGEN · TOTAL
+2022-10,LightVehicles,leve,NISSAN,,ALL,241,NISSAN · TOTAL
+2022-10,LightVehicles,leve,HYUNDAI,,ALL,174,HYUNDAI · TOTAL
+2022-10,LightVehicles,leve,CITROEN,,ALL,129,CITROEN · TOTAL
+2022-10,LightVehicles,leve,DFSK,,ALL,123,DFSK · TOTAL
+2022-10,LightVehicles,leve,PEUGEOT,,ALL,108,PEUGEOT · TOTAL
+2022-10,LightVehicles,leve,FIAT,,ALL,96,FIAT · TOTAL
+2022-10,LightVehicles,leve,GEELY,,ALL,80,GEELY · TOTAL
+2022-10,LightVehicles,leve,BMW,,ALL,58,BMW · TOTAL
+2022-10,LightVehicles,leve,MERCEDES-BENZ,,ALL,55,MERCEDES-BENZ · TOTAL
+2022-10,LightVehicles,leve,MAXUS,,ALL,38,MAXUS · TOTAL
+2022-10,LightVehicles,leve,BYD,,ALL,37,BYD · TOTAL
+2022-10,LightVehicles,leve,MAZDA,,ALL,34,MAZDA · TOTAL
+2022-10,LightVehicles,leve,FORD,,ALL,26,FORD · TOTAL
+2022-10,LightVehicles,leve,RENAULT,,ALL,25,RENAULT · TOTAL
+2022-10,LightVehicles,leve,GAC,,ALL,24,GAC · TOTAL
+2022-10,LightVehicles,leve,CHANGAN,,ALL,22,CHANGAN · TOTAL
+2022-10,LightVehicles,leve,AUDI,,ALL,15,AUDI · TOTAL
+2022-10,LightVehicles,leve,SUZUKI,,ALL,13,SUZUKI · TOTAL
+2022-10,LightVehicles,leve,HONDA,,ALL,11,HONDA · TOTAL
+2022-10,LightVehicles,leve,JETOUR,,ALL,10,JETOUR · TOTAL
+2022-10,LightVehicles,leve,VOLVO,,ALL,10,VOLVO · TOTAL
+2022-10,LightVehicles,leve,RAM,,ALL,8,RAM · TOTAL
+2022-10,LightVehicles,leve,PORSCHE,,ALL,8,PORSCHE · TOTAL
+2022-10,LightVehicles,leve,MINI,,ALL,6,MINI · TOTAL
+2022-10,LightVehicles,leve,BAIC,,ALL,5,BAIC · TOTAL
+2022-10,LightVehicles,leve,DAIHATSU,,ALL,5,DAIHATSU · TOTAL
+2022-10,LightVehicles,leve,JEEP,,ALL,3,JEEP · TOTAL
+2022-10,LightVehicles,leve,DODGE,,ALL,3,DODGE · TOTAL
+2022-10,LightVehicles,leve,GREATWALL,,ALL,2,GREATWALL · TOTAL
+2022-10,LightVehicles,leve,KAWASAKI,,ALL,2,KAWASAKI · TOTAL
+2022-10,LightVehicles,leve,POLARIS,,ALL,2,POLARIS · TOTAL
+2022-10,LightVehicles,leve,KGM,,ALL,2,KGM · TOTAL
+2022-10,LightVehicles,leve,MITSUBISHI,,ALL,2,MITSUBISHI · TOTAL
+2022-10,LightVehicles,leve,SUBARU,,ALL,2,SUBARU · TOTAL
+2022-10,LightVehicles,leve,HINO,,ALL,1,HINO · TOTAL
+2022-10,LightVehicles,leve,LAND ROVER,,ALL,1,LAND ROVER · TOTAL
+2022-10,LightVehicles,leve,LEXUS,,ALL,1,LEXUS · TOTAL
+2022-10,LightVehicles,leve,MITSUBISHI FUSO,,ALL,1,MITSUBISHI FUSO · TOTAL
+2022-10,LightVehicles,leve,OPEL,,ALL,1,OPEL · TOTAL
+2022-10,LightVehicles,leve,SCANIA,,ALL,1,SCANIA · TOTAL
+2022-10,LightVehicles,leve,_TOTAL_,,ALL,4603,TOTAL general (4603)

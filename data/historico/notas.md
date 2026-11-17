@@ -77,3 +77,5 @@ Sem meses estimados ou reconstruídos. Entram os 7 informes (`fonte` = `informe`
 - **Critério** (igual nos dois): locais DC listados no PlugShare, inclusive fora de serviço/em manutenção e restritos; ficam fora residencial/privado e "em breve". Conectores CCS2, CHAdeMO e GB/T DC nativos de `connectors_dc` (adaptador GB/T não conta). Rede: operadora da base com Evergo→EverGo, Shell Recharge→Shell, "não informado"/"sem rede"→"Sin red identificada".
 - No arquivo de a9c909f a linha 734367 tem o nome "Itaipu KM 3,5" sem aspas; as colunas foram realinhadas na leitura (o CSV em si não foi alterado).
 - O salto entre 2025-03 (informe, 42 links) e 2026-09 (69) junta 18 meses sem levantamento e diferenças de critério (o informe usa a operadora impressa e o anexo daquele relatório).
+
+- 2026-11-17: LG CHARGE (1922980, Saltos del Guairá) segue público por decisão do Max, com observação: exige cartão RFID retirado no depósito da LG e funciona das 08 às 22h.
