@@ -174,7 +174,6 @@
     const head = "<thead><tr>" +
       cats.map((c) => "<th class='num " + c[2] + "'>" + c[1] + "</th>").join("") +
       "<th class='num annual-tot'>" + t("total") + "</th></tr></thead>";
-    const notes = [];
     const body = Object.keys(years).sort().reverse().map((y) => {
       const months = years[y];
       const d = sumOf(months);
@@ -186,7 +185,6 @@
       let sub = "";
       if (partial) {
         sub = monthsOnly(months) + (ps ? " · " + t("annual_vs", { prev: monthsLabel(prevMonths) }) : "");
-        if (ps) notes.push(t("annual_partial_note", { year: y, months: monthsOnly(months), prev: monthsLabel(prevMonths) }));
       } else if (ps) {
         sub = t("annual_vs", { prev: String(Number(y) - 1) });
       }
@@ -211,8 +209,7 @@
         "<tr>" + cells + "<td class='num annual-tot'><b>" + P.fmtInt(d.TOTAL) + "</b>" + totYoy + "</td></tr>";
     }).join("");
     container.innerHTML = '<div class="data-table-wrap"><table class="data annual-table">' + head + "<tbody>" + body +
-      "</tbody></table></div>" +
-      '<p class="annual-note">' + t("annual_note") + (notes.length ? " " + notes.join(" ") : "") + "</p>";
+      "</tbody></table></div>";
   }
 
   /** Monthly date x-axis shared by the volume charts: ticks follow the UI

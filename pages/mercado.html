@@ -44,17 +44,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="../css/style.css?v=20261102a" />
-  <link rel="stylesheet" href="../css/variant.css?v=20261102a" />
+  <link rel="stylesheet" href="../css/style.css?v=20261118a" />
+  <link rel="stylesheet" href="../css/variant.css?v=20261118a" />
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
-  <script src="../js/chart-click.js?v=20261102a" defer></script>
-  <script src="../js/i18n.js?v=20261102a" defer></script>
-  <script src="../js/i18n-variant.js?v=20261102a" defer></script>
-  <script src="../js/load-csv.js?v=20261102a" defer></script>
-  <script src="../js/charts.js?v=20261102a" defer></script>
-  <script src="../js/models.js?v=20261102a" defer></script>
-  <script src="../js/nuevos.js?v=20261102a" defer></script>
-  <script src="../js/trajectories.js?v=20261102a" defer></script>
+  <script src="../js/chart-click.js?v=20261118a" defer></script>
+  <script src="../js/i18n.js?v=20261118a" defer></script>
+  <script src="../js/i18n-variant.js?v=20261118a" defer></script>
+  <script src="../js/load-csv.js?v=20261118a" defer></script>
+  <script src="../js/charts.js?v=20261118a" defer></script>
+  <script src="../js/models.js?v=20261118a" defer></script>
+  <script src="../js/nuevos.js?v=20261118a" defer></script>
+  <script src="../js/trajectories.js?v=20261118a" defer></script>
 </head><body>
   <header class="site">
     <div class="wrap">
@@ -85,14 +85,12 @@
       <span class="pill pill-ice">ICE</span>
     </div>
     <h1 data-i18n="mercado_title">Mercado</h1>
-    <p class="lead" data-i18n="mercado_lead">Participación y unidades importadas, mes a mes.</p>
     <div class="nuevos-banner" data-nuevos-note hidden></div>
     <p class="chart-foot reev-note" data-reev-note="../data/summary.json" hidden></p>
     <div id="headline" class="pt-headline"><div class="status" data-i18n="loading">Cargando…</div></div>
 
     <section id="trayectorias" class="section-anchor">
       <h2 data-i18n="traj_title">Trayectorias de adopción</h2>
-      <p class="lead" data-i18n="traj_extra_lead">Puntos = meses observados. Línea continua = ajuste. Línea punteada = proyección si la tendencia se mantuviera.</p>
       <div class="note" data-i18n="traj_disclaimer">La línea punteada extiende la tendencia observada. Es ilustrativa, no un pronóstico.</div>
       <div class="legend-row">
         <span class="lg-bev">BEV</span>
@@ -107,7 +105,6 @@
 
     <section id="participacion" class="section-anchor">
       <h2 data-i18n="mercado_share_title">Participación mensual</h2>
-      <p class="lead" data-i18n="mercado_share_lead">Porcentaje de cada mes.</p>
       <div class="view-toggle-row">
         <div class="period-mode" role="group" data-i18n-attr="aria-label:share_view_aria" aria-label="Líneas del gráfico">
           <button type="button" class="period-mode-btn active" data-share-view="elec" aria-pressed="true" data-i18n="share_view_elec">Sin combustión</button>
@@ -127,7 +124,6 @@
 
     <section id="volumenes" class="section-anchor">
       <h2 data-i18n="mercado_vol_title">Unidades por mes</h2>
-      <p class="lead" data-i18n="mercado_vol_lead">Unidades de enchufables e híbridos.</p>
       <div class="elec-chart-toolbar">
         <div class="period-mode" role="group" data-i18n-attr="aria-label:elec_view_aria" aria-label="Vista de electrificados">
           <button type="button" class="period-mode-btn active" data-elec-mode="all" aria-pressed="true" data-i18n="elec_view_all">Todos sin ICE</button>
@@ -140,7 +136,6 @@
 
     <section id="anual" class="section-anchor">
       <h2 data-i18n="mercado_annual_title">Comparación por año</h2>
-      <p class="lead" data-i18n="mercado_annual_lead">Cada año cerrado suma sus 12 meses.</p>
       <div id="annual-table"></div>
     </section>
 
@@ -232,8 +227,7 @@
               : PYEV.t("traj_ice_below50_unreached");
             footExtra.innerHTML = "<b>" + PYEV.t("traj_observed") + "</b> " +
               PYEV.periodLabel(first.period) + " → " + PYEV.periodLabel(last.period) +
-              " · " + rows.length + " " + PYEV.t("traj_months_short") +
-              "<br><b>" + crossingCaption + "</b> · <em>" + PYEV.t("traj_not_forecast") + "</em>";
+              "<br><b>" + crossingCaption + "</b>";
           }
           if (window.__pyevScrollHash) window.__pyevScrollHash();
         } catch (e) {
