@@ -29,9 +29,9 @@
 
   function hintText() {
     var L = lang();
-    if (L === "en") return "Tap a point to see the values.";
-    if (L === "pt") return "Toque um ponto para ver os valores.";
-    return "Tocá un punto para ver los valores.";
+    if (L === "en") return "Tap the chart to see each value.";
+    if (L === "pt") return "Toque no gráfico para ver cada valor.";
+    return "Tocá el gráfico para ver cada valor.";
   }
 
   function esc(s) {

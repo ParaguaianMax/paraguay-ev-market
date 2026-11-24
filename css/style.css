@@ -1368,7 +1368,9 @@ table.data td.conn-cell { white-space: nowrap; font-variant-numeric: tabular-num
 .chart-hscroll > .chart-panel { min-width: 0; }
 .chart-network-cols { min-height: 0; }
 .chart-scroll-hint { display: none; font-size: 0.75rem; color: var(--muted); margin: 0.2rem 0 0; }
-.chart-hscroll.is-scrolling + .chart-scroll-hint { display: block; }
+@media (max-width: 640px) {
+  .chart-hscroll.is-scrolling + .chart-scroll-hint { display: block; }
+}
 
 /* Tap readout under every chart (js/chart-click.js): name · number · unit grid. */
 .chart-readout { font-size: 0.8rem; line-height: 1.35; margin: 0.25rem 0 0.6rem; color: var(--text); }
